@@ -1,14 +1,17 @@
 /**
- * Essential Extension Commands for FML to SceneScript Conversion
+ * Meta Data Collection Utilities for FML to SceneScript Conversion
  * 
- * Provides standardized utilities for creating extension commands:
- * - set_material: Wall materials and decorations
- * - set_swing: Door swing direction and style
- * - set_asset: Asset references for doors, windows, and items
+ * Provides standardized utilities for collecting meta data:
+ * - Material data: Wall materials and decorations
+ * - Swing data: Door swing direction and style
+ * - Asset data: Asset references for doors, windows, and items
+ * 
+ * Note: These utilities no longer generate SceneScript commands.
+ * All extra information is collected in meta.json files.
  */
 
-export interface ExtensionCommandResult {
-  command: string | null;
+export interface MetaDataResult {
+  metaData: any;
   warnings: string[];
 }
 
@@ -48,100 +51,92 @@ export function validateAssetRef(ref: string): boolean {
 }
 
 /**
- * Create set_material command for wall materials
+ * Create material meta data for wall materials (no longer generates commands)
  */
-export function createSetMaterialCommand(
+export function createMaterialMetaData(
   wallId: number,
   side: 'left' | 'right',
   type: 'color' | 'asset' | 'texture',
   value: string,
   additionalParams?: Record<string, string | number>
-): ExtensionCommandResult {
+): MetaDataResult {
   const warnings: string[] = [];
 
   // Validate wall ID
   if (!validateWallId(wallId)) {
     warnings.push(`Invalid wall ID: ${wallId}. Must be >= 0`);
-    return { command: null, warnings };
+    return { metaData: null, warnings };
   }
 
   // Validate side
   if (side !== 'left' && side !== 'right') {
     warnings.push(`Invalid side: ${side}. Must be 'left' or 'right'`);
-    return { command: null, warnings };
+    return { metaData: null, warnings };
   }
 
   // Validate type
   if (type !== 'color' && type !== 'asset' && type !== 'texture') {
     warnings.push(`Invalid material type: ${type}. Must be 'color', 'asset', or 'texture'`);
-    return { command: null, warnings };
+    return { metaData: null, warnings };
   }
 
   // Validate value
   if (!value || value.trim().length === 0) {
     warnings.push(`Invalid material value: ${value}. Cannot be empty`);
-    return { command: null, warnings };
+    return { metaData: null, warnings };
   }
 
-  // Build command
-  let command = `set_material, wall_id=${wallId}, side=${side}, type=${type}, value=${value}`;
+  // Build meta data
+  const metaData = {
+    type: type,
+    value: value,
+    ...additionalParams
+  };
 
-  // Add additional parameters if provided
-  if (additionalParams) {
-    Object.entries(additionalParams).forEach(([key, val]) => {
-      command += `, ${key}=${val}`;
-    });
-  }
-
-  return { command, warnings };
+  return { metaData, warnings };
 }
 
 /**
- * Create set_swing command for door swing direction
+ * Create swing meta data for door swing direction (no longer generates commands)
  */
-export function createSetSwingCommand(
+export function createSwingMetaData(
   doorId: number,
   style: 'left' | 'right',
   inward: boolean,
   maxOpenDeg?: number
-): ExtensionCommandResult {
+): MetaDataResult {
   const warnings: string[] = [];
 
   // Validate door ID
   if (!validateDoorId(doorId)) {
     warnings.push(`Invalid door ID: ${doorId}. Must be 1000-1999`);
-    return { command: null, warnings };
+    return { metaData: null, warnings };
   }
 
   // Validate style
   if (style !== 'left' && style !== 'right') {
     warnings.push(`Invalid swing style: ${style}. Must be 'left' or 'right'`);
-    return { command: null, warnings };
+    return { metaData: null, warnings };
   }
 
-  // Build command
-  let command = `set_swing, id=${doorId}, style=${style}, inward=${inward}`;
+  // Build meta data
+  const metaData = {
+    style: style,
+    inward: inward,
+    ...(maxOpenDeg !== undefined && { maxOpenDeg })
+  };
 
-  // Add max open angle if provided
-  if (maxOpenDeg !== undefined) {
-    if (maxOpenDeg < 0 || maxOpenDeg > 180) {
-      warnings.push(`Invalid max open angle: ${maxOpenDeg}. Must be 0-180 degrees`);
-      return { command: null, warnings };
-    }
-    command += `, max_open_deg=${maxOpenDeg}`;
-  }
-
-  return { command, warnings };
+  return { metaData, warnings };
 }
 
 /**
- * Create set_asset command for asset references
+ * Create asset meta data for asset references (no longer generates commands)
  */
-export function createSetAssetCommand(
+export function createAssetMetaData(
   elementId: number,
   assetRef: string,
   elementType: 'wall' | 'door' | 'window' | 'item'
-): ExtensionCommandResult {
+): MetaDataResult {
   const warnings: string[] = [];
 
   // Validate element ID based on type
@@ -161,65 +156,38 @@ export function createSetAssetCommand(
       break;
     default:
       warnings.push(`Invalid element type: ${elementType}`);
-      return { command: null, warnings };
+      return { metaData: null, warnings };
   }
 
   if (!isValidId) {
     warnings.push(`Invalid ${elementType} ID: ${elementId}`);
-    return { command: null, warnings };
+    return { metaData: null, warnings };
   }
 
   // Validate asset reference
   if (!validateAssetRef(assetRef)) {
     warnings.push(`Invalid asset reference: ${assetRef}. Cannot be empty`);
-    return { command: null, warnings };
+    return { metaData: null, warnings };
   }
 
-  // Build command
-  const command = `set_asset, id=${elementId}, refid=${assetRef}`;
+  // Build meta data
+  const metaData = {
+    asset: assetRef
+  };
 
-  return { command, warnings };
+  return { metaData, warnings };
 }
 
 /**
- * Create a comment command for unsupported properties
- */
-export function createCommentCommand(
-  elementType: string,
-  elementId: number,
-  property: string,
-  value: any
-): string {
-  return `# ${elementType} ${elementId} ${property}: ${JSON.stringify(value)}`;
-}
-
-/**
- * Validate and format extension command with error handling
- */
-export function validateAndFormatCommand(
-  command: string,
-  context: string
-): ExtensionCommandResult {
-  const warnings: string[] = [];
-
-  // Basic validation
-  if (!command || command.trim().length === 0) {
-    warnings.push(`${context}: Empty command`);
-    return { command: null, warnings };
-  }
-
-  // Check for basic SceneScript format (comma-separated key=value)
-  if (!command.includes('=')) {
-    warnings.push(`${context}: Invalid command format. Expected key=value pairs`);
-    return { command: null, warnings };
-  }
-
-  // Check for required comma separation
-  const parts = command.split(',');
-  if (parts.length < 2) {
-    warnings.push(`${context}: Invalid command format. Expected comma-separated parameters`);
-    return { command: null, warnings };
-  }
-
-  return { command, warnings };
-} 
+ * DEPRECATED: These functions are no longer used as all extra information
+ * is now collected in meta.json files instead of generating SceneScript commands.
+ * 
+ * The following functions have been removed:
+ * - createCommentCommand: Comments are no longer added to SceneScript
+ * - validateAndFormatCommand: Command validation is no longer needed
+ * 
+ * All meta data collection is now handled by:
+ * - createMaterialMetaData
+ * - createSwingMetaData  
+ * - createAssetMetaData
+ */ 

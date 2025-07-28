@@ -47,6 +47,70 @@ Create a Node.js microservice that converts FML (Floorplanner Markup Language) J
 3. [x] Create basic Express server with /convert endpoint
 4. [x] Implement JSON payload validation
 
+### Phase 0: Enhanced Data Preservation & File Output
+0.1. [x] Create Meta Data Collection System
+   - Create `MetaDataCollector` class to gather "lost" information
+   - Identify what data gets lost during conversion (colors, materials, textures, etc.)
+   - Structure meta.json format: `{ "0": { "color": "xxx", "material": "steel" } }`
+   - Add methods: `addMetaData(elementId, data)`, `getMetaData()`
+
+0.2. [x] Modify Converters to Collect Meta Data
+   - Update each converter (wall, opening, item, label) to:
+     - Generate SceneScript commands (as before)
+     - **ALSO** collect meta data for lost information
+     - Return both SceneScript lines AND meta data
+   - Update return types: `ConversionResult { sceneLines, metaData, warnings }`
+
+0.3. [x] Create File Output System
+   - Add file system utilities for:
+     - Creating output directory
+     - Generating file names from input
+     - Writing .txt and .json files
+     - Handling file naming conflicts
+   - Example: `fml_file.fml` → `fml_file.txt` + `fml_file_meta.json`
+
+0.4. [x] Remove Extension Commands from SceneScript
+   - **CRITICAL**: Remove all `set_*` commands from SceneScript output
+   - Move `set_asset`, `set_swing`, `set_material` data to meta.json
+   - Ensure SceneScript contains ONLY core commands: `make_wall`, `make_door`, `make_window`, `make_bbox`
+   - Update all converters to collect this data in meta.json instead of generating commands
+   - Reference: Original SceneScript format in `ase_scene_language.txt` shows pure commands only
+
+0.5. [ ] Remove Comment-Based Extra Information
+   - Remove all comment lines containing extra information:
+     - `# item X light: {...}` → Move to meta.json
+     - `# item X mirrored: [...]` → Move to meta.json
+     - `# item X materials: {...}` → Move to meta.json
+   - Ensure SceneScript contains only structural commands and section headers
+   - All extra data should be in meta.json, not in comments
+
+0.6. [x] Update Extension Command Utilities
+   - Modify `utils/extension_commands.ts` to:
+     - Stop generating `set_*` commands
+     - Return data for meta collection instead
+     - Update `createSetAssetCommand()`, `createSetSwingCommand()`, `createSetMaterialCommand()`
+   - Ensure these utilities support meta data collection mode
+
+0.7. [x] Add Toggle Configuration
+   - Add simple boolean flag: `SAVE_TO_FILES: boolean`
+   - Modify main conversion logic to:
+     - **Console Mode**: Return JSON response (current behavior)
+     - **File Mode**: Save files and return success message
+   - Add configuration options to API endpoint
+   - **Implementation**: API now accepts `config` object with `saveToFiles`, `outputDirectory`, and `overwriteExisting` options
+   - **Backward Compatibility**: Defaults to file mode if no config provided
+
+0.8. [ ] Update API Response
+   - Modify `/convert` endpoint to handle both modes
+   - Add configuration options for file output
+   - Ensure backward compatibility
+   - Update response format to include meta data
+
+0.9. [x] Fix Current TypeScript Errors
+   - Update `test_parser.ts` to pass warning collectors to converters
+   - Ensure all converters are properly instantiated
+   - Fix import errors and constructor parameter issues
+
 ### Phase 2: Core Conversion Engine
 5. [x] Implement wall conversion (straight and curved walls)
 6. [x] Implement opening conversion (doors and windows with swing direction)
@@ -93,6 +157,7 @@ Create a Node.js microservice that converts FML (Floorplanner Markup Language) J
 - **Format consistency**: Always use the corrected SceneScript format (comma-separated key=value) from `research_corrected.txt`
 - **Documentation updates**: Create educational .txt files for complex conversions to help future developers
 - **Blueprint maintenance**: Update milestone status and document any issues/fixes discovered during implementation
+- **Test parser synchronization**: **ALWAYS** update `test_parser.ts` when modifying converter interfaces, constructors, or method signatures to maintain code quality and testing capability
 
 ## File Editing Guidelines
 
@@ -144,17 +209,47 @@ git commit -m "feat: <description> (FML converter MILESTONE X)"
   - [x] Added sys.path manipulation to handle directory names with spaces
   - [x] Updated import paths to work in both local and production environments
 
+### Issue 3: Test Parser Synchronization
+- **Problem**: `test_parser.ts` was not updated when converter interfaces changed
+- **Fixes Applied**:
+  - [x] Updated `test_parser.ts` to import `createWarningCollector` and `createMetaDataCollector`
+  - [x] Modified converter instantiations to pass required `WarningCollector` parameter
+  - [x] Updated method calls to include `MetaDataCollector` parameter
+  - [x] Added proper error handling and parameter passing throughout test file
+
+### Issue 4: Extension Commands in SceneScript Output
+- **Problem**: Current output contains `set_*` commands and comment-based extra information
+- **Required Fixes**:
+  - [ ] Remove all `set_asset`, `set_swing`, `set_material` commands from SceneScript
+  - [ ] Move all extra data to meta.json instead of comments
+  - [ ] Ensure SceneScript matches original format in `ase_scene_language.txt`
+  - [x] Update extension command utilities to support meta collection mode
+
 ## State: IN_PROGRESS
+
+## 🆕 New Phase 0: Enhanced Data Preservation & File Output
+
+**Objective**: Implement complete data preservation with file output capabilities
+- **Data Separation**: Pure SceneScript + structured meta data
+- **File Output**: Save to files with proper naming convention
+- **Toggle Feature**: Console mode vs File mode
+- **Round-trip Fidelity**: No information loss during conversion
+
+**Benefits**:
+- Complete information preservation
+- Clean separation of concerns
+- Flexible output options
+- Enhanced round-trip fidelity
 
 ## Technical Specifications
 
 ### FML to SceneScript Mapping
 - **Walls**: `make_wall` / `make_curved_wall` commands
-- **Doors**: `make_door` with `set_swing` and `set_asset`
-- **Windows**: `make_window` with `set_asset`
-- **Items**: `make_bbox` with `set_asset`
+- **Doors**: `make_door` (swing and asset data in meta.json)
+- **Windows**: `make_window` (asset data in meta.json)
+- **Items**: `make_bbox` (asset, light, mirroring data in meta.json)
 - **Labels**: Comments starting with `# LABEL`
-- **Materials**: `set_material` commands for wall decorations
+- **Materials**: All material data moved to meta.json
 
 ### Unit Conversions
 - FML coordinates: centimeters

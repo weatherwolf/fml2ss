@@ -1,11 +1,13 @@
 import { Wall, Door, Window, GenericOpening } from '../fml_classes';
 import { cmToMeters, convertOpeningDimensions } from '../utils/unit_converter';
 import { IdManager } from '../utils/id_manager';
-import { createSetSwingCommand, createSetAssetCommand, createCommentCommand } from '../utils/extension_commands';
-import { WarningCollector } from '../utils/warning_collector';
+import { createSwingMetaData, createAssetMetaData } from '../utils/extension_commands';
+import { MetaDataCollector } from '../utils/meta_data_collector';
+import { BaseConverter } from './base_converter';
 
 export interface OpeningConversionResult {
   sceneLines: string[];
+  metaData: any;
   nextDoorId: number;
   nextWindowId: number;
   warnings: string[];
@@ -16,12 +18,7 @@ export interface WallCoordinates {
   bx: number; by: number; bz: number;
 }
 
-export class OpeningConverter {
-  private warningCollector: WarningCollector;
-
-  constructor(warningCollector: WarningCollector) {
-    this.warningCollector = warningCollector;
-  }
+export class OpeningConverter extends BaseConverter {
 
 
 
@@ -77,32 +74,8 @@ export class OpeningConverter {
     // Generate make_door command
     lines.push(`make_door, id=${doorId}, wall0_id=${wallId}, wall1_id=-1, position_x=${position.x.toFixed(6)}, position_y=${position.y.toFixed(6)}, position_z=${position.z.toFixed(6)}, width=${width.toFixed(6)}, height=${height.toFixed(6)}`);
 
-    // Generate set_swing command
-    const swing = this.calculateDoorSwing(door);
-    const swingResult = createSetSwingCommand(doorId, swing.style as 'left' | 'right', swing.inward);
-    if (swingResult.warnings.length > 0) {
-      // Warnings are already collected by the extension command utilities
-    }
-    if (swingResult.command) {
-      lines.push(swingResult.command);
-    }
-
-    // Generate set_asset command
-    const assetResult = createSetAssetCommand(doorId, door.refid, 'door');
-    if (assetResult.warnings.length > 0) {
-      // Warnings are already collected by the extension command utilities
-    }
-    if (assetResult.command) {
-      lines.push(assetResult.command);
-    }
-
-    // Handle unsupported properties as comments
-    if (door.frameColor) {
-      lines.push(createCommentCommand('door', doorId, 'frameColor', door.frameColor));
-    }
-    if (door.doorColor) {
-      lines.push(createCommentCommand('door', doorId, 'doorColor', door.doorColor));
-    }
+    // Note: Swing and asset data are now collected in meta.json, not generated as commands
+    // Note: Extra information (frame colors, door colors) is now collected in meta.json, not as comments
 
     return lines;
   }
@@ -127,21 +100,61 @@ export class OpeningConverter {
     // Generate make_window command
     lines.push(`make_window, id=${windowId}, wall0_id=${wallId}, wall1_id=-1, position_x=${position.x.toFixed(6)}, position_y=${position.y.toFixed(6)}, position_z=${position.z.toFixed(6)}, width=${width.toFixed(6)}, height=${height.toFixed(6)}`);
 
-    // Generate set_asset command
-    const assetResult = createSetAssetCommand(windowId, window.refid, 'window');
-    if (assetResult.warnings.length > 0) {
-      // Warnings are already collected by the extension command utilities
-    }
-    if (assetResult.command) {
-      lines.push(assetResult.command);
-    }
-
-    // Handle unsupported properties as comments
-    if (window.frameColor) {
-      lines.push(createCommentCommand('window', windowId, 'frameColor', window.frameColor));
-    }
+    // Note: Asset data is now collected in meta.json, not generated as commands
+    // Note: Extra information (frame colors) is now collected in meta.json, not as comments
 
     return lines;
+  }
+
+  /**
+   * Collect door meta data (swing, assets, colors, etc.)
+   */
+  private collectDoorMetaData(door: Door, doorId: number, metaDataCollector: MetaDataCollector): void {
+    const metaData: any = {};
+    
+    // Collect swing information
+    if (door.mirrored) {
+      metaData.swing = {
+        style: door.mirrored[0] === 0 ? 'left' : 'right',
+        inward: door.mirrored[1] === 0
+      };
+    }
+    
+    // Collect asset reference
+    if (door.refid) {
+      metaData.asset = door.refid;
+    }
+    
+    // Collect colors
+    if (door.frameColor) {
+      metaData.frame_color = door.frameColor;
+    }
+    if (door.doorColor) {
+      metaData.door_color = door.doorColor;
+    }
+    
+    // Only add meta data if there's actual data to preserve
+    this.addMetaDataIfNotEmpty(metaData, doorId.toString(), 'door', metaDataCollector);
+  }
+
+  /**
+   * Collect window meta data (assets, colors, etc.)
+   */
+  private collectWindowMetaData(window: Window, windowId: number, metaDataCollector: MetaDataCollector): void {
+    const metaData: any = {};
+    
+    // Collect asset reference
+    if (window.refid) {
+      metaData.asset = window.refid;
+    }
+    
+    // Collect colors
+    if (window.frameColor) {
+      metaData.frame_color = window.frameColor;
+    }
+    
+    // Only add meta data if there's actual data to preserve
+    this.addMetaDataIfNotEmpty(metaData, windowId.toString(), 'window', metaDataCollector);
   }
 
   /**
@@ -151,18 +164,17 @@ export class OpeningConverter {
     wall: Wall,
     wallId: number,
     wallCoords: WallCoordinates,
-    idManager: IdManager
+    idManager: IdManager,
+    metaDataCollector: MetaDataCollector
   ): OpeningConversionResult {
     const sceneLines: string[] = [];
 
     // Check if wall has openings
     if (!wall.openings || wall.openings.length === 0) {
-      return {
-        sceneLines,
+      return this.createEmptyResult<OpeningConversionResult>(metaDataCollector, {
         nextDoorId: idManager.getRanges().doors.current,
-        nextWindowId: idManager.getRanges().windows.current,
-        warnings: this.warningCollector.getWarningMessages()
-      };
+        nextWindowId: idManager.getRanges().windows.current
+      });
     }
 
     // Process each opening
@@ -174,56 +186,26 @@ export class OpeningConverter {
           const doorId = idManager.getNextDoorId();
           const doorLines = this.convertDoor(door, doorId, wallId, wallCoords);
           sceneLines.push(...doorLines);
+          this.collectDoorMetaData(door, doorId, metaDataCollector);
         } else if ('type' in opening && opening.type === 'window') {
           const window = opening as Window;
           const windowId = idManager.getNextWindowId();
           const windowLines = this.convertWindow(window, windowId, wallId, wallCoords);
           sceneLines.push(...windowLines);
+          this.collectWindowMetaData(window, windowId, metaDataCollector);
         } else {
           // Unknown opening type
           this.warningCollector.addUnsupportedFeature('opening', 'type', ('type' in opening) ? (opening as any).type : 'undefined', index);
         }
       } catch (error) {
-        this.warningCollector.addValidationError('opening', 'conversion', null, index + 1, `Failed to convert opening: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        this.handleConversionError('opening', index, error);
       }
     });
 
-    return {
-      sceneLines,
+    return this.createConversionResult<OpeningConversionResult>(sceneLines, metaDataCollector, {
       nextDoorId: idManager.getRanges().doors.current,
-      nextWindowId: idManager.getRanges().windows.current,
-      warnings: this.warningCollector.getWarningMessages()
-    };
-  }
-
-  /**
-   * Get conversion statistics
-   */
-  public getStats(openings: GenericOpening[]): {
-    totalOpenings: number;
-    doors: number;
-    windows: number;
-    unknownTypes: number;
-  } {
-    let doors = 0;
-    let windows = 0;
-    let unknownTypes = 0;
-
-    openings.forEach(opening => {
-      if ('type' in opening && opening.type === 'door') {
-        doors++;
-      } else if ('type' in opening && opening.type === 'window') {
-        windows++;
-      } else {
-        unknownTypes++;
-      }
+      nextWindowId: idManager.getRanges().windows.current
     });
-
-    return {
-      totalOpenings: openings.length,
-      doors,
-      windows,
-      unknownTypes
-    };
   }
+
 } 

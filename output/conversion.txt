@@ -1,0 +1,38 @@
+make_wall, id=0, a_x=6.075000, a_y=1.925000, a_z=0.000000, b_x=6.075000, b_y=6.075000, b_z=0.000000, height=2.800000, thickness=0.150000make_window, id=2000, wall0_id=0, wall1_id=-1, position_x=6.075000, position_y=4.000000, position_z=0.700000, width=1.080000, height=1.500000
+make_wall, id=1, a_x=5.075000, a_y=1.925000, a_z=0.000000, b_x=6.075000, b_y=1.925000, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=2, a_x=6.075000, a_y=6.075000, a_z=0.000000, b_x=0.925000, b_y=6.075000, b_z=0.000000, height=2.800000, thickness=0.150000make_window, id=2001, wall0_id=2, wall1_id=-1, position_x=3.500000, position_y=6.075000, position_z=0.700000, width=1.080000, height=1.500000
+make_wall, id=3, a_x=5.075000, a_y=0.925000, a_z=0.000000, b_x=5.075000, b_y=1.925000, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=4, a_x=5.075000, a_y=0.925000, a_z=0.000000, b_x=9.125000, b_y=0.925000, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=5, a_x=9.125000, a_y=0.925000, a_z=0.000000, b_x=9.125000, b_y=-5.375000, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=6, a_x=1.925000, a_y=0.925000, a_z=0.000000, b_x=5.075000, b_y=0.925000, b_z=0.000000, height=2.800000, thickness=0.150000make_door, id=1000, wall0_id=6, wall1_id=-1, position_x=2.555000, position_y=0.925000, position_z=0.000000, width=0.980000, height=2.200000
+make_wall, id=7, a_x=1.925000, a_y=1.925000, a_z=0.000000, b_x=1.925000, b_y=0.925000, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=8, a_x=9.125000, a_y=-5.375000, a_z=0.000000, b_x=1.925000, b_y=-5.375000, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=9, a_x=-2.112677, a_y=1.925000, a_z=0.000000, b_x=-2.725000, b_y=1.925000, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=10, a_x=-2.112677, a_y=5.659336, a_z=0.000000, b_x=-2.112677, b_y=1.925000, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=11, a_x=0.925000, a_y=6.075000, a_z=0.000000, b_x=0.925000, b_y=5.659336, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=12, a_x=0.925000, a_y=5.659336, a_z=0.000000, b_x=-2.112677, b_y=5.659336, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=13, a_x=0.925000, a_y=1.925000, a_z=0.000000, b_x=-2.112677, b_y=1.925000, b_z=0.000000, height=2.800000, thickness=0.150000make_window, id=2002, wall0_id=13, wall1_id=-1, position_x=-0.498810, position_y=1.925000, position_z=0.700000, width=1.500000, height=2.000000
+make_wall, id=14, a_x=0.925000, a_y=1.925000, a_z=0.000000, b_x=1.925000, b_y=1.925000, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=15, a_x=0.925000, a_y=5.659336, a_z=0.000000, b_x=0.925000, b_y=1.925000, b_z=0.000000, height=2.800000, thickness=0.150000make_window, id=2003, wall0_id=15, wall1_id=-1, position_x=0.925000, position_y=4.130046, position_z=0.700000, width=2.000000, height=1.500000
+make_wall, id=16, a_x=1.925000, a_y=-5.375000, a_z=0.000000, b_x=1.925000, b_y=-1.575000, b_z=0.000000, height=2.800000, thickness=0.150000make_window, id=2004, wall0_id=16, wall1_id=-1, position_x=1.925000, position_y=-4.105882, position_z=0.700000, width=0.600000, height=0.800000
+make_wall, id=17, a_x=1.925000, a_y=-1.575000, a_z=0.000000, b_x=1.925000, b_y=0.925000, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=18, a_x=-4.536139, a_y=-2.405892, a_z=0.000000, b_x=-2.725000, b_y=-1.575000, b_z=0.000000, height=2.800000, thickness=0.150000
+make_wall, id=19, a_x=-2.725000, a_y=-1.575000, a_z=0.000000, b_x=1.925000, b_y=-1.575000, b_z=0.000000, height=2.800000, thickness=0.150000make_window, id=2005, wall0_id=19, wall1_id=-1, position_x=-0.113798, position_y=-1.575000, position_z=0.700000, width=1.500000, height=2.000000
+make_wall, id=20, a_x=-2.725000, a_y=1.925000, a_z=0.000000, b_x=-2.725000, b_y=-1.575000, b_z=0.000000, height=2.800000, thickness=0.150000
+make_bbox, id=3000, class_id=0, position_x=5.781945, position_y=4.350000, position_z=0.000000, angle_z=1.570796, scale_x=0.750000, scale_y=0.218055, scale_z=0.275000
+make_bbox, id=3001, class_id=0, position_x=4.313890, position_y=4.350000, position_z=0.000000, angle_z=4.712389, scale_x=0.500000, scale_y=0.350000, scale_z=0.175120
+make_bbox, id=3002, class_id=0, position_x=3.690557, position_y=3.582765, position_z=0.000000, angle_z=4.712389, scale_x=1.060000, scale_y=1.060000, scale_z=0.450000
+make_bbox, id=3003, class_id=0, position_x=4.046766, position_y=5.555714, position_z=0.000000, angle_z=3.359620, scale_x=0.420300, scale_y=0.334950, scale_z=0.426050
+make_bbox, id=3004, class_id=0, position_x=3.690557, position_y=3.582765, position_z=0.000000, angle_z=1.570796, scale_x=1.486495, scale_y=0.851425, scale_z=0.002500
+make_bbox, id=3005, class_id=0, position_x=5.100207, position_y=2.936382, position_z=0.000000, angle_z=0.000000, scale_x=0.249650, scale_y=0.250760, scale_z=0.283175
+make_bbox, id=3006, class_id=0, position_x=5.091250, position_y=5.824800, position_z=0.000000, angle_z=3.141593, scale_x=0.551250, scale_y=0.175200, scale_z=1.025000
+make_bbox, id=3007, class_id=0, position_x=4.313890, position_y=4.350000, position_z=2.800000, angle_z=4.712389, scale_x=0.231370, scale_y=0.231370, scale_z=0.453020
+make_bbox, id=3008, class_id=0, position_x=4.381700, position_y=1.528100, position_z=0.000000, angle_z=0.000000, scale_x=0.198300, scale_y=0.528100, scale_z=0.744900
+make_bbox, id=3009, class_id=0, position_x=1.020300, position_y=4.000000, position_z=1.151880, angle_z=1.570796, scale_x=0.449680, scale_y=0.020300, scale_z=0.448120
+make_bbox, id=3010, class_id=0, position_x=3.617305, position_y=1.213440, position_z=0.000000, angle_z=0.000000, scale_x=0.332695, scale_y=0.213440, scale_z=0.372070
+make_bbox, id=3011, class_id=0, position_x=-1.064848, position_y=3.261136, position_z=0.000000, angle_z=4.712389, scale_x=0.914400, scale_y=0.382100, scale_z=0.368330
+make_bbox, id=3012, class_id=0, position_x=-1.544488, position_y=0.327953, position_z=0.000000, angle_z=4.712389, scale_x=0.330200, scale_y=0.209085, scale_z=0.304800
+make_bbox, id=3013, class_id=0, position_x=0.115804, position_y=0.198819, position_z=0.000000, angle_z=4.712389, scale_x=0.499560, scale_y=1.002945, scale_z=0.545950
+make_bbox, id=3014, class_id=0, position_x=7.487900, position_y=-1.293790, position_z=0.000000, angle_z=3.141593, scale_x=1.562100, scale_y=2.143790, scale_z=0.530190
+make_bbox, id=3015, class_id=0, position_x=2.400000, position_y=-2.850405, position_z=0.000000, angle_z=4.712389, scale_x=0.750000, scale_y=0.400000, scale_z=1.400000
+make_bbox, id=3016, class_id=0, position_x=-1.888205, position_y=-4.993085, position_z=0.000000, angle_z=0.000000, scale_x=0.900000, scale_y=1.250000, scale_z=1.400000

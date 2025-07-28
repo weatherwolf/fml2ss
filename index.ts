@@ -7,17 +7,41 @@ import { ItemConverter } from './converter/item_converter';
 import { LabelConverter } from './converter/label_converter';
 import { createIdManager } from './utils/id_manager';
 import { createWarningCollector } from './utils/warning_collector';
+import { createMetaDataCollector } from './utils/meta_data_collector';
+import { FILE_CONFIG, saveConversionFiles, getFileStats } from './utils/file_output';
 
 const app = express();
 
 // Use JSON parser middleware (increase limit if FML files are large)
 app.use(express.json({ limit: '10mb' }));
 
+/**
+ * Convert FML to SceneScript
+ * 
+ * Request body:
+ * - FML data (required)
+ * - filename: string (optional) - base filename for output files
+ * - config: object (optional) - configuration options
+ *   - saveToFiles: boolean - whether to save files or return JSON (default: true)
+ *   - outputDirectory: string - directory for output files (default: "output/")
+ *   - overwriteExisting: boolean - whether to overwrite existing files (default: true)
+ * 
+ * Response:
+ * - Console mode: { scene: string, meta: object }
+ * - File mode: { success: boolean, message: string, files: object, summary: object, meta: object }
+ */
 app.post('/convert', (req, res) => {
   try {
     const idManager = createIdManager();
-
+    const metaDataCollector = createMetaDataCollector();
     const fmlParser = new FMLParser();
+    
+    // Get configuration from request body
+    const config = req.body.config || {};
+    const saveToFiles = config.saveToFiles !== undefined ? config.saveToFiles : FILE_CONFIG.SAVE_TO_FILES;
+    const outputDirectory = config.outputDirectory || FILE_CONFIG.OUTPUT_DIRECTORY;
+    const overwriteExisting = config.overwriteExisting !== undefined ? config.overwriteExisting : FILE_CONFIG.OVERWRITE_EXISTING;
+    const inputFilename = req.body.filename || 'conversion';
     
     // Parse and validate FML data
     const parseResult: FMLParseResult = fmlParser.parseFML(req.body, {
@@ -31,14 +55,6 @@ app.post('/convert', (req, res) => {
     const sceneLines: string[] = [];
     let nextId = 1;
     const allWarnings: string[] = [...parseResult.warnings];
-
-    // Add project header
-    sceneLines.push('# FML to SceneScript conversion');
-    sceneLines.push(`# Project: ${parseResult.project.name || 'Unnamed Project'}`);
-    sceneLines.push(`# Floors: ${parseResult.validation.floors}`);
-    sceneLines.push(`# Total Designs: ${parseResult.validation.totalDesigns}`);
-    sceneLines.push(`# Total Walls: ${parseResult.validation.totalWalls}`);
-    sceneLines.push(`# Total Items: ${parseResult.validation.totalItems}`);
 
     // Create warning collector for tracking information loss
     const warningCollector = createWarningCollector();
@@ -54,65 +70,80 @@ app.post('/convert', (req, res) => {
         floor.designs.forEach((design, designIndex) => {
           if (design.walls && design.walls.length > 0) {
             // Convert walls for this design
-            const wallResult = wallConverter.convertWalls(design.walls, idManager, openingConverter);
+            const wallResult = wallConverter.convertWalls(design.walls, idManager, openingConverter, metaDataCollector);
             sceneLines.push(...wallResult.sceneLines);
             nextId = wallResult.nextId;
-            // Warnings are now collected centrally by the warning collector
-
-            // Add wall statistics
-            const wallStats = wallConverter.getStats(design.walls);
-            sceneLines.push(`# Wall stats: ${wallStats.straightWalls} straight, ${wallStats.curvedWalls} curved, total length: ${wallStats.totalLength.toFixed(2)}m`);
+            // Warnings are now collected centrally by the warning collector      
 
             // Convert items for this design
             if (design.items && design.items.length > 0) {
-              const itemResult = itemConverter.convertItems(design.items, idManager);
+              const itemResult = itemConverter.convertItems(design.items, idManager, metaDataCollector);
               sceneLines.push(...itemResult.sceneLines);
               allWarnings.push(...itemResult.warnings);
-
-              const itemStats = itemConverter.getStats(design.items);
-              sceneLines.push(`# Item stats: ${itemStats.totalItems} items, ${itemStats.itemsWithLights} with lights, ${itemStats.itemsWithMaterials} with materials, total volume: ${itemStats.totalVolume.toFixed(2)}m³`);
             }
 
             // Convert labels for this design
             if (design.labels && design.labels.length > 0) {
-              const labelResult = labelConverter.convertLabels(design.labels, idManager);
+              const labelResult = labelConverter.convertLabels(design.labels, idManager, metaDataCollector);
               sceneLines.push(...labelResult.sceneLines);
               allWarnings.push(...labelResult.warnings);
-
-              const labelStats = labelConverter.getStats(design.labels);
-              sceneLines.push(`# Label stats: ${labelStats.totalLabels} labels, ${labelStats.labelsWithRotation} with rotation, ${labelStats.labelsWithCustomFont} with custom font, avg text length: ${labelStats.averageTextLength.toFixed(1)} chars`);
             }
           }
         });
       }
     });
     
-    // Add warning summary as comments
-    const warningSummary = warningCollector.getTextSummary();
-    sceneLines.push(`# ${warningSummary}`);
-    
-    if (warningCollector.hasInformationLoss()) {
-      sceneLines.push('# ⚠️  Information loss detected - some FML data may not round-trip perfectly');
-    }
-    
-    if (warningCollector.hasHighSeverityWarnings()) {
-      sceneLines.push('# 🚨 High severity warnings detected - conversion may have issues');
-    }
-
-    const sceneText = sceneLines.join('\n');
+    const sceneText = sceneLines.filter(line => line.trim().length > 0).join('\n');
     
     const meta = {
       projectId: parseResult.project.id,
       timestamp: new Date().toISOString(),
       warnings: warningCollector.getWarningMessages(),
       warningSummary: warningCollector.getSummary(),
-      validation: parseResult.validation
+      validation: parseResult.validation,
+      metaData: metaDataCollector.getMetaData()
     };
 
-    res.status(200).json({
-      scene: sceneText,
-      meta: meta
-    });
+    // Handle file output vs console output
+    if (saveToFiles) {
+      // File output mode
+      const fileResult = saveConversionFiles(inputFilename, sceneText, metaDataCollector.getMetaData(), {
+        outputDirectory,
+        overwriteExisting
+      });
+      
+      if (fileResult.success) {
+        const stats = getFileStats(sceneText, metaDataCollector.getMetaData());
+        
+        res.status(200).json({
+          success: true,
+          message: 'Files saved successfully',
+          files: {
+            sceneScript: fileResult.sceneFile,
+            metaData: fileResult.metaFile
+          },
+          summary: {
+            sceneLines: stats.sceneLines,
+            metaDataEntries: stats.metaDataEntries,
+            totalSize: stats.totalSize
+          },
+          meta: meta
+        });
+      } else {
+        res.status(500).json({
+          success: false,
+          error: 'Failed to save files',
+          details: fileResult.error,
+          meta: meta
+        });
+      }
+    } else {
+      // Console output mode (current behavior)
+      res.status(200).json({
+        scene: sceneText,
+        meta: meta
+      });
+    }
 
   } catch (error) {
     console.error('Conversion error:', error);

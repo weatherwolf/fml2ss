@@ -1,11 +1,13 @@
 import * as fs from 'fs';
-import * as path from 'path';
 import { FMLParser, FMLParseResult, getDoors, getItems, getWalls, getWindows, getLabels } from './parser/fml';
 import { WallConverter } from './converter/wall_converter';
 import { OpeningConverter } from './converter/opening_converter';
 import { ItemConverter } from './converter/item_converter';
 import { LabelConverter } from './converter/label_converter';
 import { createIdManager } from './utils/id_manager';
+import { createWarningCollector } from './utils/warning_collector';
+import { createMetaDataCollector } from './utils/meta_data_collector';
+import { FILE_CONFIG } from './utils/file_output';
 
 // Test function
 async function testFMLParser(fmlFilePath: string) {
@@ -57,20 +59,28 @@ async function testFMLParser(fmlFilePath: string) {
     const conversionStartTime = performance.now();
     
     const walls = getWalls(project);
-    const wallConverter = new WallConverter();
-    const openingConverter = new OpeningConverter();
-    const wallResult = wallConverter.convertWalls(walls, idManager, openingConverter);
+    const warningCollector = createWarningCollector();
+    const metaDataCollector = createMetaDataCollector();
+    const wallConverter = new WallConverter(warningCollector);
+    const openingConverter = new OpeningConverter(warningCollector);
+    const wallResult = wallConverter.convertWalls(walls, idManager, openingConverter, metaDataCollector);
     console.log(wallResult.sceneLines);
 
     const items = getItems(project);
-    const itemConverter = new ItemConverter();
-    const itemResult = itemConverter.convertItems(items, idManager);
+    const itemConverter = new ItemConverter(warningCollector);
+    const itemResult = itemConverter.convertItems(items, idManager, metaDataCollector);
     console.log(itemResult.sceneLines);
 
     const labels = getLabels(project);
-    const labelConverter = new LabelConverter();
-    const labelResult = labelConverter.convertLabels(labels, idManager);
+    const labelConverter = new LabelConverter(warningCollector);
+    const labelResult = labelConverter.convertLabels(labels, idManager, metaDataCollector);
     console.log(labelResult.sceneLines);
+    
+    // Display file output configuration
+    console.log('\n📁 File Output Configuration:');
+    console.log(`   Save to files: ${FILE_CONFIG.SAVE_TO_FILES ? '✅ Enabled' : '❌ Disabled'}`);
+    console.log(`   Output directory: ${FILE_CONFIG.OUTPUT_DIRECTORY}`);
+    console.log(`   Overwrite existing: ${FILE_CONFIG.OVERWRITE_EXISTING ? '✅ Yes' : '❌ No'}`);
     
     const conversionEndTime = performance.now();
     const conversionTime = conversionEndTime - conversionStartTime;
@@ -105,7 +115,7 @@ async function testFMLParser(fmlFilePath: string) {
     
     if (testConversion.success) {
       console.log('✅ Conversion endpoint test successful');
-      console.log(`📝 Generated ${testConversion.sceneLines.length} SceneScript lines`);
+      console.log(`📝 Generated ${testConversion.sceneLines?.length || 0} SceneScript lines`);
     } else {
       console.log('❌ Conversion endpoint test failed:', testConversion.error);
     }
@@ -132,7 +142,21 @@ async function testConversionEndpoint(project: any) {
     }
 
     const result = await response.json() as any;
-    const sceneLines = result.scene.split('\n');
+    
+    // Handle both old and new response formats
+    let sceneLines: string[] = [];
+    if (result.scene) {
+      // Old format: direct scene text
+      sceneLines = result.scene.split('\n');
+    } else if (result.success && result.files) {
+      // New file output format
+      sceneLines = ['File output mode - check output directory for files'];
+    } else {
+      return { 
+        success: false, 
+        error: 'Unexpected response format - no scene or files property found' 
+      };
+    }
     
     return { 
       success: true, 

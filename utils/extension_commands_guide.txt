@@ -1,83 +1,95 @@
-# FML to SceneScript Extension Commands Guide
+# FML to SceneScript Meta Data Collection Guide
 
 ## Overview
-This document explains the essential extension commands system used in the FML to SceneScript converter. Extension commands preserve FML metadata in SceneScript format for round-trip conversion fidelity.
+This document explains the meta data collection system used in the FML to SceneScript converter. Meta data preserves FML information in separate JSON files for round-trip conversion fidelity.
 
-## Core Extension Commands
+## Core Meta Data Collection
 
-### 1. set_material - Wall Materials and Decorations
-Preserves wall material information (colors, textures, assets).
+### 1. Material Meta Data - Wall Materials and Decorations
+Collects wall material information (colors, textures, assets) in meta.json.
 
 **Format:**
-```
-set_material, wall_id=<id>, side=<left|right>, type=<color|asset|texture>, value=<value>
+```typescript
+// Returns MetaDataResult with metaData and warnings
+createMaterialMetaData(wallId, side, type, value, additionalParams?)
 ```
 
 **Examples:**
 ```typescript
 // Color material
-createSetMaterialCommand(0, 'left', 'color', '#FFFFFF')
-// Output: set_material, wall_id=0, side=left, type=color, value=#FFFFFF
+const result = createMaterialMetaData(0, 'left', 'color', '#FFFFFF')
+// Result: { metaData: { type: 'color', value: '#FFFFFF' }, warnings: [] }
 
 // Asset material
-createSetMaterialCommand(1, 'right', 'asset', 'mat_wood_oak')
-// Output: set_material, wall_id=1, side=right, type=asset, value=mat_wood_oak
+const result = createMaterialMetaData(1, 'right', 'asset', 'mat_wood_oak')
+// Result: { metaData: { type: 'asset', value: 'mat_wood_oak' }, warnings: [] }
 
 // Texture material with additional parameters
-createSetMaterialCommand(2, 'left', 'texture', 'wallpaper.jpg', {
+const result = createMaterialMetaData(2, 'left', 'texture', 'wallpaper.jpg', {
   src: 'wallpaper.jpg',
   fit: 'fill',
   tlx: 0, tly: 0, brx: 100, bry: 100
 })
-// Output: set_material, wall_id=2, side=left, type=texture, value=wallpaper.jpg, src=wallpaper.jpg, fit=fill, tlx=0, tly=0, brx=100, bry=100
+// Result: { 
+//   metaData: { 
+//     type: 'texture', 
+//     value: 'wallpaper.jpg',
+//     src: 'wallpaper.jpg',
+//     fit: 'fill',
+//     tlx: 0, tly: 0, brx: 100, bry: 100
+//   }, 
+//   warnings: [] 
+// }
 ```
 
-### 2. set_swing - Door Swing Direction
-Preserves door swing direction and style information.
+### 2. Swing Meta Data - Door Swing Direction
+Collects door swing direction and style information in meta.json.
 
 **Format:**
-```
-set_swing, id=<door_id>, style=<left|right>, inward=<true|false>
+```typescript
+// Returns MetaDataResult with metaData and warnings
+createSwingMetaData(doorId, style, inward, maxOpenDeg?)
 ```
 
 **Examples:**
 ```typescript
 // Basic swing
-createSetSwingCommand(1000, 'left', true)
-// Output: set_swing, id=1000, style=left, inward=true
+const result = createSwingMetaData(1000, 'left', true)
+// Result: { metaData: { style: 'left', inward: true }, warnings: [] }
 
 // Swing with max open angle
-createSetSwingCommand(1001, 'right', false, 90)
-// Output: set_swing, id=1001, style=right, inward=false, max_open_deg=90
+const result = createSwingMetaData(1001, 'right', false, 90)
+// Result: { metaData: { style: 'right', inward: false, maxOpenDeg: 90 }, warnings: [] }
 ```
 
-### 3. set_asset - Asset References
-Preserves asset references for doors, windows, and items.
+### 3. Asset Meta Data - Asset References
+Collects asset references for doors, windows, and items in meta.json.
 
 **Format:**
-```
-set_asset, id=<element_id>, refid=<asset_reference>
+```typescript
+// Returns MetaDataResult with metaData and warnings
+createAssetMetaData(elementId, assetRef, elementType)
 ```
 
 **Examples:**
 ```typescript
 // Door asset
-createSetAssetCommand(1000, 'door_main_123', 'door')
-// Output: set_asset, id=1000, refid=door_main_123
+const result = createAssetMetaData(1000, 'door_main_123', 'door')
+// Result: { metaData: { asset: 'door_main_123' }, warnings: [] }
 
 // Window asset
-createSetAssetCommand(2000, 'window_sliding_456', 'window')
-// Output: set_asset, id=2000, refid=window_sliding_456
+const result = createAssetMetaData(2000, 'window_sliding_456', 'window')
+// Result: { metaData: { asset: 'window_sliding_456' }, warnings: [] }
 
 // Item asset
-createSetAssetCommand(3000, 'furniture_sofa_789', 'item')
-// Output: set_asset, id=3000, refid=furniture_sofa_789
+const result = createAssetMetaData(3000, 'furniture_sofa_789', 'item')
+// Result: { metaData: { asset: 'furniture_sofa_789' }, warnings: [] }
 ```
 
 ## Validation System
 
 ### ID Validation
-All extension commands validate element IDs to ensure they're in correct ranges:
+All meta data functions validate element IDs to ensure they're in correct ranges:
 
 ```typescript
 validateWallId(5)      // true (>= 0)
@@ -87,19 +99,25 @@ validateItemId(3005)   // true (3000-3999)
 ```
 
 ### Parameter Validation
-Each command validates its specific parameters:
+Each function validates its specific parameters and returns warnings:
 
 ```typescript
 // Material validation
-createSetMaterialCommand(-1, 'left', 'color', '#FFFFFF')  // Error: Invalid wall ID
-createSetMaterialCommand(0, 'invalid', 'color', '#FFFFFF') // Error: Invalid side
-createSetMaterialCommand(0, 'left', 'invalid', '#FFFFFF')  // Error: Invalid type
-createSetMaterialCommand(0, 'left', 'color', '')           // Error: Empty value
+const result1 = createMaterialMetaData(-1, 'left', 'color', '#FFFFFF')
+// result1.warnings: ["Invalid wall ID: -1. Must be >= 0"]
+
+const result2 = createMaterialMetaData(0, 'invalid', 'color', '#FFFFFF')
+// result2.warnings: ["Invalid side: invalid. Must be 'left' or 'right'"]
+
+const result3 = createMaterialMetaData(0, 'left', 'invalid', '#FFFFFF')
+// result3.warnings: ["Invalid material type: invalid. Must be 'color', 'asset', or 'texture'"]
+
+const result4 = createMaterialMetaData(0, 'left', 'color', '')
+// result4.warnings: ["Invalid material value: . Cannot be empty"]
 
 // Swing validation
-createSetSwingCommand(999, 'left', true)   // Error: Invalid door ID
-createSetSwingCommand(1000, 'invalid', true) // Error: Invalid style
-createSetSwingCommand(1000, 'left', true, 200) // Error: Invalid max angle
+const result5 = createSwingMetaData(999, 'left', true)
+// result5.warnings: ["Invalid door ID: 999. Must be 1000-1999"]
 ```
 
 ## Error Handling
@@ -107,18 +125,18 @@ createSetSwingCommand(1000, 'left', true, 200) // Error: Invalid max angle
 ### Graceful Degradation
 When validation fails, the system:
 1. **Logs warnings** instead of crashing
-2. **Returns null** for invalid commands
+2. **Returns null metaData** for invalid inputs
 3. **Continues processing** other elements
 
 ```typescript
-const result = createSetMaterialCommand(-1, 'left', 'color', '#FFFFFF');
+const result = createMaterialMetaData(-1, 'left', 'color', '#FFFFFF');
 if (result.warnings.length > 0) {
-  console.warn('Material command warnings:', result.warnings);
+  console.warn('Material meta data warnings:', result.warnings);
 }
-if (result.command) {
-  sceneLines.push(result.command);
+if (result.metaData) {
+  metaDataCollector.addMetaData(wallId.toString(), 'wall', result.metaData);
 } else {
-  // Command was invalid, skip it
+  // Meta data was invalid, skip it
 }
 ```
 
@@ -128,7 +146,19 @@ All converters collect warnings for transparency:
 ```typescript
 // In wall converter
 if (result.warnings.length > 0) {
-  this.warnings.push(...result.warnings);
+  this.warningCollector.addValidationError('wall', 'material', wallId, null, result.warnings.join(', '));
+}
+```
+
+## Integration with Meta Data Collector
+
+All meta data functions work with the `MetaDataCollector` to store information:
+
+```typescript
+// Example usage in converters
+const result = createMaterialMetaData(wallId, 'left', 'color', '#FFFFFF')
+if (result.metaData) {
+  metaDataCollector.addMetaData(wallId.toString(), 'wall', result.metaData)
 }
 ```
 
@@ -137,33 +167,38 @@ if (result.warnings.length > 0) {
 ### Wall Converter
 ```typescript
 // Convert wall decorations
-const result = createSetMaterialCommand(wallId, side, 'color', colorValue);
-if (result.command) {
-  materialLines.push(result.command);
+const result = createMaterialMetaData(wallId, side, 'color', colorValue);
+if (result.metaData) {
+  const wallMetaData = metaDataCollector.getElementMetaData(wallId.toString()) || {};
+  if (!wallMetaData.decorations) {
+    wallMetaData.decorations = {};
+  }
+  wallMetaData.decorations[side] = result.metaData;
+  metaDataCollector.addMetaData(wallId.toString(), 'wall', wallMetaData);
 }
 ```
 
 ### Opening Converter
 ```typescript
 // Convert door swing
-const swingResult = createSetSwingCommand(doorId, style, inward);
-if (swingResult.command) {
-  lines.push(swingResult.command);
+const swingResult = createSwingMetaData(doorId, style, inward);
+if (swingResult.metaData) {
+  metaDataCollector.addMetaData(doorId.toString(), 'door', swingResult.metaData);
 }
 
 // Convert asset references
-const assetResult = createSetAssetCommand(doorId, door.refid, 'door');
-if (assetResult.command) {
-  lines.push(assetResult.command);
+const assetResult = createAssetMetaData(doorId, door.refid, 'door');
+if (assetResult.metaData) {
+  metaDataCollector.addMetaData(doorId.toString(), 'door', assetResult.metaData);
 }
 ```
 
 ### Item Converter
 ```typescript
 // Convert item assets
-const assetResult = createSetAssetCommand(itemId, item.refid, 'item');
-if (assetResult.command) {
-  lines.push(assetResult.command);
+const assetResult = createAssetMetaData(itemId, item.refid, 'item');
+if (assetResult.metaData) {
+  metaDataCollector.addMetaData(itemId.toString(), 'item', assetResult.metaData);
 }
 ```
 

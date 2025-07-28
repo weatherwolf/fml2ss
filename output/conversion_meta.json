@@ -1,0 +1,225 @@
+{
+  "0": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "1": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "2": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "3": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "4": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "5": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "6": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "7": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "8": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "9": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "10": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "11": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "12": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "13": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "14": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "15": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "16": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "17": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "18": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "19": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "20": {
+    "type": "wall",
+    "decorations": {},
+    "thickness": 15
+  },
+  "1000": {
+    "type": "door",
+    "swing": {
+      "style": "left",
+      "inward": true
+    },
+    "asset": "200"
+  },
+  "2000": {
+    "type": "window",
+    "asset": "219"
+  },
+  "2001": {
+    "type": "window",
+    "asset": "219"
+  },
+  "2002": {
+    "type": "window",
+    "asset": "4b93201b78ea99a8e98225929a3d05a2219e45a5"
+  },
+  "2003": {
+    "type": "window",
+    "asset": "e3296a727699a3fc70e70dfec4ab715ed368ef63"
+  },
+  "2004": {
+    "type": "window",
+    "asset": "83b624e7d2c885802154330f8fc5deb62eba69c8"
+  },
+  "2005": {
+    "type": "window",
+    "asset": "f9d23a0d680c52c12f95e0155623013ed4bbfd52"
+  },
+  "3000": {
+    "type": "item",
+    "asset": "f7701ca4696f7d1696a11a489706cecc21ca763b"
+  },
+  "3001": {
+    "type": "item",
+    "asset": "cc238b28d54e7452ba790f3332d4ba0f6da18b82"
+  },
+  "3002": {
+    "type": "item",
+    "asset": "26739f3ba21931bacf27715a682bb753521dadb7"
+  },
+  "3003": {
+    "type": "item",
+    "asset": "20f7d08d19eed6f8f9fc962cfc03288cdcd352e1"
+  },
+  "3004": {
+    "type": "item",
+    "asset": "3de047ed6798d877d74ba1916a52bdbe3564fe70"
+  },
+  "3005": {
+    "type": "item",
+    "asset": "45e6d4fede33462db9e58dbbf6aa28be669bd982"
+  },
+  "3006": {
+    "type": "item",
+    "asset": "1107ecf4cf443f17649e715fe563a95a9441fe53"
+  },
+  "3007": {
+    "type": "item",
+    "asset": "6b104319f5465a15e718b5adea1c277fb17de26d",
+    "lighting": {
+      "on": true,
+      "color": "#FFFFFB",
+      "watt": 60
+    }
+  },
+  "3008": {
+    "type": "item",
+    "asset": "e38c1c169a5e121bb4ba2acecdfa506640732cd1",
+    "lighting": {
+      "on": true,
+      "color": "#FFFFFB",
+      "watt": 60
+    }
+  },
+  "3009": {
+    "type": "item",
+    "asset": "264e95f6fa762ac8dd8fed89a609c53f64cc22b9"
+  },
+  "3010": {
+    "type": "item",
+    "asset": "a5ba8d612de3070ed6345dc44886ec05a7345b1c"
+  },
+  "3011": {
+    "type": "item",
+    "asset": "xxxx4951e739a63c4a07e77adc60d10e8936ff36"
+  },
+  "3012": {
+    "type": "item",
+    "asset": "a48a67546a45a6b281a25cdab2634c10031d7f2d"
+  },
+  "3013": {
+    "type": "item",
+    "asset": "860a131311008cafde15ce9d1300ba4a86a02fe3",
+    "mirrored": [
+      1,
+      0
+    ]
+  },
+  "3014": {
+    "type": "item",
+    "asset": "c54a0f70a09091232cee3cf3ddc0b556a394a3c1",
+    "mirrored": [
+      1,
+      0
+    ]
+  },
+  "3015": {
+    "type": "item",
+    "asset": "3a4c77cbc442936a4963c5353064a2627c5e9712"
+  },
+  "3016": {
+    "type": "item",
+    "asset": "c012d44ff03113b5921064c84a95bcb99d433e35"
+  }
+}
