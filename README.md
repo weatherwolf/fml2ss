@@ -173,7 +173,6 @@ Health check endpoint.
 | Element | SceneScript Command | Status |
 |---------|-------------------|---------|
 | Straight Walls | `make_wall` | ✅ Complete |
-| Curved Walls | `make_curved_wall` | ✅ Complete |
 | Doors | `make_door` + `set_swing` | ✅ Complete |
 | Windows | `make_window` | ✅ Complete |
 | Furniture | `make_bbox` + `set_asset` | ✅ Complete |
