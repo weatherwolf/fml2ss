@@ -1,0 +1,124 @@
+FML to SceneScript Label Conversion Process
+==========================================
+
+This document explains how text labels are converted from FML format to SceneScript format as comments for round-trip fidelity.
+
+STEP 1: READ FML LABEL DATA
+---------------------------
+FML labels represent text annotations on the floorplan and contain:
+- Position: x, y coordinates in centimeters
+- Text content: The actual label text
+- Font styling: fontFamily, fontSize, fontColor, backgroundColor
+- Text properties: align, letterSpacing, rotation
+
+Example FML label:
+{
+  "x": 97.25244045478519,        // X position in cm
+  "y": -274.43987035204685,      // Y position in cm
+  "text": "Label",               // Text content
+  "fontFamily": "arial",         // Font family
+  "fontSize": 20,                // Font size
+  "letterSpacing": 0,            // Letter spacing
+  "fontColor": "#000000",        // Text color (hex)
+  "backgroundColor": "#f4f8f4",  // Background color (hex)
+  "align": "left",               // Text alignment
+  "rotation": 0                  // Rotation in degrees
+}
+
+STEP 2: CONVERT UNITS (cm → meters)
+-----------------------------------
+Position coordinates are converted from centimeters to meters:
+- 97.25cm → 0.97m
+- -274.44cm → -2.74m
+
+STEP 3: DETERMINE STYLING INFORMATION
+-------------------------------------
+Check if the label has custom styling compared to defaults:
+- Default font: "arial"
+- Default size: 20
+- Default color: "#000000" (black)
+- Default background: "#f4f8f4" (light gray)
+- Default align: "left"
+- Default letter spacing: 0
+
+STEP 4: GENERATE SCENESCRIPT COMMENT
+------------------------------------
+Since SceneScript doesn't have a native label command, labels are stored as comments for round-trip fidelity.
+
+Basic format:
+# LABEL "text" at (x, y)
+
+With optional properties:
+# LABEL "text" at (x, y) rotation=45deg | style: font=times size=24 color=#FF0000 bg=#FFFFFF align=center spacing=2
+
+STEP 5: HANDLE SPECIAL CASES
+----------------------------
+- **Empty text**: Handle gracefully, use placeholder if needed
+- **Special characters**: Preserve quotes and spaces in text
+- **Zero rotation**: Omit rotation property if 0 degrees
+- **Default styling**: Only include style section if custom properties exist
+
+VISUAL EXAMPLE
+==============
+
+FML Input:
+┌─────────────────────────────────────┐
+│ Label: "Living Room"                │
+│ Position: (97.25cm, -274.44cm)     │
+│ Font: Arial, 20pt, Black           │
+│ Background: Light Gray              │
+│ Rotation: 0°                        │
+└─────────────────────────────────────┘
+
+Conversion Process:
+1. Convert position: (0.97m, -2.74m)
+2. Check styling: All default values
+3. Generate comment
+
+SceneScript Output:
+# LABEL "Living Room" at (0.97, -2.74)
+
+Example with Custom Styling:
+FML Input:
+{
+  "x": 500,
+  "y": 300,
+  "text": "Kitchen",
+  "fontFamily": "times",
+  "fontSize": 24,
+  "fontColor": "#FF0000",
+  "backgroundColor": "#FFFFFF",
+  "rotation": 45
+}
+
+SceneScript Output:
+# LABEL "Kitchen" at (5.00, 3.00) rotation=45deg | style: font=times size=24 color=#FF0000 bg=#FFFFFF
+
+ROUND-TRIP FIDELITY
+===================
+
+The comment format allows for complete reconstruction of FML labels:
+
+1. **Text Content**: Preserved in quotes
+2. **Position**: Converted back from meters to centimeters
+3. **Rotation**: Preserved in degrees
+4. **Styling**: All custom properties preserved in style section
+
+Future SceneScript versions might include a native `make_label` command, at which point the converter can be updated to use the proper command format while maintaining backward compatibility.
+
+KEY DIFFERENCES
+==============
+
+FML Format:
+- JSON objects in design.labels array
+- Measurements in centimeters
+- Rich styling properties
+- Native text rendering support
+
+SceneScript Format:
+- Comments starting with # LABEL
+- Measurements in meters
+- Styling preserved as metadata
+- No native text rendering (preserved for round-trip)
+
+This approach ensures that no label information is lost during conversion, maintaining complete round-trip fidelity between FML and SceneScript formats. 

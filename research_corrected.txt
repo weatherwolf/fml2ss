@@ -1,0 +1,63 @@
+# CORRECTED FML to SceneScript Research
+
+## Key Corrections Based on Actual SceneScript Format
+
+### 1. Wall IDs
+**CORRECTED**: Walls DO have IDs and they start from 0, not 1
+- SceneScript example shows: `make_wall, id=0`, `make_wall, id=1`, etc.
+- Wall IDs should start from 0 and be sequential
+
+### 2. Command Format
+**CORRECTED**: SceneScript uses comma-separated key=value format, not space-separated
+- **WRONG**: `make_wall 1 0 0 0 5 0 0 0.1 2.5`
+- **CORRECT**: `make_wall, id=1, a_x=0, a_y=0, a_z=0, b_x=5, b_y=0, b_z=0, height=2.5, thickness=0.1`
+
+### 3. Opening IDs
+**CORRECTED**: Doors and windows have specific ID ranges
+- Doors start at 1000: `make_door, id=1000`
+- Windows start at 2000: `make_window, id=2000`
+
+### 4. Wall References in Openings
+**CORRECTED**: Openings reference walls by ID
+- `wall0_id=2, wall1_id=4` (for openings spanning multiple walls)
+- `wall0_id=0, wall1_id=-1` (for single wall openings, -1 indicates no second wall)
+
+### 5. Parameter Names
+**CORRECTED**: SceneScript uses specific parameter names
+- Wall: `a_x, a_y, a_z, b_x, b_y, b_z, height, thickness`
+- Door/Window: `position_x, position_y, position_z, width, height`
+
+## Updated Implementation Guidelines
+
+### Wall Conversion
+```typescript
+// CORRECTED: Start IDs from 0
+let wallId = 0;
+
+// CORRECTED: Use proper SceneScript format
+sceneLines.push(`make_wall, id=${wallId}, a_x=${ax}, a_y=${ay}, a_z=${az}, b_x=${bx}, b_y=${by}, b_z=${bz}, height=${height}, thickness=${thickness}`);
+```
+
+### Opening Conversion
+```typescript
+// CORRECTED: Use proper ID ranges
+let doorId = 1000;
+let windowId = 2000;
+
+// CORRECTED: Use proper SceneScript format
+sceneLines.push(`make_door, id=${doorId}, wall0_id=${wallId}, wall1_id=-1, position_x=${openX}, position_y=${openY}, position_z=${openZ}, width=${width}, height=${height}`);
+```
+
+### Key Differences from Original Research
+1. **ID Starting Point**: 0 instead of 1
+2. **Command Format**: `key=value` instead of space-separated
+3. **Parameter Names**: Specific names like `a_x, position_x` instead of generic coordinates
+4. **Opening IDs**: Separate ranges for doors (1000+) and windows (2000+)
+5. **Wall References**: Explicit wall IDs with -1 for single wall openings
+
+## Impact on Current Implementation
+The current wall converter needs to be updated to:
+1. Start wall IDs from 0
+2. Use the correct SceneScript command format
+3. Use proper parameter names
+4. Handle the comma-separated key=value syntax 

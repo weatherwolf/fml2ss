@@ -1,0 +1,395 @@
+{
+  "id": 1,
+  "name": "Project name",
+  "description": "Project description",
+  "public": false,
+  "settings": {
+    "wallHeight": 280,
+    "wallSectionHeight": 280,
+    "wallThickness": 15,
+    "wallOuterThickness": 30,
+    "useMetric": false,
+    "showGrid": true,
+    "showDims": true,
+    "showShortDims": false,
+    "showAreaDims": false,
+    "generateOuterDimension": true,
+    "showDropShadows": true,
+    "showObjects": true,
+    "showFixtures": true,
+    "showItemOutline": false,
+    "showObjectColour": true,
+    "showStructuralColour": true,
+    "showFloorsBelow": false,
+    "showSymbols": true,
+    "showObjectMono": false,
+    "showLights": true,
+    "useSection3D": false,
+    "showLabels": true,
+    "areaLabelOutline": false,
+    "areaLabelLetterSpacing": 7,
+    "dimLineLabelHorizontal": false,
+    "exportLabels3D": false,
+    "showShadows3D": true,
+    "exportOrtho3D": false,
+    "visuals": "ALL",
+    "showTexts": true,
+    "arrowHeadType": "arrow",
+    "northArrowRotation": 0,
+    "northArrowKind": 1,
+    "blueprintMode": false,
+    "dimLineFont": "arial",
+    "hideItemsAboveHeight": 122,
+    "hideItemsAbove": false,
+    "xRayWalls": true
+  },
+  "floors": [
+    {
+      "id": 222255051,
+      "project_id": 144164337,
+      "name": "First floor",
+      "level": 0,
+      "created_at": "2023-07-20T15:04:41.000Z",
+      "updated_at": "2023-07-24T12:31:13.000Z",
+      "height": 280.0,
+      "cameras": [
+        {
+          "id": 229076823,
+          "name": "Camera 1",
+          "type_name": "walkthrough",
+          "fov": 60,
+          "lightSettings": {
+            "day": true,
+            "azimuth": 0,
+            "altitude": 45,
+            "intensity": 50,
+            "profile": false
+          },
+          "background_image": {
+            "sky_id": 3,
+            "url": "https://d273csydae9vpp.cloudfront.net/uploads/skies/Floorplanner+Sky.jpg",
+            "type_name": "sphere"
+          },
+          "x": 858.6999999999999,
+          "y": 396.20000000000005,
+          "z": 165.0,
+          "dx": -0.0,
+          "dy": -1.0,
+          "dz": 0.0,
+          "ux": 0.0,
+          "uy": 0.0,
+          "uz": 1.0
+        },
+        {
+          "id": 229076826,
+          "name": "Camera 2",
+          "type_name": "walkthrough",
+          "fov": 58,
+          "lightSettings": {
+            "day": true,
+            "intensity": 50,
+            "azimuth": 0,
+            "altitude": 45
+          },
+          "background_image": {},
+          "x": 400.0,
+          "y": 300.0,
+          "z": 160.0,
+          "dx": 0.0,
+          "dy": -1.0,
+          "dz": 0.0,
+          "ux": 0.0,
+          "uy": 0.0,
+          "uz": 1.0
+        }
+      ],
+      "drawing": {
+        "id": 31621686,
+        "x": 798.7,
+        "y": 316.2,
+        "width": 3840.0,
+        "height": 2715.0,
+        "rotation": 0.0,
+        "alpha": 50,
+        "visible": true,
+        "url": "https://d273csydae9vpp.cloudfront.net/uploads/drawings/31621686/3D_tweede_verdieping.jpg",
+        "depth": "HIGH"
+      },
+      "designs": [
+        {
+          "name": "First design",
+          "lines": [
+            {
+              "type": "solid_line",
+              "color": 4013372,
+              "thickness": 4,
+              "a": {
+                "x": 68.92537662908666,
+                "y": -227.22809730921585
+              },
+              "b": {
+                "x": 694.8185963969011,
+                "y": -227.22809730921585
+              }
+            }
+          ],
+          "dimensions": [
+            {
+              "type": "custom_dimension",
+              "a": {
+                "x": -63.30076465590486,
+                "y": 784.8215802888697
+              },
+              "b": {
+                "x": -63.30076465590486,
+                "y": 7.499999999999999
+              }
+            },
+            {
+              "type": "custom_dimension",
+              "a": {
+                "x": 1225.5777400169925,
+                "y": 7.5
+              },
+              "b": {
+                "x": 1225.5777400169925,
+                "y": 784.8215802888698
+              }
+            },
+            {
+              "type": "custom_dimension",
+              "a": {
+                "x": 1090.5777400169916,
+                "y": 919.8215802888698
+              },
+              "b": {
+                "x": 71.69923534409511,
+                "y": 919.8215802888698
+              }
+            },
+            {
+              "type": "custom_dimension",
+              "a": {
+                "x": 71.69923534409514,
+                "y": -127.5
+              },
+              "b": {
+                "x": 1090.577740016992,
+                "y": -127.5
+              }
+            }
+          ],
+          "labels": [
+            {
+              "x": 97.25244045478519,
+              "y": -274.43987035204685,
+              "text": "Label",
+              "fontFamily": "arial",
+              "fontSize": 20,
+              "letterSpacing": 0,
+              "fontColor": "#000000",
+              "backgroundColor": "#f4f8f4",
+              "align": "left",
+              "rotation": 0
+            }
+          ],
+          "areas": [
+            {
+              "color": "#F2D8B0",
+              "showAreaLabel": true,
+              "poly": [
+                {
+                  "x": 71.69923534409511,
+                  "y": 784.8215802888697
+                },
+                {
+                  "x": 1090.5777400169916,
+                  "y": 784.8215802888695
+                },
+                {
+                  "x": 1090.577740016992,
+                  "y": 7.5
+                },
+                {
+                  "x": 71.69923534409514,
+                  "y": 7.499999999999999
+                }
+              ]
+            }
+          ],
+          "surfaces": [
+            {
+              "color": "#ABABAC",
+              "rotation": 0,
+              "showAreaLabel": true,
+              "poly": [
+                {
+                  "x": 1105.577740016992,
+                  "y": -7.500000000000001,
+                  "z": 0
+                },
+                {
+                  "x": 1474.4873055042215,
+                  "y": -7.500000000000001,
+                  "z": 0
+                },
+                {
+                  "x": 1660.6365820730973,
+                  "y": 379.7804132414659,
+                  "z": 0
+                },
+                {
+                  "x": 1474.4873055042208,
+                  "y": 799.8215802889317,
+                  "z": 0
+                },
+                {
+                  "x": 1105.5777400169923,
+                  "y": 799.8215802888698,
+                  "z": 0
+                }
+              ]
+            }
+          ],
+          "items": [
+            {
+              "refid": "5fde815109db6138037f911f48b6fb5578dfcdf1",
+              "x": 182.23363193188072,
+              "y": 104.60322179182356,
+              "z": 0,
+              "width": 67.484,
+              "height": 77.176,
+              "z_height": 87.472,
+              "rotation": 0
+            }
+          ],
+          "walls": [
+            {
+              "a": {
+                "x": 64.19923534409514,
+                "y": 0
+              },
+              "b": {
+                "x": 1098.077740016992,
+                "y": 0
+              },
+              "c": null,
+              "az": {
+                "z": 0,
+                "h": 280
+              },
+              "bz": {
+                "z": 0,
+                "h": 280
+              },
+              "thickness": 15,
+              "balance": 0.5,
+              "decor": {
+                "left": null,
+                "right": null,
+                "top": null,
+                "outline": 0
+              },
+              "openings": []
+            },
+            {
+              "a": {
+                "x": 1098.077740016992,
+                "y": 0
+              },
+              "b": {
+                "x": 1098.077740016992,
+                "y": 792.3215802888698
+              },
+              "c": null,
+              "az": {
+                "z": 0,
+                "h": 280
+              },
+              "bz": {
+                "z": 0,
+                "h": 280
+              },
+              "thickness": 15,
+              "balance": 0.5,
+              "decor": {
+                "left": null,
+                "right": null,
+                "top": null,
+                "outline": 0
+              },
+              "openings": []
+            },
+            {
+              "a": {
+                "x": 64.19923534409514,
+                "y": 792.3215802888698
+              },
+              "b": {
+                "x": 64.19923534409514,
+                "y": 0
+              },
+              "c": null,
+              "az": {
+                "z": 0,
+                "h": 280
+              },
+              "bz": {
+                "z": 0,
+                "h": 280
+              },
+              "thickness": 15,
+              "balance": 0.5,
+              "decor": {
+                "left": null,
+                "right": null,
+                "top": null,
+                "outline": 0
+              },
+              "openings": []
+            },
+            {
+              "a": {
+                "x": 1098.077740016992,
+                "y": 792.3215802888698
+              },
+              "b": {
+                "x": 64.19923534409514,
+                "y": 792.3215802888698
+              },
+              "c": null,
+              "az": {
+                "z": 0,
+                "h": 280
+              },
+              "bz": {
+                "z": 0,
+                "h": 280
+              },
+              "thickness": 15,
+              "balance": 0.5,
+              "decor": {
+                "left": null,
+                "right": null,
+                "top": null,
+                "outline": 0
+              },
+              "openings": []
+            }
+          ],
+          "id": 235501146,
+          "settings": {
+            "engineAutoThickness": false,
+            "engineAutoDims": false,
+            "areaLabelMultiplier": 1,
+            "scaleMultiplierDimensions": 1.5,
+            "scaleMultiplierComments": 1,
+            "dimLineLabelHorizontal": false,
+            "showCeilings3D": true,
+            "minWallLength": 4
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+# FML to SceneScript Extension Commands Guide
+
+## Overview
+This document explains the essential extension commands system used in the FML to SceneScript converter. Extension commands preserve FML metadata in SceneScript format for round-trip conversion fidelity.
+
+## Core Extension Commands
+
+### 1. set_material - Wall Materials and Decorations
+Preserves wall material information (colors, textures, assets).
+
+**Format:**
+```
+set_material, wall_id=<id>, side=<left|right>, type=<color|asset|texture>, value=<value>
+```
+
+**Examples:**
+```typescript
+// Color material
+createSetMaterialCommand(0, 'left', 'color', '#FFFFFF')
+// Output: set_material, wall_id=0, side=left, type=color, value=#FFFFFF
+
+// Asset material
+createSetMaterialCommand(1, 'right', 'asset', 'mat_wood_oak')
+// Output: set_material, wall_id=1, side=right, type=asset, value=mat_wood_oak
+
+// Texture material with additional parameters
+createSetMaterialCommand(2, 'left', 'texture', 'wallpaper.jpg', {
+  src: 'wallpaper.jpg',
+  fit: 'fill',
+  tlx: 0, tly: 0, brx: 100, bry: 100
+})
+// Output: set_material, wall_id=2, side=left, type=texture, value=wallpaper.jpg, src=wallpaper.jpg, fit=fill, tlx=0, tly=0, brx=100, bry=100
+```
+
+### 2. set_swing - Door Swing Direction
+Preserves door swing direction and style information.
+
+**Format:**
+```
+set_swing, id=<door_id>, style=<left|right>, inward=<true|false>
+```
+
+**Examples:**
+```typescript
+// Basic swing
+createSetSwingCommand(1000, 'left', true)
+// Output: set_swing, id=1000, style=left, inward=true
+
+// Swing with max open angle
+createSetSwingCommand(1001, 'right', false, 90)
+// Output: set_swing, id=1001, style=right, inward=false, max_open_deg=90
+```
+
+### 3. set_asset - Asset References
+Preserves asset references for doors, windows, and items.
+
+**Format:**
+```
+set_asset, id=<element_id>, refid=<asset_reference>
+```
+
+**Examples:**
+```typescript
+// Door asset
+createSetAssetCommand(1000, 'door_main_123', 'door')
+// Output: set_asset, id=1000, refid=door_main_123
+
+// Window asset
+createSetAssetCommand(2000, 'window_sliding_456', 'window')
+// Output: set_asset, id=2000, refid=window_sliding_456
+
+// Item asset
+createSetAssetCommand(3000, 'furniture_sofa_789', 'item')
+// Output: set_asset, id=3000, refid=furniture_sofa_789
+```
+
+## Validation System
+
+### ID Validation
+All extension commands validate element IDs to ensure they're in correct ranges:
+
+```typescript
+validateWallId(5)      // true (>= 0)
+validateDoorId(1005)   // true (1000-1999)
+validateWindowId(2005) // true (2000-2999)
+validateItemId(3005)   // true (3000-3999)
+```
+
+### Parameter Validation
+Each command validates its specific parameters:
+
+```typescript
+// Material validation
+createSetMaterialCommand(-1, 'left', 'color', '#FFFFFF')  // Error: Invalid wall ID
+createSetMaterialCommand(0, 'invalid', 'color', '#FFFFFF') // Error: Invalid side
+createSetMaterialCommand(0, 'left', 'invalid', '#FFFFFF')  // Error: Invalid type
+createSetMaterialCommand(0, 'left', 'color', '')           // Error: Empty value
+
+// Swing validation
+createSetSwingCommand(999, 'left', true)   // Error: Invalid door ID
+createSetSwingCommand(1000, 'invalid', true) // Error: Invalid style
+createSetSwingCommand(1000, 'left', true, 200) // Error: Invalid max angle
+```
+
+## Error Handling
+
+### Graceful Degradation
+When validation fails, the system:
+1. **Logs warnings** instead of crashing
+2. **Returns null** for invalid commands
+3. **Continues processing** other elements
+
+```typescript
+const result = createSetMaterialCommand(-1, 'left', 'color', '#FFFFFF');
+if (result.warnings.length > 0) {
+  console.warn('Material command warnings:', result.warnings);
+}
+if (result.command) {
+  sceneLines.push(result.command);
+} else {
+  // Command was invalid, skip it
+}
+```
+
+### Warning Collection
+All converters collect warnings for transparency:
+
+```typescript
+// In wall converter
+if (result.warnings.length > 0) {
+  this.warnings.push(...result.warnings);
+}
+```
+
+## Usage in Converters
+
+### Wall Converter
+```typescript
+// Convert wall decorations
+const result = createSetMaterialCommand(wallId, side, 'color', colorValue);
+if (result.command) {
+  materialLines.push(result.command);
+}
+```
+
+### Opening Converter
+```typescript
+// Convert door swing
+const swingResult = createSetSwingCommand(doorId, style, inward);
+if (swingResult.command) {
+  lines.push(swingResult.command);
+}
+
+// Convert asset references
+const assetResult = createSetAssetCommand(doorId, door.refid, 'door');
+if (assetResult.command) {
+  lines.push(assetResult.command);
+}
+```
+
+### Item Converter
+```typescript
+// Convert item assets
+const assetResult = createSetAssetCommand(itemId, item.refid, 'item');
+if (assetResult.command) {
+  lines.push(assetResult.command);
+}
+```
+
+## Comment Commands
+
+### Unsupported Properties
+For FML properties not directly supported by SceneScript:
+
+```typescript
+// Create comment for unsupported property
+createCommentCommand('door', 1000, 'frameColor', '#FF0000')
+// Output: # door 1000 frameColor: "#FF0000"
+
+createCommentCommand('item', 3000, 'mirrored', [1, 0])
+// Output: # item 3000 mirrored: [1,0]
+```
+
+## Best Practices
+
+### 1. Always Validate Inputs
+```typescript
+// Good: Validate before creating command
+if (validateWallId(wallId) && validateAssetRef(assetRef)) {
+  const result = createSetMaterialCommand(wallId, side, 'asset', assetRef);
+}
+
+// Bad: Assume inputs are valid
+const result = createSetMaterialCommand(wallId, side, 'asset', assetRef);
+```
+
+### 2. Handle Warnings Properly
+```typescript
+// Good: Collect and report warnings
+const result = createSetMaterialCommand(wallId, side, type, value);
+if (result.warnings.length > 0) {
+  this.warnings.push(...result.warnings);
+}
+if (result.command) {
+  lines.push(result.command);
+}
+```
+
+### 3. Use Type-Safe Parameters
+```typescript
+// Good: Use proper types
+createSetSwingCommand(doorId, 'left', true)
+
+// Bad: Use any types
+createSetSwingCommand(doorId, 'invalid', 'yes')
+```
+
+### 4. Preserve Unsupported Data
+```typescript
+// Good: Use comment commands for unsupported properties
+if (item.mirrored) {
+  lines.push(createCommentCommand('item', itemId, 'mirrored', item.mirrored));
+}
+```
+
+## Complete Example
+
+### Input FML
+```json
+{
+  "walls": [
+    {
+      "decor": {
+        "left": {"color": "#FFFFFF"},
+        "right": {"refid": "mat_brick_red"}
+      }
+    }
+  ],
+  "openings": [
+    {
+      "type": "door",
+      "refid": "door_main_123",
+      "mirrored": [0, 0]
+    }
+  ]
+}
+```
+
+### Generated SceneScript
+```
+make_wall, id=0, a_x=0.000000, a_y=0.000000, ...
+set_material, wall_id=0, side=left, type=color, value=#FFFFFF
+set_material, wall_id=0, side=right, type=asset, value=mat_brick_red
+make_door, id=1000, wall0_id=0, wall1_id=-1, ...
+set_swing, id=1000, style=left, inward=true
+set_asset, id=1000, refid=door_main_123
+# door 1000 mirrored: [0,0]
+```
+
+## Key Features
+
+1. **Validation**: All parameters validated before command creation
+2. **Error Handling**: Graceful degradation with warning collection
+3. **Type Safety**: TypeScript interfaces ensure correct parameter types
+4. **Consistency**: Standardized format across all commands
+5. **Extensibility**: Easy to add new command types
+6. **Documentation**: Clear examples and usage patterns
+
+This extension command system ensures reliable preservation of FML metadata in SceneScript format, maintaining round-trip conversion fidelity while providing robust error handling and validation. 

@@ -1,0 +1,151 @@
+# FML to SceneScript Wall Materials Conversion Guide
+
+## Overview
+This document explains how FML wall decorations and materials are converted to SceneScript `set_material` commands to maintain round-trip fidelity.
+
+## FML Wall Decorations Structure
+
+In FML, walls can have decorations on each side (left/right) with three possible types:
+
+### 1. Color Decorations
+```json
+{
+  "decor": {
+    "left": { "color": "#FFFFFF" },
+    "right": { "color": "#CCCCCC" }
+  }
+}
+```
+
+### 2. Material Asset Decorations
+```json
+{
+  "decor": {
+    "left": { "refid": "mat_wood_oak" },
+    "right": { "refid": "mat_brick_red" }
+  }
+}
+```
+
+### 3. Texture Decorations
+```json
+{
+  "decor": {
+    "left": {
+      "texture": {
+        "src": "https://example.com/wallpaper.jpg",
+        "fit": "fill",
+        "tlx": 0, "tly": 0,
+        "brx": 100, "bry": 100
+      }
+    }
+  }
+}
+```
+
+## SceneScript Conversion
+
+### Color Decorations
+**FML Input:**
+```json
+{ "color": "#FFFFFF" }
+```
+
+**SceneScript Output:**
+```
+set_material, wall_id=0, side=left, type=color, value=#FFFFFF
+```
+
+### Material Asset Decorations
+**FML Input:**
+```json
+{ "refid": "mat_wood_oak" }
+```
+
+**SceneScript Output:**
+```
+set_material, wall_id=0, side=left, type=asset, value=mat_wood_oak
+```
+
+### Texture Decorations
+**FML Input:**
+```json
+{
+  "texture": {
+    "src": "https://example.com/wallpaper.jpg",
+    "fit": "fill",
+    "tlx": 0, "tly": 0,
+    "brx": 100, "bry": 100
+  }
+}
+```
+
+**SceneScript Output:**
+```
+set_material, wall_id=0, side=left, type=texture, src=https://example.com/wallpaper.jpg, fit=fill, tlx=0, tly=0, brx=100, bry=100
+```
+
+## Conversion Process
+
+### Step 1: Check for Decorations
+- Verify `wall.decor` exists
+- Process both `left` and `right` sides independently
+
+### Step 2: Determine Decoration Type
+- Check for `color` property → Color decoration
+- Check for `refid` property → Material asset decoration  
+- Check for `texture` property → Texture decoration
+
+### Step 3: Generate SceneScript Command
+- Use `set_material` command with appropriate parameters
+- Include `wall_id` and `side` for proper targeting
+- Add type-specific parameters (`type=color/asset/texture`)
+
+### Step 4: Handle Texture Coordinates
+- Include texture coordinates (`tlx`, `tly`, `brx`, `bry`) if present
+- These coordinates define the texture placement on the wall side
+
+## Complete Example
+
+**FML Wall with Decorations:**
+```json
+{
+  "id": 1,
+  "a": {"x": 0, "y": 0},
+  "b": {"x": 500, "y": 0},
+  "thickness": 10,
+  "decor": {
+    "left": {"color": "#FFFFFF"},
+    "right": {
+      "texture": {
+        "src": "wallpaper.jpg",
+        "fit": "fill",
+        "tlx": 0, "tly": 0,
+        "brx": 100, "bry": 100
+      }
+    }
+  }
+}
+```
+
+**SceneScript Output:**
+```
+make_wall, id=1, a_x=0.000000, a_y=0.000000, a_z=0.000000, b_x=5.000000, b_y=0.000000, b_z=0.000000, height=2.500000, thickness=0.100000
+set_material, wall_id=1, side=left, type=color, value=#FFFFFF
+set_material, wall_id=1, side=right, type=texture, src=wallpaper.jpg, fit=fill, tlx=0, tly=0, brx=100, bry=100
+```
+
+## Key Features
+
+1. **Round-trip Fidelity**: All decoration information is preserved
+2. **Side-specific Materials**: Left and right sides can have different materials
+3. **Multiple Decoration Types**: Supports colors, material assets, and textures
+4. **Texture Coordinates**: Preserves exact texture placement information
+5. **Null Handling**: Gracefully handles missing or null decorations
+
+## Implementation Notes
+
+- Wall decorations are processed immediately after the wall command
+- Each side (left/right) generates a separate `set_material` command
+- Texture coordinates are only included if they differ from defaults
+- The conversion maintains the exact FML structure for reverse conversion 

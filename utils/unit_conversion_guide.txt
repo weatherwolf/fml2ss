@@ -1,0 +1,199 @@
+# FML to SceneScript Unit Conversion Guide
+
+## Overview
+This document explains the unit conversion utilities used in the FML to SceneScript converter. FML uses centimeters (cm) for all measurements, while SceneScript uses meters (m).
+
+## Conversion Factor
+- **1 meter = 100 centimeters**
+- **Conversion formula**: `meters = centimeters / 100.0`
+
+## Core Conversion Functions
+
+### Basic Conversions
+```typescript
+// Convert centimeters to meters
+cmToMeters(250) // returns 2.5
+
+// Convert meters to centimeters  
+metersToCm(2.5) // returns 250
+```
+
+### Point Conversions
+```typescript
+// Convert 2D point (x, y) from cm to meters
+convertPoint2D({ x: 500, y: 300 }) 
+// returns { x: 5.0, y: 3.0 }
+
+// Convert 3D point (x, y, z) from cm to meters
+convertPoint3D({ x: 500, y: 300, z: 250 })
+// returns { x: 5.0, y: 3.0, z: 2.5 }
+```
+
+### Dimension Conversions
+```typescript
+// Convert item dimensions
+convertItemDimensions({ width: 100, height: 50, z_height: 75 })
+// returns { width: 1.0, height: 0.5, z_height: 0.75 }
+
+// Convert opening dimensions
+convertOpeningDimensions(90, 210)
+// returns { width: 0.9, height: 2.1 }
+
+// Convert wall thickness
+convertWallThickness(10) // returns 0.1
+
+// Convert wall height
+convertWallHeight(250) // returns 2.5
+```
+
+### Specialized Calculations
+```typescript
+// Calculate half-extents for bounding boxes
+calculateHalfExtents(100, 50, 75)
+// returns { halfX: 0.5, halfY: 0.25, halfZ: 0.375 }
+
+// Calculate distance between 2D points
+calculateDistance2DCm({ x: 0, y: 0 }, { x: 500, y: 300 })
+// returns 5.83 (distance in meters)
+```
+
+### Angle Conversions
+```typescript
+// Convert degrees to radians
+degreesToRadians(90) // returns 1.5708
+
+// Convert radians to degrees
+radiansToDegrees(1.5708) // returns 90
+```
+
+## Usage Examples
+
+### Wall Conversion
+```typescript
+// FML wall data (in cm)
+const wall = {
+  a: { x: 0, y: 0 },
+  b: { x: 500, y: 0 },
+  thickness: 10,
+  az: { z: 0, h: 250 },
+  bz: { z: 0, h: 250 }
+};
+
+// Convert to SceneScript (in meters)
+const a = convertPoint2D(wall.a); // { x: 0, y: 0 }
+const b = convertPoint2D(wall.b); // { x: 5, y: 0 }
+const thickness = convertWallThickness(wall.thickness); // 0.1
+const height = convertWallHeight(wall.az.h); // 2.5
+```
+
+### Item Conversion
+```typescript
+// FML item data (in cm)
+const item = {
+  x: 300, y: 200, z: 0,
+  width: 100, height: 50, z_height: 75,
+  rotation: 45
+};
+
+// Convert to SceneScript (in meters)
+const position = convertPoint3D(item); // { x: 3, y: 2, z: 0 }
+const dimensions = convertItemDimensions(item); // { width: 1, height: 0.5, z_height: 0.75 }
+const halfExtents = calculateHalfExtents(item.width, item.height, item.z_height);
+const angleRad = degreesToRadians(item.rotation); // 0.7854
+```
+
+### Opening Conversion
+```typescript
+// FML door data (in cm)
+const door = {
+  width: 90, z_height: 210, z: 0
+};
+
+// Convert to SceneScript (in meters)
+const dimensions = convertOpeningDimensions(door.width, door.z_height);
+// { width: 0.9, height: 2.1 }
+const baseZ = cmToMeters(door.z); // 0
+```
+
+## Common Conversion Patterns
+
+### 1. Position Conversion
+```typescript
+// Always use convertPoint2D or convertPoint3D for positions
+const position = convertPoint2D({ x: 500, y: 300 });
+```
+
+### 2. Dimension Conversion
+```typescript
+// Use specific dimension converters for different types
+const wallThickness = convertWallThickness(10);
+const itemDimensions = convertItemDimensions(item);
+const openingDimensions = convertOpeningDimensions(width, height);
+```
+
+### 3. Bounding Box Calculation
+```typescript
+// For items, calculate half-extents
+const halfExtents = calculateHalfExtents(width, height, depth);
+```
+
+### 4. Distance Calculation
+```typescript
+// For wall lengths or other distances
+const distance = calculateDistance2DCm(point1, point2);
+```
+
+## Precision and Rounding
+
+All conversions maintain precision to 6 decimal places for consistency:
+```typescript
+// Example output formatting
+positionX.toFixed(6) // "3.000000"
+angleRad.toFixed(6)  // "0.785398"
+```
+
+## Error Handling
+
+The conversion functions handle edge cases:
+- **Null/undefined values**: Return 0 or appropriate defaults
+- **Negative values**: Preserved as-is (may indicate errors in FML)
+- **Very large values**: No limits applied (may indicate FML errors)
+
+## Performance Considerations
+
+- **Efficient calculations**: Direct division by 100.0
+- **No unnecessary conversions**: Convert once and reuse
+- **Minimal memory overhead**: Simple number operations
+
+## Testing Examples
+
+### Test Case 1: Standard Wall
+```typescript
+// Input: 500cm wall, 10cm thick, 250cm high
+// Output: 5m wall, 0.1m thick, 2.5m high
+const wall = { a: { x: 0, y: 0 }, b: { x: 500, y: 0 }, thickness: 10, az: { z: 0, h: 250 } };
+const a = convertPoint2D(wall.a); // { x: 0, y: 0 }
+const b = convertPoint2D(wall.b); // { x: 5, y: 0 }
+const thickness = convertWallThickness(wall.thickness); // 0.1
+const height = convertWallHeight(wall.az.h); // 2.5
+```
+
+### Test Case 2: Furniture Item
+```typescript
+// Input: 100cm x 50cm x 75cm table at (300, 200)
+// Output: 1m x 0.5m x 0.75m table at (3, 2)
+const item = { x: 300, y: 200, z: 0, width: 100, height: 50, z_height: 75 };
+const position = convertPoint3D(item); // { x: 3, y: 2, z: 0 }
+const halfExtents = calculateHalfExtents(item.width, item.height, item.z_height);
+// { halfX: 0.5, halfY: 0.25, halfZ: 0.375 }
+```
+
+## Integration with Converters
+
+Each converter now imports and uses these utilities:
+- **WallConverter**: Uses `convertPoint2D`, `convertWallThickness`, `convertWallHeight`
+- **OpeningConverter**: Uses `cmToMeters`, `convertOpeningDimensions`
+- **ItemConverter**: Uses `convertPoint3D`, `convertItemDimensions`, `calculateHalfExtents`
+- **LabelConverter**: Uses `convertPoint2D`
+
+This ensures consistent unit conversion across all converters and eliminates code duplication. 

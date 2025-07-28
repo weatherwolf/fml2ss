@@ -1,0 +1,219 @@
+# FML to SceneScript ID Management Guide
+
+## Overview
+This document explains the ID management system used in the FML to SceneScript converter. The system ensures proper ID preservation and generation for round-trip conversion fidelity.
+
+## ID Ranges and Conventions
+
+### SceneScript ID Ranges
+- **Walls**: 0+ (start from 0)
+- **Doors**: 1000+ (start from 1000)
+- **Windows**: 2000+ (start from 2000)
+- **Items**: 3000+ (start from 3000)
+- **Labels**: 4000+ (start from 4000)
+
+### FML ID Preservation
+- **Walls**: No IDs in FML → Generate new IDs from 0
+- **Items**: No IDs in FML → Generate new IDs from 3000
+- **Openings**: No IDs in FML → Generate door IDs from 1000, window IDs from 2000
+- **Labels**: No IDs in FML → Generate new IDs from 4000
+
+## ID Manager Interface
+
+### Core Methods
+```typescript
+interface IdManager {
+  preserveOrGenerateId(originalId: number | undefined, type: 'wall' | 'item'): number;
+  getNextWallId(): number;
+  getNextDoorId(): number;
+  getNextWindowId(): number;
+  getNextItemId(): number;
+  getNextLabelId(): number;
+  getRanges(): IdRanges;
+  reset(): void;
+}
+```
+
+### Usage Examples
+
+#### Wall ID Generation
+```typescript
+// Walls don't have IDs in FML, so always generate new ones
+const wallId = idManager.getNextWallId(); // Returns 0, 1, 2, etc.
+```
+
+#### Item ID Generation
+```typescript
+// Items don't have IDs in FML, so always generate new ones
+const itemId = idManager.getNextItemId(); // Returns 3000, 3001, 3002, etc.
+```
+
+#### Opening ID Generation
+```typescript
+// Doors and windows get IDs in their respective ranges
+const doorId = idManager.getNextDoorId();   // Returns 1000, 1001, 1002, etc.
+const windowId = idManager.getNextWindowId(); // Returns 2000, 2001, 2002, etc.
+```
+
+#### Label ID Generation
+```typescript
+// Labels get IDs in their range
+const labelId = idManager.getNextLabelId(); // Returns 4000, 4001, 4002, etc.
+```
+
+## ID Preservation Logic
+
+### When FML Has IDs
+```typescript
+// If FML element has an ID, preserve it
+const preservedId = idManager.preserveOrGenerateId(originalId, 'wall');
+// If originalId is 5, returns 5
+// If originalId is undefined, generates new ID
+```
+
+### When FML Doesn't Have IDs
+```typescript
+// Most FML elements don't have explicit IDs
+// Generate new IDs in appropriate ranges
+const wallId = idManager.getNextWallId();     // 0, 1, 2, ...
+const itemId = idManager.getNextItemId();     // 3000, 3001, 3002, ...
+```
+
+## Integration with Converters
+
+### Wall Converter
+```typescript
+// Generate wall ID (walls don't have IDs in FML)
+const wallId = idManager.getNextWallId();
+const wallCommand = this.convertWall(wall, wallId, openingConverter, idManager);
+```
+
+### Opening Converter
+```typescript
+// Generate opening IDs based on type
+if (opening.type === 'door') {
+  const doorId = idManager.getNextDoorId();
+  const doorLines = this.convertDoor(door, doorId, wallId, wallCoords);
+} else if (opening.type === 'window') {
+  const windowId = idManager.getNextWindowId();
+  const windowLines = this.convertWindow(window, windowId, wallId, wallCoords);
+}
+```
+
+### Item Converter
+```typescript
+// Generate item ID (items don't have IDs in FML)
+const itemId = idManager.getNextItemId();
+const itemLines = this.convertItem(item, itemId);
+```
+
+### Label Converter
+```typescript
+// Generate label ID (labels don't have IDs in FML)
+const labelId = idManager.getNextLabelId();
+const labelComment = this.convertLabel(label, labelId);
+```
+
+## ID Validation
+
+### Range Validation
+```typescript
+// Validate that IDs are in correct ranges
+idManager.validateIdRange(5, 'wall');      // true (0+)
+idManager.validateIdRange(1005, 'door');   // true (1000-1999)
+idManager.validateIdRange(2005, 'window'); // true (2000-2999)
+idManager.validateIdRange(3005, 'item');   // true (3000-3999)
+idManager.validateIdRange(4005, 'label');  // true (4000+)
+```
+
+### Uniqueness Validation
+```typescript
+// Check if ID is already used
+const isUsed = idManager.isIdUsed(5); // true if ID 5 is already assigned
+```
+
+## Statistics and Debugging
+
+### Get ID Usage Statistics
+```typescript
+const stats = idManager.getStats();
+// Returns:
+// {
+//   totalUsedIds: 15,
+//   wallsUsed: 5,
+//   doorsUsed: 3,
+//   windowsUsed: 2,
+//   itemsUsed: 4,
+//   labelsUsed: 1
+// }
+```
+
+### Get Current Ranges
+```typescript
+const ranges = idManager.getRanges();
+// Returns:
+// {
+//   walls: { start: 0, current: 5 },
+//   doors: { start: 1000, current: 1003 },
+//   windows: { start: 2000, current: 2002 },
+//   items: { start: 3000, current: 3004 },
+//   labels: { start: 4000, current: 4001 }
+// }
+```
+
+## Complete Example
+
+### Input FML (simplified)
+```json
+{
+  "walls": [
+    { "a": {"x": 0, "y": 0}, "b": {"x": 500, "y": 0}, "thickness": 10 },
+    { "a": {"x": 500, "y": 0}, "b": {"x": 500, "y": 300}, "thickness": 10 }
+  ],
+  "items": [
+    { "x": 100, "y": 100, "width": 80, "height": 60, "refid": "chair_1" }
+  ]
+}
+```
+
+### Generated SceneScript IDs
+```typescript
+// Wall IDs: 0, 1
+// Item IDs: 3000
+// Door IDs: 1000, 1001 (if walls have doors)
+// Window IDs: 2000 (if walls have windows)
+// Label IDs: 4000 (if labels exist)
+```
+
+### Output SceneScript
+```
+make_wall, id=0, a_x=0.000000, a_y=0.000000, ...
+make_wall, id=1, a_x=5.000000, a_y=0.000000, ...
+make_bbox, id=3000, class_id=0, position_x=1.000000, ...
+```
+
+## Key Features
+
+1. **Automatic ID Generation**: Generates unique IDs for each element type
+2. **Range Separation**: Ensures different element types use different ID ranges
+3. **Sequential Assignment**: IDs are assigned sequentially within each range
+4. **Future-Proof**: Easy to extend for new element types
+5. **Debugging Support**: Provides statistics and range information
+6. **Reset Capability**: Can reset all counters for testing
+
+## Best Practices
+
+1. **Always use ID manager**: Don't manually assign IDs
+2. **Check ranges**: Use `getRanges()` to see current state
+3. **Validate IDs**: Use `validateIdRange()` for debugging
+4. **Reset for tests**: Use `reset()` to start fresh
+5. **Monitor statistics**: Use `getStats()` to track usage
+
+## Error Handling
+
+- **Duplicate IDs**: Impossible with current implementation
+- **Invalid ranges**: Validated by `validateIdRange()`
+- **Missing IDs**: Handled gracefully with default generation
+- **Type mismatches**: Caught by TypeScript interface
+
+This ID management system ensures consistent, unique, and properly ranged IDs for all SceneScript elements while maintaining the flexibility to preserve original FML IDs when they exist. 

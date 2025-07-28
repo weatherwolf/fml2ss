@@ -1,0 +1,25 @@
+{
+  "name": "fml-to-scenescript-converter",
+  "version": "1.0.0",
+  "description": "Microservice to convert FML (Floorplanner Markup Language) to SceneScript format",
+  "main": "dist/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node index.ts",
+    "dev": "ts-node index.ts",
+    "test": "ts-node test_parser.ts",
+    "test:file": "ts-node test_parser.ts"
+  },
+  "keywords": ["fml", "scenescript", "converter", "floorplanner"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  }
+}

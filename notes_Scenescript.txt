@@ -1,0 +1,144 @@
+/* ------------------------------------------------------------------
+ * SceneScript Parsed-AST Interfaces
+ * ------------------------------------------------------------------
+ * A SceneScript file is a *flat list of commands*.  After parsing we
+ * keep them as strongly-typed objects so downstream code can reason
+ * about them, emit new SceneScript, or round-trip to FML.
+ * ------------------------------------------------------------------*/
+
+/* ========== Primitive geometry & utility types ========== */
+
+export interface Point3D {
+    x: number;      // metres
+    y: number;      // metres
+    z: number;      // metres (vertical - 0 = floor level)
+}
+
+export type Radians = number;   // rotation around Z (counter-clockwise, rad)
+
+/* ========== Union root ========== */
+
+export type SceneScriptCommand =
+    | MakeWall
+    | MakeCurvedWall
+    | MakeDoor
+    | MakeWindow
+    | MakeBBox
+    | SetSwing             // custom extension for door/window swing
+    | SetMaterial          // custom extension for wall décor
+    | SetAsset             // custom extension for precise asset IDs
+    | Comment              // lines that begin with ‘#’ (kept for parity)
+    ;
+
+/* ===== Structural commands ===== */
+
+/** Straight wall segment (base spec) */
+export interface MakeWall {
+    type: 'make_wall';
+    id: number;
+    a: Point3D;            // start point
+    b: Point3D;            // end point
+    thickness: number;     // metres
+    height: number;        // metres
+}
+
+/** Quadratic-arc wall (lossless curved wall support) */
+export interface MakeCurvedWall {
+    type: 'make_curved_wall';
+    id: number;
+    a: Point3D;
+    b: Point3D;
+    c: Point3D;            // control point (Bezier)
+    thickness: number;
+    height: number;
+}
+
+/** Door opening */
+export interface MakeDoor {
+    type: 'make_door';
+    id: number;
+    wall0_id: number;      // containing wall segment (or first segment if split)
+    wall1_id: number;      // usually same as wall0_id; may differ at junctions
+    position: Point3D;     // centre of opening (bottom centre for doors)
+    width: number;         // metres
+    height: number;        // metres
+}
+
+/** Window opening (identical parameter layout) */
+export interface MakeWindow {
+    type: 'make_window';
+    id: number;
+    wall0_id: number;
+    wall1_id: number;
+    position: Point3D;     // centre of window base (sill)
+    width: number;
+    height: number;
+}
+
+/** Generic object / furniture bounding box */
+export interface MakeBBox {
+    type: 'make_bbox';
+    id: number;
+    class_id: number;      // taxonomy integer
+    position: Point3D;     // centre of box
+    angle_z: Radians;      // rotation around vertical
+    scale: {
+        x: number;         // half-extent in x
+        y: number;         // half-extent in y
+        z: number;         // half-extent in z
+    };
+}
+
+/* ===== Metadata & lossless-round-trip extensions ===== */
+
+/** Capture swing direction and hinge side for openings */
+export interface SetSwing {
+    type: 'set_swing';
+    opening_id: number;    // id of MakeDoor / MakeWindow
+    style: 'left' | 'right' | 'double' | 'slider';
+    inward: boolean;       // true = opens towards negative wall normal
+    max_open_deg?: number; // optional max opening angle (°)
+}
+
+/** Attach material / colour / texture to a wall side */
+export interface SetMaterial {
+    type: 'set_material';
+    wall_id: number;
+    side: 'left' | 'right' | 'both';
+    payload: MaterialPayload;
+}
+
+export type MaterialPayload =
+    | { kind: 'color'; value: Color }
+    | { kind: 'texture'; src: string; rotation?: number; fit?: TextureFit }
+    | { kind: 'asset';   refid: string };  // Floorplanner material ref
+
+export type Color = `#${string}`;          // e.g. '#FF8800'
+export type TextureFit =
+    | 'free' | 'no-stretch' | 'fill'
+    | 'contain' | 'tile-horizontally'
+    | 'tile-vertically' | 'tile-both';
+
+/** Preserve exact asset ids for doors/windows/objects */
+export interface SetAsset {
+    type: 'set_asset';
+    entity_id: number;     // id of MakeDoor / MakeWindow / MakeBBox
+    refid: string;         // Floorplanner catalogue id
+}
+
+/** Parsed comment or blank line (kept to round-trip faithfully) */
+export interface Comment {
+    type: 'comment';
+    text: string;          // original line contents without newline
+}
+
+/* ===== Document wrapper ===== */
+
+/** Entire SceneScript file after parsing */
+export interface SceneScriptDocument {
+    commands: SceneScriptCommand[];
+    /**
+     * Convenience maps for O(1) lookup — built by parser, not persisted to file
+     */
+    byId?: Map<number, SceneScriptCommand>;
+}

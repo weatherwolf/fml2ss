@@ -1,0 +1,101 @@
+FML to SceneScript Wall Conversion Process
+==========================================
+
+This document explains how walls are converted from FML format to SceneScript format.
+
+STEP 1: READ FML WALL DATA
+--------------------------
+FML wall contains:
+- Point A: (x, y) in centimeters
+- Point B: (x, y) in centimeters  
+- Control point C: (x, y) in centimeters (optional, for curved walls)
+- Elevation data: az.z, az.h, bz.z, bz.h in centimeters
+- Thickness: in centimeters
+
+Example FML wall:
+{
+  "a": {"x": 100, "y": 200},     // Point A: 100cm, 200cm
+  "b": {"x": 300, "y": 200},     // Point B: 300cm, 200cm
+  "c": {"x": 200, "y": 150},     // Control point (curved wall)
+  "az": {"z": 0, "h": 250},      // A elevation: base=0cm, height=250cm
+  "bz": {"z": 0, "h": 250},      // B elevation: base=0cm, height=250cm
+  "thickness": 10                 // Wall thickness: 10cm
+}
+
+STEP 2: CONVERT UNITS (cm → meters)
+-----------------------------------
+All measurements are converted from centimeters to meters:
+- 100cm → 1.0m
+- 200cm → 2.0m
+- 250cm → 2.5m
+- 10cm → 0.1m
+
+STEP 3: CALCULATE WALL HEIGHT
+-----------------------------
+- Get height from az.h and bz.h
+- If heights differ (sloped wall), use the maximum
+- Log warning if heights are not uniform
+
+Example:
+- az.h = 250cm → 2.5m
+- bz.h = 250cm → 2.5m
+- Wall height = 2.5m (uniform)
+
+STEP 4: DETERMINE WALL TYPE
+---------------------------
+Check if wall has control point (c):
+- If c exists → Curved wall → use make_curved_wall
+- If c missing → Straight wall → use make_wall
+
+STEP 5: GENERATE SCENESCRIPT COMMAND
+------------------------------------
+Format: command, key=value, key=value, ...
+
+For Straight Wall:
+make_wall, id=0, a_x=1.0, a_y=2.0, a_z=0.0, b_x=3.0, b_y=2.0, b_z=0.0, height=2.5, thickness=0.1
+
+For Curved Wall:
+make_curved_wall, id=1, a_x=1.0, a_y=2.0, a_z=0.0, b_x=3.0, b_y=2.0, b_z=0.0, c_x=2.0, c_y=1.5, c_z=0.0, thickness=0.1, height=2.5
+
+STEP 6: ASSIGN WALL ID
+----------------------
+- Wall IDs start from 0
+- Each wall gets sequential ID: 0, 1, 2, 3, ...
+- This matches SceneScript format
+
+VISUAL EXAMPLE
+==============
+
+FML Input:
+┌─────────────────────────────────────┐
+│ Wall:                               │
+│ A(100cm, 200cm) ──── B(300cm, 200cm)│
+│ Control: C(200cm, 150cm)            │
+│ Height: 250cm, Thickness: 10cm      │
+└─────────────────────────────────────┘
+
+Conversion Process:
+1. Convert to meters: A(1.0m, 2.0m) → B(3.0m, 2.0m)
+2. Control: C(2.0m, 1.5m)
+3. Height: 2.5m, Thickness: 0.1m
+4. Wall ID: 0 (first wall)
+
+SceneScript Output:
+make_curved_wall, id=0, a_x=1.0, a_y=2.0, a_z=0.0, b_x=3.0, b_y=2.0, b_z=0.0, c_x=2.0, c_y=1.5, c_z=0.0, thickness=0.1, height=2.5
+
+KEY DIFFERENCES
+===============
+
+FML Format:
+- JSON object with nested properties
+- Measurements in centimeters
+- Optional control point for curves
+- No explicit wall ID
+
+SceneScript Format:
+- Comma-separated key=value pairs
+- Measurements in meters
+- Explicit wall ID (starts from 0)
+- All parameters named explicitly
+
+This conversion preserves all geometric information while adapting to SceneScript's command-based format. 

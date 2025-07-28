@@ -1,0 +1,264 @@
+Implementing an FML to SceneScript Conversion Microservice
+Overview of FML and SceneScript Formats
+FML (Floorplanner Markup Language) is a JSON format representing floor plans. It defines elements like walls, openings (doors/windows), items (furniture), labels, etc., with detailed properties. For example, walls have endpoints, thickness (in centimeters), optional curvature control points, and decorative materials on each side[1][2]. Openings (doors/windows) are defined by their size and position along a wall[3], and items are placed with a position, size (width, height, vertical height), rotation, etc.[4]. Coordinates in FML are given in centimeters[5].
+SceneScript is a flat list of commands describing a 3D scene, designed for round-trip conversion with FML. Each command corresponds to a structural element or metadata in the scene[6]. For example, there are commands to create walls, curved walls, doors, windows, and generic object bounding boxes (furniture). SceneScript also includes extension commands (prefixed with Set*) to capture additional metadata for fidelity, such as door swing direction, wall materials, and asset references[7][8]. SceneScript uses meters as the unit for lengths[9][10]. The goal is to convert FML to an equivalent list of SceneScript commands without losing information, so that converting back would restore the original floor plan. We will achieve this by mapping every supported FML construct to one or more SceneScript commands (and using comments or custom extensions for anything not directly supported).
+Setting Up the Microservice Environment
+Begin by setting up a minimal Node.js + TypeScript project. Use Express to create a lightweight HTTP server (sufficient for a microservice). For performance and simplicity, avoid heavy frameworks. Initialize a new Node project and add Express. For example:
+npm init -y
+npm install express @types/express
+Create an entry point (e.g., index.ts) and configure an Express app:
+import express from 'express';
+const app = express();
+
+// Use JSON parser middleware (increase limit if FML files are large)
+app.use(express.json({ limit: '10mb' }));
+
+app.post('/convert', (req, res) => {
+  // Conversion logic will go here
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Converter running on port ${PORT}`));
+This defines a /convert endpoint that will accept POST requests with the FML JSON payload. We set a JSON body parser with a generous size limit because FML files can be large (they may contain many walls, items, etc.)[11]. Adjust the limit based on expected file sizes. Ensure the server is stateless (no persistent data kept between requests) and can handle one conversion per request quickly.
+Parsing and Validating the FML Input
+Within the /convert handler, retrieve the JSON payload from req.body. The payload should conform to the known FML structure (e.g., the Project interface provided). It typically looks like:
+{
+  "id": 123,
+  "name": "Sample Project",
+  "floors": [ { ... floor data ... } ]
+}
+We can leverage TypeScript interfaces (as given in the FML spec) to type-check the payload and assist with development[12]. For instance, define interface Project { id: number; name: string; floors: Floor[]; /*...*/ } and corresponding types for Floor, Wall, Item, etc., matching the spec[1][4]. This allows us to access properties with proper types (e.g., project.floors[0].designs[0].walls) and catch errors at compile time.
+Before conversion, it’s good to validate that required fields exist: - Ensure the JSON has at least one floor and one design. - Check critical arrays like walls, openings, items exist (they may be empty, which is fine).
+- If a field is missing (e.g., no walls in a design), log a warning and treat as empty. The service should not crash for minor inconsistencies; instead, it continues processing, skipping unsupported parts. For instance, if labels or dimensions are present but the conversion doesn’t handle them, we will log a warning and ignore them (or handle via comments, as discussed later).
+Example (using a simple validation approach in code):
+const project = req.body as Project;
+if (!project || !project.floors) {
+  return res.status(400).send('Invalid FML payload: missing floors.');
+}
+Additional optional check: verify that coordinates are in the expected units (Floorplanner uses cm[5]). Typically we assume the input follows spec, so no unit conversion check is needed beyond applying the known cm→m conversion during output.
+Conversion Logic Overview
+We will iterate through the FML structures and build corresponding SceneScript lines. The result will be two outputs: - scene.ss: a plain text representation of SceneScript commands (one command per line, with parameters separated by spaces). - meta.json: a JSON object with metadata (at least the project ID and timestamp, possibly warnings or summary info).
+To maintain round-trip fidelity, we preserve all unique identifiers and additional attributes: - Use the same IDs from FML for SceneScript commands whenever possible (for walls, openings, items). If the FML does not provide an explicit ID for an element, generate one consistently (e.g., increment a counter) so that each SceneScript command has a stable ID. - After creating a primary command (like a wall or door), output extension commands (SetMaterial, SetSwing, SetAsset) immediately after, to attach extra properties that are not captured in the primary command[7][13]. This ensures no data is lost. - For any FML fields we cannot directly convert (e.g., textual labels, or unsupported properties), we either log a warning or include them as comments in the SceneScript, so the information is not lost.
+We'll go step by step through each FML construct: walls (including curved walls), openings (doors/windows), items, labels, and wall materials. Each will be converted to one or more SceneScript lines.
+Before diving in, define a helper to convert centimeters to meters (as a number) since many FML dimensions are in cm[5]:
+const cmToMeters = (cm: number): number => cm / 100.0;
+Also prepare data structures for the conversion output:
+let sceneLines: string[] = [];   // collect SceneScript lines (commands)
+let warnings: string[] = [];     // collect warning messages (optional)
+let nextId = 1;                  // fallback ID generator for any element without one
+If floors share an ID space in FML, consider initializing nextId to a number above the highest existing ID to avoid collisions.
+Step 1: Convert Walls (Straight and Curved)
+Walls define the structural layout. For each wall in each design, create a SceneScript make_wall or make_curved_wall command. Pseudocode:
+project.floors.forEach(floor => {
+  floor.designs.forEach(design => {
+    for (const wall of design.walls) {
+      const wallId = wall.id ?? nextId++;
+      // ... determine wall endpoints ...
+    }
+  });
+});
+•	Determine endpoints: FML gives wall endpoints a and b as 2D points (x, y in cm)[14]. Convert them to 3D by adding a z-coordinate (floor elevation). In most cases, walls sit on the floor, so use z = 0 (or if the floor itself has a base elevation, use that). Use cmToMeters on x and y. For example:
+ 	const ax = cmToMeters(wall.a.x);
+const ay = cmToMeters(wall.a.y);
+const bx = cmToMeters(wall.b.x);
+const by = cmToMeters(wall.b.y);
+const az = cmToMeters(wall.az.z); // bottom elevation of endpoint A
+const bz = cmToMeters(wall.bz.z); // bottom elevation of endpoint B
+// Typically az.z and bz.z are 0 for floor-level walls[15].
+ 	The top elevation (h) is given in az.h and bz.h (height of wall at each end)[15]. Usually, walls are uniform height, so az.h ≈ bz.h. You can use one end’s total height as the wall height. If they differ (sloped wall), you might choose the maximum or average – but since SceneScript MakeWall only takes one height value, this is a minor information loss. Log a warning if wall height is not uniform. Otherwise, compute height = cmToMeters(az.h) (which is the wall height in meters).
+•	Curved vs straight: Check if wall.c (control point) is present. If c exists (not null), this is a curved wall. Use the make_curved_wall command, which requires the control point coordinates as well[16]. Convert c.x, c.y to meters (and assume c.z same as wall base elevation, since FML's control point is 2D)[17]. If c is absent, use a standard make_wall. Both commands share similar parameters:
+•	ID: the wall’s unique identifier. Use wall.id from FML if available; otherwise use nextId and increment it.
+•	Coordinates: ax, ay, az, bx, by, bz in meters.
+•	Thickness: convert wall.thickness from cm to m[17].
+•	Height: as computed above (in meters).
+Example conversion for a straight wall:
+const height = cmToMeters(wall.az.h);  // e.g., 250 cm -> 2.5 m
+const thickness = cmToMeters(wall.thickness); // e.g., 10 cm -> 0.1 m
+sceneLines.push(`make_wall ${wallId} ${ax} ${ay} ${az} ${bx} ${by} ${bz} ${thickness} ${height}`);
+And for a curved wall:
+const cx = cmToMeters(wall.c.x);
+const cy = cmToMeters(wall.c.y);
+sceneLines.push(`make_curved_wall ${wallId} ${ax} ${ay} ${az} ${bx} ${by} ${bz} ${cx} ${cy} ${az} ${thickness} ${height}`);
+(Here we used az for the control point’s z as well, assuming it lies at the same base elevation.)
+Left vs Right orientation: Floorplanner defines the left and right side of a wall by standing at point A and looking towards B[18]. This orientation matters for applying materials and door swing direction, as we'll see next.
+Step 2: Convert Wall Openings (Doors & Windows)
+Each wall may contain an array of openings (doors or windows) that are embedded in it[3]. For each opening in wall.openings: 1. Determine if it's a door or window. In FML, an opening object may include a type property ('door' or 'window')[19]. If not explicitly given, it might be inferred from the asset or context; typically, FML persistent format does include type. We can check if (opening.type === 'door') vs 'window'.
+1.	Assign an ID for the opening. Use opening.id if provided (not shown in spec, likely not present; the refid is the asset reference, not a unique numeric ID). We can simply generate a new ID via nextId++. Keep a mapping if needed (to refer later in SetSwing/SetAsset).
+2.	Compute the position of the opening in 3D space. FML gives:
+3.	t: a relative position along the wall (0 = at wall endpoint A’s center, 1 = at endpoint B)[3].
+4.	z: the base elevation of the opening (e.g., a window’s sill height above floor)[20].
+5.	width and z_height: the width of the opening (horizontal length along wall) and the height of the opening (vertical)[20].
+To get x,y coordinates: linearly interpolate between the wall’s endpoints A and B by fraction t. For example:
+const openX = ax + (bx - ax) * opening.t;
+const openY = ay + (by - ay) * opening.t;
+const baseZ = cmToMeters(opening.z);            // e.g., window sill at 100 cm -> 1.0 m
+const openPos = `${openX} ${openY} ${baseZ}`;
+This yields the center point of the opening at its base (for a door, base is floor; for a window, base is the sill height). SceneScript expects the center of the opening in 3D[21][22].
+1.	MakeDoor or MakeWindow command: Use make_door for doors and make_window for windows. Both require:
+2.	id: the opening ID.
+3.	wall0_id and wall1_id: the IDs of the wall segment(s) the opening spans. In most cases, a door/window sits in a single wall, so wall0_id and wall1_id are the same (the containing wall’s ID). SceneScript includes two IDs to allow openings at junctions spanning two wall segments[21]. We will set both to the current wallId.
+4.	position: the computed openPos string (x, y, z in meters).
+5.	width and height in meters: cmToMeters(opening.width) and cmToMeters(opening.z_height). For a door, height might equal the wall height (e.g. 2.1 m door height). For a window, height is the window’s height (e.g. 1.2 m window).
+Example:
+if (opening.type === 'door') {
+  sceneLines.push(`make_door ${openId} ${wallId} ${wallId} ${openX} ${openY} ${baseZ} ${cmToMeters(opening.width)} ${cmToMeters(opening.z_height)}`);
+} else {
+  sceneLines.push(`make_window ${openId} ${wallId} ${wallId} ${openX} ${openY} ${baseZ} ${cmToMeters(opening.width)} ${cmToMeters(opening.z_height)}`);
+}
+1.	Preserve door swing (for doors): Floorplanner doors have a mirrored flag [vFlip, hFlip] indicating if the door was flipped vertically and/or horizontally[19]. We interpret this in terms of hinge side and opening direction:
+2.	By default (mirrored [0,0]), assume the door opens inward (into the room) with hinge on the left side (just an arbitrary convention).
+3.	If mirrored[0] == 1, flip vertically: we can interpret this as hinge side toggled (left ↔ right)[23].
+4.	If mirrored[1] == 1, flip horizontally: interpret as door opening direction reversed (inward ↔ outward).
+Using this logic, determine the SceneScript set_swing parameters: - style: 'left' or 'right' (for single doors) based on hinge side[23]. If we ever encounter double doors or sliding doors, we could use 'double' or 'slider' styles[7], but FML doesn’t explicitly mark those; they might be identified by the asset (refid) of the door. In a simple implementation, treat all as single swing doors unless known otherwise. - inward: boolean – true for inward-opening (default), false for outward. Set to false if horizontal flip was applied. - We typically won’t have max_open_deg unless we want to specify a limit; we can omit it if unknown.
+Now output a set_swing command for the door:
+// Determine swing style
+const hingeLeft = opening.mirrored?.[0] === 0;
+const inward = opening.mirrored?.[1] === 0;
+const style = hingeLeft ? 'left' : 'right';
+sceneLines.push(`set_swing ${openId} ${style} ${inward}`);
+This corresponds to the SceneScript extension for door/window swing metadata, where opening_id = openId, style and inward/outward are captured[7]. (If the syntax requires explicit tokens, it might look like set_swing ${openId} ${style} ${inward ? 'in' : 'out'} or similar – adjust to the exact expected format of SceneScript.)
+Note: If converting back to FML, one would reverse this logic to fill the mirrored flags. By preserving it in SceneScript, we ensure the round-trip fidelity.
+1.	Preserve opening asset reference: Every door or window in FML references a specific catalog asset via refid[20]. We should carry this through so that the exact door/window type can be restored. SceneScript’s SetAsset command is designed for this purpose[8]. After the door/window, add:
+ 	sceneLines.push(`set_asset ${openId} ${opening.refid}`);
+ 	Now the door/window with that ID is tagged with the original asset identifier (which could be a GUID or code for a particular door model). This is crucial for no information loss.
+2.	Other door/window properties: FML includes optional colors like frameColor for openings, or doorColor for doors (perhaps the color of the door leaf)[24][23]. SceneScript currently has no dedicated field for these. To preserve them, you have options:
+3.	Log a warning: e.g., if frameColor exists, warnings.push("Door frameColor not preserved in SceneScript").
+4.	Or include them as a comment in the output. For example:
+ 	if (opening.frameColor) {
+  sceneLines.push(`# FrameColor for ${openId}: ${opening.frameColor}`);
+}
+ 	This comment would be carried in the SceneScript (since comments are preserved as Comment nodes[25]), serving as a hint for reverse conversion or debugging. Similarly, doorColor could be noted.
+Using comments for unsupported visual details can help maintain fidelity without breaking the format.
+5.	Repeat for all openings. Windows typically do not require a swing (most windows are fixed or sliding). We could potentially use set_swing for windows if we wanted to mark them as sliders (e.g., style='slider' for a sliding window), but unless needed, skip swing for windows (or implement if future requirements demand window opening state tracking). We will still output set_asset for windows so their exact model is known.
+By the end of this step, each wall and its openings will have produced multiple lines: the wall itself (make_wall or curved), each opening (make_door/make_window), and possibly set_swing and set_asset lines for each opening. All these remain grouped logically because we process openings immediately after their parent wall. This is good for readability and ensures, for instance, that a door appears after the wall it belongs to.
+Step 3: Convert Items (Furniture and Other Objects)
+Items in FML represent furniture or appliances, generally any free-standing objects, defined by a position, dimensions, and a reference ID to a catalog item[4]. We convert each item to a SceneScript bounding box using make_bbox (MakeBBox) command[10], followed by a set_asset to preserve the item identity[8].
+For each item in design.items: 1. Assign ID: Use item.id if provided (not in the spec, but in some cases these might not have an ID in FML; you can generate one via nextId++ as before).
+1.	Class ID: SceneScript’s MakeBBox includes a class_id (taxonomy integer)[26]. This is meant to classify the type of object (e.g., chair, table, etc.). Floorplanner might not provide a taxonomy ID directly in FML. If not available, a safe default is 0 or some constant. Alternatively, if you have a mapping from the item’s refid to a taxonomy, you could include logic for that (for example, if refid starts with "chair" then class_id=1, etc.), but this might be beyond scope. For now, we can set class_id = 0 (or group all items as a single class since we rely on SetAsset for specificity).
+2.	Position: Use the item’s coordinates. FML Item extends Point3D[4], so it has x, y, z. These are likely in cm (x,y coordinates on the floorplan, z elevation from floor, usually 0 unless the item is on a raised platform or ceiling). Convert each to meters. The position in SceneScript is the center of the object’s base. For most furniture, z will be 0 (on floor), so the base center is on the floor. If z is nonzero, it means the item is elevated (e.g., a ceiling lamp might have z at ceiling height). We preserve it.
+3.	Rotation: FML rotation is likely given in degrees (common in floor planners)[4]. SceneScript expects angle_z in radians[27]. Convert the rotation: angleRad = (item.rotation * Math.PI) / 180. This rotation is around the vertical (Z) axis.
+4.	Scale (Half-extents): SceneScript MakeBBox uses a half-size scale vector: x, y, z (half widths)[27]. FML provides full width and height (footprint dimensions) and z_height (vertical size)[4]. Divide each by 2 and convert to meters:
+5.	halfX = cmToMeters(item.width) / 2
+6.	halfY = cmToMeters(item.height) / 2
+7.	halfZ = cmToMeters(item.z_height) / 2
+This defines the bounding box around the item. For example, if a table is 100 cm by 50 cm and 75 cm tall, we would output half extents of 0.5 m, 0.25 m, 0.375 m.
+Now build the make_bbox command string:
+sceneLines.push(`make_bbox ${itemId} ${classId} ${cmToMeters(item.x)} ${cmToMeters(item.y)} ${cmToMeters(item.z)} ${angleRad.toFixed(6)} ${halfX} ${halfY} ${halfZ}`);
+(We format angle to a reasonable precision. Also ensure the output string matches the expected parameter order for SceneScript: id, class_id, position.x, position.y, position.z, angle, scale.x, scale.y, scale.z.)
+1.	Preserve item asset: Use set_asset to record the item’s refid (catalog reference). This works just like for doors/windows. For example:
+ 	sceneLines.push(`set_asset ${itemId} ${item.refid}`);
+ 	Now the exact furniture model can be retrieved from SceneScript.
+2.	Other item properties:
+3.	mirrored: If present, similar to doors, indicates the object was flipped (perhaps to get a mirror image of itself)[4]. This could affect orientation but since we’ve already applied rotation, a horizontal flip might be equivalent to rotation by 180° for symmetric items. It’s complex to handle generally. For now, we may log a warning:
+ 	if (item.mirrored) warnings.push(`Item ${itemId} is mirrored, which is not explicitly represented in SceneScript.`);
+ 	(One could incorporate it by adjusting angle or storing a comment, but that might be overkill unless needed for specific assets.)
+4.	light: If the item has a light sub-object (for lamps)[28], SceneScript has no direct support to mark an object as a light source. We might also skip this, or include a comment like:
+ 	if (item.light) sceneLines.push(`# Light for item ${itemId}: on=${item.light.on}, color=${item.light.color}, watt=${item.light.watt}`);
+ 	This way the information is not lost; it could be parsed later if needed.
+5.	materials: Some items allow material variants (smart items)[29]. E.g., a couch could have different fabric options. FML materials is a map of material part names to selected option index[30]. SceneScript doesn’t have a built-in way to note which variant is chosen. We log a warning or comment:
+ 	if (item.materials) warnings.push(`Item ${itemId} uses custom materials variants, not preserved in SceneScript.`);
+ 	or
+ 	sceneLines.push(`# Item ${itemId} materials: ${JSON.stringify(item.materials)}`);
+ 	This ensures a developer could later manually adjust if needed.
+Process every item in every design this way. Now all furniture is represented as bounding boxes in the SceneScript, which captures their placement and size, and we attached asset IDs so the specific object models are known[31].
+Step 4: Convert Labels (Text Annotations)
+Labels in FML are pieces of text placed on the floorplan (e.g., room names, annotations) with font styling[32]. SceneScript currently does not define a command for text labels (the core commands are mainly structural). However, to maintain round-trip fidelity, we should not discard labels. The strategy is to emit them as comments in the SceneScript, so they can be recovered or at least seen.
+Each label in design.labels can be turned into a comment line. SceneScript treats any line starting with # as a comment and preserves it verbatim[25]. We can format the comment to include key info: - The label text itself. - Its position (x, y coordinates, maybe z if relevant, though labels are 2D so z=0). - Potentially other properties if we want (like rotation or font size). However, to keep it simple, we might just encode text and position, since that’s likely the most important part to reconstruct the label later.
+For example, if a label says "Living Room" at coordinates (500cm, 300cm) on the plan:
+const lx = cmToMeters(label.x);
+const ly = cmToMeters(label.y);
+sceneLines.push(`# LABEL "${label.text}" at (${lx.toFixed(2)}, ${ly.toFixed(2)})`);
+We include quotes around the text (especially if it has spaces) and the position in meters for consistency. If the label has rotation (angle), we can append that too:
+if (label.rotation) {
+  sceneLines.push(`# LABEL "${label.text}" at (${lx.toFixed(2)}, ${ly.toFixed(2)}) rotation=${label.rotation}deg`);
+}
+(This assumes label.rotation is in degrees[33]; we can preserve it as degrees for readability.)
+By outputting labels as comments, we are not violating SceneScript syntax, and these lines will be ignored by any SceneScript execution but kept in the parsed AST as Comment nodes[25]. This means a future converter could detect comments starting with "LABEL" and re-create FML label objects, achieving round-trip.
+If label styling (font, color, etc.) is important, we could also encode those in the comment (e.g., fontFamily or fontSize). For brevity and the 200-line target, you might skip those unless needed. Possibly note in a comment if a label had unusual styling that might not round-trip. The primary goal is to keep the text content and placement.
+Step 5: Convert Wall Materials and Decor
+In FML, walls can have decorations on each side (left/right), which could be a plain color, a material reference, or a custom texture image[34][35]. We must preserve these as SceneScript set_material commands. After processing a wall (and its openings), handle its decor:
+const decor = wall.decor;
+if (decor) {
+  for (const side of (['left','right'] as const)) {
+    const sideDecor = decor[side];
+    if (!sideDecor) continue;
+    // Determine kind of decoration
+    if ('color' in sideDecor) {
+      sceneLines.push(`set_material ${wallId} ${side} color ${sideDecor.color}`);
+    } else if ('refid' in sideDecor) {
+      sceneLines.push(`set_material ${wallId} ${side} asset ${sideDecor.refid}`);
+    } else if ('texture' in sideDecor) {
+      const tex = sideDecor.texture;
+      sceneLines.push(`set_material ${wallId} ${side} texture ${tex.src} fit=${tex.fit}`);
+    }
+  }
+}
+Explanation: - We output a set_material line for each side of the wall that has decoration (skip if null). The format is set_material <wall_id> <side> <payload>. In the payload: - For a color, use color <hex> (the color is already a hex string like "#RRGGBB" in FML[36], which fits SceneScript’s Color type[37]). - For a material reference, use asset <refid> to indicate a Floorplanner material ID. This corresponds to SceneScript’s MaterialPayload kind 'asset'[38]. - For a texture image, use texture <url> and include the fit mode. SceneScript supports various fitting modes identical to FML (free, fill, contain, tile, etc.)[39][40]. If the FML provided offset coordinates (tlx, tly, brx, bry) for the texture placement[39], note that SceneScript’s model only has optional rotation and fit, not exact offsets. We include the fit so the scaling mode is preserved, but precise alignment might not round-trip perfectly. If this detail is important, you could: - Log a warning:
+warnings.push(`Wall ${wallId} texture offsets not fully preserved (tlx/tly/brx/bry omitted).`);
+- Or include them in the comment:
+sceneLines.push(`# TextureCoords for wall ${wallId}/${side}: tlx=${tex.tlx}, tly=${tex.tly}, brx=${tex.brx}, bry=${tex.bry}`);
+This way the info is somewhere in the output for potential reuse.
+After these, each wall that had any finishing will have corresponding set_material lines. This ensures the appearance (paint color, wallpaper, etc.) is not lost[13]. If both sides have the same material, we output two lines (one for left, one for right). In theory, we could combine into a single side: 'both' if we detect they’re identical; however, the SceneScript interface suggests side is a union of 'left' | 'right' | 'both'[41]. It’s a nice-to-have optimization: if left and right decor are exactly the same (say both painted #FFFFFF), you could do side = 'both'. But doing separate lines is straightforward and clear.
+Step 6: Finalizing the Output and Response
+Once all floors and their designs are processed (walls, openings, items, labels, materials all converted), we have a list of SceneScript command lines in sceneLines.
+Ordering considerations: Output order can be important for readability and logical grouping: - You might have processed things in nested loops (floor -> design -> wall -> openings -> items etc.). To keep related elements together, consider outputting all walls and their openings first, then items, then labels. Or preserve the exact FML ordering if possible: - FML likely stores walls, then areas, surfaces, items, labels in separate lists[42]. We handled walls (with openings and materials inline) and items and labels separately. It might make sense to output all walls first (with their associated subcommands), then follow with all standalone items, then label comments. This separation can be indicated by blank lines or header comments. For example:
+sceneLines.push('# ---- Walls ----');
+// (wall commands...)
+sceneLines.push('# ---- Items ----');
+// (item commands...)
+sceneLines.push('# ---- Labels ----');
+// (label comments...)
+Comments starting with # will ensure these section headers are preserved in the SceneScript file.
+•	We skipped FML’s areas, surfaces, dimensions, and lines as SceneScript doesn’t have equivalents for room polygons, custom lines, etc. It's wise to log that:
+ 	if (design.areas?.length) warnings.push(`Skipped ${design.areas.length} area polygons (not supported in SceneScript).`);
+if (design.dimensions?.length) warnings.push(`Skipped ${design.dimensions.length} custom dimensions (not supported).`);
+// etc.
+ 	You might include a comment line in the output too:
+ 	sceneLines.push(`# [Warning] Some FML features (areas, dimensions) were not converted.`);
+ 	This makes the .ss file self-documenting about losses.
+Now, combine all lines into the final SceneScript text. Simply join with newline characters:
+const sceneText = sceneLines.join('\n');
+Ensure the file ends with a newline for cleanliness.
+Meta JSON: Create the metadata object. Minimal requirements: - projectId: take from project.id[43]. - timestamp: current timestamp (ISO string or epoch). This marks when the conversion happened.
+If you collected warnings, you can include them in meta.json for transparency:
+const meta = {
+  projectId: project.id,
+  timestamp: new Date().toISOString(),
+  warnings: warnings
+};
+(If no warnings, warnings can be an empty array or omitted.)
+Finally, send the response. There are a couple of ways: - JSON response containing both: E.g.,
+res.json({ scene: sceneText, meta: meta });
+This is straightforward: the client receives a JSON with the SceneScript content and the metadata. The client can then save the .ss part to a file if needed. This approach avoids multiple endpoints. - As separate file responses: Since HTTP typically sends one response per request, an alternative is to package the two files (scene.ss and meta.json) into a single archive (like a ZIP) and send that binary. Given the complexity, the JSON approach is simpler unless the client specifically needs actual file downloads. - As multipart response: HTTP supports multipart, but that’s rarely used for responses and would complicate the client side. Not recommended here.
+We’ll assume JSON output. Make sure to set Content-Type: application/json (Express’s res.json does this automatically). The Scenescript text is plain text embedded in JSON; it may contain quotes (for label comments) or other characters, but JSON will escape those properly.
+Example of sending response:
+res.status(200).json({ scene: sceneText, meta });
+This completes the conversion request. The service should aim to respond quickly – in practice, the conversion is just looping over data and string concatenation, which is very fast in Node.js for moderately sized inputs. Even a few thousand elements should compute well under 100ms. If extremely large projects are possible, consider streaming the output or chunking work (but given the 100ms target, it's likely fine).
+Performance and Best Practices
+To keep the service within ~200 lines of TypeScript and performant, consider these practices: - Efficient loops and minimal overhead: Use simple for/forEach loops to iterate through arrays. Avoid deeply nested loops where not needed; our design iterates through floors and designs which is typically just two levels deep (often one design per floor in Floorplanner). The inner operations per wall/item are straightforward. - Avoid unnecessary data structures: We directly append to an array of lines. We don't build a heavy intermediate object model of SceneScript, since ultimately we need a flat text. This saves time and memory. If the application needed to manipulate SceneScript programmatically, one could build objects matching the SceneScriptCommand interface[6], but here it's not required. - Use streaming if needed for input: If an FML file is extremely large (many megabytes), parsing the entire JSON could be the slowest part. Node’s express.json() will parse it fully in memory. In most cases this is fine. If needed, one could stream the JSON parsing (there are libraries for streaming JSON) and process on the fly. But implementing that would add complexity and likely break the 200-line budget. It's a premature optimization unless you know FML files will be huge (e.g., tens of MBs). Given typical floor plan sizes, a full parse is acceptable. - Logging warnings: Use console.warn() or console.log() to output the warnings collected. This way if the service is running in a container or server, the logs will record any potential fidelity issues (useful for developers). We also included them in the response meta for transparency. Logging and returning warnings helps future-proof the service: if a new FML field appears (say a new type of element), the service can log "unsupported field X" so it's noticed and can be implemented later. - Structure and Extensibility: To keep code tidy, you might implement each conversion step in its own helper function (e.g., convertWall(wall) returning an array of lines, convertItem(item) etc.). This separates concerns and makes unit testing easier (you can test that a given Wall yields expected lines). However, splitting into many functions could increase line count slightly. A balanced approach is to use inline loops with clearly commented sections (as we outlined) to stay within the line limit, but still logically separated in the guide and in code via comments. - TypeScript types: Leverage the provided FML and SceneScript type definitions to catch errors. For example, use the Project, Wall, Item interfaces from the spec to ensure you access properties correctly. You can even define a union type for SceneScript commands if you want to validate your output format, but since we're constructing strings, that might not be directly necessary. Still, for any numeric conversions and boolean flags, having types prevents mistakes (e.g., treating a length as already in meters when it's actually cm). - Future features: The microservice might later support converting SceneScript back to FML, or handle new FML features (like curved staircases or advanced roof structures). Our approach of preserving all IDs and extra data in SceneScript (via extension commands and comments) is aligned with round-trip goals. If new SceneScript commands are added (for example, a make_label command in the future to directly support text, or a make_area for room outlines), the service can be extended to use those instead of comments. We structured the conversion so that adding support for a new element is localized (e.g., if tomorrow Floorplanner adds "stairs" in FML and SceneScript has make_stairs, we would add a loop over design.stairs and output accordingly). - Testing: Finally, test the microservice with a variety of FML inputs: - A simple room with four walls, a door, a window, one item, and one label. - Edge cases: curved walls, multiple openings on one wall, items with nonzero elevation, etc. - Very large input to ensure performance (simulate a building with many walls and items).
+Verify that scene.ss output lines make sense. If possible, parse the output back through a SceneScript parser to ensure it’s valid. Each make_* command should correspond to one of the defined interfaces (wall, door, etc.), and each set_* should correctly attach. For instance, after conversion, you might see an output snippet like:
+# ---- Walls ----
+make_wall 1 0 0 0 5 0 0 0.1 2.5
+set_material 1 left color #FFFFFF
+set_material 1 right asset mat_wood_oak
+make_door 2 1 1 2.5 0 0 0.9 2.1
+set_swing 2 left true
+set_asset 2 door_main_123
+# ---- Items ----
+make_bbox 10 0 3.0 4.0 0 1.5708 0.5 1.0 0.75
+set_asset 10 furniture_sofa_456
+# ---- Labels ----
+# LABEL "Living Room" at (2.50, 2.00)
+This example shows a wall (ID 1) of 5m length, with white color on left and a wood material on right, a door (ID 2) centered on that wall (2.5m from start) of width 0.9m and height 2.1m, swinging inward left, using asset door_main_123. Then an item (ID 10) with a bounding box at (3,4) m, rotated 90° (1.5708 rad), size 1m by 2m footprint and 1.5m tall, asset sofa. Finally a label comment. This output can be parsed and used to reconstruct the original scene[44].
+By following these steps, our microservice will reliably convert .fml projects to a SceneScript .ss file and a meta-information JSON, in a performant and maintainable way. All essential geometric and semantic information from FML is preserved in SceneScript commands or comments, ensuring lossless round-trip conversion (no significant data loss)[45][7]. The code remains concise (~200 lines) by focusing on core logic and leveraging simple data transformations, making it easy to extend for future needs.
+Sources: - Floorplanner FML v3.0 Specification – for FML data structures and semantics[1][3][4][32].
+- SceneScript Type Definitions – for understanding target commands and extension fields[9][7][13][8].
+________________________________________
+[1] [2] [3] [4] [5] [12] [14] [15] [18] [19] [20] [28] [29] [30] [32] [33] [34] [35] [36] [39] [42] v3.0 Specification
+https://floorplanner.readme.io/reference/v30-specification
+[6] [7] [8] [9] [10] [13] [16] [21] [22] [25] [26] [27] [31] [37] [38] [40] [41] [44] [45] notes_Scenescript.txt
+file://file-QoK7mrkFH7LmDvocnKZYjn
+[11] Sweet Home 3D Forum - View Thread - floorplanner .fml (json) 3d model converting
+https://sweethome3d.com/support/forum/viewthread_thread,13772
+[17] [23] [24] [43] notes_FML.txt
+file://file-NXqvAmKfzo4KqJRwoQSjxB

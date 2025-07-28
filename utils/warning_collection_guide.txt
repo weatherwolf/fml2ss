@@ -1,0 +1,171 @@
+# Warning Collection System Guide
+
+## Overview
+
+The warning collection system is a critical component for ensuring round-trip fidelity in FML to SceneScript conversion. It tracks information loss, unsupported features, and validation errors to provide complete transparency about what data might be lost during conversion.
+
+## Why Warning Collection is Essential for MVP
+
+1. **Round-trip Fidelity**: Without proper warning collection, we can't guarantee that converting FML → SceneScript → FML would preserve all data
+2. **Quality Assurance**: Users need to know exactly what information is being preserved vs. lost
+3. **Debugging**: Developers need detailed warnings to identify and fix conversion issues
+4. **Transparency**: API responses include warnings so clients understand any data loss
+
+## Warning Types
+
+### 1. Information Loss Warnings
+- **Purpose**: Track when FML data can't be fully preserved in SceneScript
+- **Examples**: 
+  - Wall height differences (non-uniform walls)
+  - Item mirroring not explicitly represented
+  - Custom materials variants not preserved
+  - Texture coordinate offsets not fully preserved
+- **Severity**: Medium (data is lost but conversion continues)
+
+### 2. Unsupported Feature Warnings
+- **Purpose**: Track FML features not supported in SceneScript
+- **Examples**:
+  - Unknown opening types
+  - Unsupported wall decorations
+  - Features not yet implemented
+- **Severity**: Low (conversion continues, feature ignored)
+
+### 3. Validation Error Warnings
+- **Purpose**: Track invalid or missing data that prevents proper conversion
+- **Examples**:
+  - Missing required properties
+  - Invalid coordinate values
+  - Conversion failures
+- **Severity**: High (may indicate serious issues)
+
+## Warning Collection Methods
+
+### Basic Warning Methods
+```typescript
+// Information loss
+warningCollector.addInformationLoss(element, property, originalValue, elementId?, context?)
+
+// Unsupported features
+warningCollector.addUnsupportedFeature(element, feature, originalValue, elementId?)
+
+// Validation errors
+warningCollector.addValidationError(element, property, originalValue, elementId?, errorDetails?)
+
+// Missing data
+warningCollector.addMissingData(element, property, elementId?)
+```
+
+### Specialized Warning Methods
+```typescript
+// ID conflicts
+warningCollector.addIdWarning(element, originalId, generatedId, reason)
+
+// Unit conversion issues
+warningCollector.addUnitConversionWarning(element, property, originalValue, convertedValue, elementId?)
+
+// Material preservation issues
+warningCollector.addMaterialWarning(element, materialType, originalValue, elementId?, reason?)
+```
+
+## Integration with Converters
+
+Each converter now accepts a `WarningCollector` instance:
+
+```typescript
+// Before
+const wallConverter = new WallConverter();
+
+// After
+const warningCollector = createWarningCollector();
+const wallConverter = new WallConverter(warningCollector);
+```
+
+## API Response Format
+
+The API now includes comprehensive warning information:
+
+```json
+{
+  "scene": "SceneScript commands...",
+  "meta": {
+    "projectId": 123,
+    "timestamp": "2024-01-01T00:00:00.000Z",
+    "warnings": [
+      "Information loss: height value \"{heightA: 2.5, heightB: 2.4}\" not preserved in SceneScript (Non-uniform height: A=2.50m, B=2.40m, using max=2.50m)",
+      "Information loss: mirrored value \"true\" not preserved in SceneScript (Mirroring not explicitly represented in SceneScript)"
+    ],
+    "warningSummary": {
+      "totalWarnings": 2,
+      "informationLossCount": 2,
+      "unsupportedFeatureCount": 0,
+      "validationErrorCount": 0,
+      "byElement": { "wall": 1, "item": 1 },
+      "bySeverity": { "medium": 2 }
+    },
+    "validation": { ... }
+  }
+}
+```
+
+## SceneScript Output
+
+Warnings are also included in the SceneScript output as comments:
+
+```
+# ✅ No warnings - perfect round-trip fidelity
+# ---- Walls + Openings ----
+make_wall, id=0, a_x=0.000000, a_y=0.000000, a_z=0.000000, b_x=5.000000, b_y=0.000000, b_z=0.000000, height=2.500000, thickness=0.100000
+# ---- Items ----
+make_bbox, id=3000, class_id=0, position_x=3.000000, position_y=4.000000, position_z=0.000000, angle_z=1.570796, scale_x=0.500000, scale_y=1.000000, scale_z=0.375000
+```
+
+## Best Practices
+
+1. **Always collect warnings**: Every converter should use the warning collector
+2. **Be specific**: Include element type, property name, and original value
+3. **Provide context**: Add additional context when possible
+4. **Use appropriate severity**: Match severity to the actual impact
+5. **Include element IDs**: When available, include element IDs for better debugging
+
+## Testing Warning Collection
+
+To test the warning collection system:
+
+1. **Create test cases** with known information loss scenarios
+2. **Verify warnings** are collected and reported correctly
+3. **Check API responses** include proper warning summaries
+4. **Validate SceneScript output** includes warning comments
+
+## Future Enhancements
+
+1. **Warning categories**: Add more specific warning categories
+2. **Warning suppression**: Allow users to suppress certain warning types
+3. **Warning thresholds**: Set limits for warning collection to prevent performance issues
+4. **Warning persistence**: Store warnings for later analysis
+5. **Warning analytics**: Track warning patterns across conversions
+
+## Example Usage
+
+```typescript
+// In a converter
+if (wall.az.h !== wall.bz.h) {
+  this.warningCollector.addInformationLoss(
+    'wall', 
+    'height', 
+    { heightA: wall.az.h, heightB: wall.bz.h }, 
+    wallId,
+    `Non-uniform height: A=${heightA.toFixed(2)}m, B=${heightB.toFixed(2)}m, using max=${height.toFixed(2)}m`
+  );
+}
+
+// In the main conversion
+const warningSummary = warningCollector.getTextSummary();
+console.log(warningSummary);
+// Output: "⚠️  1 total warnings: • 1 information loss"
+
+if (warningCollector.hasInformationLoss()) {
+  console.log('⚠️  Information loss detected');
+}
+```
+
+This warning collection system ensures that users and developers have complete visibility into the conversion process and any potential data loss, which is essential for maintaining trust in the round-trip fidelity of the FML to SceneScript conversion. 

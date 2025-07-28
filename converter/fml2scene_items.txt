@@ -1,0 +1,126 @@
+FML to SceneScript Item Conversion Process
+=========================================
+
+This document explains how items (furniture, appliances, etc.) are converted from FML format to SceneScript format.
+
+STEP 1: READ FML ITEM DATA
+--------------------------
+FML items represent free-standing objects and contain:
+- Position: x, y, z coordinates in centimeters
+- Dimensions: width, height, z_height in centimeters
+- Rotation: angle in degrees around Z-axis
+- Asset reference: refid for catalog item
+- Optional properties: mirrored, light, materials
+
+Example FML item:
+{
+  "refid": "5fde815109db6138037f911f48b6fb5578dfcdf1",
+  "x": 182.23363193188072,    // X position in cm
+  "y": 104.60322179182356,    // Y position in cm
+  "z": 0,                     // Z elevation in cm
+  "width": 67.484,            // Width in cm
+  "height": 77.176,           // Height in cm
+  "z_height": 87.472,         // Vertical height in cm
+  "rotation": 0               // Rotation in degrees
+}
+
+STEP 2: CONVERT UNITS (cm → meters)
+-----------------------------------
+All measurements are converted from centimeters to meters:
+- 182.23cm → 1.8223m
+- 67.484cm → 0.67484m
+- 87.472cm → 0.87472m
+
+STEP 3: CONVERT ROTATION (degrees → radians)
+--------------------------------------------
+FML uses degrees, SceneScript uses radians:
+- Formula: angleRad = (degrees * Math.PI) / 180
+- Example: 90° → 1.5708 radians
+- Example: 180° → 3.1416 radians
+
+STEP 4: CALCULATE HALF-EXTENTS
+------------------------------
+SceneScript uses half-extents (half-widths) instead of full dimensions:
+- halfX = width / 2
+- halfY = height / 2
+- halfZ = z_height / 2
+
+Example:
+- Full dimensions: 67.484cm × 77.176cm × 87.472cm
+- Half-extents: 33.742cm × 38.588cm × 43.736cm
+- In meters: 0.33742m × 0.38588m × 0.43736m
+
+STEP 5: ASSIGN ITEM ID
+----------------------
+Items use specific ID range:
+- Items: 3000, 3001, 3002, ...
+- This follows the pattern: Walls (0+), Doors (1000+), Windows (2000+), Items (3000+)
+
+STEP 6: GENERATE SCENESCRIPT COMMANDS
+-------------------------------------
+Format: command, key=value, key=value, ...
+
+For Items:
+make_bbox, id=3000, class_id=0, position_x=1.822336, position_y=1.046032, position_z=0.000000, angle_z=0.000000, scale_x=0.337420, scale_y=0.385880, scale_z=0.437360
+set_asset, id=3000, refid=5fde815109db6138037f911f48b6fb5578dfcdf1
+
+STEP 7: HANDLE SPECIAL PROPERTIES
+---------------------------------
+Some FML properties don't have SceneScript equivalents:
+
+Mirrored Items:
+- FML: mirrored: [0, 1] (flip flags)
+- SceneScript: No direct support
+- Solution: Store as comment for round-trip fidelity
+
+Light Sources:
+- FML: light: {on: true, color: "#FFFFFF", watt: 60}
+- SceneScript: No direct support
+- Solution: Store as comment
+
+Material Variants:
+- FML: materials: {"FP_FABRIC": 2}
+- SceneScript: No direct support
+- Solution: Store as comment
+
+VISUAL EXAMPLE
+==============
+
+FML Input:
+┌─────────────────────────────────────┐
+│ Item: Furniture                     │
+│ Position: (182cm, 104cm, 0cm)      │
+│ Size: 67cm × 77cm × 87cm           │
+│ Rotation: 0°                        │
+│ Asset: 5fde815109db6138037f911f... │
+└─────────────────────────────────────┘
+
+Conversion Process:
+1. Convert to meters: (1.82m, 1.05m, 0.0m)
+2. Half-extents: 0.34m × 0.39m × 0.44m
+3. Rotation: 0° → 0.0 radians
+4. Item ID: 3000 (first item)
+
+SceneScript Output:
+make_bbox, id=3000, class_id=0, position_x=1.822336, position_y=1.046032, position_z=0.000000, angle_z=0.000000, scale_x=0.337420, scale_y=0.385880, scale_z=0.437360
+set_asset, id=3000, refid=5fde815109db6138037f911f48b6fb5578dfcdf1
+
+KEY DIFFERENCES
+==============
+
+FML Format:
+- JSON objects in design.items array
+- Measurements in centimeters
+- Full dimensions (width, height, z_height)
+- Rotation in degrees
+- No explicit item ID
+
+SceneScript Format:
+- Separate commands for each item
+- Measurements in meters
+- Half-extents (scale_x, scale_y, scale_z)
+- Rotation in radians
+- Sequential IDs (3000+)
+- Explicit class_id for taxonomy
+
+This conversion preserves all geometric and semantic information while adapting to SceneScript's command-based format. 

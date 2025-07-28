@@ -1,0 +1,125 @@
+FML to SceneScript Opening Conversion Process
+=============================================
+
+This document explains how wall openings (doors and windows) are converted from FML format to SceneScript format.
+
+STEP 1: READ FML OPENING DATA
+-----------------------------
+FML openings are embedded within walls and contain:
+- Type: 'door' or 'window'
+- Position: relative position along wall (t: 0-1)
+- Dimensions: width and height in centimeters
+- Elevation: base height in centimeters
+- Asset reference: refid for catalog item
+- Door-specific: mirrored flags for swing direction
+
+Example FML door:
+{
+  "type": "door",
+  "refid": "door_main_123",
+  "width": 90,           // 90cm wide
+  "z": 0,               // base at floor level
+  "z_height": 210,      // 210cm tall
+  "t": 0.5,             // centered on wall
+  "mirrored": [0, 0],   // left hinge, inward swing
+  "frameColor": "#FFFFFF"
+}
+
+STEP 2: CALCULATE OPENING POSITION
+----------------------------------
+Openings are positioned along walls using linear interpolation:
+- t = 0: at wall endpoint A
+- t = 1: at wall endpoint B
+- t = 0.5: halfway between A and B
+
+Formula:
+openX = ax + (bx - ax) * t
+openY = ay + (by - ay) * t
+openZ = cmToMeters(opening.z)
+
+Example:
+Wall A(1.0m, 2.0m) → B(5.0m, 2.0m), t=0.5
+openX = 1.0 + (5.0 - 1.0) * 0.5 = 3.0m
+openY = 2.0 + (2.0 - 2.0) * 0.5 = 2.0m
+openZ = 0.0m (door at floor level)
+
+STEP 3: DETERMINE DOOR SWING DIRECTION
+--------------------------------------
+FML uses mirrored flags: [vFlip, hFlip]
+- vFlip (mirrored[0]): 0 = left hinge, 1 = right hinge
+- hFlip (mirrored[1]): 0 = inward swing, 1 = outward swing
+
+Examples:
+[0, 0] → left hinge, inward swing
+[1, 0] → right hinge, inward swing
+[0, 1] → left hinge, outward swing
+[1, 1] → right hinge, outward swing
+
+STEP 4: ASSIGN OPENING IDS
+--------------------------
+SceneScript uses specific ID ranges:
+- Doors: 1000, 1001, 1002, ...
+- Windows: 2000, 2001, 2002, ...
+
+This matches the SceneScript example format.
+
+STEP 5: GENERATE SCENESCRIPT COMMANDS
+-------------------------------------
+Format: command, key=value, key=value, ...
+
+For Doors:
+make_door, id=1000, wall0_id=2, wall1_id=-1, position_x=3.0, position_y=2.0, position_z=0.0, width=0.9, height=2.1
+set_swing, id=1000, style=left, inward=true
+set_asset, id=1000, refid=door_main_123
+
+For Windows:
+make_window, id=2000, wall0_id=0, wall1_id=-1, position_x=2.5, position_y=3.0, position_z=1.2, width=1.2, height=1.5
+set_asset, id=2000, refid=window_standard_456
+
+STEP 6: HANDLE UNSUPPORTED PROPERTIES
+------------------------------------
+Some FML properties don't have SceneScript equivalents:
+- frameColor, doorColor → stored as comments
+- Example: # FrameColor for door 1000: #FFFFFF
+
+VISUAL EXAMPLE
+==============
+
+FML Input:
+┌─────────────────────────────────────┐
+│ Wall: A(100cm, 200cm) → B(300cm, 200cm) │
+│ Door: t=0.5, width=90cm, height=210cm   │
+│ Mirrored: [0, 0] (left hinge, inward)   │
+└─────────────────────────────────────┘
+
+Conversion Process:
+1. Position: t=0.5 → center of wall (200cm, 200cm)
+2. Convert to meters: (2.0m, 2.0m, 0.0m)
+3. Dimensions: 90cm → 0.9m, 210cm → 2.1m
+4. Swing: [0, 0] → left hinge, inward
+5. Door ID: 1000 (first door)
+
+SceneScript Output:
+make_door, id=1000, wall0_id=0, wall1_id=-1, position_x=2.0, position_y=2.0, position_z=0.0, width=0.9, height=2.1
+set_swing, id=1000, style=left, inward=true
+set_asset, id=1000, refid=door_main_123
+
+KEY DIFFERENCES
+==============
+
+FML Format:
+- JSON objects embedded in walls
+- Measurements in centimeters
+- Relative positioning (t: 0-1)
+- Mirrored flags for swing direction
+- No explicit opening IDs
+
+SceneScript Format:
+- Separate commands for each opening
+- Measurements in meters
+- Absolute 3D positioning
+- Explicit swing parameters
+- Sequential IDs (doors: 1000+, windows: 2000+)
+- Wall references by ID
+
+This conversion preserves all geometric and functional information while adapting to SceneScript's command-based format. 

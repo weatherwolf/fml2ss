@@ -1,0 +1,365 @@
+/* ------------------------------------------------------------------
+ * Floorplanner FML Parsed‑AST Interfaces
+ * ------------------------------------------------------------------
+ * An FML file is a JSON document describing an entire Floorplanner project.
+ * The hierarchy is:
+ *     Project  →  Floor  →  Design  →  { Walls | Areas | Items | … }
+ * 
+ * After parsing we keep each element as a strongly‑typed interface so that
+ * downstream code (e.g. converters, validators, SceneScript mappers) can
+ * reason about them, generate new geometry, or perform a lossless round‑trip.
+ * ------------------------------------------------------------------*/
+
+/* ========== Primitive geometry & utility types ========== */
+
+export interface Point {
+    x: number;              // centimetres (Floorplanner native unit)
+    y: number;              // centimetres
+}
+
+export interface Point3D extends Point {
+    z: number;              // centimetres (0 = floor level of its Floor)
+}
+
+export type Color = `#${string}`;     // e.g. "#FF8800"
+
+/* ========== Top‑level project container ========== */
+
+export interface Project {
+    id: number;
+    name: string;
+    public: boolean;
+    settings?: ProjectSettings;      // global visual & unit prefs
+    floors: Floor[];                // at least one floor
+}
+
+export interface ProjectSettings {
+    /* Global geometry defaults */
+    wallHeight:           number;   // cm – default for new walls
+    wallSectionHeight:    number;   // cm – cross‑section h (unused by FP 3D)
+    wallThickness:        number;   // cm – default interior walls
+    wallOuterThickness:   number;   // cm – thicker perimeter walls
+
+    /* UI / visual toggles */
+    useMetric:            boolean;
+    showGrid:             boolean;
+    showDims:             boolean;  // master toggle for dimension lines
+    showShortDims:        boolean;
+    showAreaDims:         boolean;  // show room labels
+    generateOuterDimension:boolean; // auto‑generate ext dims
+    showDropShadows:      boolean;
+    showObjects:          boolean;
+    showFixtures:         boolean;
+    showItemOutline:      boolean;
+    showObjectColour:     boolean;
+    showStructuralColour: boolean;
+    showFloorsBelow:      boolean;
+    showObjects3d:        boolean;
+    showObjectMono:       boolean;
+    showLights:           boolean;
+    useSection3D:         boolean;
+    showLabels:           boolean;
+
+    /* Typography & graphics */
+    areaLabelOutline:     boolean;
+    areaLabelLetterSpacing:number;
+    dimLineLabelHorizontal:boolean;
+    dimLineFont:          string;
+
+    /* Advanced visuals */
+    visuals:              "ALL" | "BW" | "BWC";
+    arrowHeadType:        "arrow-stop" | "stop" | "reverse-arrow-stop" | "arrow";
+    northArrowRotation:   number;   // °
+    northArrowKind:       number;
+
+    /* Misc */
+    blueprintMode:        boolean;
+    hideItemsAboveHeight: number;   // cm – cut plane for 2D
+    hideItemsAbove:       boolean;
+    exportLabels3D:       boolean;
+    showShadows3D:        boolean;
+    exportOrtho3D:        boolean;
+}
+
+/* ========== Floors & camera presets ========== */
+
+export interface Floor {
+    id: number;
+    name: string;
+    level: number;         // 0 = ground floor, 1 = 1st storey, …
+    height: number;        // cm – default wall height for this floor
+    designs: Floorplan[];  // usually length = 1 (active design)
+    cameras?: Camera[];    // saved viewpoints
+    drawing?: Drawing;     // background blueprint image
+}
+
+export interface Camera {
+    id: number;
+    name: string;
+    type_name: "orbital" | "walkthrough";
+
+    /* Position */
+    x: number;  y: number; z: number;
+
+    /* Up vector */
+    ux: number; uy: number; uz: number;
+
+    /* Direction */
+    dx: number; dy: number; dz: number;
+
+    /* Optics */
+    fov: number;           // °
+
+    lightSettings: CameraLightSettings;
+    background_image: PresetSky | UserDefinedSky | Record<string, never>;
+}
+
+export interface CameraLightSettings {
+    altitude:  number;
+    azimuth:   number;
+    day:       boolean;
+    intensity: number;     // 0 .. 1
+    profile:   boolean;    // enable Soft HDR profile in renderer
+}
+
+export interface PresetSky {
+    sky_id: number;
+    url: string;
+    type_name: "sphere";
+}
+
+export interface UserDefinedSky {
+    url: string;
+    type_name: "plane";
+}
+
+export interface Drawing {
+    x: number;   y: number;           // cm – position on plan
+    width: number; height: number;   // cm – size
+    visible: boolean;
+    url: string;
+    rotation: number;                // °
+    alpha: number;                   // 0 .. 1
+    depth?: "LOW" | "HIGH";        // render below / above plan
+}
+
+/* ========== Floorplan (Design) level ========== */
+
+export interface Floorplan {
+    id: number;
+    name: string;
+
+    /* Geometry */
+    walls:      Wall[];
+    areas:      Area[];
+    surfaces:   Surface[];
+    dimensions: Dimension[];
+    items:      Item[];
+
+    /* Annotations */
+    labels:     Label[];
+    lines:      Line[];
+
+    /* Behaviour tweaks */
+    settings?:  DesignSettings;
+}
+
+/* ---------- Walls & openings ---------- */
+
+export interface Wall extends GenericLine {
+    id:       number;
+    /* Geometry */
+    c?:       Point | null;  // quadratic‑Bezier control for curved wall
+    az:       Endpoint3D;    // bottom/top at start point
+    bz:       Endpoint3D;    // bottom/top at end point
+    thickness:number;        // cm
+    balance:  number;        // 0..1 (which side thickness is added)
+
+    /* Sub‑elements */
+    openings: Opening[];
+    decor?:   WallDecor;     // paint / material / texture per side
+}
+
+export interface Endpoint3D {
+    z: number;      // cm – bottom elevation
+    h: number;      // cm – top elevation
+}
+
+export type Opening = Door | Window;
+
+export interface GenericOpening {
+    refid: string;  // asset id for visual style
+    width: number;  // cm
+    z: number;      // cm – bottom elevation (0 for door on floor)
+    z_height: number; // cm – opening height
+    t: number;      // 0..1 – centre position along wall (A→B)
+    frameColor?: Color;
+}
+
+export interface Door extends GenericOpening {
+    type: "door";
+    mirrored: [0 | 1, 0 | 1];   // [flip vertical, flip horizontal]
+    doorColor?: Color;
+}
+
+export interface Window extends GenericOpening {
+    type: "window";
+}
+
+/* ---------- Wall décor ---------- */
+
+export interface WallDecor {
+    left:  WallSideDecor;
+    right: WallSideDecor;
+}
+
+export type WallSideDecor = null | WallSideWithColor | WallSideWithMaterial | WallSideWithTexture;
+
+export interface WallSideWithColor {
+    color: Color;
+}
+export interface WallSideWithMaterial {
+    refid: string;           // catalogue material id
+}
+export interface WallSideWithTexture {
+    texture: WallTexture;
+}
+
+export interface WallTexture {
+    src: string;             // image URL
+    fit: "free" | "no-stretch" | "fill" | "contain" |
+         "tile-horizontally" | "tile-vertically" | "tile-both";
+    tlx: number; tly: number; // px – top‑left offset within texture
+    brx: number; bry: number; // px – bottom‑right offset
+}
+
+/* ---------- Areas & surfaces ---------- */
+
+export interface Area extends AreaProps {
+    poly: Point[];           // 2D polygon in plan view
+    ceiling?: Ceiling;
+    roomstyle_id?: string;   // if a roomstyle was applied
+}
+
+export interface Surface extends AreaProps {
+    poly: SurfacePoint[];    // may include curve points
+    isRoof?: boolean;
+    isCutout?: boolean;      // a void inside another surface
+    transparency?: number;   // 0 .. 1
+}
+
+export type SurfacePoint = Point3D | BezierPoint;
+
+export interface BezierPoint extends Point {
+    cx: number; cy: number;  cz?: number;
+}
+
+export interface AreaProps extends TextureProps {
+    refid?: string;          // floor finish / roomstyle asset id
+    color: Color;
+    showSurfaceArea?: boolean;
+    showAreaLabel: boolean;
+
+    /* Name metadata */
+    name?: string;           // derived from roomtype preset
+    customName?: string;     // explicit override
+    role?: number;           // roomtype identifier
+    name_x?: number;         // label offset from centroid (cm)
+    name_y?: number;
+}
+
+/* ---------- Dimensions ---------- */
+
+export interface Dimension extends GenericLine {
+    id: number;
+    type: "custom_dimension";
+}
+
+/* ---------- Items (furniture, fixtures) ---------- */
+
+export interface Item extends Point3D {
+    id?: number;             // optional; Floorplanner will generate if absent
+    refid: string;           // catalogue asset id
+    width: number;           // cm – footprint X
+    height: number;          // cm – footprint Y
+    z_height: number;        // cm – vertical size
+    rotation: number;        // ° around Z
+    mirrored?: [0 | 1, 0];   // [flip X, flip Y]
+    light?: Light;           // if item is a lamp
+    materials?: SmartMaterials;
+}
+
+export interface Light {
+    on: boolean;
+    color: Color;
+    watt: number;            // 0 .. 200
+}
+
+export interface SmartMaterials {
+    [materialName: string]: number;  // param id → value
+}
+
+/* ---------- Labels & annotation lines ---------- */
+
+export interface Label extends Point {
+    text: string;
+    fontFamily: string;
+    fontSize: number;        // px
+    letterSpacing: number;   // %
+    fontColor: Color;
+    backgroundColor: Color;
+    backgroundAlpha?: number;// %
+    align: "left" | "center" | "right";
+    rotation: number;        // °
+    outline?: boolean;
+    bold?: boolean;
+    italic?: boolean;
+}
+
+export interface Line extends GenericLine {
+    id?: number;
+    type: "solid_line" | "dashed_line" | "dotted_line" | "dashdotted_line";
+    color: Color;
+    thickness: number;       // px
+}
+
+/* ---------- Design‑level rendering settings ---------- */
+
+export interface DesignSettings {
+    engineAutoThickness: boolean;   // deprecated (always false)
+    engineAutoDims:      boolean;   // auto‑generate dimension lines
+    areaLabelMultiplier: number;    // scale factor for area text
+    scaleMultiplierDimensions: number; // scale for dim text
+    scaleMultiplierComments: number;   // scale for regular labels
+    showCeilings3D: boolean;
+    minWallLength?: number;         // cm – walls shorter than this are ignored
+}
+
+/* ---------- Shared line base ---------- */
+
+export interface GenericLine {
+    a: Point;        // start in plan view (cm)
+    b: Point;        // end in plan view (cm)
+}
+
+/* ---------- Textures & materials ---------- */
+
+export interface TextureProps {
+    rotation?: number;  // °
+    tx?: number;        // px – x‑offset
+    ty?: number;        // px – y‑offset
+    sx?: number;        // %  – x‑scale (100 = native)
+    sy?: number;        // %  – y‑scale
+}
+
+/* ========== Document wrapper ========== */
+
+export interface FMLDocument {
+    project: Project;
+    /**
+     * Convenience maps for O(1) lookup – created by parser, not persisted.
+     */
+    wallById?: Map<number, Wall>;
+    itemById?: Map<number, Item>;
+    openingById?: Map<number, Opening>;
+}
