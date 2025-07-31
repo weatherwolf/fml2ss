@@ -94,8 +94,6 @@ make_bbox,
 """
 
 def make_bbox(item, bboxes, snap_value=None, decimals=2):
-    if not hasattr(item, 'role'):
-        return ''
     b = {
         'id': 3000 + len(bboxes),
         'refid': item.refid,
@@ -138,7 +136,7 @@ def make_design(design, snap_value=None, decimals=2):
 
     [make_bbox(item, bboxes, snap_value, decimals) for i, item in enumerate(design.items)]
 
-    return '\n'.join(walls) + '\n' + '\n'.join(doors) + '\n' + '\n'.join(windows) + '\n'.join(bboxes)
+    return '\n'.join(walls) + '\n' + '\n'.join(doors) + '\n' + '\n'.join(windows) + '\n' + '\n'.join(bboxes)
 
 def make_project(project_id, snap_value=None, decimals=2):
     """

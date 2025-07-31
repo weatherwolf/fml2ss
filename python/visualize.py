@@ -161,10 +161,7 @@ def visualize_design(design, width=1920, height=1080):
         draw.text(a.tolist(), 'window-%d' % cmd['id'], fill=(255, 255, 255, 255), font_size=20, anchor='la')
 
     for cmd in bbox_commands:
-        a = np.array([cmd['position_x'], cmd['position_y']]) * scale + offset
-        #draw.rectangle(a.tolist(), fill=(255, 255, 255, 255), width=10)
         draw_bbox(cmd)
-        #draw.text(a.tolist(), '%s' % cmd['class'], fill=(255, 255, 255, 255), font_size=20, anchor='la')
 
     im.show()
 
