@@ -105,6 +105,6 @@ def visualize_design(design, width=1920, height=1080):
 
 designs = make_project(61301631, None, 2)
 
-for design_id, design in designs.items():
+for design_id, design in designs['screenscript'].items():
     visualize_design(design)
     break

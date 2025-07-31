@@ -2,7 +2,10 @@
 
 Converts a project FML file to screenscript.
 
-The `fml2screenscript.py` file exposes a method `make_project`  which returns a dictionary with the design IDs as key and the screenscript commands as value.
+The `fml2screenscript.py` file exposes a method `make_project`  which returns a dictionary two keys:
+
+1.  `fml` - the project fml
+2.  `screenscript` - dictionary with the design IDs as key and the screenscript commands as value.
 
 #### environment variables
 
