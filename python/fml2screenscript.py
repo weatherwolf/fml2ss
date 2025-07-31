@@ -94,6 +94,8 @@ make_bbox,
 """
 
 def make_bbox(item, index, snap_value=None, decimals=2):
+    if not hasattr(item, 'role'):
+        return ''
     b = {
         'id': 3000 + index,
         'class': hasattr(item, 'role') and item.role or 'unknown',
