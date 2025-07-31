@@ -43,8 +43,8 @@ def cm_to_m_snap(cm_value, snap_value=None, decimals=2):
 def make_opening(w, opening, doors, windows, snap_value=None, decimals=2):
     a = np.array([w['a_x'], w['a_y'], w['a_z']])
     b = np.array([w['b_x'], w['b_y'], w['b_z']])
-    ba = b - a
-    pos = (opening.t * ba).tolist()
+    ba = (b - a) 
+    pos = (a + opening.t * ba).tolist()
     is_door = opening.type == 'door'
     arr = doors if opening.type == 'door' else windows
     id = len(arr) + 1000 if is_door else len(arr) + 2000
