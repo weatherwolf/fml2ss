@@ -16,6 +16,11 @@ from fml2screenscript import make_project
 snap_value = None # for example 0.01 to snap to 1 cm
 decimals = 2 # number of decimals
 
-make_project(61301631, snap_value, decimals)
+designs = make_project(61301631, snap_value, decimals)
+
+for design_id, design in designs.items():
+    print(design_id)
+    print(design)
+    print('-' * 100)
 
 ```

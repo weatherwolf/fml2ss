@@ -54,7 +54,9 @@ def make_opening(w, opening, doors, windows, snap_value=None, decimals=2):
         'wall1_id': -1,
         'position_x': round(pos[0], decimals),
         'position_y': round(pos[1], decimals),
-        'position_z': round(pos[2], decimals)
+        'position_z': round(opening.z * 0.01, decimals),
+        'width': round(opening.width * 0.01, decimals),
+        'height': round(opening.z_height * 0.01, decimals),
     }
     cmd = 'make_door' if is_door else 'make_window'
     arr.append('%s, %s' % (cmd, ', '.join([f'{k}={v}' for k, v in o.items()])))
@@ -101,4 +103,9 @@ def make_project(project_id, snap_value=None, decimals=2):
         make_design(design, snap_value, decimals) for floor in project.floors for design in floor.designs
     }
 
-#print(make_project(61301631, None, 2))
+designs = make_project(61301631, None, 2)
+
+for design_id, design in designs.items():
+    print(design_id)
+    print(design)
+    print('-' * 100)
