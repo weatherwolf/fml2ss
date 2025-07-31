@@ -93,11 +93,11 @@ make_bbox,
     scale_z=1.125
 """
 
-def make_bbox(item, index, snap_value=None, decimals=2):
+def make_bbox(item, bboxes, snap_value=None, decimals=2):
     if not hasattr(item, 'role'):
         return ''
     b = {
-        'id': 3000 + index,
+        'id': 3000 + len(bboxes),
         'refid': item.refid,
         'class': hasattr(item, 'role') and item.role or 'unknown',
         'position_x': cm_to_m_snap(item.x, snap_value, decimals),
@@ -108,7 +108,7 @@ def make_bbox(item, index, snap_value=None, decimals=2):
         'scale_z': cm_to_m_snap(item.z_height, snap_value, decimals),
         'angle_z': math.radians(item.rotation)
     }
-    return 'make_bbox, %s' % ', '.join([f'{k}={v}' for k, v in b.items()])
+    bboxes.append('make_bbox, %s' % ', '.join([f'{k}={v}' for k, v in b.items()]))
 
 def make_design(design, snap_value=None, decimals=2):
     doors = []
@@ -134,7 +134,9 @@ def make_design(design, snap_value=None, decimals=2):
 
     walls = [make_wall(i, wall, doors, windows, snap_value, decimals) for i, wall in enumerate(design.walls)]
 
-    bboxes = [make_bbox(item, i) for i, item in enumerate(design.items)]
+    bboxes = []
+
+    [make_bbox(item, bboxes, snap_value, decimals) for i, item in enumerate(design.items)]
 
     return '\n'.join(walls) + '\n' + '\n'.join(doors) + '\n' + '\n'.join(windows) + '\n'.join(bboxes)
 
