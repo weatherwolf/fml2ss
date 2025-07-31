@@ -1,6 +1,7 @@
-import base64, json, os, requests
+import base64, json, os, requests, copy
 from types import SimpleNamespace
 import numpy as np
+from bezier import adaptive_bezier_segments
 
 API_ENDPOINT = 'https://floorplanner.com/api/v2'
 API_KEY = os.environ.get('FP_API_KEY', None)
@@ -20,22 +21,22 @@ def load_project(id):
 def cm_to_m_snap(cm_value, snap_value=None, decimals=2):
     """
     Convert centimeters to meters and optionally snap to an arbitrary value.
-    
+
     Args:
         cm_value (float): Value in centimeters
         snap_value (float, optional): Value to snap to in meters. If None, no snapping occurs.
         decimals (int, optional): Number of decimal places to round to. Defaults to 2.
-    
+
     Returns:
         float: Value in meters, optionally snapped to the specified value with specified decimal places
     """
     # Convert centimeters to meters
     meters = cm_value / 100.0
-    
+
     # If no snap value is provided, return the converted value rounded to specified decimals
     if snap_value is None:
         return round(meters, decimals)
-    
+
     # Snap to the nearest multiple of snap_value
     snapped_value = round(meters / snap_value) * snap_value
     return round(snapped_value, decimals)
@@ -43,7 +44,7 @@ def cm_to_m_snap(cm_value, snap_value=None, decimals=2):
 def make_opening(w, opening, doors, windows, snap_value=None, decimals=2):
     a = np.array([w['a_x'], w['a_y'], w['a_z']])
     b = np.array([w['b_x'], w['b_y'], w['b_z']])
-    ba = (b - a) 
+    ba = (b - a)
     pos = (a + opening.t * ba).tolist()
     is_door = opening.type == 'door'
     arr = doors if opening.type == 'door' else windows
@@ -67,10 +68,10 @@ def make_wall(id, wall, doors, windows, snap_value=None, decimals=2):
         'id': id,
         'a_x': cm_to_m_snap(wall.a.x, snap_value, decimals),
         'a_y': cm_to_m_snap(wall.a.y, snap_value, decimals),
-        'a_z': 0.0, 
+        'a_z': 0.0,
         'b_x': cm_to_m_snap(wall.b.x, snap_value, decimals),
         'b_y': cm_to_m_snap(wall.b.y, snap_value, decimals),
-        'b_z': 0.0, 
+        'b_z': 0.0,
         'heigth': cm_to_m_snap(wall.az.h, snap_value, decimals),
         'thickness': cm_to_m_snap(wall.thickness, snap_value, decimals)
     }
@@ -82,6 +83,25 @@ def make_wall(id, wall, doors, windows, snap_value=None, decimals=2):
 def make_design(design, snap_value=None, decimals=2):
     doors = []
     windows = []
+
+    curved_walls = [wall for wall in design.walls if wall.c]
+    design.walls = [wall for wall in design.walls if not wall.c]
+
+    for wall in curved_walls:
+        a = np.array([wall.a.x, wall.a.y])
+        b = np.array([wall.b.x, wall.b.y])
+        c = np.array([wall.c.x, wall.c.y])
+        segs = adaptive_bezier_segments(a, c, b, 0.01, 10)
+        for i, seg in enumerate(segs[:-1]):
+            seg2 = segs[i+1] if i+1 < len(segs) else segs[0]
+            w = copy.deepcopy(wall)
+            w.a.x = seg[0]
+            w.a.y = seg[1]
+            w.b.x = seg2[0]
+            w.b.y = seg2[1]
+            w.c = None
+            design.walls.append(w)
+
     walls = [make_wall(i, wall, doors, windows, snap_value, decimals) for i, wall in enumerate(design.walls)]
     return '\n'.join(walls) + '\n' + '\n'.join(doors) + '\n' + '\n'.join(windows)
 

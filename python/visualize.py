@@ -7,29 +7,29 @@ def parse_command_line(line):
     """
     Parse a command line like "make_wall, id=26, a_x=-8.26, a_y=4.26, a_z=0.0, b_x=-8.27, b_y=2.02, b_z=0.0, heigth=2.8, thickness=0.3"
     into a dictionary.
-    
+
     Args:
         line (str): The command line to parse
-        
+
     Returns:
         dict: Dictionary with 'command' key and other key-value pairs
     """
     # Split by comma and strip whitespace
     parts = [part.strip() for part in line.split(',')]
-    
+
     # First part is the command
     command = parts[0]
-    
+
     # Create dictionary starting with command
     result = {'command': command}
-    
+
     # Parse the rest as key=value pairs
     for part in parts[1:]:
         if '=' in part:
             key, value = part.split('=', 1)
             key = key.strip()
             value = value.strip()
-            
+
             # Try to convert value to appropriate type
             try:
                 # Try to convert to float first
@@ -43,7 +43,7 @@ def parse_command_line(line):
                     result[key] = value
             except ValueError:
                 result[key] = value
-    
+
     return result
 
 def visualize_design(design, width=1920, height=1080):
@@ -65,8 +65,8 @@ def visualize_design(design, width=1920, height=1080):
 
     center = (min_pt + size / 2) * scale
     offset = vp / 2 - center
-    im = Image.new('RGBA', (width, height), (0, 0, 0, 255)) 
-    draw = ImageDraw.Draw(im) 
+    im = Image.new('RGBA', (width, height), (0, 0, 0, 255))
+    draw = ImageDraw.Draw(im)
 
     for cmd in wall_commands:
         a = np.array([cmd['a_x'], cmd['a_y']]) * scale + offset
@@ -80,8 +80,8 @@ def visualize_design(design, width=1920, height=1080):
         ba = b - a
         dir = ba / np.linalg.norm(ba)
         normal = np.array([-dir[1], dir[0]])
-        width = cmd['width'] 
-        center = np.array([cmd['position_x'], cmd['position_y']]) 
+        width = cmd['width']
+        center = np.array([cmd['position_x'], cmd['position_y']])
         left = center - dir * width / 2
         right = center + dir * width / 2
         left = left * scale + offset
@@ -103,8 +103,9 @@ def visualize_design(design, width=1920, height=1080):
 
     im.show()
 
-designs = make_project(61301631, None, 2)
+#result = make_project(61301631, None, 2)
+result = make_project(175356817, None, 2)
 
-for design_id, design in designs['screenscript'].items():
+for design_id, design in result['screenscript'].items():
     visualize_design(design)
     break
