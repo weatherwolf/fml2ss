@@ -103,9 +103,10 @@ def make_project(project_id, snap_value=None, decimals=2):
         make_design(design, snap_value, decimals) for floor in project.floors for design in floor.designs
     }
 
-designs = make_project(61301631, None, 2)
+if __name__ == '__main__':
+    designs = make_project(61301631, None, 2)
 
-for design_id, design in designs.items():
-    print(design_id)
-    print(design)
-    print('-' * 100)
+    for design_id, design in designs.items():
+        print(design_id)
+        print(design)
+        print('-' * 100)
