@@ -1,4 +1,4 @@
-import base64, json, os, requests, copy
+import base64, json, os, requests, copy, math
 from types import SimpleNamespace
 import numpy as np
 from bezier import adaptive_bezier_segments
@@ -80,6 +80,33 @@ def make_wall(id, wall, doors, windows, snap_value=None, decimals=2):
         make_opening(w, opening, doors, windows, snap_value, decimals)
     return 'make_wall, %s' % ', '.join([f'{k}={v}' for k, v in w.items()])
 
+"""
+make_bbox,
+    id=3032,
+    class=chair,
+    position_x=-1.948361873626709,
+    position_y=5.060364246368408,
+    position_z=0.5710381269454956,
+    angle_z=-2.2972949999999996,
+    scale_x=0.46875,
+    scale_y=0.5625,
+    scale_z=1.125
+"""
+
+def make_bbox(item, index, snap_value=None, decimals=2):
+    b = {
+        'id': 3000 + index,
+        'class': hasattr(item, 'role') and item.role or 'unknown',
+        'position_x': cm_to_m_snap(item.x, snap_value, decimals),
+        'position_y': cm_to_m_snap(item.y, snap_value, decimals),
+        'position_z': cm_to_m_snap(item.z, snap_value, decimals),
+        'scale_x': cm_to_m_snap(item.width, snap_value, decimals),
+        'scale_y': cm_to_m_snap(item.height, snap_value, decimals),
+        'scale_z': cm_to_m_snap(item.z_height, snap_value, decimals),
+        'angle_z': math.radians(item.rotation)
+    }
+    return 'make_bbox, %s' % ', '.join([f'{k}={v}' for k, v in b.items()])
+
 def make_design(design, snap_value=None, decimals=2):
     doors = []
     windows = []
@@ -103,7 +130,10 @@ def make_design(design, snap_value=None, decimals=2):
             design.walls.append(w)
 
     walls = [make_wall(i, wall, doors, windows, snap_value, decimals) for i, wall in enumerate(design.walls)]
-    return '\n'.join(walls) + '\n' + '\n'.join(doors) + '\n' + '\n'.join(windows)
+
+    bboxes = [make_bbox(item, i) for i, item in enumerate(design.items)]
+
+    return '\n'.join(walls) + '\n' + '\n'.join(doors) + '\n' + '\n'.join(windows) + '\n'.join(bboxes)
 
 def make_project(project_id, snap_value=None, decimals=2):
     """

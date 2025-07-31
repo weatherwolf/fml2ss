@@ -3,6 +3,43 @@ from fml2screenscript import make_project
 from PIL import Image, ImageDraw
 import numpy as np
 
+def rotate_point_around_origin(point, angle_radians):
+    """
+    Rotate a point around the origin by a specified angle in radians.
+
+    Args:
+        point: Point to rotate (numpy array or list/tuple)
+        angle_radians: Rotation angle in radians (positive = counterclockwise)
+
+    Returns:
+        numpy array: Rotated point
+    """
+    point = np.array(point)
+
+    # Rotation matrix for 2D rotation around origin
+    cos_a = np.cos(angle_radians)
+    sin_a = np.sin(angle_radians)
+
+    rotation_matrix = np.array([
+        [cos_a, -sin_a],
+        [sin_a,  cos_a]
+    ])
+
+    return rotation_matrix @ point
+
+def rotate_points_around_origin(points, angle_radians):
+    """
+    Rotate multiple points around the origin by a specified angle in radians.
+
+    Args:
+        points: List of points to rotate (each point as numpy array or list/tuple)
+        angle_radians: Rotation angle in radians (positive = counterclockwise)
+
+    Returns:
+        list: List of rotated points as numpy arrays
+    """
+    return [rotate_point_around_origin(point, angle_radians) for point in points]
+
 def parse_command_line(line):
     """
     Parse a command line like "make_wall, id=26, a_x=-8.26, a_y=4.26, a_z=0.0, b_x=-8.27, b_y=2.02, b_z=0.0, heigth=2.8, thickness=0.3"
@@ -53,6 +90,7 @@ def visualize_design(design, width=1920, height=1080):
     wall_commands = [cmd for cmd in commands if cmd['command'] == 'make_wall']
     door_commands = [cmd for cmd in commands if cmd['command'] == 'make_door']
     window_commands = [cmd for cmd in commands if cmd['command'] == 'make_window']
+    bbox_commands = [cmd for cmd in commands if cmd['command'] == 'make_bbox']
     wall_pts = [np.array([cmd['a_x'], cmd['a_y']]) for cmd in wall_commands] + \
         [np.array([cmd['b_x'], cmd['b_y']]) for cmd in wall_commands]
 
@@ -88,23 +126,50 @@ def visualize_design(design, width=1920, height=1080):
         right = right * scale + offset
         th = int(wall['thickness'] * scale)
         draw.line((left.tolist(), right.tolist()), fill=(255, 255, 0, 255), width=th)
-        #draw.text(left.tolist(), 'door-%d' % cmd['id'], fill=(255, 255, 255, 255), font_size=20, anchor='la')
+
+    def draw_bbox(cmd):
+        a = np.array([cmd['position_x'], cmd['position_y']])
+
+        p1 = np.array([-cmd['scale_x'], -cmd['scale_y']]) * 0.5
+        p2 = np.array([ cmd['scale_x'], -cmd['scale_y']]) * 0.5
+        p3 = np.array([ cmd['scale_x'],  cmd['scale_y']]) * 0.5
+        p4 = np.array([-cmd['scale_x'],  cmd['scale_y']]) * 0.5
+
+        p1 = (a + rotate_point_around_origin(p1, cmd['angle_z'])) * scale + offset
+        p2 = (a + rotate_point_around_origin(p2, cmd['angle_z'])) * scale + offset
+        p3 = (a + rotate_point_around_origin(p3, cmd['angle_z'])) * scale + offset
+        p4 = (a + rotate_point_around_origin(p4, cmd['angle_z'])) * scale + offset
+
+        draw.line((p1.tolist(), p2.tolist()), fill=(255, 255, 255, 255), width=1)
+        draw.line((p2.tolist(), p3.tolist()), fill=(255, 255, 255, 255), width=1)
+        draw.line((p3.tolist(), p4.tolist()), fill=(255, 255, 255, 255), width=1)
+        draw.line((p4.tolist(), p1.tolist()), fill=(255, 255, 255, 255), width=1)
+
+        pa = a * scale + offset
+        draw.text(pa.tolist(), '%s' % cmd['class'], fill=(255, 0, 0, 255), font_size=15, anchor='la')
 
     for cmd in door_commands:
         draw_opening(cmd)
         a = np.array([cmd['position_x'], cmd['position_y']]) * scale + offset
         draw.circle(a.tolist(), fill=(0, 255, 0, 255), radius=10)
         draw.text(a.tolist(), 'door-%d' % cmd['id'], fill=(255, 255, 255, 255), font_size=20, anchor='la')
+
     for cmd in window_commands:
         draw_opening(cmd)
         a = np.array([cmd['position_x'], cmd['position_y']]) * scale + offset
         draw.circle(a.tolist(), fill=(0, 0, 255, 255), radius=10)
         draw.text(a.tolist(), 'window-%d' % cmd['id'], fill=(255, 255, 255, 255), font_size=20, anchor='la')
 
+    for cmd in bbox_commands:
+        a = np.array([cmd['position_x'], cmd['position_y']]) * scale + offset
+        #draw.rectangle(a.tolist(), fill=(255, 255, 255, 255), width=10)
+        draw_bbox(cmd)
+        #draw.text(a.tolist(), '%s' % cmd['class'], fill=(255, 255, 255, 255), font_size=20, anchor='la')
+
     im.show()
 
-#result = make_project(61301631, None, 2)
-result = make_project(175356817, None, 2)
+result = make_project(61301631, None, 2)
+#result = make_project(175356817, None, 2)
 
 for design_id, design in result['screenscript'].items():
     visualize_design(design)
