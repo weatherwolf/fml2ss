@@ -98,6 +98,7 @@ def make_bbox(item, index, snap_value=None, decimals=2):
         return ''
     b = {
         'id': 3000 + index,
+        'refid': item.refid,
         'class': hasattr(item, 'role') and item.role or 'unknown',
         'position_x': cm_to_m_snap(item.x, snap_value, decimals),
         'position_y': cm_to_m_snap(item.y, snap_value, decimals),
