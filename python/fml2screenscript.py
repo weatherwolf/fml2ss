@@ -174,8 +174,8 @@ def make_project(project_id, snap_value=None, decimals=2):
     }
 
 if __name__ == '__main__':
-    #result = make_project(61301631, None, 2)
-    result = make_project(175356817, None, 2)
+    result = make_project(61301631, None, 2)
+    #result = make_project(175356817, None, 2)
     for design_id, design in result['screenscript'].items():
         print(design_id)
         print(design)

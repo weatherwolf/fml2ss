@@ -118,7 +118,7 @@ def extract_rooms_from_screenscript(wall_data):
         for i,a in enumerate(c):
             b = c[(i+1) % len(c)]
             wall_ids.append(int(find_wall(a, b)))
-        commands.append('make_room, id=%s, walls=%s' % (cid+9000, ','.join(map(str, wall_ids))))
+        commands.append('make_room, id=%s, walls=%s' % (cid+9000, '-'.join(map(str, wall_ids))))
 
     return commands
 
