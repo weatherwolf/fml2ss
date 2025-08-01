@@ -1,5 +1,6 @@
 import re
 from fml2screenscript import make_project
+from he import find_cycles, point_in_cycle, cycle_centroid
 from PIL import Image, ImageDraw
 import numpy as np
 
@@ -106,11 +107,6 @@ def visualize_design(design, width=1920, height=1080):
     im = Image.new('RGBA', (width, height), (0, 0, 0, 255))
     draw = ImageDraw.Draw(im)
 
-    for cmd in wall_commands:
-        a = np.array([cmd['a_x'], cmd['a_y']]) * scale + offset
-        b = np.array([cmd['b_x'], cmd['b_y']]) * scale + offset
-        draw.line((a.tolist(), b.tolist()), fill=(255, 0, 0, 255), width=int(cmd['thickness'] * scale))
-
     def draw_opening(cmd):
         wall = wall_commands[int(cmd['wall0_id'])]
         a = np.array([wall['a_x'], wall['a_y']])
@@ -163,7 +159,66 @@ def visualize_design(design, width=1920, height=1080):
     for cmd in bbox_commands:
         draw_bbox(cmd)
 
+    for cmd in wall_commands:
+        a = np.array([cmd['a_x'], cmd['a_y']]) * scale + offset
+        b = np.array([cmd['b_x'], cmd['b_y']]) * scale + offset
+        ba = b - a
+        ta = a + ba * 0.5
+        draw.line((a.tolist(), b.tolist()), fill=(255, 0, 0, 255), width=int(cmd['thickness'] * scale))
+        draw.text(ta.tolist(), 'wall%d' % cmd['id'], fill=(255, 255, 255, 255), font_size=30, anchor='mm')
+
+    cycles = find_cycles(wall_commands)
+
+    perimeter_cycles = []
+    for cycle in cycles:
+        count = 0
+
+        for cycle2 in cycles:
+            if cycle == cycle2:
+                continue
+            c0 = cycle_centroid(cycle2)
+            if point_in_cycle(c0, cycle):
+                count += 1
+
+        if count == 8:
+            perimeter_cycles.append(cycle)
+        print('cycle intersects %d cycles' % count)
+
+    for cycle in perimeter_cycles:
+        cycles.remove(cycle)
+
+    for cycle in cycles:
+        draw_cycle(cycle, draw,scale, offset)
+
     im.show()
+
+def cycle_intersects(cycle1, cycle2):
+    for he1 in cycle1:
+        for he2 in cycle2:
+            if he1.wall['id'] == he2.wall['id']:
+                return True
+    return False
+
+def draw_cycle(cycle, draw, scale, offset):
+    for he in cycle:
+        p0 = he.start_point + he.normal * 0.4 + he.direction * 0.4
+        p1 = he.end_point + he.normal * 0.4 - he.direction * 0.4
+        pn0 = he.center + he.normal * 0.4
+        pn1 = he.center + he.normal * 0.5
+        pn0 = pn0 * scale + offset
+        pn1 = pn1 * scale + offset
+
+        pc1 = p0 + he.direction * 0.2
+        pc2 = p1 - he.direction * 0.2
+        pc1 = pc1 * scale + offset
+        pc2 = pc2 * scale + offset
+        p0 = p0 * scale + offset
+        p1 = p1 * scale + offset
+
+        draw.line((p0.tolist(), p1.tolist()), fill=(128, 128, 128, 255), width=1)
+        draw.line((pn0.tolist(), pn1.tolist()), fill=(255, 0, 0, 255), width=1)
+        draw.circle(pc1.tolist(), fill=(0, 255, 0, 255), radius=2)
+        draw.circle(pc2.tolist(), fill=(255, 0, 0, 255), radius=2)
 
 result = make_project(61301631, None, 2)
 #result = make_project(175356817, None, 2)

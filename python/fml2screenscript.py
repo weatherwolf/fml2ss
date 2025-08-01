@@ -2,6 +2,8 @@ import base64, json, os, requests, copy, math
 from types import SimpleNamespace
 import numpy as np
 from bezier import adaptive_bezier_segments
+from utils import Vertex, Wall, parse_command_line
+from min_cycles import extract_rooms_from_screenscript
 
 API_ENDPOINT = 'https://floorplanner.com/api/v2'
 API_KEY = os.environ.get('FP_API_KEY', None)
@@ -131,12 +133,26 @@ def make_design(design, snap_value=None, decimals=2):
             design.walls.append(w)
 
     walls = [make_wall(i, wall, doors, windows, snap_value, decimals) for i, wall in enumerate(design.walls)]
-
+    rooms = []
+    if len(walls) > 0:
+        rooms = extract_rooms_from_screenscript(walls)
     bboxes = []
 
     [make_bbox(item, bboxes, snap_value, decimals) for i, item in enumerate(design.items)]
 
-    return '\n'.join(walls) + '\n' + '\n'.join(doors) + '\n' + '\n'.join(windows) + '\n' + '\n'.join(bboxes)
+    commands = ''
+    if len(walls) > 0:
+        commands += '\n' + '\n'.join(walls)
+    if len(doors) > 0:
+        commands += '\n' + '\n'.join(doors)
+    if len(windows) > 0:
+        commands += '\n' + '\n'.join(windows)
+    if len(bboxes) > 0:
+        commands += '\n' + '\n'.join(bboxes)
+    if len(rooms) > 0:
+        commands += '\n' + '\n'.join(rooms)
+
+    return commands
 
 def make_project(project_id, snap_value=None, decimals=2):
     """
@@ -158,8 +174,8 @@ def make_project(project_id, snap_value=None, decimals=2):
     }
 
 if __name__ == '__main__':
-    result = make_project(61301631, None, 2)
-
+    #result = make_project(61301631, None, 2)
+    result = make_project(175356817, None, 2)
     for design_id, design in result['screenscript'].items():
         print(design_id)
         print(design)
