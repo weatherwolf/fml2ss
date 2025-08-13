@@ -80,7 +80,7 @@ def extract_cycles(vertices):
         v = left_bottom_vertex(vertices)
         walk = reduce_walk(closed_walk_from(v))
         if len(walk) > 2:
-            cycles.append(walk);
+            cycles.append(walk)
         remove_edge(walk[0], walk[1])
         vertices = remove_filament_at(walk[0], vertices)
         vertices = remove_filament_at(walk[1], vertices)
@@ -121,6 +121,45 @@ def extract_rooms_from_screenscript(wall_data):
         commands.append('make_room, id=%s, wall_ids=%s' % (cid+9000, '-'.join(map(str, wall_ids))))
 
     return commands
+
+def extract_rooms_from_screenscript_ids(wall_data):
+    walls = [Wall(parse_command_line(wall_data)) for wall_data in wall_data]
+    vertices = []
+    edges = []
+
+    for wall in walls:
+        if wall.a not in vertices:
+            vertices.append(wall.a)
+        if wall.b not in vertices:
+            vertices.append(wall.b)
+
+    for wall in walls:
+        edges.append([vertices.index(wall.a), vertices.index(wall.b)])
+
+    for a,b in edges:
+        vertices[a].adj.append(vertices[b])
+        vertices[b].adj.append(vertices[a])
+
+    cycles = extract_cycles(vertices)
+
+    def find_wall(a, b):
+        for wall in walls:
+            if (wall.a == a and wall.b == b) or (wall.a == b and wall.b == a):
+                return wall.id
+        return None
+
+    rooms = {}
+    for cid, c in enumerate(cycles):
+        wall_ids = []
+        for i,a in enumerate(c):
+            b = c[(i+1) % len(c)]
+            wall_ids.append(int(find_wall(a, b)))
+        rooms[cid+9000] = wall_ids
+
+    print(rooms)
+
+    return rooms
+
 
 if __name__ == "__main__":
     import json

@@ -88,3 +88,4 @@ def load_screenscript_file(filename):
                 walls.append(wall_data)
 
     return walls
+

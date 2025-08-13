@@ -224,5 +224,6 @@ result = make_project(61301631, None, 2)
 #result = make_project(175356817, None, 2)
 
 for design_id, design in result['screenscript'].items():
+    print(f'design_id: {design_id}')
     visualize_design(design)
     break
