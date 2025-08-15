@@ -1,0 +1,1957 @@
+{
+  "id": "d533d97fabd71c2b613ac38f7afe39fb4075f6a0871d2b8af9e0bfee00974040",
+  "parent_id": null,
+  "type": "project",
+  "attrs": {
+    "id": 61301631,
+    "name": "Example House",
+    "description": "",
+    "settings": {
+      "wallHeight": 280,
+      "wallSectionHeight": 150,
+      "wallThickness": 15,
+      "wallOuterThickness": 30,
+      "useMetric": true,
+      "showGrid": false,
+      "showDims": true,
+      "showShortDims": false,
+      "showAreaDims": false,
+      "generateOuterDimension": true,
+      "showDropShadows": true,
+      "showObjects": true,
+      "showFixtures": true,
+      "showItemOutline": false,
+      "showObjectColour": true,
+      "showStructuralColour": true,
+      "showFloorsBelow": false,
+      "showFixtures3D": true,
+      "showObjects3D": true,
+      "showSymbols": true,
+      "showObjectMono": false,
+      "showLights": false,
+      "hideLightsOnPan": false,
+      "useSection3D": false,
+      "showLabels": true,
+      "areaLabelOutline": false,
+      "areaLabelLetterSpacing": 7,
+      "dimLineLabelHorizontal": false,
+      "exportLabels3D": false,
+      "showShadows3D": true,
+      "exportOrtho3D": false,
+      "visuals": "ALL",
+      "showTexts": true,
+      "arrowHeadType": "arrow",
+      "showNorthArrow": false,
+      "northArrowRotation": 0,
+      "northArrowKind": 1,
+      "blueprintMode": false,
+      "dimLineFont": "arial",
+      "hideItemsAboveHeight": 122,
+      "hideItemsAbove": false,
+      "xRayWalls": false
+    },
+    "floors": [
+      {
+        "id": 110023773,
+        "name": "First Floor",
+        "level": 0,
+        "height": 280.0,
+        "designs": [
+          {
+            "id": 115981800,
+            "name": "First design",
+            "rooms": [
+              {
+                "id": 9000,
+                "name": "Room 9000",
+                "walls": [
+                  {
+                    "id": 19,
+                    "a_x": -4.76,
+                    "a_y": 5.27,
+                    "a_z": 0.0,
+                    "b_x": -8.27,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": []
+                  },
+                  {
+                    "id": 17,
+                    "a_x": -4.76,
+                    "a_y": 4.26,
+                    "a_z": 0.0,
+                    "b_x": -4.76,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": []
+                  },
+                  {
+                    "id": 13,
+                    "a_x": -8.27,
+                    "a_y": 4.26,
+                    "a_z": 0.0,
+                    "b_x": -4.76,
+                    "b_y": 4.26,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.1,
+                    "openings": [
+                      {
+                        "id": "222",
+                        "wall0_id": 13,
+                        "wall1_id": -1,
+                        "position_x": -7.61,
+                        "position_y": 4.26,
+                        "position_z": 0.0,
+                        "width": 1.19,
+                        "height": 2.7,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 11,
+                    "a_x": -8.27,
+                    "a_y": 5.27,
+                    "a_z": 0.0,
+                    "b_x": -8.27,
+                    "b_y": 4.26,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": []
+                  }
+                ],
+                "items": [
+                  {
+                    "id": 3000,
+                    "refid": "0a74fe428df1ffbc0d4eb91a1f5d93e810c02ac8",
+                    "class_name": "unknown",
+                    "position_x": -6.52,
+                    "position_y": 4.75,
+                    "position_z": 0.0,
+                    "scale_x": 0.89,
+                    "scale_y": 3.37,
+                    "scale_z": 2.8,
+                    "angle_z": 1.5707963267948966
+                  }
+                ],
+                "area": 3.5451000000000015
+              },
+              {
+                "id": 9001,
+                "name": "Room 9001",
+                "walls": [
+                  {
+                    "id": 13,
+                    "a_x": -8.27,
+                    "a_y": 4.26,
+                    "a_z": 0.0,
+                    "b_x": -4.76,
+                    "b_y": 4.26,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.1,
+                    "openings": [
+                      {
+                        "id": "222",
+                        "wall0_id": 13,
+                        "wall1_id": -1,
+                        "position_x": -7.61,
+                        "position_y": 4.26,
+                        "position_z": 0.0,
+                        "width": 1.19,
+                        "height": 2.7,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 14,
+                    "a_x": -3.88,
+                    "a_y": 4.26,
+                    "a_z": 0.0,
+                    "b_x": -4.76,
+                    "b_y": 4.26,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.1,
+                    "openings": [
+                      {
+                        "id": "200",
+                        "wall0_id": 14,
+                        "wall1_id": -1,
+                        "position_x": -4.31,
+                        "position_y": 4.26,
+                        "position_z": 0.0,
+                        "width": 0.74,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 12,
+                    "a_x": -3.88,
+                    "a_y": 3.37,
+                    "a_z": 0.0,
+                    "b_x": -3.88,
+                    "b_y": 4.26,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": []
+                  },
+                  {
+                    "id": 22,
+                    "a_x": -2.36,
+                    "a_y": 3.37,
+                    "a_z": 0.0,
+                    "b_x": -3.88,
+                    "b_y": 3.37,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": [
+                      {
+                        "id": "200",
+                        "wall0_id": 22,
+                        "wall1_id": -1,
+                        "position_x": -3.05,
+                        "position_y": 3.37,
+                        "position_z": 0.0,
+                        "width": 0.98,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 20,
+                    "a_x": -2.36,
+                    "a_y": 2.01,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": 3.37,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": [
+                      {
+                        "id": "200",
+                        "wall0_id": 20,
+                        "wall1_id": -1,
+                        "position_x": -2.36,
+                        "position_y": 2.7,
+                        "position_z": 0.0,
+                        "width": 0.98,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 24,
+                    "a_x": -6.05,
+                    "a_y": 2.01,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": 2.01,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": [
+                      {
+                        "id": "200",
+                        "wall0_id": 24,
+                        "wall1_id": -1,
+                        "position_x": -3.02,
+                        "position_y": 2.01,
+                        "position_z": 0.0,
+                        "width": 0.98,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 25,
+                    "a_x": -8.27,
+                    "a_y": 2.01,
+                    "a_z": 0.0,
+                    "b_x": -6.05,
+                    "b_y": 2.01,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": [
+                      {
+                        "id": "204",
+                        "wall0_id": 25,
+                        "wall1_id": -1,
+                        "position_x": -7.28,
+                        "position_y": 2.01,
+                        "position_z": 0.0,
+                        "width": 0.98,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 26,
+                    "a_x": -8.27,
+                    "a_y": 4.26,
+                    "a_z": 0.0,
+                    "b_x": -8.27,
+                    "b_y": 2.01,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": [
+                      {
+                        "id": "218",
+                        "wall0_id": 26,
+                        "wall1_id": -1,
+                        "position_x": -8.27,
+                        "position_y": 3.25,
+                        "position_z": 0.1,
+                        "width": 0.8,
+                        "height": 2.5,
+                        "type": "window"
+                      }
+                    ]
+                  }
+                ],
+                "items": [
+                  {
+                    "id": 3068,
+                    "refid": "ecd2bb0932fccdbc05f4bebbea3b69ac9707ba22",
+                    "class_name": "storage",
+                    "position_x": -6.21,
+                    "position_y": 2.33,
+                    "position_z": 0.0,
+                    "scale_x": 1.02,
+                    "scale_y": 0.47,
+                    "scale_z": 0.88,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3069,
+                    "refid": "b1ac696d342f1da63fe108f941de8c313cc5b126",
+                    "class_name": "bench",
+                    "position_x": -6.21,
+                    "position_y": 3.94,
+                    "position_z": 0.0,
+                    "scale_x": 1.51,
+                    "scale_y": 0.55,
+                    "scale_z": 0.77,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3070,
+                    "refid": "018f52ea0b259b9134aaa3685171d7ffe624c3dc",
+                    "class_name": "standing lamp",
+                    "position_x": -5.36,
+                    "position_y": 2.38,
+                    "position_z": 0.0,
+                    "scale_x": 0.58,
+                    "scale_y": 0.58,
+                    "scale_z": 1.7,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3071,
+                    "refid": "c4a835e032dd46c6d83f85b2adbdad41b1c3376b",
+                    "class_name": "console table",
+                    "position_x": -4.31,
+                    "position_y": 2.27,
+                    "position_z": 0.0,
+                    "scale_x": 1.52,
+                    "scale_y": 0.35,
+                    "scale_z": 0.71,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3072,
+                    "refid": "2d3318929f64ab30af436705e6a096329817c6d2",
+                    "class_name": "wall mirror",
+                    "position_x": -4.31,
+                    "position_y": 2.12,
+                    "position_z": 1.19,
+                    "scale_x": 1.02,
+                    "scale_y": 0.06,
+                    "scale_z": 1.02,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3073,
+                    "refid": "d0fe779d6d9f152945ca1929693e1fc0b7473a1e",
+                    "class_name": "wall mounted lamp",
+                    "position_x": -3.76,
+                    "position_y": 3.25,
+                    "position_z": 1.8,
+                    "scale_x": 0.4,
+                    "scale_y": 0.1,
+                    "scale_z": 0.15,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3074,
+                    "refid": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920",
+                    "class_name": "built-in spot light",
+                    "position_x": -5.59,
+                    "position_y": 3.07,
+                    "position_z": 2.8,
+                    "scale_x": 0.1,
+                    "scale_y": 0.1,
+                    "scale_z": 0.12,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3075,
+                    "refid": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920",
+                    "class_name": "built-in spot light",
+                    "position_x": -7.59,
+                    "position_y": 3.07,
+                    "position_z": 2.8,
+                    "scale_x": 0.1,
+                    "scale_y": 0.1,
+                    "scale_z": 0.12,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3076,
+                    "refid": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920",
+                    "class_name": "built-in spot light",
+                    "position_x": -3.59,
+                    "position_y": 3.07,
+                    "position_z": 2.8,
+                    "scale_x": 0.1,
+                    "scale_y": 0.1,
+                    "scale_z": 0.12,
+                    "angle_z": 0.0
+                  }
+                ],
+                "area": 11.944699999999997
+              },
+              {
+                "id": 9002,
+                "name": "Room 9002",
+                "walls": [
+                  {
+                    "id": 24,
+                    "a_x": -6.05,
+                    "a_y": 2.01,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": 2.01,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": [
+                      {
+                        "id": "200",
+                        "wall0_id": 24,
+                        "wall1_id": -1,
+                        "position_x": -3.02,
+                        "position_y": 2.01,
+                        "position_z": 0.0,
+                        "width": 0.98,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 2,
+                    "a_x": -2.36,
+                    "a_y": 2.01,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": 1.5,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": []
+                  },
+                  {
+                    "id": 4,
+                    "a_x": -2.36,
+                    "a_y": 1.5,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": -2.18,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": [
+                      {
+                        "id": "222",
+                        "wall0_id": 4,
+                        "wall1_id": -1,
+                        "position_x": -2.36,
+                        "position_y": -0.1,
+                        "position_z": 0.0,
+                        "width": 2.7,
+                        "height": 2.7,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 5,
+                    "a_x": -6.05,
+                    "a_y": -2.18,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": -2.18,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": []
+                  },
+                  {
+                    "id": 23,
+                    "a_x": -6.05,
+                    "a_y": 2.01,
+                    "a_z": 0.0,
+                    "b_x": -6.05,
+                    "b_y": -2.18,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": [
+                      {
+                        "id": "220",
+                        "wall0_id": 23,
+                        "wall1_id": -1,
+                        "position_x": -6.05,
+                        "position_y": -0.64,
+                        "position_z": 1.0,
+                        "width": 2.08,
+                        "height": 1.6,
+                        "type": "window"
+                      }
+                    ]
+                  }
+                ],
+                "items": [
+                  {
+                    "id": 3028,
+                    "refid": "64abd6658956997ca546c00ebe1e369ffc9bffd4",
+                    "class_name": "kitchen cabinet, floor, corner",
+                    "position_x": -5.55,
+                    "position_y": 1.52,
+                    "position_z": 0.0,
+                    "scale_x": 0.85,
+                    "scale_y": 0.84,
+                    "scale_z": 0.9,
+                    "angle_z": 9.424777960769381
+                  },
+                  {
+                    "id": 3029,
+                    "refid": "881b4930f7df83a2fe6d7278a67c81d4f1f727c3",
+                    "class_name": "kitchen stove",
+                    "position_x": -5.67,
+                    "position_y": 0.84,
+                    "position_z": 0.0,
+                    "scale_x": 0.5,
+                    "scale_y": 0.6,
+                    "scale_z": 0.91,
+                    "angle_z": 4.71238898038469
+                  },
+                  {
+                    "id": 3030,
+                    "refid": "14472289b14fcc1132137b9a8f8fe4e1ce47aa2e",
+                    "class_name": "kitchen cabinet, floor",
+                    "position_x": -5.67,
+                    "position_y": 0.19,
+                    "position_z": 0.0,
+                    "scale_x": 0.8,
+                    "scale_y": 0.6,
+                    "scale_z": 0.9,
+                    "angle_z": 4.71238898038469
+                  },
+                  {
+                    "id": 3031,
+                    "refid": "f71c22e2956fcc6e97ace5d6bc9334ddcd1842c1",
+                    "class_name": "kitchen cabinet with sink",
+                    "position_x": -4.73,
+                    "position_y": 1.64,
+                    "position_z": 0.0,
+                    "scale_x": 0.8,
+                    "scale_y": 0.6,
+                    "scale_z": 1.19,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3032,
+                    "refid": "c2d198ebe2cd8c70b0886e60d98b327f1934aa0e",
+                    "class_name": "kitchen cabinet, floor",
+                    "position_x": -5.67,
+                    "position_y": -0.36,
+                    "position_z": 0.0,
+                    "scale_x": 0.3,
+                    "scale_y": 0.6,
+                    "scale_z": 0.9,
+                    "angle_z": 4.71238898038469
+                  },
+                  {
+                    "id": 3033,
+                    "refid": "c2d198ebe2cd8c70b0886e60d98b327f1934aa0e",
+                    "class_name": "kitchen cabinet, floor",
+                    "position_x": -5.67,
+                    "position_y": -0.66,
+                    "position_z": 0.0,
+                    "scale_x": 0.3,
+                    "scale_y": 0.6,
+                    "scale_z": 0.9,
+                    "angle_z": 4.71238898038469
+                  },
+                  {
+                    "id": 3034,
+                    "refid": "c2d198ebe2cd8c70b0886e60d98b327f1934aa0e",
+                    "class_name": "kitchen cabinet, floor",
+                    "position_x": -4.18,
+                    "position_y": 1.64,
+                    "position_z": 0.0,
+                    "scale_x": 0.3,
+                    "scale_y": 0.6,
+                    "scale_z": 0.9,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3035,
+                    "refid": "c2d198ebe2cd8c70b0886e60d98b327f1934aa0e",
+                    "class_name": "kitchen cabinet, floor",
+                    "position_x": -5.67,
+                    "position_y": -0.96,
+                    "position_z": 0.0,
+                    "scale_x": 0.3,
+                    "scale_y": 0.6,
+                    "scale_z": 0.9,
+                    "angle_z": 4.71238898038469
+                  },
+                  {
+                    "id": 3036,
+                    "refid": "1c33bd447d70d4d22116c434d912f1fae78e02b7",
+                    "class_name": "fridge",
+                    "position_x": -3.93,
+                    "position_y": -1.72,
+                    "position_z": 0.0,
+                    "scale_x": 0.59,
+                    "scale_y": 0.75,
+                    "scale_z": 1.79,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3037,
+                    "refid": "97ecfc292e18fec96827a874c5d09d95ed7c86c5",
+                    "class_name": "kitchen hood",
+                    "position_x": -5.73,
+                    "position_y": 0.84,
+                    "position_z": 2.8,
+                    "scale_x": 0.9,
+                    "scale_y": 0.49,
+                    "scale_z": 0.7,
+                    "angle_z": 4.71238898038469
+                  },
+                  {
+                    "id": 3038,
+                    "refid": "4f167cad5def9f7fdb4ba74e90d21ba0943445a0",
+                    "class_name": "kitchen cabinet, wall, corner",
+                    "position_x": -5.65,
+                    "position_y": 1.61,
+                    "position_z": 1.7,
+                    "scale_x": 0.65,
+                    "scale_y": 0.65,
+                    "scale_z": 0.75,
+                    "angle_z": 1.3197301927193526e-15
+                  },
+                  {
+                    "id": 3039,
+                    "refid": "2b888cc70c8193c8fcb04f4b9cdc1eeb2d82087a",
+                    "class_name": "kitchen cabinet, wall",
+                    "position_x": -4.83,
+                    "position_y": 1.75,
+                    "position_z": 1.7,
+                    "scale_x": 0.5,
+                    "scale_y": 0.37,
+                    "scale_z": 0.75,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3040,
+                    "refid": "2b888cc70c8193c8fcb04f4b9cdc1eeb2d82087a",
+                    "class_name": "kitchen cabinet, wall",
+                    "position_x": -4.33,
+                    "position_y": 1.75,
+                    "position_z": 1.7,
+                    "scale_x": 0.5,
+                    "scale_y": 0.37,
+                    "scale_z": 0.75,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3041,
+                    "refid": "ccf3f0ee76dd2263f77ad90a7cec59da84e047c8",
+                    "class_name": "kitchen cabinet, floor, tall",
+                    "position_x": -3.05,
+                    "position_y": -1.81,
+                    "position_z": 0.0,
+                    "scale_x": 0.5,
+                    "scale_y": 0.57,
+                    "scale_z": 2.2,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3042,
+                    "refid": "afee6bd7cdfb61d66fa990b10b31a708d5e0487b",
+                    "class_name": "kitchen bin",
+                    "position_x": -2.66,
+                    "position_y": -1.95,
+                    "position_z": 0.0,
+                    "scale_x": 0.28,
+                    "scale_y": 0.3,
+                    "scale_z": 0.5,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3043,
+                    "refid": "5b16f3083c6a9446128debffc2cb7c911b54e221",
+                    "class_name": "kitchen trolley",
+                    "position_x": -4.84,
+                    "position_y": -1.82,
+                    "position_z": 0.0,
+                    "scale_x": 0.91,
+                    "scale_y": 0.56,
+                    "scale_z": 0.73,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3044,
+                    "refid": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920",
+                    "class_name": "built-in spot light",
+                    "position_x": -4.2,
+                    "position_y": -0.08,
+                    "position_z": 2.8,
+                    "scale_x": 0.1,
+                    "scale_y": 0.1,
+                    "scale_z": 0.12,
+                    "angle_z": 0.0
+                  }
+                ],
+                "area": 15.461100000000002
+              },
+              {
+                "id": 9003,
+                "name": "Room 9003",
+                "walls": [
+                  {
+                    "id": 18,
+                    "a_x": -3.88,
+                    "a_y": 5.27,
+                    "a_z": 0.0,
+                    "b_x": -4.76,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": []
+                  },
+                  {
+                    "id": 15,
+                    "a_x": -3.88,
+                    "a_y": 4.26,
+                    "a_z": 0.0,
+                    "b_x": -3.88,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": []
+                  },
+                  {
+                    "id": 14,
+                    "a_x": -3.88,
+                    "a_y": 4.26,
+                    "a_z": 0.0,
+                    "b_x": -4.76,
+                    "b_y": 4.26,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.1,
+                    "openings": [
+                      {
+                        "id": "200",
+                        "wall0_id": 14,
+                        "wall1_id": -1,
+                        "position_x": -4.31,
+                        "position_y": 4.26,
+                        "position_z": 0.0,
+                        "width": 0.74,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 17,
+                    "a_x": -4.76,
+                    "a_y": 4.26,
+                    "a_z": 0.0,
+                    "b_x": -4.76,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": []
+                  }
+                ],
+                "items": [
+                  {
+                    "id": 3001,
+                    "refid": "d7ab51af239b365d146fc553319312f4f2d952df",
+                    "class_name": "unknown",
+                    "position_x": -4.63,
+                    "position_y": 4.76,
+                    "position_z": 0.0,
+                    "scale_x": 0.63,
+                    "scale_y": 0.11,
+                    "scale_z": 2.0,
+                    "angle_z": 1.5707963267948966
+                  }
+                ],
+                "area": 0.8887999999999998
+              },
+              {
+                "id": 9004,
+                "name": "Room 9004",
+                "walls": [
+                  {
+                    "id": 16,
+                    "a_x": -2.36,
+                    "a_y": 5.27,
+                    "a_z": 0.0,
+                    "b_x": -3.88,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": []
+                  },
+                  {
+                    "id": 21,
+                    "a_x": -2.36,
+                    "a_y": 3.37,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": []
+                  },
+                  {
+                    "id": 22,
+                    "a_x": -2.36,
+                    "a_y": 3.37,
+                    "a_z": 0.0,
+                    "b_x": -3.88,
+                    "b_y": 3.37,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": [
+                      {
+                        "id": "200",
+                        "wall0_id": 22,
+                        "wall1_id": -1,
+                        "position_x": -3.05,
+                        "position_y": 3.37,
+                        "position_z": 0.0,
+                        "width": 0.98,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 12,
+                    "a_x": -3.88,
+                    "a_y": 3.37,
+                    "a_z": 0.0,
+                    "b_x": -3.88,
+                    "b_y": 4.26,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": []
+                  },
+                  {
+                    "id": 15,
+                    "a_x": -3.88,
+                    "a_y": 4.26,
+                    "a_z": 0.0,
+                    "b_x": -3.88,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": []
+                  }
+                ],
+                "items": [
+                  {
+                    "id": 3063,
+                    "refid": "5f436be29314cec131bdedaea822e70dcb7a7891",
+                    "class_name": "toilet",
+                    "position_x": -3.03,
+                    "position_y": 4.85,
+                    "position_z": 0.0,
+                    "scale_x": 0.49,
+                    "scale_y": 0.69,
+                    "scale_z": 0.77,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3064,
+                    "refid": "15007a0a6debdb7175ff55d33f245764a58a5b79",
+                    "class_name": "bathroom mat",
+                    "position_x": -3.03,
+                    "position_y": 4.21,
+                    "position_z": 0.0,
+                    "scale_x": 0.89,
+                    "scale_y": 0.59,
+                    "scale_z": 0.01,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3065,
+                    "refid": "5c1c57bff482cdd3028e317e8ce4d70e12d1cba1",
+                    "class_name": "bathroom cabinet",
+                    "position_x": -3.64,
+                    "position_y": 3.84,
+                    "position_z": 0.0,
+                    "scale_x": 0.37,
+                    "scale_y": 0.33,
+                    "scale_z": 1.53,
+                    "angle_z": 4.71238898038469
+                  },
+                  {
+                    "id": 3066,
+                    "refid": "ad0412045b2bf958eb9dc9bbfead221d3eea0697",
+                    "class_name": "wall art",
+                    "position_x": -2.44,
+                    "position_y": 4.32,
+                    "position_z": 1.45,
+                    "scale_x": 0.98,
+                    "scale_y": 0.0,
+                    "scale_z": 0.49,
+                    "angle_z": 4.71238898038469
+                  },
+                  {
+                    "id": 3067,
+                    "refid": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920",
+                    "class_name": "built-in spot light",
+                    "position_x": -3.12,
+                    "position_y": 4.32,
+                    "position_z": 2.8,
+                    "scale_x": 0.1,
+                    "scale_y": 0.1,
+                    "scale_z": 0.12,
+                    "angle_z": 0.0
+                  }
+                ],
+                "area": 2.8879999999999995
+              },
+              {
+                "id": 9005,
+                "name": "Room 9005",
+                "walls": [
+                  {
+                    "id": 7,
+                    "a_x": 3.64,
+                    "a_y": 5.27,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": []
+                  },
+                  {
+                    "id": 6,
+                    "a_x": 3.64,
+                    "a_y": 1.5,
+                    "a_z": 0.0,
+                    "b_x": 3.64,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": [
+                      {
+                        "id": "3263",
+                        "wall0_id": 6,
+                        "wall1_id": -1,
+                        "position_x": 3.64,
+                        "position_y": 4.44,
+                        "position_z": 0.0,
+                        "width": 0.98,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 1,
+                    "a_x": 3.64,
+                    "a_y": 1.5,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": 1.5,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.0,
+                    "openings": []
+                  },
+                  {
+                    "id": 2,
+                    "a_x": -2.36,
+                    "a_y": 2.01,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": 1.5,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": []
+                  },
+                  {
+                    "id": 20,
+                    "a_x": -2.36,
+                    "a_y": 2.01,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": 3.37,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": [
+                      {
+                        "id": "200",
+                        "wall0_id": 20,
+                        "wall1_id": -1,
+                        "position_x": -2.36,
+                        "position_y": 2.7,
+                        "position_z": 0.0,
+                        "width": 0.98,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 21,
+                    "a_x": -2.36,
+                    "a_y": 3.37,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": []
+                  }
+                ],
+                "items": [
+                  {
+                    "id": 3004,
+                    "refid": "556f8cb43b56b196cf0d7a765bdff208fe32f0e7",
+                    "class_name": "tv stand",
+                    "position_x": 1.27,
+                    "position_y": 4.97,
+                    "position_z": 0.0,
+                    "scale_x": 1.95,
+                    "scale_y": 0.46,
+                    "scale_z": 0.82,
+                    "angle_z": 3.1415926535897936
+                  },
+                  {
+                    "id": 3005,
+                    "refid": "1d438cf2a0be5706ffdbd1489fbfb27f712589a0",
+                    "class_name": "tv",
+                    "position_x": 1.27,
+                    "position_y": 5.16,
+                    "position_z": 0.66,
+                    "scale_x": 1.26,
+                    "scale_y": 0.08,
+                    "scale_z": 0.8,
+                    "angle_z": 9.921048172113442e-16
+                  },
+                  {
+                    "id": 3006,
+                    "refid": "0977f83725a4e42dc9c91d3333b32552752fe860",
+                    "class_name": "coffee table",
+                    "position_x": 1.27,
+                    "position_y": 3.51,
+                    "position_z": 0.0,
+                    "scale_x": 1.27,
+                    "scale_y": 0.66,
+                    "scale_z": 0.47,
+                    "angle_z": 8.955245192722805e-16
+                  },
+                  {
+                    "id": 3007,
+                    "refid": "a1b53ce275b2bb9482ce614d4be3827a408514ee",
+                    "class_name": "sofa",
+                    "position_x": -0.44,
+                    "position_y": 3.51,
+                    "position_z": 0.0,
+                    "scale_x": 1.88,
+                    "scale_y": 1.13,
+                    "scale_z": 1.05,
+                    "angle_z": 4.712388980384691
+                  },
+                  {
+                    "id": 3008,
+                    "refid": "f751ba19356c06c959592d31c0f88b9da6a983c3",
+                    "class_name": "console table",
+                    "position_x": -1.22,
+                    "position_y": 3.51,
+                    "position_z": 0.0,
+                    "scale_x": 1.27,
+                    "scale_y": 0.42,
+                    "scale_z": 0.76,
+                    "angle_z": 1.5707963267948977
+                  },
+                  {
+                    "id": 3009,
+                    "refid": "006ddf26979f5118867e6dd6fd43ee95a90c4748",
+                    "class_name": "end table",
+                    "position_x": -0.44,
+                    "position_y": 4.83,
+                    "position_z": 0.0,
+                    "scale_x": 0.56,
+                    "scale_y": 0.66,
+                    "scale_z": 0.61,
+                    "angle_z": 4.712388980384691
+                  },
+                  {
+                    "id": 3010,
+                    "refid": "90d55eafd8cf33acf293d542855ea7bbff00e3ba",
+                    "class_name": "end table lamp",
+                    "position_x": -0.44,
+                    "position_y": 4.83,
+                    "position_z": 0.61,
+                    "scale_x": 0.43,
+                    "scale_y": 0.27,
+                    "scale_z": 0.78,
+                    "angle_z": 4.712388980384691
+                  },
+                  {
+                    "id": 3011,
+                    "refid": "87b0f77329ff85e9a3ba425ad655d896e693a481",
+                    "class_name": "rug",
+                    "position_x": 1.27,
+                    "position_y": 3.51,
+                    "position_z": 0.0,
+                    "scale_x": 2.74,
+                    "scale_y": 1.83,
+                    "scale_z": 0.01,
+                    "angle_z": 3.141592653589794
+                  },
+                  {
+                    "id": 3012,
+                    "refid": "ecd2bb0932fccdbc05f4bebbea3b69ac9707ba22",
+                    "class_name": "cabinet",
+                    "position_x": -1.6,
+                    "position_y": 4.96,
+                    "position_z": 0.0,
+                    "scale_x": 1.02,
+                    "scale_y": 0.47,
+                    "scale_z": 0.88,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3013,
+                    "refid": "322affd9a2dfa99af727104877b278278b0a8987",
+                    "class_name": "bookcase",
+                    "position_x": -2.14,
+                    "position_y": 3.75,
+                    "position_z": 0.0,
+                    "scale_x": 0.89,
+                    "scale_y": 0.29,
+                    "scale_z": 1.85,
+                    "angle_z": 4.71238898038469
+                  },
+                  {
+                    "id": 3014,
+                    "refid": "010e4e192681b2a71f8d0583906f22b9bb5a4a33",
+                    "class_name": "floor lamp",
+                    "position_x": -0.85,
+                    "position_y": 2.24,
+                    "position_z": 0.0,
+                    "scale_x": 0.46,
+                    "scale_y": 0.3,
+                    "scale_z": 1.51,
+                    "angle_z": 4.712388980384691
+                  },
+                  {
+                    "id": 3015,
+                    "refid": "d884582df5288fc4927521ce86c0dd98c821b9f7",
+                    "class_name": "cabinet decor",
+                    "position_x": -1.65,
+                    "position_y": 4.9,
+                    "position_z": 0.88,
+                    "scale_x": 0.51,
+                    "scale_y": 0.13,
+                    "scale_z": 0.56,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3016,
+                    "refid": "dd62a6aafabe4bcc5dc49e61a5d5c87019e1b4c3",
+                    "class_name": "console table decor",
+                    "position_x": -1.15,
+                    "position_y": 3.51,
+                    "position_z": 0.76,
+                    "scale_x": 0.15,
+                    "scale_y": 0.15,
+                    "scale_z": 0.15,
+                    "angle_z": 1.5707963267948966
+                  },
+                  {
+                    "id": 3017,
+                    "refid": "c3c8a9a0e1f2037d9e82d2286748cb576b1fd738",
+                    "class_name": "console table decor",
+                    "position_x": -1.22,
+                    "position_y": 3.22,
+                    "position_z": 0.76,
+                    "scale_x": 0.18,
+                    "scale_y": 0.18,
+                    "scale_z": 0.28,
+                    "angle_z": 1.5707963267948983
+                  },
+                  {
+                    "id": 3018,
+                    "refid": "d2d5bdc4f299e6a6c4d994e001b8d89ad0e6f75c",
+                    "class_name": "console table decor",
+                    "position_x": -1.22,
+                    "position_y": 3.89,
+                    "position_z": 0.76,
+                    "scale_x": 0.23,
+                    "scale_y": 0.23,
+                    "scale_z": 0.43,
+                    "angle_z": 1.5707963267948977
+                  },
+                  {
+                    "id": 3019,
+                    "refid": "4b8536c8aff2c87f2afa54d2dd047e8add0f0533",
+                    "class_name": "end table decor",
+                    "position_x": 2.84,
+                    "position_y": 3.48,
+                    "position_z": 0.61,
+                    "scale_x": 0.29,
+                    "scale_y": 0.27,
+                    "scale_z": 0.17,
+                    "angle_z": 1.0913638457402612
+                  },
+                  {
+                    "id": 3020,
+                    "refid": "c9af68a5681d5c55cbc6ef5d924f285560eabbce",
+                    "class_name": "coffee table decor",
+                    "position_x": 1.54,
+                    "position_y": 3.65,
+                    "position_z": 0.47,
+                    "scale_x": 0.23,
+                    "scale_y": 0.29,
+                    "scale_z": 0.16,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3021,
+                    "refid": "27fced25af9e0ba19bc655dd30bd78532c43e284",
+                    "class_name": "floor plant",
+                    "position_x": 3.39,
+                    "position_y": 2.39,
+                    "position_z": 0.0,
+                    "scale_x": 1.11,
+                    "scale_y": 0.34,
+                    "scale_z": 1.47,
+                    "angle_z": 1.5707963267948966
+                  },
+                  {
+                    "id": 3026,
+                    "refid": "e4e26a66b209509fed81dcaa8561358275ca0b8d",
+                    "class_name": "chair",
+                    "position_x": 0.88,
+                    "position_y": 2.4,
+                    "position_z": 0.0,
+                    "scale_x": 0.68,
+                    "scale_y": 0.74,
+                    "scale_z": 0.74,
+                    "angle_z": 8.305584287084748e-16
+                  },
+                  {
+                    "id": 3027,
+                    "refid": "e4e26a66b209509fed81dcaa8561358275ca0b8d",
+                    "class_name": "chair",
+                    "position_x": 1.86,
+                    "position_y": 2.4,
+                    "position_z": 0.0,
+                    "scale_x": 0.68,
+                    "scale_y": 0.74,
+                    "scale_z": 0.74,
+                    "angle_z": 8.305584287084748e-16
+                  },
+                  {
+                    "id": 3077,
+                    "refid": "4b2fa7bf5449720ef6807257ec4413efe9dab095",
+                    "class_name": "tv stand decor",
+                    "position_x": 0.61,
+                    "position_y": 4.93,
+                    "position_z": 0.82,
+                    "scale_x": 0.41,
+                    "scale_y": 0.13,
+                    "scale_z": 0.35,
+                    "angle_z": 3.141592653589793
+                  }
+                ],
+                "area": 22.619999999999997
+              },
+              {
+                "id": 9006,
+                "name": "Room 9006",
+                "walls": [
+                  {
+                    "id": 1,
+                    "a_x": 3.64,
+                    "a_y": 1.5,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": 1.5,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.0,
+                    "openings": []
+                  },
+                  {
+                    "id": 0,
+                    "a_x": 3.64,
+                    "a_y": -1.32,
+                    "a_z": 0.0,
+                    "b_x": 3.64,
+                    "b_y": 1.5,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": [
+                      {
+                        "id": "208",
+                        "wall0_id": 0,
+                        "wall1_id": -1,
+                        "position_x": 3.64,
+                        "position_y": 0.24,
+                        "position_z": 0.0,
+                        "width": 1.79,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 3,
+                    "a_x": -2.36,
+                    "a_y": -2.18,
+                    "a_z": 0.0,
+                    "b_x": 3.64,
+                    "b_y": -1.32,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": [
+                      {
+                        "id": "220",
+                        "wall0_id": 3,
+                        "wall1_id": -1,
+                        "position_x": -0.23,
+                        "position_y": -1.87,
+                        "position_z": 0.8,
+                        "width": 3.0,
+                        "height": 1.8,
+                        "type": "window"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 4,
+                    "a_x": -2.36,
+                    "a_y": 1.5,
+                    "a_z": 0.0,
+                    "b_x": -2.36,
+                    "b_y": -2.18,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": [
+                      {
+                        "id": "222",
+                        "wall0_id": 4,
+                        "wall1_id": -1,
+                        "position_x": -2.36,
+                        "position_y": -0.1,
+                        "position_z": 0.0,
+                        "width": 2.7,
+                        "height": 2.7,
+                        "type": "door"
+                      }
+                    ]
+                  }
+                ],
+                "items": [
+                  {
+                    "id": 3022,
+                    "refid": "51c3494e896f54f12169c9a6a054960048899cdf",
+                    "class_name": "buffet",
+                    "position_x": 2.65,
+                    "position_y": -1.17,
+                    "position_z": 0.0,
+                    "scale_x": 1.54,
+                    "scale_y": 0.43,
+                    "scale_z": 0.9,
+                    "angle_z": 0.14124355145301604
+                  },
+                  {
+                    "id": 3023,
+                    "refid": "575dcc6cb4e1fde794a705f7322161fafa0a6a13",
+                    "class_name": "floor lamp",
+                    "position_x": 1.58,
+                    "position_y": -1.25,
+                    "position_z": 0.0,
+                    "scale_x": 0.57,
+                    "scale_y": 0.57,
+                    "scale_z": 1.73,
+                    "angle_z": 0.14124355145301604
+                  },
+                  {
+                    "id": 3024,
+                    "refid": "4b2fa7bf5449720ef6807257ec4413efe9dab095",
+                    "class_name": "buffet decor",
+                    "position_x": 3.11,
+                    "position_y": -1.1,
+                    "position_z": 0.9,
+                    "scale_x": 0.41,
+                    "scale_y": 0.13,
+                    "scale_z": 0.35,
+                    "angle_z": 0.14124355145301676
+                  },
+                  {
+                    "id": 3025,
+                    "refid": "2393b309d1b61ab1f11d6683f2c4af1bafd5478c",
+                    "class_name": "buffet decor",
+                    "position_x": 2.64,
+                    "position_y": -1.11,
+                    "position_z": 0.9,
+                    "scale_x": 0.13,
+                    "scale_y": 0.13,
+                    "scale_z": 0.44,
+                    "angle_z": 0.14124355145301615
+                  },
+                  {
+                    "id": 3078,
+                    "refid": "26584dd98f1f6565840f7dadad8a812dcb81d457",
+                    "class_name": "dining table",
+                    "position_x": 0.14,
+                    "position_y": -0.04,
+                    "position_z": 0.0,
+                    "scale_x": 2.0,
+                    "scale_y": 0.81,
+                    "scale_z": 0.75,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3079,
+                    "refid": "36009481ea38828f1c0ead7096ec28cf29b5f49d",
+                    "class_name": "rug",
+                    "position_x": 0.14,
+                    "position_y": -0.04,
+                    "position_z": 0.0,
+                    "scale_x": 3.04,
+                    "scale_y": 2.44,
+                    "scale_z": 0.01,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3080,
+                    "refid": "7b144968cf6d0577bf9a5618f1c2f44a40e9c909",
+                    "class_name": "side chair",
+                    "position_x": 0.59,
+                    "position_y": 0.48,
+                    "position_z": 0.0,
+                    "scale_x": 0.49,
+                    "scale_y": 0.62,
+                    "scale_z": 0.87,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3081,
+                    "refid": "7b144968cf6d0577bf9a5618f1c2f44a40e9c909",
+                    "class_name": "side chair",
+                    "position_x": -0.3,
+                    "position_y": 0.48,
+                    "position_z": 0.0,
+                    "scale_x": 0.49,
+                    "scale_y": 0.62,
+                    "scale_z": 0.87,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3082,
+                    "refid": "7b144968cf6d0577bf9a5618f1c2f44a40e9c909",
+                    "class_name": "side chair",
+                    "position_x": -0.3,
+                    "position_y": -0.55,
+                    "position_z": 0.0,
+                    "scale_x": 0.49,
+                    "scale_y": 0.62,
+                    "scale_z": 0.87,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3083,
+                    "refid": "7b144968cf6d0577bf9a5618f1c2f44a40e9c909",
+                    "class_name": "side chair",
+                    "position_x": 0.59,
+                    "position_y": -0.55,
+                    "position_z": 0.0,
+                    "scale_x": 0.49,
+                    "scale_y": 0.62,
+                    "scale_z": 0.87,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3084,
+                    "refid": "7b144968cf6d0577bf9a5618f1c2f44a40e9c909",
+                    "class_name": "side chair",
+                    "position_x": 1.25,
+                    "position_y": -0.04,
+                    "position_z": 0.0,
+                    "scale_x": 0.49,
+                    "scale_y": 0.62,
+                    "scale_z": 0.87,
+                    "angle_z": 1.5707963267948966
+                  },
+                  {
+                    "id": 3085,
+                    "refid": "7b144968cf6d0577bf9a5618f1c2f44a40e9c909",
+                    "class_name": "side chair",
+                    "position_x": -0.96,
+                    "position_y": -0.04,
+                    "position_z": 0.0,
+                    "scale_x": 0.49,
+                    "scale_y": 0.62,
+                    "scale_z": 0.87,
+                    "angle_z": 4.71238898038469
+                  },
+                  {
+                    "id": 3086,
+                    "refid": "0a9b335b816ece63f9b784a7a487df93a6d2abe1",
+                    "class_name": "hanging lamp",
+                    "position_x": 0.14,
+                    "position_y": -0.04,
+                    "position_z": 2.8,
+                    "scale_x": 1.17,
+                    "scale_y": 0.59,
+                    "scale_z": 1.07,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3087,
+                    "refid": "3b2bc1d7fb915261a095e2c2935803941b58f546",
+                    "class_name": "dining table decor",
+                    "position_x": -0.46,
+                    "position_y": -0.07,
+                    "position_z": 0.75,
+                    "scale_x": 0.07,
+                    "scale_y": 0.07,
+                    "scale_z": 0.12,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3088,
+                    "refid": "51a22c69abd300c67c0b53c7045d1e7f2db52cfb",
+                    "class_name": "dining table decor",
+                    "position_x": -0.02,
+                    "position_y": -0.18,
+                    "position_z": 0.75,
+                    "scale_x": 0.33,
+                    "scale_y": 0.29,
+                    "scale_z": 0.25,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3089,
+                    "refid": "347a45498dfdc2bd553a64da96e1771d5081efe1",
+                    "class_name": "floor plant",
+                    "position_x": -1.28,
+                    "position_y": -1.47,
+                    "position_z": 0.0,
+                    "scale_x": 0.98,
+                    "scale_y": 0.94,
+                    "scale_z": 1.5,
+                    "angle_z": 0.14124355145301604
+                  }
+                ],
+                "area": 19.5
+              },
+              {
+                "id": 9007,
+                "name": "Room 9007",
+                "walls": [
+                  {
+                    "id": 8,
+                    "a_x": 8.26,
+                    "a_y": 5.27,
+                    "a_z": 0.0,
+                    "b_x": 3.64,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": []
+                  },
+                  {
+                    "id": 9,
+                    "a_x": 8.26,
+                    "a_y": 1.5,
+                    "a_z": 0.0,
+                    "b_x": 8.26,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": [
+                      {
+                        "id": "218",
+                        "wall0_id": 9,
+                        "wall1_id": -1,
+                        "position_x": 8.26,
+                        "position_y": 3.35,
+                        "position_z": 0.85,
+                        "width": 1.18,
+                        "height": 1.75,
+                        "type": "window"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 10,
+                    "a_x": 3.64,
+                    "a_y": 1.5,
+                    "a_z": 0.0,
+                    "b_x": 8.26,
+                    "b_y": 1.5,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.3,
+                    "openings": [
+                      {
+                        "id": "3263",
+                        "wall0_id": 10,
+                        "wall1_id": -1,
+                        "position_x": 5.01,
+                        "position_y": 1.5,
+                        "position_z": 0.0,
+                        "width": 0.98,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 6,
+                    "a_x": 3.64,
+                    "a_y": 1.5,
+                    "a_z": 0.0,
+                    "b_x": 3.64,
+                    "b_y": 5.27,
+                    "b_z": 0.0,
+                    "height": 2.8,
+                    "thickness": 0.15,
+                    "openings": [
+                      {
+                        "id": "3263",
+                        "wall0_id": 6,
+                        "wall1_id": -1,
+                        "position_x": 3.64,
+                        "position_y": 4.44,
+                        "position_z": 0.0,
+                        "width": 0.98,
+                        "height": 2.2,
+                        "type": "door"
+                      }
+                    ]
+                  }
+                ],
+                "items": [
+                  {
+                    "id": 3045,
+                    "refid": "a555fadb1d25c630088b0a5a5d1e9867aefaba0b",
+                    "class_name": "bed",
+                    "position_x": 6.12,
+                    "position_y": 4.06,
+                    "position_z": 0.0,
+                    "scale_x": 1.86,
+                    "scale_y": 2.29,
+                    "scale_z": 1.62,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3046,
+                    "refid": "975be0edbd025e5063e4268a343e7a3901909c81",
+                    "class_name": "storage",
+                    "position_x": 4.06,
+                    "position_y": 2.74,
+                    "position_z": 0.0,
+                    "scale_x": 1.84,
+                    "scale_y": 0.7,
+                    "scale_z": 2.16,
+                    "angle_z": 4.71238898038469
+                  },
+                  {
+                    "id": 3047,
+                    "refid": "daf22e426300f5b1676128b22affd6a5cb40a285",
+                    "class_name": "dresser",
+                    "position_x": 6.13,
+                    "position_y": 1.82,
+                    "position_z": 0.0,
+                    "scale_x": 0.99,
+                    "scale_y": 0.47,
+                    "scale_z": 1.3,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3048,
+                    "refid": "b1ac696d342f1da63fe108f941de8c313cc5b126",
+                    "class_name": "bench",
+                    "position_x": 7.43,
+                    "position_y": 1.85,
+                    "position_z": 0.0,
+                    "scale_x": 1.51,
+                    "scale_y": 0.55,
+                    "scale_z": 0.77,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3049,
+                    "refid": "d59fb9c8db603176795a5441bbd7c0c402a1b647",
+                    "class_name": "nightstand",
+                    "position_x": 7.25,
+                    "position_y": 5.01,
+                    "position_z": 0.0,
+                    "scale_x": 0.39,
+                    "scale_y": 0.39,
+                    "scale_z": 0.51,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3050,
+                    "refid": "d59fb9c8db603176795a5441bbd7c0c402a1b647",
+                    "class_name": "nightstand",
+                    "position_x": 5.0,
+                    "position_y": 5.01,
+                    "position_z": 0.0,
+                    "scale_x": 0.39,
+                    "scale_y": 0.39,
+                    "scale_z": 0.51,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3051,
+                    "refid": "783097b43a3fdd7fd1285d84f31b0a7cfd29feb9",
+                    "class_name": "standing lamp",
+                    "position_x": 8.02,
+                    "position_y": 4.45,
+                    "position_z": 0.0,
+                    "scale_x": 0.53,
+                    "scale_y": 0.33,
+                    "scale_z": 1.75,
+                    "angle_z": 1.5707963267948966
+                  },
+                  {
+                    "id": 3052,
+                    "refid": "27f973b35f779ebe5bc95b8ccefb3f31acf57d15",
+                    "class_name": "bed wall art",
+                    "position_x": 6.79,
+                    "position_y": 5.18,
+                    "position_z": 2.02,
+                    "scale_x": 0.38,
+                    "scale_y": 0.03,
+                    "scale_z": 0.38,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3053,
+                    "refid": "6cafc7a4b841c657bfc8b31034aa9de918a25980",
+                    "class_name": "bed wall art",
+                    "position_x": 6.34,
+                    "position_y": 5.18,
+                    "position_z": 2.02,
+                    "scale_x": 0.38,
+                    "scale_y": 0.03,
+                    "scale_z": 0.38,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3054,
+                    "refid": "e6fbd077c4e6ba056a0b28d0822fa6a86dd05467",
+                    "class_name": "bed wall art",
+                    "position_x": 5.9,
+                    "position_y": 5.18,
+                    "position_z": 2.02,
+                    "scale_x": 0.38,
+                    "scale_y": 0.03,
+                    "scale_z": 0.38,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3055,
+                    "refid": "f79736b4217fdb4d125233cee62491a2207009bc",
+                    "class_name": "bed wall art",
+                    "position_x": 5.46,
+                    "position_y": 5.18,
+                    "position_z": 2.02,
+                    "scale_x": 0.38,
+                    "scale_y": 0.03,
+                    "scale_z": 0.38,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3056,
+                    "refid": "d02c766e9bc885aed0d0144e9e089aefbb84b6ea",
+                    "class_name": "dresser wall art",
+                    "position_x": 6.13,
+                    "position_y": 1.59,
+                    "position_z": 1.4,
+                    "scale_x": 0.71,
+                    "scale_y": 0.02,
+                    "scale_z": 1.19,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3057,
+                    "refid": "d3d198bc18f25f70387e06e18c6b1ded4abcc874",
+                    "class_name": "nightstand lamp",
+                    "position_x": 7.25,
+                    "position_y": 5.01,
+                    "position_z": 2.8,
+                    "scale_x": 0.29,
+                    "scale_y": 0.29,
+                    "scale_z": 1.3,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3058,
+                    "refid": "d3d198bc18f25f70387e06e18c6b1ded4abcc874",
+                    "class_name": "nightstand lamp",
+                    "position_x": 5.0,
+                    "position_y": 5.01,
+                    "position_z": 2.8,
+                    "scale_x": 0.29,
+                    "scale_y": 0.29,
+                    "scale_z": 1.3,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3059,
+                    "refid": "efcb17ebfbccc4bf00c36c1376a78d8dd9e7db29",
+                    "class_name": "nightstand wall art",
+                    "position_x": 5.0,
+                    "position_y": 5.18,
+                    "position_z": 1.43,
+                    "scale_x": 0.44,
+                    "scale_y": 0.04,
+                    "scale_z": 0.55,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3060,
+                    "refid": "175ed1c14a393e680d11eb174431d3d5edecbf9c",
+                    "class_name": "nightstand wall art",
+                    "position_x": 7.25,
+                    "position_y": 5.18,
+                    "position_z": 1.43,
+                    "scale_x": 0.44,
+                    "scale_y": 0.04,
+                    "scale_z": 0.55,
+                    "angle_z": 0.0
+                  },
+                  {
+                    "id": 3061,
+                    "refid": "5357a21a3e51967545318d3a51ed103cc3583319",
+                    "class_name": "rug",
+                    "position_x": 6.12,
+                    "position_y": 3.32,
+                    "position_z": 0.0,
+                    "scale_x": 3.39,
+                    "scale_y": 2.44,
+                    "scale_z": 0.01,
+                    "angle_z": 3.141592653589793
+                  },
+                  {
+                    "id": 3062,
+                    "refid": "06d658d6a4010fc56ccba5b4a2662ccd3607f680",
+                    "class_name": "dresser decor",
+                    "position_x": 5.89,
+                    "position_y": 1.87,
+                    "position_z": 1.3,
+                    "scale_x": 0.48,
+                    "scale_y": 0.1,
+                    "scale_z": 0.36,
+                    "angle_z": 0.0
+                  }
+                ],
+                "area": 17.417399999999994
+              }
+            ],
+            "unassigned_walls": [],
+            "unassigned_items": [
+              {
+                "id": 3002,
+                "refid": "688f0886e0009d343cdfa6ff3345459271dba40c",
+                "class_name": "unknown",
+                "position_x": 7.11,
+                "position_y": -1.65,
+                "position_z": 0.0,
+                "scale_x": 4.68,
+                "scale_y": 3.81,
+                "scale_z": 2.93,
+                "angle_z": 0.4188790204786391
+              },
+              {
+                "id": 3003,
+                "refid": "sym-351",
+                "class_name": "unknown",
+                "position_x": 9.63,
+                "position_y": -3.33,
+                "position_z": 0.0,
+                "scale_x": 1.5,
+                "scale_y": 1.5,
+                "scale_z": 0.0,
+                "angle_z": 5.916666164260777
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

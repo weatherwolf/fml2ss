@@ -1,0 +1,14 @@
+{
+  "id": "3cebf1cfbec6173c046436f1fb1b659c6e8435965d246d30fd4180f709d35e1b",
+  "parent_id": "d533d97fabd71c2b613ac38f7afe39fb4075f6a0871d2b8af9e0bfee00974040",
+  "type": "floor",
+  "designs": [
+    "24d737e45d46a63120714eacfa98532939b0d5cf92aa68d7127b3fc7db8635f7"
+  ],
+  "attrs": {
+    "id": 110023773,
+    "name": "First Floor",
+    "level": 0,
+    "height": 280.0
+  }
+}

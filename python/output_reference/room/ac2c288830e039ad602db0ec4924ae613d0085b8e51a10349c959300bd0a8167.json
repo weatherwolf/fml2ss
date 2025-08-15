@@ -1,0 +1,86 @@
+{
+  "id": "ac2c288830e039ad602db0ec4924ae613d0085b8e51a10349c959300bd0a8167",
+  "parent_id": "24d737e45d46a63120714eacfa98532939b0d5cf92aa68d7127b3fc7db8635f7",
+  "type": "room",
+  "attrs": {
+    "id": 9003,
+    "name": "Room 9003",
+    "walls": [
+      {
+        "id": 18,
+        "a_x": -3.88,
+        "a_y": 5.27,
+        "a_z": 0.0,
+        "b_x": -4.76,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.3,
+        "openings": []
+      },
+      {
+        "id": 15,
+        "a_x": -3.88,
+        "a_y": 4.26,
+        "a_z": 0.0,
+        "b_x": -3.88,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": []
+      },
+      {
+        "id": 14,
+        "a_x": -3.88,
+        "a_y": 4.26,
+        "a_z": 0.0,
+        "b_x": -4.76,
+        "b_y": 4.26,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.1,
+        "openings": [
+          {
+            "id": "200",
+            "wall0_id": 14,
+            "wall1_id": -1,
+            "position_x": -4.31,
+            "position_y": 4.26,
+            "position_z": 0.0,
+            "width": 0.74,
+            "height": 2.2,
+            "type": "door"
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "a_x": -4.76,
+        "a_y": 4.26,
+        "a_z": 0.0,
+        "b_x": -4.76,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": []
+      }
+    ],
+    "items": [
+      {
+        "id": 3001,
+        "refid": "d7ab51af239b365d146fc553319312f4f2d952df",
+        "class_name": "unknown",
+        "position_x": -4.63,
+        "position_y": 4.76,
+        "position_z": 0.0,
+        "scale_x": 0.63,
+        "scale_y": 0.11,
+        "scale_z": 2.0,
+        "angle_z": 1.5707963267948966
+      }
+    ],
+    "area": 0.8887999999999998
+  }
+}
