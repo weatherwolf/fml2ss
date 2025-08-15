@@ -122,8 +122,58 @@ def extract_rooms_from_screenscript(wall_data):
 
     return commands
 
+        
+
 def extract_rooms_from_screenscript_ids(wall_data):
     walls = [Wall(parse_command_line(wall_data)) for wall_data in wall_data]
+    vertices = []
+    edges = []
+
+    for wall in walls:
+        if wall.a not in vertices:
+            vertices.append(wall.a)
+        if wall.b not in vertices:
+            vertices.append(wall.b)
+
+    for wall in walls:
+        edges.append([vertices.index(wall.a), vertices.index(wall.b)])
+
+    for a,b in edges:
+        vertices[a].adj.append(vertices[b])
+        vertices[b].adj.append(vertices[a])
+
+    cycles = extract_cycles(vertices)
+
+    def find_wall(a, b):
+        for wall in walls:
+            if (wall.a == a and wall.b == b) or (wall.a == b and wall.b == a):
+                return wall.id
+        return None
+
+    rooms = {}
+    for cid, c in enumerate(cycles):
+        wall_ids = []
+        for i,a in enumerate(c):
+            b = c[(i+1) % len(c)]
+            wall_ids.append(int(find_wall(a, b)))
+        rooms[cid+9000] = wall_ids
+
+    print(rooms)
+
+    return rooms
+
+# self.data = wall_data
+        # self.id = wall_data['id']
+        # self.a = Vertex(wall_data['a_x'], wall_data['a_y'])
+        # self.b = Vertex(wall_data['b_x'], wall_data['b_y'])
+        # self.center = (self.a.position + self.b.position) / 2
+        # self.normal = np.array([-self.b.position[1] + self.a.position[1], self.b.position[0] - self.a.position[0]])
+        # self.normal = self.normal / np.linalg.norm(self.normal)
+        # self.direction = self.b.position - self.a.position
+        # self.direction = self.direction / np.linalg.norm(self.direction)
+        
+def extract_rooms_from_wall_objects(wall_data):
+    walls = [Wall(wall_data) for wall_data in wall_data]
     vertices = []
     edges = []
 

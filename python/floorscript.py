@@ -4,7 +4,7 @@ import numpy as np
 from bezier import adaptive_bezier_segments
 from dataclasses import dataclass, field
 from typing import List, Dict
-from min_cycles import extract_rooms_from_screenscript_ids
+from min_cycles import extract_rooms_from_screenscript_ids, extract_rooms_from_wall_objects
 from he import point_in_polygon
 
 API_ENDPOINT = 'https://floorplanner.com/api/v2'
@@ -39,6 +39,7 @@ class RoomWall:
     height: float
     thickness: float
     openings: List[Dict] = field(default_factory=list)
+    decor: List[Dict] = field(default_factory=list)
 
 @dataclass
 class Room:
@@ -158,7 +159,6 @@ def create_room_polygon(room):
 
     polygon.append(polygon[0])
 
-
     return polygon
 
 
@@ -178,6 +178,7 @@ def make_design_json(design, snap_value=None, decimals=2, parent_design_id=None)
     # Handle curved walls by converting them to straight segments
     curved_walls = [wall for wall in design.walls if wall.c]
     straight_walls = [wall for wall in design.walls if not wall.c]
+    areas = design.areas
 
     # Convert curved walls to straight segments
     for wall in curved_walls:
@@ -230,17 +231,9 @@ def make_design_json(design, snap_value=None, decimals=2, parent_design_id=None)
                 'height': round(opening.z_height * 0.01, decimals),
                 'type': opening.type
             }
-            wall_obj['openings'].append(opening_obj)
+            wall_obj['openings'].append(opening_obj)    
     
-    # Convert wall objects to the format expected by extract_rooms_from_screenscript_ids
-    wall_commands = []
-    for wall_obj in wall_objects:
-        wall_command = f"make_wall, id={wall_obj['id']}, a_x={wall_obj['a_x']}, a_y={wall_obj['a_y']}, a_z={wall_obj['a_z']}, b_x={wall_obj['b_x']}, b_y={wall_obj['b_y']}, b_z={wall_obj['b_z']}, height={wall_obj['height']}, thickness={wall_obj['thickness']}"
-        wall_commands.append(wall_command)
-    
-    # Extract rooms using existing logic
-    rooms_dict = extract_rooms_from_screenscript_ids(wall_commands)
-
+    rooms_dict = extract_rooms_from_wall_objects(wall_objects)
     
     # Create hierarchical design structure
     design_obj = Design(
@@ -266,7 +259,7 @@ def make_design_json(design, snap_value=None, decimals=2, parent_design_id=None)
                     b_z=wall_data['b_z'],
                     height=wall_data['height'],
                     thickness=wall_data['thickness'],
-                    openings=wall_data['openings']  # Transfer the openings
+                    openings=wall_data['openings'],
                 )
                 room.walls.append(room_wall)
         

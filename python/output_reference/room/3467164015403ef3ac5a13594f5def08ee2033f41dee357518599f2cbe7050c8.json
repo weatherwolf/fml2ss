@@ -1,6 +1,6 @@
 {
-  "id": "6cfbb013898d40003038464ea8a12958b24b22c7dd65f1254781585174b3c791",
-  "parent_id": "24d737e45d46a63120714eacfa98532939b0d5cf92aa68d7127b3fc7db8635f7",
+  "id": "3467164015403ef3ac5a13594f5def08ee2033f41dee357518599f2cbe7050c8",
+  "parent_id": "2299d59c4986e0c39fd88a9b92c32b2663e4799720420757f703fa289f374983",
   "type": "room",
   "attrs": {
     "id": 9006,
@@ -16,7 +16,8 @@
         "b_z": 0.0,
         "height": 2.8,
         "thickness": 0.0,
-        "openings": []
+        "openings": [],
+        "decor": []
       },
       {
         "id": 0,
@@ -40,7 +41,8 @@
             "height": 2.2,
             "type": "door"
           }
-        ]
+        ],
+        "decor": []
       },
       {
         "id": 3,
@@ -64,7 +66,8 @@
             "height": 1.8,
             "type": "window"
           }
-        ]
+        ],
+        "decor": []
       },
       {
         "id": 4,
@@ -88,7 +91,8 @@
             "height": 2.7,
             "type": "door"
           }
-        ]
+        ],
+        "decor": []
       }
     ],
     "items": [

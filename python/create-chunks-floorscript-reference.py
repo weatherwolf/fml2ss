@@ -17,10 +17,6 @@ def load_project(id):
     project = make_project(id, None, 2)
     return project['hierarchical']
 
-    auth = 'Basic %s' % base64.b64encode(('%s:x' % API_KEY).encode()).decode()
-    url = '%s/projects/%s/fml' % (API_ENDPOINT, str(id))
-    return json.loads(get(url, auth), object_hook=lambda d: SimpleNamespace(**d))
-
 def get_obj_dict(obj):
     return obj.__dict__
 

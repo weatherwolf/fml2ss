@@ -66,7 +66,9 @@ def parse_command_line(line):
             except ValueError:
                 result[key] = value
 
+    print(result)
     return result
+
 
 def load_screenscript_file(filename):
     """
