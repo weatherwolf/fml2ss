@@ -64,9 +64,7 @@ async function processDesign (design, projectSettings) {
             area.walls.push(wall.id);
         }
 
-        area.polygonArea = fpe.math.polygonArea(area.poly);
-
-        console.log(area)
+        area.polygonArea = Math.abs(fpe.math.polygonArea(area.poly));
     }
 
     return floorplan.state;
