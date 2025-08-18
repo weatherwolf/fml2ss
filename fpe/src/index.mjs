@@ -112,7 +112,7 @@ export async function handler(event) {
         };
     }
 }
-
+/*
 (async () => {
     const projectId = 61301631; // Replace with your project ID
     const designId = 115981800; // Replace with your design ID
@@ -123,3 +123,4 @@ export async function handler(event) {
         console.log(wall.id);
     }
 })()
+*/
