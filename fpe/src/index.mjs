@@ -97,7 +97,8 @@ export async function handler(event) {
         };
     }
 
-    console.log('Testing design:', `${projectId}/${designId}`);
+    console.log(`Loading design ${designId} from project ${projectId}`);
+
     try {
         const design = await loadDesign(projectId, designId);
         return {
@@ -105,7 +106,7 @@ export async function handler(event) {
             body: JSON.stringify(design),
         };
     } catch (error) {
-        console.error('Error during test:', error);
+        console.error('Error during loadDesign:', error);
         return {
             statusCode: 500,
             body: JSON.stringify({ error: error.message }),

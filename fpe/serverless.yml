@@ -35,5 +35,3 @@ functions:
       - http:
           path: /design
           method: get
-    environment:
-      FP_API_KEY: ${env:FP_API_KEY}
