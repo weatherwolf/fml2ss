@@ -1,0 +1,39 @@
+service: fp-linda-summer-fpe
+
+frameworkVersion: '4'
+
+package:
+  patterns:
+    - '!.*'
+    - '!./test'
+    - '!debug-env'
+    - '!env.bat'
+
+custom:
+  fml_bucket: fml-${self:provider.stage}
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: eu-west-1
+  stage: ${opt:stage, 'prod'}
+  memorySize: 512
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action: s3:GetObject
+          Resource: arn:aws:s3:::${self:custom.fml_bucket}/*
+  environment:
+    fml_bucket: ${self:custom.fml_bucket}
+
+functions:
+  webhook:
+    handler: src/index.handler
+    timeout: 29
+    events:
+      - http:
+          path: /design
+          method: get
+    environment:
+      FP_API_KEY: ${env:FP_API_KEY}
