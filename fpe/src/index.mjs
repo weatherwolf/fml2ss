@@ -6,6 +6,15 @@ global.window = global.window || {};
 
 const client = new S3Client({region: 'eu-west-1'});
 
+const fp_headers = {Authorization: `Basic ${Buffer.from(process.env.FP_API_KEY + ':x').toString('base64')}`}
+
+async function loadProject (id) {
+    return (await fetch(`https://floorplanner.com/api/v2/projects/${id}/fml`, {
+        method: 'GET',
+        headers: {...fp_headers, 'Content-Type': 'application/json'}
+    })).json();
+}
+
 async function loadFml(Key) {
     const {Body} = await client.send(
         new GetObjectCommand({
@@ -118,10 +127,7 @@ export async function handler(event) {
     const projectId = 61301631; // Replace with your project ID
     const designId = 115981800; // Replace with your design ID
 
-    const fml = await loadDesign(projectId, designId);
-
-    for (const wall of fml.walls) {
-        console.log(wall.id);
-    }
+    const project = await loadProject(projectId);
+    console.log(project)
 })()
 */
