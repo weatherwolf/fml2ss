@@ -34,7 +34,7 @@ function streamToString(stream) {
     });
 }
 
-async function processDesign (design, projectSettings) {
+export async function processDesign (design, projectSettings) {
     const settings = {...fpe.defaults, ...projectSettings, ...design.settings};
 
     const floorplan = new fpe.Floorplan(settings);
