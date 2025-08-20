@@ -1,0 +1,46 @@
+{
+  "id": "e52c81c7e75260845f222821fcf78b659bb8a2e0dc9667830e9326a9cbdcb248",
+  "parent_id": "1fce5f1bed0b8a3e0e774a954f76a871a14bc9f556ce0c13545219baa6d51931",
+  "type": "design",
+  "rooms": [
+    "964bd2d3129ce13aced751e9ffad06063fe98a35128aa19c3369fd27e6a533bd",
+    "0cce25d174e5634582998eb1627a68931f81dc190cb7055f523b588e91cbeda1",
+    "c3840d95deccbb02290f6447dd4bc397668337a0f83365df21a9b66cf0162d02",
+    "66c0ce203fe0caff74f5850da609d045fbedfc093850cca6da1813601950fa35",
+    "99f980b126d9d6b4f9971df5950c27852c34ae891d748643b872e636796d8b1a",
+    "f48c4fc271c6fb3a478c0334d881c4026e89300e28a97d91d99535a5b5ec46af",
+    "9d50438121904d625df0efd68156c9280b1365df64f02a131dd3d949278c0242",
+    "4c7cb53d4d0459ccdff66a12967b5068a2e14fa9bdb1c079f0e5b2b2cc79ef94"
+  ],
+  "attrs": {
+    "id": 115981800,
+    "name": "First design",
+    "unassigned_walls": [],
+    "unassigned_items": [
+      {
+        "id": 3002,
+        "refid": "688f0886e0009d343cdfa6ff3345459271dba40c",
+        "class_name": "unknown",
+        "position_x": 7.11,
+        "position_y": -1.65,
+        "position_z": 0.0,
+        "scale_x": 4.68,
+        "scale_y": 3.81,
+        "scale_z": 2.93,
+        "angle_z": 0.4188790204786391
+      },
+      {
+        "id": 3003,
+        "refid": "sym-351",
+        "class_name": "unknown",
+        "position_x": 9.63,
+        "position_y": -3.33,
+        "position_z": 0.0,
+        "scale_x": 1.5,
+        "scale_y": 1.5,
+        "scale_z": 0.0,
+        "angle_z": 5.916666164260777
+      }
+    ]
+  }
+}

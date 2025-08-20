@@ -1,7 +1,8 @@
 import base64, json, os, requests, copy, math
 from types import SimpleNamespace
 import hashlib
-from floorscript import make_project, dataclass_to_dict
+from floorscript import make_project
+from summarizer.api import run_api
 
 API_ENDPOINT = 'https://floorplanner.com/api/v2'
 API_KEY = os.environ.get('FP_API_KEY', None)

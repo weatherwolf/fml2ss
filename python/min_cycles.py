@@ -206,8 +206,6 @@ def extract_rooms_from_wall_objects(wall_data):
             wall_ids.append(int(find_wall(a, b)))
         rooms[cid+9000] = wall_ids
 
-    print(rooms)
-
     return rooms
 
 

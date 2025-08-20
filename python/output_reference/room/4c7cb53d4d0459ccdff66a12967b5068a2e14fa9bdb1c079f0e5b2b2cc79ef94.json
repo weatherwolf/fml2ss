@@ -1,0 +1,2864 @@
+{
+  "id": "4c7cb53d4d0459ccdff66a12967b5068a2e14fa9bdb1c079f0e5b2b2cc79ef94",
+  "parent_id": "e52c81c7e75260845f222821fcf78b659bb8a2e0dc9667830e9326a9cbdcb248",
+  "type": "room",
+  "attrs": {
+    "id": 9007,
+    "name": "Room 9007",
+    "walls": [
+      {
+        "id": 8,
+        "a_x": 8.26,
+        "a_y": 5.27,
+        "a_z": 0.0,
+        "b_x": 3.64,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.3,
+        "openings": [],
+        "decor": []
+      },
+      {
+        "id": 9,
+        "a_x": 8.26,
+        "a_y": 1.5,
+        "a_z": 0.0,
+        "b_x": 8.26,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.3,
+        "openings": [
+          {
+            "id": "218",
+            "wall0_id": 9,
+            "wall1_id": -1,
+            "position_x": 8.26,
+            "position_y": 3.35,
+            "position_z": 0.85,
+            "width": 1.18,
+            "height": 1.75,
+            "type": "window"
+          }
+        ],
+        "decor": []
+      },
+      {
+        "id": 10,
+        "a_x": 3.64,
+        "a_y": 1.5,
+        "a_z": 0.0,
+        "b_x": 8.26,
+        "b_y": 1.5,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.3,
+        "openings": [
+          {
+            "id": "3263",
+            "wall0_id": 10,
+            "wall1_id": -1,
+            "position_x": 5.01,
+            "position_y": 1.5,
+            "position_z": 0.0,
+            "width": 0.98,
+            "height": 2.2,
+            "type": "door"
+          }
+        ],
+        "decor": []
+      },
+      {
+        "id": 6,
+        "a_x": 3.64,
+        "a_y": 1.5,
+        "a_z": 0.0,
+        "b_x": 3.64,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": [
+          {
+            "id": "3263",
+            "wall0_id": 6,
+            "wall1_id": -1,
+            "position_x": 3.64,
+            "position_y": 4.44,
+            "position_z": 0.0,
+            "width": 0.98,
+            "height": 2.2,
+            "type": "door"
+          }
+        ],
+        "decor": []
+      }
+    ],
+    "items": [
+      {
+        "id": 3045,
+        "refid": "a555fadb1d25c630088b0a5a5d1e9867aefaba0b",
+        "class_name": "bed",
+        "position_x": 6.12,
+        "position_y": 4.06,
+        "position_z": 0.0,
+        "scale_x": 1.86,
+        "scale_y": 2.29,
+        "scale_z": 1.62,
+        "angle_z": 3.141592653589793,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "a555fadb1d25c630088b0a5a5d1e9867aefaba0b",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Quinn Queen Bed",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/no-results-discontinued.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "207065G1",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "discontinued",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-08-21T08:54:59.446Z",
+                  "tracked": false,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 186.264,
+                  "height": 162.588,
+                  "depth": 228.621,
+                  "model": "a555fadb1d25c630088b0a5a5d1e9867aefaba0b_01",
+                  "tags": [
+                    1958,
+                    1018,
+                    1024,
+                    1025,
+                    2026,
+                    1128,
+                    13138,
+                    14218,
+                    45070,
+                    12840,
+                    9345,
+                    45212,
+                    45199,
+                    45200
+                  ],
+                  "surface_height": 68.0,
+                  "parent": "GB000A353PSWVQ4BBBSXRB6NCWCHOPWBS6CJVBJZ",
+                  "level": 1,
+                  "bbox_min": [
+                    -93.132,
+                    -114.31,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    93.132,
+                    114.311,
+                    162.588
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-09-07T13:45:03.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#7E7C7E",
+                  "is_glb": false,
+                  "color_h": 0.8333333333333334,
+                  "color_s": 0.008000000000000028,
+                  "color_l": 0.4901960784313726,
+                  "price": null,
+                  "has_special_price": false,
+                  "materials": [
+                    {
+                      "name": "FABRIC_58622",
+                      "role": "Fabric",
+                      "system_role": "Fabric",
+                      "default_id": 933,
+                      "reference_id": null,
+                      "variations": [
+                        {
+                          "id": 922,
+                          "name": "Tuckahoe Mineral",
+                          "sku": "H3280",
+                          "properties": {}
+                        },
+                        {
+                          "id": 923,
+                          "name": "Tuckahoe Wheat",
+                          "sku": "H3247",
+                          "properties": {}
+                        },
+                        {
+                          "id": 214,
+                          "name": "Gil Indigo",
+                          "sku": "H2688",
+                          "properties": {}
+                        },
+                        {
+                          "id": 213,
+                          "name": "Gil Mineral",
+                          "sku": "H2680",
+                          "properties": {}
+                        },
+                        {
+                          "id": 212,
+                          "name": "Gil Amber",
+                          "sku": "H2673",
+                          "properties": {}
+                        },
+                        {
+                          "id": 211,
+                          "name": "Gil Camel",
+                          "sku": "H2671",
+                          "properties": {}
+                        },
+                        {
+                          "id": 210,
+                          "name": "Gil Fog",
+                          "sku": "H2655",
+                          "properties": {}
+                        },
+                        {
+                          "id": 209,
+                          "name": "Gil Dove",
+                          "sku": "H2653",
+                          "properties": {}
+                        },
+                        {
+                          "id": 208,
+                          "name": "Gil Metal",
+                          "sku": "H2651",
+                          "properties": {}
+                        },
+                        {
+                          "id": 924,
+                          "name": "Fonte Oyster",
+                          "sku": "H1439",
+                          "properties": {}
+                        },
+                        {
+                          "id": 925,
+                          "name": "Ledley Silver",
+                          "sku": "62853",
+                          "properties": {}
+                        },
+                        {
+                          "id": 938,
+                          "name": "Leman Dijon",
+                          "sku": "60941",
+                          "properties": {}
+                        },
+                        {
+                          "id": 939,
+                          "name": "Leman Linen",
+                          "sku": "60939",
+                          "properties": {}
+                        },
+                        {
+                          "id": 926,
+                          "name": "Camby Eggplant",
+                          "sku": "59199",
+                          "properties": {}
+                        },
+                        {
+                          "id": 927,
+                          "name": "Camby Indigo",
+                          "sku": "59188",
+                          "properties": {}
+                        },
+                        {
+                          "id": 928,
+                          "name": "Camby Cognac",
+                          "sku": "59169",
+                          "properties": {}
+                        },
+                        {
+                          "id": 929,
+                          "name": "Camby Spice",
+                          "sku": "59166",
+                          "properties": {}
+                        },
+                        {
+                          "id": 931,
+                          "name": "Camby Olive",
+                          "sku": "59127",
+                          "properties": {}
+                        },
+                        {
+                          "id": 930,
+                          "name": "Camby Green",
+                          "sku": "59122",
+                          "properties": {}
+                        },
+                        {
+                          "id": 932,
+                          "name": "Hibbert Gray",
+                          "sku": "58655",
+                          "properties": {}
+                        },
+                        {
+                          "id": 933,
+                          "name": "Hibbert Water",
+                          "sku": "58622",
+                          "properties": {}
+                        },
+                        {
+                          "id": 934,
+                          "name": "Hibbert Seaglass",
+                          "sku": "58621",
+                          "properties": {}
+                        },
+                        {
+                          "id": 935,
+                          "name": "Hibbert Brick",
+                          "sku": "58602",
+                          "properties": {}
+                        },
+                        {
+                          "id": 940,
+                          "name": "Weir Charcoal",
+                          "sku": "50653",
+                          "properties": {}
+                        },
+                        {
+                          "id": 406,
+                          "name": "Bronco White",
+                          "sku": "43730",
+                          "properties": {}
+                        },
+                        {
+                          "id": 941,
+                          "name": "Ramona Jasper",
+                          "sku": "38329",
+                          "properties": {}
+                        },
+                        {
+                          "id": 942,
+                          "name": "Ramona Ballet Pink",
+                          "sku": "38313",
+                          "properties": {}
+                        },
+                        {
+                          "id": 937,
+                          "name": "Brax Charcoal",
+                          "sku": "23654",
+                          "properties": {}
+                        },
+                        {
+                          "id": 936,
+                          "name": "Brax Oatmeal",
+                          "sku": "23633",
+                          "properties": {}
+                        }
+                      ]
+                    }
+                  ],
+                  "lab_l": "52.238779214136514",
+                  "lab_a": "1.1545549770942132",
+                  "lab_b": -0.8266974230123791,
+                  "palette_color": [
+                    "grey"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3046,
+        "refid": "975be0edbd025e5063e4268a343e7a3901909c81",
+        "class_name": "storage",
+        "position_x": 4.06,
+        "position_y": 2.74,
+        "position_z": 0.0,
+        "scale_x": 1.84,
+        "scale_y": 0.7,
+        "scale_z": 2.16,
+        "angle_z": 4.71238898038469,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "975be0edbd025e5063e4268a343e7a3901909c81",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Madrid Mirrored Wardrobe, Beech effect",
+                  "currency": null,
+                  "url": "https://floorplanner.com",
+                  "company_id": 1,
+                  "out_of_stock": false,
+                  "sku": null,
+                  "brand": "Floorplanner",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2014-06-27T13:09:19.224Z",
+                  "tracked": true,
+                  "width": 184.0,
+                  "height": 216.0,
+                  "depth": 70.0,
+                  "model": "975be0edbd025e5063e4268a343e7a3901909c81_03",
+                  "tags": [
+                    1853,
+                    1018,
+                    1025,
+                    1026,
+                    1128,
+                    1852,
+                    1889,
+                    1922,
+                    6441,
+                    13138,
+                    14218,
+                    45070,
+                    45202,
+                    45199,
+                    45200,
+                    45430
+                  ],
+                  "surface_height": 216.0,
+                  "parent": "GB000011S5N6B3N5AJPFAY7EE2FDIPT2HEAZBHEB",
+                  "level": 1,
+                  "bbox_min": [
+                    -92.0,
+                    -35.0,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    92.0,
+                    35.0,
+                    216.0
+                  ],
+                  "supplier_id": 1,
+                  "supplier_name": "Floorplanner",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2007-12-13T09:55:12.000Z",
+                  "description": "A stylish beech effect wardrobe with mirrored doors. This contemporary design is a great choice for any bedroom. Name Value Assembly Self assembly Cabinet Type Double wardrobe Door Type Mirrored Doors 2 Finish Beech Handle Colour Beech Material Beech effect foil Product Depth 70 cm Product Height 216 cm Product Width 184 cm Range Madrid Shelves 3 Single Hanging Rails 1",
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#D5A773",
+                  "color_h": 0.08843537414965985,
+                  "color_s": 0.5384615384615385,
+                  "color_l": 0.6431372549019608,
+                  "price": "239.2",
+                  "has_special_price": false,
+                  "lab_l": 71.56947393535184,
+                  "lab_a": "10.368893233529963",
+                  "lab_b": 33.29288814690512,
+                  "palette_color": "orange"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3047,
+        "refid": "daf22e426300f5b1676128b22affd6a5cb40a285",
+        "class_name": "dresser",
+        "position_x": 6.13,
+        "position_y": 1.82,
+        "position_z": 0.0,
+        "scale_x": 0.99,
+        "scale_y": 0.47,
+        "scale_z": 1.3,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "daf22e426300f5b1676128b22affd6a5cb40a285",
+                "_score": 1.0,
+                "_source": {
+                  "name": "KAI CHEST",
+                  "currency": "USD",
+                  "url": "https://floorplanner.com",
+                  "company_id": 1,
+                  "out_of_stock": false,
+                  "sku": "87760",
+                  "brand": "Discontinued",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2016-01-18T09:25:41.278Z",
+                  "tracked": false,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 99.06,
+                  "height": 129.68,
+                  "depth": 47.24,
+                  "model": "daf22e426300f5b1676128b22affd6a5cb40a285_01",
+                  "tags": [
+                    1060,
+                    1018,
+                    1022,
+                    1025,
+                    1026,
+                    1033,
+                    1889,
+                    1918,
+                    6441,
+                    1128,
+                    13138,
+                    14218,
+                    45070
+                  ],
+                  "surface_height": 129.0,
+                  "parent": "GB69C22DCREM2CBV4M4UZ67X3N5J6D7C7ISZWAFU",
+                  "level": 1,
+                  "bbox_min": [
+                    -49.53,
+                    -23.62,
+                    -0.14
+                  ],
+                  "bbox_max": [
+                    49.53,
+                    23.62,
+                    129.54
+                  ],
+                  "supplier_id": 6931083,
+                  "supplier_name": "Discontinued",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2016-01-29T16:05:55.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#917863",
+                  "is_glb": false,
+                  "color_h": 0.07608695652173912,
+                  "color_s": 0.1885245901639344,
+                  "color_l": 0.4784313725490196,
+                  "price": "750.0",
+                  "has_special_price": false,
+                  "lab_l": 52.23459452388718,
+                  "lab_a": 6.446924149944911,
+                  "lab_b": "15.173887825042698",
+                  "palette_color": "brown"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3048,
+        "refid": "b1ac696d342f1da63fe108f941de8c313cc5b126",
+        "class_name": "bench",
+        "position_x": 7.43,
+        "position_y": 1.85,
+        "position_z": 0.0,
+        "scale_x": 1.51,
+        "scale_y": 0.55,
+        "scale_z": 0.77,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "b1ac696d342f1da63fe108f941de8c313cc5b126",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Haley Petite Bench",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-furniture-living-room-benches/haley-bench/haley.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "207957",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2019-07-15T09:58:27.252Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 150.876,
+                  "height": 76.918,
+                  "depth": 54.85,
+                  "model": "b1ac696d342f1da63fe108f941de8c313cc5b126_02",
+                  "tags": [
+                    1046,
+                    1028,
+                    1033,
+                    1849,
+                    1851,
+                    1918,
+                    2022,
+                    2023,
+                    1128,
+                    13138,
+                    14218,
+                    45070,
+                    9345,
+                    20994,
+                    20973,
+                    45206,
+                    45199,
+                    45204,
+                    45351,
+                    45200
+                  ],
+                  "surface_height": 47.0,
+                  "parent": "GB000A35SD4UVDADTCQJCC3ENPRHNW7MNQA76VDH",
+                  "level": 1,
+                  "bbox_min": [
+                    -75.438,
+                    -27.425,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    75.438,
+                    27.425,
+                    76.918
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2019-07-18T14:35:24.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": "59\" w x 21\" d x 30\" h",
+                  "color": "#544C42",
+                  "is_glb": false,
+                  "color_h": 0.09259259259259256,
+                  "color_s": "0.11999999999999995",
+                  "color_l": "0.29411764705882354",
+                  "price": null,
+                  "has_special_price": false,
+                  "materials": [
+                    {
+                      "name": "FINISH_962",
+                      "role": "Finish",
+                      "system_role": "Finish",
+                      "default_id": 275,
+                      "reference_id": null,
+                      "variations": [
+                        {
+                          "id": 275,
+                          "name": "Stone Gray",
+                          "sku": "962",
+                          "properties": {}
+                        },
+                        {
+                          "id": 260,
+                          "name": "Caf\u00e9 Select",
+                          "sku": "960",
+                          "properties": {}
+                        },
+                        {
+                          "id": 262,
+                          "name": "Ebony",
+                          "sku": "956",
+                          "properties": {}
+                        },
+                        {
+                          "id": 261,
+                          "name": "Sienna",
+                          "sku": "953",
+                          "properties": {}
+                        },
+                        {
+                          "id": 220,
+                          "name": "Parchment",
+                          "sku": "950",
+                          "properties": {}
+                        },
+                        {
+                          "id": 263,
+                          "name": "Umber",
+                          "sku": "934",
+                          "properties": {}
+                        },
+                        {
+                          "id": 217,
+                          "name": "Shark Fin",
+                          "sku": "933",
+                          "properties": {}
+                        },
+                        {
+                          "id": 218,
+                          "name": "Raisin",
+                          "sku": "939",
+                          "properties": {}
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FABRIC_H3280",
+                      "role": "Fabric",
+                      "system_role": "Fabric",
+                      "default_id": 922,
+                      "reference_id": null,
+                      "variations": [
+                        {
+                          "id": 30799,
+                          "name": "Kenley White",
+                          "sku": "73537",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28254,
+                          "name": "Tuckahoe Gray",
+                          "sku": "H3255",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28253,
+                          "name": "Tuckahoe Charcoal",
+                          "sku": "H3254",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28252,
+                          "name": "Tuckahoe Taupe",
+                          "sku": "H3251",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28251,
+                          "name": "Fonte Gray",
+                          "sku": "H1455",
+                          "properties": {}
+                        },
+                        {
+                          "id": 924,
+                          "name": "Fonte Oyster",
+                          "sku": "H1439",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28250,
+                          "name": "Fonte Linen",
+                          "sku": "H1436",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28249,
+                          "name": "Fonte Cream",
+                          "sku": "H1434",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28248,
+                          "name": "Aberdeen Taupe",
+                          "sku": "75951",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28255,
+                          "name": "Aberdeen Blush",
+                          "sku": "75912",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28247,
+                          "name": "Meridian Navy",
+                          "sku": "74688",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28246,
+                          "name": "Farrell Steel",
+                          "sku": "52684",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28245,
+                          "name": "Farrell Camel",
+                          "sku": "52671",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28244,
+                          "name": "Farrell Wheat",
+                          "sku": "52647",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28243,
+                          "name": "Jordan Charcoal",
+                          "sku": "44754",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28242,
+                          "name": "Nola Slate",
+                          "sku": "31984",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26606,
+                          "name": "Nola Rouge",
+                          "sku": "31913",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26536,
+                          "name": "Dakota Marine",
+                          "sku": "P0187",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26537,
+                          "name": "Kalahari Shadow",
+                          "sku": "92756",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26539,
+                          "name": "Lyon Cadet",
+                          "sku": "90781",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26540,
+                          "name": "Lyon Cayenne",
+                          "sku": "90763",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26541,
+                          "name": "Lyon Shadow",
+                          "sku": "90756",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26542,
+                          "name": "Lyon Citron",
+                          "sku": "90724",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26587,
+                          "name": "Claire Blush",
+                          "sku": "85512",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26552,
+                          "name": "Hadley Denim",
+                          "sku": "82985",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26553,
+                          "name": "Hadley Terracotta",
+                          "sku": "82964",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26589,
+                          "name": "Sonoma Clay",
+                          "sku": "79664",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26555,
+                          "name": "Karlie Mist",
+                          "sku": "79380",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26543,
+                          "name": "Adria Indigo",
+                          "sku": "69688",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26592,
+                          "name": "Lyra Linen",
+                          "sku": "65539",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26557,
+                          "name": "Cabria Leaf",
+                          "sku": "64223",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26558,
+                          "name": "Joliet Slate",
+                          "sku": "59888",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26559,
+                          "name": "Joliet Sterling",
+                          "sku": "59853",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26560,
+                          "name": "Joliet Hemlock",
+                          "sku": "59826",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26561,
+                          "name": "Joliet Rouge",
+                          "sku": "59813",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26562,
+                          "name": "Harrison Navy",
+                          "sku": "59788",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26563,
+                          "name": "Harrison Camel",
+                          "sku": "59771",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26564,
+                          "name": "Harrison Sand",
+                          "sku": "59770",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26566,
+                          "name": "Nottingham Ink",
+                          "sku": "48489",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26567,
+                          "name": "Marbella Mica",
+                          "sku": "47639",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26568,
+                          "name": "Akra Slate",
+                          "sku": "45184",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26569,
+                          "name": "Akra Mineral",
+                          "sku": "45180",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26570,
+                          "name": "Akra Cashew",
+                          "sku": "45174",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26571,
+                          "name": "Akra Pistachio",
+                          "sku": "45123",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26544,
+                          "name": "Prescott Persimmon",
+                          "sku": "41302",
+                          "properties": {}
+                        },
+                        {
+                          "id": 152,
+                          "name": "Tesoro Avocado",
+                          "sku": "40324",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26545,
+                          "name": "Chandler Birch",
+                          "sku": "39770",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26572,
+                          "name": "Nabry Bluestone",
+                          "sku": "39480",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26573,
+                          "name": "Nabry Charcoal",
+                          "sku": "39454",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26574,
+                          "name": "Nabry Ruby",
+                          "sku": "39409",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26575,
+                          "name": "Tahoe Cinnabar",
+                          "sku": "36162",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26576,
+                          "name": "Tahoe Crimson",
+                          "sku": "36110",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26577,
+                          "name": "Lynwood Ice-Blue",
+                          "sku": "34480",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26578,
+                          "name": "Lynwood Daisy",
+                          "sku": "34442",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26579,
+                          "name": "Lynwood Flax",
+                          "sku": "34439",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26580,
+                          "name": "Rowley Navy",
+                          "sku": "33388",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26581,
+                          "name": "Rowley Charcoal",
+                          "sku": "33354",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26582,
+                          "name": "Rowley Hemlock",
+                          "sku": "33326",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26583,
+                          "name": "Rowley Rosewood",
+                          "sku": "33302",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26584,
+                          "name": "Townsend Ocean",
+                          "sku": "31085",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26585,
+                          "name": "Townsend Sorbet",
+                          "sku": "31016",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26597,
+                          "name": "Sabine Ebony",
+                          "sku": "30657",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26546,
+                          "name": "Verdana Jade",
+                          "sku": "29229",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26547,
+                          "name": "Edmund Cadet",
+                          "sku": "24083",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26548,
+                          "name": "Edmund Ebony",
+                          "sku": "24057",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26549,
+                          "name": "Edmund Ivy",
+                          "sku": "24028",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26550,
+                          "name": "Edmund Crimson",
+                          "sku": "24010",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26551,
+                          "name": "Sinclair Pacific",
+                          "sku": "P3181",
+                          "properties": {}
+                        },
+                        {
+                          "id": 922,
+                          "name": "Tuckahoe Mineral",
+                          "sku": "H3280",
+                          "properties": {}
+                        },
+                        {
+                          "id": 923,
+                          "name": "Tuckahoe Wheat",
+                          "sku": "H3247",
+                          "properties": {}
+                        },
+                        {
+                          "id": 213,
+                          "name": "Gil Mineral",
+                          "sku": "H2680",
+                          "properties": {}
+                        },
+                        {
+                          "id": 208,
+                          "name": "Gil Metal",
+                          "sku": "H2651",
+                          "properties": {}
+                        },
+                        {
+                          "id": 207,
+                          "name": "Gil Linen",
+                          "sku": "H2639",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26586,
+                          "name": "Clasie Teal",
+                          "sku": "H1029",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26538,
+                          "name": "Bern Leaf",
+                          "sku": "91923",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26588,
+                          "name": "Sylvie Leaf",
+                          "sku": "81523",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26554,
+                          "name": "Barton Ivory",
+                          "sku": "79832",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26556,
+                          "name": "Aberdeen French-Blue",
+                          "sku": "75982",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26590,
+                          "name": "Meridian Sand",
+                          "sku": "74670",
+                          "properties": {}
+                        },
+                        {
+                          "id": 925,
+                          "name": "Ledley Silver",
+                          "sku": "62853",
+                          "properties": {}
+                        },
+                        {
+                          "id": 926,
+                          "name": "Camby Eggplant",
+                          "sku": "59199",
+                          "properties": {}
+                        },
+                        {
+                          "id": 927,
+                          "name": "Camby Indigo",
+                          "sku": "59188",
+                          "properties": {}
+                        },
+                        {
+                          "id": 928,
+                          "name": "Camby Cognac",
+                          "sku": "59169",
+                          "properties": {}
+                        },
+                        {
+                          "id": 929,
+                          "name": "Camby Spice",
+                          "sku": "59166",
+                          "properties": {}
+                        },
+                        {
+                          "id": 931,
+                          "name": "Camby Olive",
+                          "sku": "59127",
+                          "properties": {}
+                        },
+                        {
+                          "id": 930,
+                          "name": "Camby Green",
+                          "sku": "59122",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26565,
+                          "name": "Hibbert Seal",
+                          "sku": "58677",
+                          "properties": {}
+                        },
+                        {
+                          "id": 932,
+                          "name": "Hibbert Gray",
+                          "sku": "58655",
+                          "properties": {}
+                        },
+                        {
+                          "id": 934,
+                          "name": "Hibbert Seaglass",
+                          "sku": "58621",
+                          "properties": {}
+                        },
+                        {
+                          "id": 935,
+                          "name": "Hibbert Brick",
+                          "sku": "58602",
+                          "properties": {}
+                        },
+                        {
+                          "id": 940,
+                          "name": "Weir Charcoal",
+                          "sku": "50653",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26593,
+                          "name": "Weir Hot Pink",
+                          "sku": "50615",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26594,
+                          "name": "Hoban Brown",
+                          "sku": "40777",
+                          "properties": {}
+                        },
+                        {
+                          "id": 942,
+                          "name": "Ramona Ballet Pink",
+                          "sku": "38313",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26595,
+                          "name": "Hamden Daisy",
+                          "sku": "36042",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26596,
+                          "name": "Hamden Rouge",
+                          "sku": "36013",
+                          "properties": {}
+                        },
+                        {
+                          "id": 937,
+                          "name": "Brax Charcoal",
+                          "sku": "23654",
+                          "properties": {}
+                        },
+                        {
+                          "id": 936,
+                          "name": "Brax Oatmeal",
+                          "sku": "23633",
+                          "properties": {}
+                        },
+                        {
+                          "id": 142,
+                          "name": "Thornhill Indigo",
+                          "sku": "11288",
+                          "properties": {}
+                        },
+                        {
+                          "id": 141,
+                          "name": "Thornhill Mango",
+                          "sku": "11262",
+                          "properties": {}
+                        },
+                        {
+                          "id": 140,
+                          "name": "Thornhill Charcoal",
+                          "sku": "11254",
+                          "properties": {}
+                        },
+                        {
+                          "id": 139,
+                          "name": "Thornhill Cream",
+                          "sku": "11234",
+                          "properties": {}
+                        }
+                      ]
+                    }
+                  ],
+                  "lab_l": 32.80369555697936,
+                  "lab_a": "1.4342803691265449",
+                  "lab_b": 7.15524784415138,
+                  "palette_color": [
+                    "black",
+                    "brown"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3049,
+        "refid": "d59fb9c8db603176795a5441bbd7c0c402a1b647",
+        "class_name": "nightstand",
+        "position_x": 7.25,
+        "position_y": 5.01,
+        "position_z": 0.0,
+        "scale_x": 0.39,
+        "scale_y": 0.39,
+        "scale_z": 0.51,
+        "angle_z": 3.141592653589793,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "d59fb9c8db603176795a5441bbd7c0c402a1b647",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Bennie Brass Pierced Stool",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-furniture-living-room-side-and-accent-tables-accent-tables/bennie-pierced-brass-stool/421700.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "421700",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2018-12-10T10:42:00.806Z",
+                  "tracked": true,
+                  "productviewer": true,
+                  "bifma": false,
+                  "width": 38.76,
+                  "height": 50.789,
+                  "depth": 38.76,
+                  "model": "d59fb9c8db603176795a5441bbd7c0c402a1b647_01",
+                  "tags": [
+                    1124,
+                    2036,
+                    1128,
+                    13138,
+                    14218,
+                    21052,
+                    9345,
+                    21012,
+                    45213,
+                    45199,
+                    45200
+                  ],
+                  "surface_height": 51.0,
+                  "parent": "GB000A35VIZ7NLXB4KMBR2GH5OTWFDV2RPNV23AD",
+                  "level": 1,
+                  "bbox_min": [
+                    -19.38,
+                    -19.38,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    19.38,
+                    19.38,
+                    50.789
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2019-01-03T11:47:38.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": "15.25\" dia. x 20\" h",
+                  "color": "#695029",
+                  "is_glb": false,
+                  "color_h": 0.1015625,
+                  "color_s": 0.4383561643835617,
+                  "color_l": "0.28627450980392155",
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 35.79235155943798,
+                  "lab_a": 5.449485522512565,
+                  "lab_b": "26.711751156105656",
+                  "palette_color": [
+                    "brown"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3050,
+        "refid": "d59fb9c8db603176795a5441bbd7c0c402a1b647",
+        "class_name": "nightstand",
+        "position_x": 5.0,
+        "position_y": 5.01,
+        "position_z": 0.0,
+        "scale_x": 0.39,
+        "scale_y": 0.39,
+        "scale_z": 0.51,
+        "angle_z": 3.141592653589793,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "d59fb9c8db603176795a5441bbd7c0c402a1b647",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Bennie Brass Pierced Stool",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-furniture-living-room-side-and-accent-tables-accent-tables/bennie-pierced-brass-stool/421700.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "421700",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2018-12-10T10:42:00.806Z",
+                  "tracked": true,
+                  "productviewer": true,
+                  "bifma": false,
+                  "width": 38.76,
+                  "height": 50.789,
+                  "depth": 38.76,
+                  "model": "d59fb9c8db603176795a5441bbd7c0c402a1b647_01",
+                  "tags": [
+                    1124,
+                    2036,
+                    1128,
+                    13138,
+                    14218,
+                    21052,
+                    9345,
+                    21012,
+                    45213,
+                    45199,
+                    45200
+                  ],
+                  "surface_height": 51.0,
+                  "parent": "GB000A35VIZ7NLXB4KMBR2GH5OTWFDV2RPNV23AD",
+                  "level": 1,
+                  "bbox_min": [
+                    -19.38,
+                    -19.38,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    19.38,
+                    19.38,
+                    50.789
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2019-01-03T11:47:38.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": "15.25\" dia. x 20\" h",
+                  "color": "#695029",
+                  "is_glb": false,
+                  "color_h": 0.1015625,
+                  "color_s": 0.4383561643835617,
+                  "color_l": "0.28627450980392155",
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 35.79235155943798,
+                  "lab_a": 5.449485522512565,
+                  "lab_b": "26.711751156105656",
+                  "palette_color": [
+                    "brown"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3051,
+        "refid": "783097b43a3fdd7fd1285d84f31b0a7cfd29feb9",
+        "class_name": "standing lamp",
+        "position_x": 8.02,
+        "position_y": 4.45,
+        "position_z": 0.0,
+        "scale_x": 0.53,
+        "scale_y": 0.33,
+        "scale_z": 1.75,
+        "angle_z": 1.5707963267948966,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "783097b43a3fdd7fd1285d84f31b0a7cfd29feb9",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Owen Ringed Floor Lamp",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-lighting-floor-lamps/owen-ringed-floor-lamp/092509.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "092509",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-08-22T12:23:50.546Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 53.32,
+                  "height": 175.187,
+                  "depth": 33.02,
+                  "model": "783097b43a3fdd7fd1285d84f31b0a7cfd29feb9_01",
+                  "tags": [
+                    1156,
+                    1155,
+                    1230,
+                    1939,
+                    2016,
+                    2033,
+                    13138,
+                    14218,
+                    45070,
+                    21038,
+                    9345,
+                    21014,
+                    45217,
+                    45199,
+                    45214,
+                    45222,
+                    45200,
+                    45534,
+                    45232
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB000A35MKHDE7IUWQDMZJ2QCQOQFTCTDJC2UFHH",
+                  "level": 1,
+                  "bbox_min": [
+                    -26.66,
+                    -16.51,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    26.66,
+                    16.51,
+                    175.187
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-09-16T16:21:32.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#B6896A",
+                  "is_glb": false,
+                  "color_h": 0.06798245614035085,
+                  "color_s": 0.3423423423423424,
+                  "color_l": 0.5647058823529412,
+                  "price": null,
+                  "has_special_price": false,
+                  "light": {
+                    "wattage": 60,
+                    "wattage_fixed": false,
+                    "color": "FFFFFB",
+                    "color_fixed": false
+                  },
+                  "lab_l": "60.672932081651396",
+                  "lab_a": 13.08857902280447,
+                  "lab_b": 23.28075744139526,
+                  "palette_color": [
+                    "orange"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3052,
+        "refid": "27f973b35f779ebe5bc95b8ccefb3f31acf57d15",
+        "class_name": "bed wall art",
+        "position_x": 6.79,
+        "position_y": 5.18,
+        "position_z": 2.02,
+        "scale_x": 0.38,
+        "scale_y": 0.03,
+        "scale_z": 0.38,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "27f973b35f779ebe5bc95b8ccefb3f31acf57d15",
+                "_score": 1.0,
+                "_source": {
+                  "name": "French Garden VI",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-whats-new/french-garden-vi/072122F.html#q=072122&lang=en_US&start=1",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "072122F",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-11-03T16:15:52.153Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 38.1,
+                  "height": 3.175,
+                  "depth": 38.1,
+                  "model": "27f973b35f779ebe5bc95b8ccefb3f31acf57d15_00",
+                  "tags": [
+                    1153,
+                    1152,
+                    13138,
+                    14218,
+                    45070,
+                    9345,
+                    21033,
+                    21032,
+                    45420,
+                    45199,
+                    45200
+                  ],
+                  "surface_height": 0.0,
+                  "parent": "GB000A35RMK6GCBIRK5FZMHW4EPBW4M4YYCZ7CKY",
+                  "level": -1,
+                  "bbox_min": [
+                    -19.05,
+                    -19.05,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    19.05,
+                    19.05,
+                    3.175
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-11-17T17:25:55.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#657B52",
+                  "is_glb": false,
+                  "color_h": 0.2560975609756098,
+                  "color_s": "0.19999999999999998",
+                  "color_l": 0.4019607843137255,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 48.93559665098357,
+                  "lab_a": "-16.007739412103707",
+                  "lab_b": "19.860016087781474",
+                  "palette_color": [
+                    "green",
+                    "brown",
+                    "grey"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3053,
+        "refid": "6cafc7a4b841c657bfc8b31034aa9de918a25980",
+        "class_name": "bed wall art",
+        "position_x": 6.34,
+        "position_y": 5.18,
+        "position_z": 2.02,
+        "scale_x": 0.38,
+        "scale_y": 0.03,
+        "scale_z": 0.38,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 3,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "6cafc7a4b841c657bfc8b31034aa9de918a25980",
+                "_score": 1.0,
+                "_source": {
+                  "name": "French Garden IV",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-whats-new/french-garden-iv/072122D.html#q=072122&lang=en_US&start=1",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "072122D",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "discontinued",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-11-03T16:15:52.074Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 38.1,
+                  "height": 3.175,
+                  "depth": 38.1,
+                  "model": "6cafc7a4b841c657bfc8b31034aa9de918a25980_00",
+                  "tags": [
+                    1153,
+                    1152,
+                    13138,
+                    14218,
+                    45070,
+                    9345,
+                    21033,
+                    21032,
+                    45420,
+                    45199,
+                    45200
+                  ],
+                  "surface_height": 0.0,
+                  "parent": "GB000A35HYJEZ66VKPGMEALXJXWRSFLZ7GAGGYLG",
+                  "level": -1,
+                  "bbox_min": [
+                    -19.05,
+                    -19.05,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    19.05,
+                    19.05,
+                    3.175
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-11-17T17:02:20.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#5D7355",
+                  "is_glb": false,
+                  "color_h": 0.2888888888888889,
+                  "color_s": "0.15000000000000002",
+                  "color_l": "0.39215686274509803",
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 45.96727382059213,
+                  "lab_a": "-14.299855180294141",
+                  "lab_b": 14.00538464749176,
+                  "palette_color": [
+                    "brown",
+                    "grey"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3054,
+        "refid": "e6fbd077c4e6ba056a0b28d0822fa6a86dd05467",
+        "class_name": "bed wall art",
+        "position_x": 5.9,
+        "position_y": 5.18,
+        "position_z": 2.02,
+        "scale_x": 0.38,
+        "scale_y": 0.03,
+        "scale_z": 0.38,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 46,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "e6fbd077c4e6ba056a0b28d0822fa6a86dd05467",
+                "_score": 1.0,
+                "_source": {
+                  "name": "French Garden II",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-whats-new/french-garden-ii/072122B.html#q=072122&lang=en_US&start=1",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "072122B",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "discontinued",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-11-03T16:15:52.007Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 38.1,
+                  "height": 3.175,
+                  "depth": 38.1,
+                  "model": "e6fbd077c4e6ba056a0b28d0822fa6a86dd05467_00",
+                  "tags": [
+                    1153,
+                    1152,
+                    13138,
+                    14218,
+                    45070,
+                    9345,
+                    21033,
+                    21032,
+                    45420,
+                    45199,
+                    45200
+                  ],
+                  "surface_height": 0.0,
+                  "parent": "GB000A354K4WDOJNROPVCWBHUA2HM7NWPGHYKFXG",
+                  "level": -1,
+                  "bbox_min": [
+                    -19.05,
+                    -19.05,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    19.05,
+                    19.05,
+                    3.175
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-11-17T17:02:20.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#67583A",
+                  "is_glb": false,
+                  "color_h": 0.1111111111111111,
+                  "color_s": "0.27950310559006214",
+                  "color_l": 0.3156862745098039,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 38.14316268653381,
+                  "lab_a": "1.4566728050650346",
+                  "lab_b": 19.65808948836787,
+                  "palette_color": [
+                    "brown"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3055,
+        "refid": "f79736b4217fdb4d125233cee62491a2207009bc",
+        "class_name": "bed wall art",
+        "position_x": 5.46,
+        "position_y": 5.18,
+        "position_z": 2.02,
+        "scale_x": 0.38,
+        "scale_y": 0.03,
+        "scale_z": 0.38,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "f79736b4217fdb4d125233cee62491a2207009bc",
+                "_score": 1.0,
+                "_source": {
+                  "name": "French Garden III",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-whats-new/french-garden-iii/072122C.html#q=072122&lang=en_US&start=1",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "072122C",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "discontinued",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-11-03T16:15:52.041Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 38.1,
+                  "height": 3.175,
+                  "depth": 38.1,
+                  "model": "f79736b4217fdb4d125233cee62491a2207009bc_00",
+                  "tags": [
+                    1153,
+                    1152,
+                    13138,
+                    14218,
+                    45070,
+                    9345,
+                    21033,
+                    21032,
+                    45420,
+                    45199,
+                    45200
+                  ],
+                  "surface_height": 0.0,
+                  "parent": "GB000A356NZURRC65ZZ2MDZHRFH6FFNIT4X57APS",
+                  "level": -1,
+                  "bbox_min": [
+                    -19.05,
+                    -19.05,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    19.05,
+                    19.05,
+                    3.175
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-11-17T17:32:22.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#67583A",
+                  "is_glb": false,
+                  "color_h": 0.1111111111111111,
+                  "color_s": "0.27950310559006214",
+                  "color_l": 0.3156862745098039,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 38.14316268653381,
+                  "lab_a": "1.4566728050650346",
+                  "lab_b": 19.65808948836787,
+                  "palette_color": [
+                    "brown"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3056,
+        "refid": "d02c766e9bc885aed0d0144e9e089aefbb84b6ea",
+        "class_name": "dresser wall art",
+        "position_x": 6.13,
+        "position_y": 1.59,
+        "position_z": 1.4,
+        "scale_x": 0.71,
+        "scale_y": 0.02,
+        "scale_z": 1.19,
+        "angle_z": 3.141592653589793,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "d02c766e9bc885aed0d0144e9e089aefbb84b6ea",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Kai Mirror, Natural",
+                  "currency": null,
+                  "url": "https://floorplanner.com",
+                  "company_id": 1,
+                  "out_of_stock": false,
+                  "sku": "87759",
+                  "brand": "Discontinued",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": true,
+                  "created_at": "2019-03-26T11:09:05.355Z",
+                  "tracked": false,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 71.12,
+                  "height": 2.5,
+                  "depth": 119.354,
+                  "model": "d02c766e9bc885aed0d0144e9e089aefbb84b6ea_01",
+                  "tags": [
+                    1271,
+                    1018,
+                    1142,
+                    1152,
+                    1347,
+                    1898,
+                    2006,
+                    13138,
+                    14218,
+                    45070
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB69C22DS3OKXMCDK6C3TVB2JUT4KEVCDY7DRSVO",
+                  "level": -1,
+                  "bbox_min": [
+                    -35.56,
+                    -59.677,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    35.56,
+                    59.677,
+                    2.5
+                  ],
+                  "supplier_id": 6931083,
+                  "supplier_name": "Discontinued",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2019-04-10T14:06:48.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#B09B82",
+                  "is_glb": false,
+                  "color_h": 0.09057971014492751,
+                  "color_s": 0.2254901960784314,
+                  "color_l": 0.6,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 65.18776823010776,
+                  "lab_a": 3.784588817054846,
+                  "lab_b": "15.958237595588209",
+                  "palette_color": "grey"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3057,
+        "refid": "d3d198bc18f25f70387e06e18c6b1ded4abcc874",
+        "class_name": "nightstand lamp",
+        "position_x": 7.25,
+        "position_y": 5.01,
+        "position_z": 2.8,
+        "scale_x": 0.29,
+        "scale_y": 0.29,
+        "scale_z": 1.3,
+        "angle_z": 3.141592653589793,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "d3d198bc18f25f70387e06e18c6b1ded4abcc874",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Farrah Mercury Glass Pendant",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-lighting-pendants/farrah-mercury-glass-pendant/093032.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "093032",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "discontinued",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-07-10T12:10:20.604Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 29.424,
+                  "height": 130.455,
+                  "depth": 29.424,
+                  "model": "d3d198bc18f25f70387e06e18c6b1ded4abcc874_01",
+                  "tags": [
+                    1165,
+                    1163,
+                    1939,
+                    1230,
+                    2033,
+                    2016,
+                    13138,
+                    14218,
+                    45070,
+                    9345,
+                    21036,
+                    21014,
+                    45263,
+                    45199,
+                    45200
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB000A35LBEQXQUUQU6HAHYJDAENYTPODFWF3RTX",
+                  "level": -2,
+                  "bbox_min": [
+                    -14.712,
+                    -14.712,
+                    -130.455
+                  ],
+                  "bbox_max": [
+                    14.712,
+                    14.712,
+                    0.0
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-07-17T19:57:11.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#C1C3C2",
+                  "is_glb": false,
+                  "color_h": 0.4166666666666667,
+                  "color_s": "0.016393442622950758",
+                  "color_l": 0.7607843137254902,
+                  "price": "0.0",
+                  "has_special_price": false,
+                  "light": {
+                    "wattage": 60,
+                    "wattage_fixed": false,
+                    "color": "FFFFFB",
+                    "color_fixed": false
+                  },
+                  "lab_l": 78.61467176443381,
+                  "lab_a": -0.8717997826879209,
+                  "lab_b": "0.24987158500076045",
+                  "palette_color": [
+                    "pink",
+                    "beige",
+                    "grey"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3058,
+        "refid": "d3d198bc18f25f70387e06e18c6b1ded4abcc874",
+        "class_name": "nightstand lamp",
+        "position_x": 5.0,
+        "position_y": 5.01,
+        "position_z": 2.8,
+        "scale_x": 0.29,
+        "scale_y": 0.29,
+        "scale_z": 1.3,
+        "angle_z": 3.141592653589793,
+        "item_data": {
+          "took": 0,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "d3d198bc18f25f70387e06e18c6b1ded4abcc874",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Farrah Mercury Glass Pendant",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-lighting-pendants/farrah-mercury-glass-pendant/093032.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "093032",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "discontinued",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-07-10T12:10:20.604Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 29.424,
+                  "height": 130.455,
+                  "depth": 29.424,
+                  "model": "d3d198bc18f25f70387e06e18c6b1ded4abcc874_01",
+                  "tags": [
+                    1165,
+                    1163,
+                    1939,
+                    1230,
+                    2033,
+                    2016,
+                    13138,
+                    14218,
+                    45070,
+                    9345,
+                    21036,
+                    21014,
+                    45263,
+                    45199,
+                    45200
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB000A35LBEQXQUUQU6HAHYJDAENYTPODFWF3RTX",
+                  "level": -2,
+                  "bbox_min": [
+                    -14.712,
+                    -14.712,
+                    -130.455
+                  ],
+                  "bbox_max": [
+                    14.712,
+                    14.712,
+                    0.0
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-07-17T19:57:11.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#C1C3C2",
+                  "is_glb": false,
+                  "color_h": 0.4166666666666667,
+                  "color_s": "0.016393442622950758",
+                  "color_l": 0.7607843137254902,
+                  "price": "0.0",
+                  "has_special_price": false,
+                  "light": {
+                    "wattage": 60,
+                    "wattage_fixed": false,
+                    "color": "FFFFFB",
+                    "color_fixed": false
+                  },
+                  "lab_l": 78.61467176443381,
+                  "lab_a": -0.8717997826879209,
+                  "lab_b": "0.24987158500076045",
+                  "palette_color": [
+                    "pink",
+                    "beige",
+                    "grey"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3059,
+        "refid": "efcb17ebfbccc4bf00c36c1376a78d8dd9e7db29",
+        "class_name": "nightstand wall art",
+        "position_x": 5.0,
+        "position_y": 5.18,
+        "position_z": 1.43,
+        "scale_x": 0.44,
+        "scale_y": 0.04,
+        "scale_z": 0.55,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "efcb17ebfbccc4bf00c36c1376a78d8dd9e7db29",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Just Dandy I",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-whats-new/just-dandy-i/072117A.html#q=072117&lang=en_US&start=1",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "072117A",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-11-03T16:15:51.772Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 43.814,
+                  "height": 4.445,
+                  "depth": 54.61,
+                  "model": "efcb17ebfbccc4bf00c36c1376a78d8dd9e7db29_00",
+                  "tags": [
+                    1153,
+                    1152,
+                    13138,
+                    14218,
+                    45070,
+                    9345,
+                    21033,
+                    21032,
+                    45317,
+                    45199,
+                    45200,
+                    45456
+                  ],
+                  "surface_height": 0.0,
+                  "parent": "GB000A35QYWTJBPPR5ZF66NJR3AYC2RYH6CUCRWV",
+                  "level": -1,
+                  "bbox_min": [
+                    -21.907,
+                    -27.305,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    21.907,
+                    27.305,
+                    4.445
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-11-18T15:33:00.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#1A335F",
+                  "is_glb": false,
+                  "color_h": 0.606280193236715,
+                  "color_s": 0.5702479338842976,
+                  "color_l": 0.2372549019607843,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": "21.629125941276207",
+                  "lab_a": 6.885224205354534,
+                  "lab_b": -29.08633865586139,
+                  "palette_color": [
+                    "black",
+                    "blue"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3060,
+        "refid": "175ed1c14a393e680d11eb174431d3d5edecbf9c",
+        "class_name": "nightstand wall art",
+        "position_x": 7.25,
+        "position_y": 5.18,
+        "position_z": 1.43,
+        "scale_x": 0.44,
+        "scale_y": 0.04,
+        "scale_z": 0.55,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "175ed1c14a393e680d11eb174431d3d5edecbf9c",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Just Dandy III",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-whats-new/just-dandy-iii/072117C.html#q=072117&lang=en_US&start=1",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "072117C",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-11-03T16:15:51.853Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 43.814,
+                  "height": 4.445,
+                  "depth": 54.61,
+                  "model": "175ed1c14a393e680d11eb174431d3d5edecbf9c_00",
+                  "tags": [
+                    1153,
+                    1152,
+                    13138,
+                    14218,
+                    45070,
+                    9345,
+                    21033,
+                    21032,
+                    45317,
+                    45199,
+                    45200,
+                    45456
+                  ],
+                  "surface_height": 0.0,
+                  "parent": "GB000A35ENB4WQWDQENRG2KBFFF6C74E3WS74FQK",
+                  "level": -1,
+                  "bbox_min": [
+                    -21.907,
+                    -27.305,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    21.907,
+                    27.305,
+                    4.445
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-11-18T15:33:03.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#1A335F",
+                  "is_glb": false,
+                  "color_h": 0.606280193236715,
+                  "color_s": 0.5702479338842976,
+                  "color_l": 0.2372549019607843,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": "21.629125941276207",
+                  "lab_a": 6.885224205354534,
+                  "lab_b": -29.08633865586139,
+                  "palette_color": [
+                    "black",
+                    "blue"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3061,
+        "refid": "5357a21a3e51967545318d3a51ed103cc3583319",
+        "class_name": "rug",
+        "position_x": 6.12,
+        "position_y": 3.32,
+        "position_z": 0.0,
+        "scale_x": 3.39,
+        "scale_y": 2.44,
+        "scale_z": 0.01,
+        "angle_z": 3.141592653589793,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "5357a21a3e51967545318d3a51ed103cc3583319",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Everly Rug 8' x 11'",
+                  "currency": null,
+                  "url": "https://floorplanner.com",
+                  "company_id": 72,
+                  "out_of_stock": false,
+                  "sku": null,
+                  "brand": "Discontinued",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-08-04T14:13:35.652Z",
+                  "tracked": false,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 338.929,
+                  "height": 1.0,
+                  "depth": 243.84,
+                  "model": "5357a21a3e51967545318d3a51ed103cc3583319_00",
+                  "tags": [
+                    1257,
+                    1152,
+                    13138,
+                    14218,
+                    45070
+                  ],
+                  "surface_height": 1.0,
+                  "parent": "GB69C262HYQBC3BCMRYXH5DC2LTP2S22FR7AC32P",
+                  "level": 1,
+                  "bbox_min": [
+                    -169.484,
+                    -121.906,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    169.445,
+                    121.934,
+                    1.0
+                  ],
+                  "supplier_id": 6931083,
+                  "supplier_name": "Discontinued",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-08-13T20:00:44.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#AEAFB3",
+                  "is_glb": false,
+                  "color_h": 0.6333333333333333,
+                  "color_s": "0.031847133757961665",
+                  "color_l": 0.692156862745098,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 71.49607823820867,
+                  "lab_a": "0.41384723889531516",
+                  "lab_b": -2.173437517664234,
+                  "palette_color": [
+                    "grey"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3062,
+        "refid": "06d658d6a4010fc56ccba5b4a2662ccd3607f680",
+        "class_name": "dresser decor",
+        "position_x": 5.89,
+        "position_y": 1.87,
+        "position_z": 1.3,
+        "scale_x": 0.48,
+        "scale_y": 0.1,
+        "scale_z": 0.36,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "06d658d6a4010fc56ccba5b4a2662ccd3607f680",
+                "_score": 1.0,
+                "_source": {
+                  "name": "14 INCH METAL BICYCLE CLOCK",
+                  "currency": " USD ",
+                  "url": "https://floorplanner.com",
+                  "company_id": 1,
+                  "out_of_stock": false,
+                  "sku": "84859",
+                  "brand": "Discontinued",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2015-05-15T14:06:19.057Z",
+                  "tracked": false,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 48.26,
+                  "height": 35.795,
+                  "depth": 10.16,
+                  "model": "06d658d6a4010fc56ccba5b4a2662ccd3607f680_02",
+                  "tags": [
+                    2842,
+                    1152,
+                    13138,
+                    14218,
+                    45070
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB69C22DOOKGMXHDON7O5HYCM5S6BZVKSUVXJG3U",
+                  "level": 2,
+                  "bbox_min": [
+                    -24.13,
+                    -5.08,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    24.13,
+                    5.08,
+                    35.795
+                  ],
+                  "supplier_id": 6931083,
+                  "supplier_name": "Discontinued",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2015-06-24T07:13:34.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#27282C",
+                  "is_glb": false,
+                  "color_h": 0.6333333333333334,
+                  "color_s": "0.060240963855421645",
+                  "color_l": 0.1627450980392157,
+                  "price": "29.0",
+                  "has_special_price": false,
+                  "lab_l": "16.159060345750092",
+                  "lab_a": 0.5654243705709161,
+                  "lab_b": -2.774919232833084,
+                  "palette_color": [
+                    "black"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "area": 17.417399999999994
+  }
+}

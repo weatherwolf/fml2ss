@@ -1,0 +1,175 @@
+{
+  "id": "964bd2d3129ce13aced751e9ffad06063fe98a35128aa19c3369fd27e6a533bd",
+  "parent_id": "e52c81c7e75260845f222821fcf78b659bb8a2e0dc9667830e9326a9cbdcb248",
+  "type": "room",
+  "attrs": {
+    "id": 9000,
+    "name": "Room 9000",
+    "walls": [
+      {
+        "id": 19,
+        "a_x": -4.76,
+        "a_y": 5.27,
+        "a_z": 0.0,
+        "b_x": -8.27,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.3,
+        "openings": [],
+        "decor": []
+      },
+      {
+        "id": 17,
+        "a_x": -4.76,
+        "a_y": 4.26,
+        "a_z": 0.0,
+        "b_x": -4.76,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": [],
+        "decor": []
+      },
+      {
+        "id": 13,
+        "a_x": -8.27,
+        "a_y": 4.26,
+        "a_z": 0.0,
+        "b_x": -4.76,
+        "b_y": 4.26,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.1,
+        "openings": [
+          {
+            "id": "222",
+            "wall0_id": 13,
+            "wall1_id": -1,
+            "position_x": -7.61,
+            "position_y": 4.26,
+            "position_z": 0.0,
+            "width": 1.19,
+            "height": 2.7,
+            "type": "door"
+          }
+        ],
+        "decor": []
+      },
+      {
+        "id": 11,
+        "a_x": -8.27,
+        "a_y": 5.27,
+        "a_z": 0.0,
+        "b_x": -8.27,
+        "b_y": 4.26,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.3,
+        "openings": [],
+        "decor": []
+      }
+    ],
+    "items": [
+      {
+        "id": 3000,
+        "refid": "0a74fe428df1ffbc0d4eb91a1f5d93e810c02ac8",
+        "class_name": "unknown",
+        "position_x": -6.52,
+        "position_y": 4.75,
+        "position_z": 0.0,
+        "scale_x": 0.89,
+        "scale_y": 3.37,
+        "scale_z": 2.8,
+        "angle_z": 1.5707963267948966,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "0a74fe428df1ffbc0d4eb91a1f5d93e810c02ac8",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Stairs",
+                  "currency": null,
+                  "url": "https://floorplanner.com",
+                  "company_id": 1,
+                  "out_of_stock": false,
+                  "sku": null,
+                  "brand": "BESPOKE ARCHITECTURE",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2017-02-09T14:00:03.080Z",
+                  "tracked": true,
+                  "width": 100.0,
+                  "height": 280.0,
+                  "depth": 336.765,
+                  "model": "0a74fe428df1ffbc0d4eb91a1f5d93e810c02ac8_00",
+                  "tags": [
+                    1964,
+                    2035,
+                    13138,
+                    14218,
+                    45070,
+                    38778,
+                    38743,
+                    38909,
+                    38874
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB69C20DTKDYKW7VPH47D25EAIVNX4WZMVN2CXUE",
+                  "level": 1,
+                  "bbox_min": [
+                    -50.0,
+                    -168.365,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    50.0,
+                    168.4,
+                    280.0
+                  ],
+                  "supplier_id": 6930957,
+                  "supplier_name": "BESPOKE ARCHITECTURE",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2017-02-09T14:03:36.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#FFFFFF",
+                  "is_glb": false,
+                  "color_h": 0,
+                  "color_s": 0,
+                  "color_l": 1.0,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 100.0,
+                  "lab_a": 0.00526049995830391,
+                  "lab_b": "-0.010408184525267927",
+                  "palette_color": "white"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "area": 3.5451000000000015
+  }
+}

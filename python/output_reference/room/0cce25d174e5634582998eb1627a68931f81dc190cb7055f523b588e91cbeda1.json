@@ -1,0 +1,2131 @@
+{
+  "id": "0cce25d174e5634582998eb1627a68931f81dc190cb7055f523b588e91cbeda1",
+  "parent_id": "e52c81c7e75260845f222821fcf78b659bb8a2e0dc9667830e9326a9cbdcb248",
+  "type": "room",
+  "attrs": {
+    "id": 9001,
+    "name": "Room 9001",
+    "walls": [
+      {
+        "id": 13,
+        "a_x": -8.27,
+        "a_y": 4.26,
+        "a_z": 0.0,
+        "b_x": -4.76,
+        "b_y": 4.26,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.1,
+        "openings": [
+          {
+            "id": "222",
+            "wall0_id": 13,
+            "wall1_id": -1,
+            "position_x": -7.61,
+            "position_y": 4.26,
+            "position_z": 0.0,
+            "width": 1.19,
+            "height": 2.7,
+            "type": "door"
+          }
+        ],
+        "decor": []
+      },
+      {
+        "id": 14,
+        "a_x": -3.88,
+        "a_y": 4.26,
+        "a_z": 0.0,
+        "b_x": -4.76,
+        "b_y": 4.26,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.1,
+        "openings": [
+          {
+            "id": "200",
+            "wall0_id": 14,
+            "wall1_id": -1,
+            "position_x": -4.31,
+            "position_y": 4.26,
+            "position_z": 0.0,
+            "width": 0.74,
+            "height": 2.2,
+            "type": "door"
+          }
+        ],
+        "decor": []
+      },
+      {
+        "id": 12,
+        "a_x": -3.88,
+        "a_y": 3.37,
+        "a_z": 0.0,
+        "b_x": -3.88,
+        "b_y": 4.26,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": [],
+        "decor": []
+      },
+      {
+        "id": 22,
+        "a_x": -2.36,
+        "a_y": 3.37,
+        "a_z": 0.0,
+        "b_x": -3.88,
+        "b_y": 3.37,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": [
+          {
+            "id": "200",
+            "wall0_id": 22,
+            "wall1_id": -1,
+            "position_x": -3.05,
+            "position_y": 3.37,
+            "position_z": 0.0,
+            "width": 0.98,
+            "height": 2.2,
+            "type": "door"
+          }
+        ],
+        "decor": []
+      },
+      {
+        "id": 20,
+        "a_x": -2.36,
+        "a_y": 2.01,
+        "a_z": 0.0,
+        "b_x": -2.36,
+        "b_y": 3.37,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": [
+          {
+            "id": "200",
+            "wall0_id": 20,
+            "wall1_id": -1,
+            "position_x": -2.36,
+            "position_y": 2.7,
+            "position_z": 0.0,
+            "width": 0.98,
+            "height": 2.2,
+            "type": "door"
+          }
+        ],
+        "decor": []
+      },
+      {
+        "id": 24,
+        "a_x": -6.05,
+        "a_y": 2.01,
+        "a_z": 0.0,
+        "b_x": -2.36,
+        "b_y": 2.01,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": [
+          {
+            "id": "200",
+            "wall0_id": 24,
+            "wall1_id": -1,
+            "position_x": -3.02,
+            "position_y": 2.01,
+            "position_z": 0.0,
+            "width": 0.98,
+            "height": 2.2,
+            "type": "door"
+          }
+        ],
+        "decor": []
+      },
+      {
+        "id": 25,
+        "a_x": -8.27,
+        "a_y": 2.01,
+        "a_z": 0.0,
+        "b_x": -6.05,
+        "b_y": 2.01,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.3,
+        "openings": [
+          {
+            "id": "204",
+            "wall0_id": 25,
+            "wall1_id": -1,
+            "position_x": -7.28,
+            "position_y": 2.01,
+            "position_z": 0.0,
+            "width": 0.98,
+            "height": 2.2,
+            "type": "door"
+          }
+        ],
+        "decor": []
+      },
+      {
+        "id": 26,
+        "a_x": -8.27,
+        "a_y": 4.26,
+        "a_z": 0.0,
+        "b_x": -8.27,
+        "b_y": 2.01,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.3,
+        "openings": [
+          {
+            "id": "218",
+            "wall0_id": 26,
+            "wall1_id": -1,
+            "position_x": -8.27,
+            "position_y": 3.25,
+            "position_z": 0.1,
+            "width": 0.8,
+            "height": 2.5,
+            "type": "window"
+          }
+        ],
+        "decor": []
+      }
+    ],
+    "items": [
+      {
+        "id": 3068,
+        "refid": "ecd2bb0932fccdbc05f4bebbea3b69ac9707ba22",
+        "class_name": "storage",
+        "position_x": -6.21,
+        "position_y": 2.33,
+        "position_z": 0.0,
+        "scale_x": 1.02,
+        "scale_y": 0.47,
+        "scale_z": 0.88,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "ecd2bb0932fccdbc05f4bebbea3b69ac9707ba22",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Ming Hall Chest",
+                  "currency": null,
+                  "url": "http://www.ethanallen.com/en_US/shop-furniture-living-room-storage-display-cabinets-chests/ming-hall-chest/129105.html?site=",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "129105",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2017-12-22T14:40:01.243Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 101.6,
+                  "height": 87.625,
+                  "depth": 47.34,
+                  "model": "ecd2bb0932fccdbc05f4bebbea3b69ac9707ba22_02",
+                  "tags": [
+                    1130,
+                    1018,
+                    1022,
+                    1025,
+                    1033,
+                    1889,
+                    1918,
+                    6441,
+                    1128,
+                    13138,
+                    14218,
+                    45070,
+                    21003,
+                    9345,
+                    20973,
+                    45205,
+                    45199,
+                    45204,
+                    45242,
+                    45214
+                  ],
+                  "surface_height": 87.62,
+                  "parent": "GB000A35BC5726VNU7YRTQJZXQAMYLD4IYVMNHXH",
+                  "level": 1,
+                  "bbox_min": [
+                    -50.8,
+                    -23.67,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    50.8,
+                    23.67,
+                    87.625
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2018-02-01T17:10:11.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": "40\" w x 18\" d x 34.5\" h",
+                  "color": "#0B3B43",
+                  "is_glb": false,
+                  "color_h": 0.5238095238095238,
+                  "color_s": 0.7179487179487178,
+                  "color_l": "0.15294117647058825",
+                  "price": null,
+                  "has_special_price": false,
+                  "materials": [
+                    {
+                      "name": "FINISH_304",
+                      "role": "Finish",
+                      "system_role": "Finish",
+                      "default_id": 31,
+                      "reference_id": null,
+                      "variations": [
+                        {
+                          "id": 62,
+                          "name": "Marble Gray",
+                          "sku": "377",
+                          "properties": {}
+                        },
+                        {
+                          "id": 33,
+                          "name": "Aged Bisque",
+                          "sku": "306",
+                          "properties": {}
+                        },
+                        {
+                          "id": 32,
+                          "name": "Aged Ember",
+                          "sku": "305",
+                          "properties": {}
+                        },
+                        {
+                          "id": 31,
+                          "name": "Aged Teal",
+                          "sku": "304",
+                          "properties": {}
+                        }
+                      ]
+                    }
+                  ],
+                  "lab_l": "22.317686288275787",
+                  "lab_a": "-12.317097784608377",
+                  "lab_b": -9.457837881481579,
+                  "palette_color": [
+                    "black"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3069,
+        "refid": "b1ac696d342f1da63fe108f941de8c313cc5b126",
+        "class_name": "bench",
+        "position_x": -6.21,
+        "position_y": 3.94,
+        "position_z": 0.0,
+        "scale_x": 1.51,
+        "scale_y": 0.55,
+        "scale_z": 0.77,
+        "angle_z": 3.141592653589793,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "b1ac696d342f1da63fe108f941de8c313cc5b126",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Haley Petite Bench",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-furniture-living-room-benches/haley-bench/haley.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "207957",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2019-07-15T09:58:27.252Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 150.876,
+                  "height": 76.918,
+                  "depth": 54.85,
+                  "model": "b1ac696d342f1da63fe108f941de8c313cc5b126_02",
+                  "tags": [
+                    1046,
+                    1028,
+                    1033,
+                    1849,
+                    1851,
+                    1918,
+                    2022,
+                    2023,
+                    1128,
+                    13138,
+                    14218,
+                    45070,
+                    9345,
+                    20994,
+                    20973,
+                    45206,
+                    45199,
+                    45204,
+                    45351,
+                    45200
+                  ],
+                  "surface_height": 47.0,
+                  "parent": "GB000A35SD4UVDADTCQJCC3ENPRHNW7MNQA76VDH",
+                  "level": 1,
+                  "bbox_min": [
+                    -75.438,
+                    -27.425,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    75.438,
+                    27.425,
+                    76.918
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2019-07-18T14:35:24.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": "59\" w x 21\" d x 30\" h",
+                  "color": "#544C42",
+                  "is_glb": false,
+                  "color_h": 0.09259259259259256,
+                  "color_s": "0.11999999999999995",
+                  "color_l": "0.29411764705882354",
+                  "price": null,
+                  "has_special_price": false,
+                  "materials": [
+                    {
+                      "name": "FINISH_962",
+                      "role": "Finish",
+                      "system_role": "Finish",
+                      "default_id": 275,
+                      "reference_id": null,
+                      "variations": [
+                        {
+                          "id": 275,
+                          "name": "Stone Gray",
+                          "sku": "962",
+                          "properties": {}
+                        },
+                        {
+                          "id": 260,
+                          "name": "Caf\u00e9 Select",
+                          "sku": "960",
+                          "properties": {}
+                        },
+                        {
+                          "id": 262,
+                          "name": "Ebony",
+                          "sku": "956",
+                          "properties": {}
+                        },
+                        {
+                          "id": 261,
+                          "name": "Sienna",
+                          "sku": "953",
+                          "properties": {}
+                        },
+                        {
+                          "id": 220,
+                          "name": "Parchment",
+                          "sku": "950",
+                          "properties": {}
+                        },
+                        {
+                          "id": 263,
+                          "name": "Umber",
+                          "sku": "934",
+                          "properties": {}
+                        },
+                        {
+                          "id": 217,
+                          "name": "Shark Fin",
+                          "sku": "933",
+                          "properties": {}
+                        },
+                        {
+                          "id": 218,
+                          "name": "Raisin",
+                          "sku": "939",
+                          "properties": {}
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FABRIC_H3280",
+                      "role": "Fabric",
+                      "system_role": "Fabric",
+                      "default_id": 922,
+                      "reference_id": null,
+                      "variations": [
+                        {
+                          "id": 30799,
+                          "name": "Kenley White",
+                          "sku": "73537",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28254,
+                          "name": "Tuckahoe Gray",
+                          "sku": "H3255",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28253,
+                          "name": "Tuckahoe Charcoal",
+                          "sku": "H3254",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28252,
+                          "name": "Tuckahoe Taupe",
+                          "sku": "H3251",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28251,
+                          "name": "Fonte Gray",
+                          "sku": "H1455",
+                          "properties": {}
+                        },
+                        {
+                          "id": 924,
+                          "name": "Fonte Oyster",
+                          "sku": "H1439",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28250,
+                          "name": "Fonte Linen",
+                          "sku": "H1436",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28249,
+                          "name": "Fonte Cream",
+                          "sku": "H1434",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28248,
+                          "name": "Aberdeen Taupe",
+                          "sku": "75951",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28255,
+                          "name": "Aberdeen Blush",
+                          "sku": "75912",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28247,
+                          "name": "Meridian Navy",
+                          "sku": "74688",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28246,
+                          "name": "Farrell Steel",
+                          "sku": "52684",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28245,
+                          "name": "Farrell Camel",
+                          "sku": "52671",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28244,
+                          "name": "Farrell Wheat",
+                          "sku": "52647",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28243,
+                          "name": "Jordan Charcoal",
+                          "sku": "44754",
+                          "properties": {}
+                        },
+                        {
+                          "id": 28242,
+                          "name": "Nola Slate",
+                          "sku": "31984",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26606,
+                          "name": "Nola Rouge",
+                          "sku": "31913",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26536,
+                          "name": "Dakota Marine",
+                          "sku": "P0187",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26537,
+                          "name": "Kalahari Shadow",
+                          "sku": "92756",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26539,
+                          "name": "Lyon Cadet",
+                          "sku": "90781",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26540,
+                          "name": "Lyon Cayenne",
+                          "sku": "90763",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26541,
+                          "name": "Lyon Shadow",
+                          "sku": "90756",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26542,
+                          "name": "Lyon Citron",
+                          "sku": "90724",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26587,
+                          "name": "Claire Blush",
+                          "sku": "85512",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26552,
+                          "name": "Hadley Denim",
+                          "sku": "82985",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26553,
+                          "name": "Hadley Terracotta",
+                          "sku": "82964",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26589,
+                          "name": "Sonoma Clay",
+                          "sku": "79664",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26555,
+                          "name": "Karlie Mist",
+                          "sku": "79380",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26543,
+                          "name": "Adria Indigo",
+                          "sku": "69688",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26592,
+                          "name": "Lyra Linen",
+                          "sku": "65539",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26557,
+                          "name": "Cabria Leaf",
+                          "sku": "64223",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26558,
+                          "name": "Joliet Slate",
+                          "sku": "59888",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26559,
+                          "name": "Joliet Sterling",
+                          "sku": "59853",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26560,
+                          "name": "Joliet Hemlock",
+                          "sku": "59826",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26561,
+                          "name": "Joliet Rouge",
+                          "sku": "59813",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26562,
+                          "name": "Harrison Navy",
+                          "sku": "59788",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26563,
+                          "name": "Harrison Camel",
+                          "sku": "59771",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26564,
+                          "name": "Harrison Sand",
+                          "sku": "59770",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26566,
+                          "name": "Nottingham Ink",
+                          "sku": "48489",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26567,
+                          "name": "Marbella Mica",
+                          "sku": "47639",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26568,
+                          "name": "Akra Slate",
+                          "sku": "45184",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26569,
+                          "name": "Akra Mineral",
+                          "sku": "45180",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26570,
+                          "name": "Akra Cashew",
+                          "sku": "45174",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26571,
+                          "name": "Akra Pistachio",
+                          "sku": "45123",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26544,
+                          "name": "Prescott Persimmon",
+                          "sku": "41302",
+                          "properties": {}
+                        },
+                        {
+                          "id": 152,
+                          "name": "Tesoro Avocado",
+                          "sku": "40324",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26545,
+                          "name": "Chandler Birch",
+                          "sku": "39770",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26572,
+                          "name": "Nabry Bluestone",
+                          "sku": "39480",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26573,
+                          "name": "Nabry Charcoal",
+                          "sku": "39454",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26574,
+                          "name": "Nabry Ruby",
+                          "sku": "39409",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26575,
+                          "name": "Tahoe Cinnabar",
+                          "sku": "36162",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26576,
+                          "name": "Tahoe Crimson",
+                          "sku": "36110",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26577,
+                          "name": "Lynwood Ice-Blue",
+                          "sku": "34480",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26578,
+                          "name": "Lynwood Daisy",
+                          "sku": "34442",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26579,
+                          "name": "Lynwood Flax",
+                          "sku": "34439",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26580,
+                          "name": "Rowley Navy",
+                          "sku": "33388",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26581,
+                          "name": "Rowley Charcoal",
+                          "sku": "33354",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26582,
+                          "name": "Rowley Hemlock",
+                          "sku": "33326",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26583,
+                          "name": "Rowley Rosewood",
+                          "sku": "33302",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26584,
+                          "name": "Townsend Ocean",
+                          "sku": "31085",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26585,
+                          "name": "Townsend Sorbet",
+                          "sku": "31016",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26597,
+                          "name": "Sabine Ebony",
+                          "sku": "30657",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26546,
+                          "name": "Verdana Jade",
+                          "sku": "29229",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26547,
+                          "name": "Edmund Cadet",
+                          "sku": "24083",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26548,
+                          "name": "Edmund Ebony",
+                          "sku": "24057",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26549,
+                          "name": "Edmund Ivy",
+                          "sku": "24028",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26550,
+                          "name": "Edmund Crimson",
+                          "sku": "24010",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26551,
+                          "name": "Sinclair Pacific",
+                          "sku": "P3181",
+                          "properties": {}
+                        },
+                        {
+                          "id": 922,
+                          "name": "Tuckahoe Mineral",
+                          "sku": "H3280",
+                          "properties": {}
+                        },
+                        {
+                          "id": 923,
+                          "name": "Tuckahoe Wheat",
+                          "sku": "H3247",
+                          "properties": {}
+                        },
+                        {
+                          "id": 213,
+                          "name": "Gil Mineral",
+                          "sku": "H2680",
+                          "properties": {}
+                        },
+                        {
+                          "id": 208,
+                          "name": "Gil Metal",
+                          "sku": "H2651",
+                          "properties": {}
+                        },
+                        {
+                          "id": 207,
+                          "name": "Gil Linen",
+                          "sku": "H2639",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26586,
+                          "name": "Clasie Teal",
+                          "sku": "H1029",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26538,
+                          "name": "Bern Leaf",
+                          "sku": "91923",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26588,
+                          "name": "Sylvie Leaf",
+                          "sku": "81523",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26554,
+                          "name": "Barton Ivory",
+                          "sku": "79832",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26556,
+                          "name": "Aberdeen French-Blue",
+                          "sku": "75982",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26590,
+                          "name": "Meridian Sand",
+                          "sku": "74670",
+                          "properties": {}
+                        },
+                        {
+                          "id": 925,
+                          "name": "Ledley Silver",
+                          "sku": "62853",
+                          "properties": {}
+                        },
+                        {
+                          "id": 926,
+                          "name": "Camby Eggplant",
+                          "sku": "59199",
+                          "properties": {}
+                        },
+                        {
+                          "id": 927,
+                          "name": "Camby Indigo",
+                          "sku": "59188",
+                          "properties": {}
+                        },
+                        {
+                          "id": 928,
+                          "name": "Camby Cognac",
+                          "sku": "59169",
+                          "properties": {}
+                        },
+                        {
+                          "id": 929,
+                          "name": "Camby Spice",
+                          "sku": "59166",
+                          "properties": {}
+                        },
+                        {
+                          "id": 931,
+                          "name": "Camby Olive",
+                          "sku": "59127",
+                          "properties": {}
+                        },
+                        {
+                          "id": 930,
+                          "name": "Camby Green",
+                          "sku": "59122",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26565,
+                          "name": "Hibbert Seal",
+                          "sku": "58677",
+                          "properties": {}
+                        },
+                        {
+                          "id": 932,
+                          "name": "Hibbert Gray",
+                          "sku": "58655",
+                          "properties": {}
+                        },
+                        {
+                          "id": 934,
+                          "name": "Hibbert Seaglass",
+                          "sku": "58621",
+                          "properties": {}
+                        },
+                        {
+                          "id": 935,
+                          "name": "Hibbert Brick",
+                          "sku": "58602",
+                          "properties": {}
+                        },
+                        {
+                          "id": 940,
+                          "name": "Weir Charcoal",
+                          "sku": "50653",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26593,
+                          "name": "Weir Hot Pink",
+                          "sku": "50615",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26594,
+                          "name": "Hoban Brown",
+                          "sku": "40777",
+                          "properties": {}
+                        },
+                        {
+                          "id": 942,
+                          "name": "Ramona Ballet Pink",
+                          "sku": "38313",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26595,
+                          "name": "Hamden Daisy",
+                          "sku": "36042",
+                          "properties": {}
+                        },
+                        {
+                          "id": 26596,
+                          "name": "Hamden Rouge",
+                          "sku": "36013",
+                          "properties": {}
+                        },
+                        {
+                          "id": 937,
+                          "name": "Brax Charcoal",
+                          "sku": "23654",
+                          "properties": {}
+                        },
+                        {
+                          "id": 936,
+                          "name": "Brax Oatmeal",
+                          "sku": "23633",
+                          "properties": {}
+                        },
+                        {
+                          "id": 142,
+                          "name": "Thornhill Indigo",
+                          "sku": "11288",
+                          "properties": {}
+                        },
+                        {
+                          "id": 141,
+                          "name": "Thornhill Mango",
+                          "sku": "11262",
+                          "properties": {}
+                        },
+                        {
+                          "id": 140,
+                          "name": "Thornhill Charcoal",
+                          "sku": "11254",
+                          "properties": {}
+                        },
+                        {
+                          "id": 139,
+                          "name": "Thornhill Cream",
+                          "sku": "11234",
+                          "properties": {}
+                        }
+                      ]
+                    }
+                  ],
+                  "lab_l": 32.80369555697936,
+                  "lab_a": "1.4342803691265449",
+                  "lab_b": 7.15524784415138,
+                  "palette_color": [
+                    "black",
+                    "brown"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3070,
+        "refid": "018f52ea0b259b9134aaa3685171d7ffe624c3dc",
+        "class_name": "standing lamp",
+        "position_x": -5.36,
+        "position_y": 2.38,
+        "position_z": 0.0,
+        "scale_x": 0.58,
+        "scale_y": 0.58,
+        "scale_z": 1.7,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "018f52ea0b259b9134aaa3685171d7ffe624c3dc",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Milania Floor Lamp",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-lighting-floor-lamps/milania-floor-lamp/092006.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "092006",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-07-10T12:10:21.055Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 58.42,
+                  "height": 170.459,
+                  "depth": 58.42,
+                  "model": "018f52ea0b259b9134aaa3685171d7ffe624c3dc_02",
+                  "tags": [
+                    1156,
+                    1155,
+                    1230,
+                    1939,
+                    2016,
+                    2033,
+                    13138,
+                    14218,
+                    45070,
+                    21038,
+                    9345,
+                    21014,
+                    45207,
+                    45199,
+                    45204,
+                    45217,
+                    45214,
+                    45222,
+                    45200,
+                    45242,
+                    45247,
+                    45434,
+                    45806
+                  ],
+                  "surface_height": 170.1,
+                  "parent": "GB000A35GR5KGCUSRDC2A7LAAL3RQX43KTI27E2D",
+                  "level": 1,
+                  "bbox_min": [
+                    -29.21,
+                    -29.21,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    29.21,
+                    29.21,
+                    170.459
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-07-21T11:30:54.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#F0F0F0",
+                  "is_glb": false,
+                  "color_h": 0,
+                  "color_s": 0,
+                  "color_l": 0.9411764705882353,
+                  "price": "0.0",
+                  "has_special_price": false,
+                  "light": {
+                    "wattage": 60,
+                    "wattage_fixed": false,
+                    "color": "FFFFFB",
+                    "color_fixed": false
+                  },
+                  "lab_l": 94.79624582959184,
+                  "lab_a": 0.005024514194540419,
+                  "lab_b": -0.009941273890556879,
+                  "palette_color": [
+                    "white"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3071,
+        "refid": "c4a835e032dd46c6d83f85b2adbdad41b1c3376b",
+        "class_name": "console table",
+        "position_x": -4.31,
+        "position_y": 2.27,
+        "position_z": 0.0,
+        "scale_x": 1.52,
+        "scale_y": 0.35,
+        "scale_z": 0.71,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "c4a835e032dd46c6d83f85b2adbdad41b1c3376b",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Braemore Plinth Base Console Table",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-products-new-relaxed-modern/braemore-rectangular-plinth-base-console-table/368207+++483.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "368207",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2019-07-15T09:58:27.024Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 152.434,
+                  "height": 71.139,
+                  "depth": 35.56,
+                  "model": "c4a835e032dd46c6d83f85b2adbdad41b1c3376b_02",
+                  "tags": [
+                    1048,
+                    1021,
+                    1033,
+                    1918,
+                    1128,
+                    13138,
+                    14218,
+                    45070,
+                    9345,
+                    20993,
+                    20973,
+                    45209,
+                    45199,
+                    45204,
+                    45220,
+                    45214,
+                    45442,
+                    45264
+                  ],
+                  "surface_height": 71.0,
+                  "parent": "GB000A35WS3PCWD6DLA7Z7XXEFQQDOY7BZRORM5Q",
+                  "level": 1,
+                  "bbox_min": [
+                    -76.217,
+                    -17.78,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    76.217,
+                    17.78,
+                    71.139
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2019-07-18T14:35:15.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": "60\" w x 14\" d x 28\" h",
+                  "color": "#A59E94",
+                  "is_glb": false,
+                  "color_h": 0.09803921568627445,
+                  "color_s": 0.0862944162436548,
+                  "color_l": 0.6137254901960785,
+                  "price": null,
+                  "has_special_price": false,
+                  "materials": [
+                    {
+                      "name": "FINISH_483",
+                      "role": "Finish",
+                      "system_role": "Finish",
+                      "default_id": 390,
+                      "reference_id": null,
+                      "variations": [
+                        {
+                          "id": 391,
+                          "name": "Alabaster",
+                          "sku": "733",
+                          "properties": {}
+                        },
+                        {
+                          "id": 393,
+                          "name": "Mink",
+                          "sku": "487",
+                          "properties": {}
+                        },
+                        {
+                          "id": 390,
+                          "name": "Gray Flannel",
+                          "sku": "483",
+                          "properties": {}
+                        }
+                      ]
+                    }
+                  ],
+                  "lab_l": 65.4291202587421,
+                  "lab_a": 0.7504316686873791,
+                  "lab_b": 6.120392609139258,
+                  "palette_color": [
+                    "grey"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3072,
+        "refid": "2d3318929f64ab30af436705e6a096329817c6d2",
+        "class_name": "wall mirror",
+        "position_x": -4.31,
+        "position_y": 2.12,
+        "position_z": 1.19,
+        "scale_x": 1.02,
+        "scale_y": 0.06,
+        "scale_z": 1.02,
+        "angle_z": 3.141592653589793,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "2d3318929f64ab30af436705e6a096329817c6d2",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Clarendon Wall Mirror",
+                  "currency": null,
+                  "url": "https://floorplanner.com",
+                  "company_id": 31,
+                  "out_of_stock": false,
+                  "sku": "156539574",
+                  "brand": "Discontinued",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": true,
+                  "created_at": "2017-06-07T14:49:18.633Z",
+                  "tracked": true,
+                  "width": 102.03,
+                  "height": 6.5,
+                  "depth": 102.07,
+                  "model": "2d3318929f64ab30af436705e6a096329817c6d2_01",
+                  "tags": [
+                    1271,
+                    1018,
+                    1142,
+                    1152,
+                    1347,
+                    1898,
+                    2006,
+                    13138,
+                    14218,
+                    45070,
+                    45210,
+                    45199,
+                    45204
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB69C248ESUEIJOPKRIBLZYXMNJNN2YPIN2TASTS",
+                  "level": -1,
+                  "bbox_min": [
+                    -50.94,
+                    -51.05,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    51.09,
+                    51.02,
+                    6.5
+                  ],
+                  "supplier_id": 6931083,
+                  "supplier_name": "Discontinued",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2017-06-15T17:32:46.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#C5C4C0",
+                  "color_h": "0.13333333333333353",
+                  "color_s": "0.041322314049586854",
+                  "color_l": 0.7627450980392156,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 79.13100718334823,
+                  "lab_a": "-0.37515060137277567",
+                  "lab_b": "2.1170473241677312",
+                  "palette_color": "beige"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3073,
+        "refid": "d0fe779d6d9f152945ca1929693e1fc0b7473a1e",
+        "class_name": "wall mounted lamp",
+        "position_x": -3.76,
+        "position_y": 3.25,
+        "position_z": 1.8,
+        "scale_x": 0.4,
+        "scale_y": 0.1,
+        "scale_z": 0.15,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "d0fe779d6d9f152945ca1929693e1fc0b7473a1e",
+                "_score": 1.0,
+                "_source": {
+                  "name": "BANDEAU WALL LIGHT",
+                  "currency": null,
+                  "url": "https://floorplanner.com",
+                  "company_id": 1,
+                  "out_of_stock": false,
+                  "sku": null,
+                  "brand": "Floorplanner",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2014-06-27T13:32:01.584Z",
+                  "tracked": true,
+                  "width": 40.0,
+                  "height": 10.0,
+                  "depth": 15.04,
+                  "model": "d0fe779d6d9f152945ca1929693e1fc0b7473a1e_03",
+                  "tags": [
+                    1159,
+                    1158,
+                    1230,
+                    1939,
+                    2016,
+                    2033,
+                    13138,
+                    14218,
+                    45070,
+                    45208,
+                    45199,
+                    45204,
+                    45561,
+                    45283,
+                    45399,
+                    45581,
+                    45348
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB0000102D7HPHLNT4KSSROKDEUWSPQ7YC3UOOQ6",
+                  "level": -1,
+                  "bbox_min": [
+                    -20.0,
+                    -7.5,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    20.0,
+                    7.54,
+                    10.0
+                  ],
+                  "supplier_id": 1,
+                  "supplier_name": "Floorplanner",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2008-02-01T09:24:07.000Z",
+                  "description": "The simple but elegant Bandeau wall light comprises a curve of grey, hand-finished plaster, sending a soft wash of light above and below it. Takes a maximum 100W, E27 incandescent bulb (not included).",
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#E3C467",
+                  "color_h": "0.12500000000000003",
+                  "color_s": 0.6888888888888888,
+                  "color_l": 0.6470588235294117,
+                  "price": "120.0",
+                  "has_special_price": false,
+                  "light": {
+                    "wattage": 60,
+                    "wattage_fixed": false,
+                    "color": "FFFFFB",
+                    "color_fixed": false
+                  },
+                  "lab_l": 80.06134582642788,
+                  "lab_a": "-0.28286603923438625",
+                  "lab_b": 50.15311696045155,
+                  "palette_color": "yellow"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3074,
+        "refid": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920",
+        "class_name": "built-in spot light",
+        "position_x": -5.59,
+        "position_y": 3.07,
+        "position_z": 2.8,
+        "scale_x": 0.1,
+        "scale_y": 0.1,
+        "scale_z": 0.12,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Round Ceiling Light, White",
+                  "currency": null,
+                  "url": "www.roguefitness.com",
+                  "company_id": 45,
+                  "out_of_stock": false,
+                  "sku": null,
+                  "brand": "Rogue",
+                  "is_private": true,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2018-04-26T09:32:39.233Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 10.356,
+                  "height": 11.716,
+                  "depth": 10.49,
+                  "model": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920_00",
+                  "tags": [
+                    1925,
+                    1163,
+                    1230,
+                    1939,
+                    2016,
+                    2033,
+                    13138,
+                    14218,
+                    45070,
+                    20218,
+                    45207,
+                    45199,
+                    45204,
+                    45208,
+                    45219,
+                    45214,
+                    45224,
+                    45223,
+                    45239,
+                    45237,
+                    45262,
+                    45250,
+                    45266,
+                    45264,
+                    45281,
+                    45232,
+                    45290,
+                    45283,
+                    45284,
+                    45303,
+                    45301,
+                    45311,
+                    45307,
+                    45315,
+                    45269,
+                    45328,
+                    45337,
+                    45334,
+                    45349,
+                    45348,
+                    45357,
+                    45369,
+                    45366,
+                    45384,
+                    45382,
+                    45397,
+                    45440,
+                    45438,
+                    45447,
+                    45446,
+                    45469,
+                    45274,
+                    45473,
+                    45297,
+                    45472,
+                    45474,
+                    45319,
+                    45480,
+                    45476,
+                    45488,
+                    45344,
+                    45489,
+                    45496,
+                    45380,
+                    45505,
+                    45503,
+                    45510,
+                    45321,
+                    45512,
+                    45415,
+                    45520,
+                    45531,
+                    45548,
+                    45592
+                  ],
+                  "surface_height": 0.0,
+                  "parent": "GB69C267KXONUGQAY6KY3ZZZRKWZ7TWRD7PFR67C",
+                  "level": -2,
+                  "bbox_min": [
+                    -5.178,
+                    -5.238,
+                    -0.239
+                  ],
+                  "bbox_max": [
+                    5.178,
+                    5.252,
+                    11.477
+                  ],
+                  "supplier_id": 6931047,
+                  "supplier_name": "Rogue",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2018-04-26T13:31:20.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#FFFFFF",
+                  "is_glb": false,
+                  "color_h": 0,
+                  "color_s": 0,
+                  "color_l": 1.0,
+                  "price": null,
+                  "has_special_price": false,
+                  "light": {
+                    "wattage": 60,
+                    "wattage_fixed": false,
+                    "color": "FFFFFB",
+                    "color_fixed": false
+                  },
+                  "lab_l": 100.0,
+                  "lab_a": 0.00526049995830391,
+                  "lab_b": "-0.010408184525267927",
+                  "palette_color": [
+                    "white"
+                  ],
+                  "group_id": "b695338d64fbf943ad64f49d510d8399245708d0"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3075,
+        "refid": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920",
+        "class_name": "built-in spot light",
+        "position_x": -7.59,
+        "position_y": 3.07,
+        "position_z": 2.8,
+        "scale_x": 0.1,
+        "scale_y": 0.1,
+        "scale_z": 0.12,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Round Ceiling Light, White",
+                  "currency": null,
+                  "url": "www.roguefitness.com",
+                  "company_id": 45,
+                  "out_of_stock": false,
+                  "sku": null,
+                  "brand": "Rogue",
+                  "is_private": true,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2018-04-26T09:32:39.233Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 10.356,
+                  "height": 11.716,
+                  "depth": 10.49,
+                  "model": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920_00",
+                  "tags": [
+                    1925,
+                    1163,
+                    1230,
+                    1939,
+                    2016,
+                    2033,
+                    13138,
+                    14218,
+                    45070,
+                    20218,
+                    45207,
+                    45199,
+                    45204,
+                    45208,
+                    45219,
+                    45214,
+                    45224,
+                    45223,
+                    45239,
+                    45237,
+                    45262,
+                    45250,
+                    45266,
+                    45264,
+                    45281,
+                    45232,
+                    45290,
+                    45283,
+                    45284,
+                    45303,
+                    45301,
+                    45311,
+                    45307,
+                    45315,
+                    45269,
+                    45328,
+                    45337,
+                    45334,
+                    45349,
+                    45348,
+                    45357,
+                    45369,
+                    45366,
+                    45384,
+                    45382,
+                    45397,
+                    45440,
+                    45438,
+                    45447,
+                    45446,
+                    45469,
+                    45274,
+                    45473,
+                    45297,
+                    45472,
+                    45474,
+                    45319,
+                    45480,
+                    45476,
+                    45488,
+                    45344,
+                    45489,
+                    45496,
+                    45380,
+                    45505,
+                    45503,
+                    45510,
+                    45321,
+                    45512,
+                    45415,
+                    45520,
+                    45531,
+                    45548,
+                    45592
+                  ],
+                  "surface_height": 0.0,
+                  "parent": "GB69C267KXONUGQAY6KY3ZZZRKWZ7TWRD7PFR67C",
+                  "level": -2,
+                  "bbox_min": [
+                    -5.178,
+                    -5.238,
+                    -0.239
+                  ],
+                  "bbox_max": [
+                    5.178,
+                    5.252,
+                    11.477
+                  ],
+                  "supplier_id": 6931047,
+                  "supplier_name": "Rogue",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2018-04-26T13:31:20.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#FFFFFF",
+                  "is_glb": false,
+                  "color_h": 0,
+                  "color_s": 0,
+                  "color_l": 1.0,
+                  "price": null,
+                  "has_special_price": false,
+                  "light": {
+                    "wattage": 60,
+                    "wattage_fixed": false,
+                    "color": "FFFFFB",
+                    "color_fixed": false
+                  },
+                  "lab_l": 100.0,
+                  "lab_a": 0.00526049995830391,
+                  "lab_b": "-0.010408184525267927",
+                  "palette_color": [
+                    "white"
+                  ],
+                  "group_id": "b695338d64fbf943ad64f49d510d8399245708d0"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3076,
+        "refid": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920",
+        "class_name": "built-in spot light",
+        "position_x": -3.59,
+        "position_y": 3.07,
+        "position_z": 2.8,
+        "scale_x": 0.1,
+        "scale_y": 0.1,
+        "scale_z": 0.12,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 0,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Round Ceiling Light, White",
+                  "currency": null,
+                  "url": "www.roguefitness.com",
+                  "company_id": 45,
+                  "out_of_stock": false,
+                  "sku": null,
+                  "brand": "Rogue",
+                  "is_private": true,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2018-04-26T09:32:39.233Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 10.356,
+                  "height": 11.716,
+                  "depth": 10.49,
+                  "model": "03e195f8bd27ffb3982ccb69dcab98d53f3f6920_00",
+                  "tags": [
+                    1925,
+                    1163,
+                    1230,
+                    1939,
+                    2016,
+                    2033,
+                    13138,
+                    14218,
+                    45070,
+                    20218,
+                    45207,
+                    45199,
+                    45204,
+                    45208,
+                    45219,
+                    45214,
+                    45224,
+                    45223,
+                    45239,
+                    45237,
+                    45262,
+                    45250,
+                    45266,
+                    45264,
+                    45281,
+                    45232,
+                    45290,
+                    45283,
+                    45284,
+                    45303,
+                    45301,
+                    45311,
+                    45307,
+                    45315,
+                    45269,
+                    45328,
+                    45337,
+                    45334,
+                    45349,
+                    45348,
+                    45357,
+                    45369,
+                    45366,
+                    45384,
+                    45382,
+                    45397,
+                    45440,
+                    45438,
+                    45447,
+                    45446,
+                    45469,
+                    45274,
+                    45473,
+                    45297,
+                    45472,
+                    45474,
+                    45319,
+                    45480,
+                    45476,
+                    45488,
+                    45344,
+                    45489,
+                    45496,
+                    45380,
+                    45505,
+                    45503,
+                    45510,
+                    45321,
+                    45512,
+                    45415,
+                    45520,
+                    45531,
+                    45548,
+                    45592
+                  ],
+                  "surface_height": 0.0,
+                  "parent": "GB69C267KXONUGQAY6KY3ZZZRKWZ7TWRD7PFR67C",
+                  "level": -2,
+                  "bbox_min": [
+                    -5.178,
+                    -5.238,
+                    -0.239
+                  ],
+                  "bbox_max": [
+                    5.178,
+                    5.252,
+                    11.477
+                  ],
+                  "supplier_id": 6931047,
+                  "supplier_name": "Rogue",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2018-04-26T13:31:20.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#FFFFFF",
+                  "is_glb": false,
+                  "color_h": 0,
+                  "color_s": 0,
+                  "color_l": 1.0,
+                  "price": null,
+                  "has_special_price": false,
+                  "light": {
+                    "wattage": 60,
+                    "wattage_fixed": false,
+                    "color": "FFFFFB",
+                    "color_fixed": false
+                  },
+                  "lab_l": 100.0,
+                  "lab_a": 0.00526049995830391,
+                  "lab_b": "-0.010408184525267927",
+                  "palette_color": [
+                    "white"
+                  ],
+                  "group_id": "b695338d64fbf943ad64f49d510d8399245708d0"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "area": 11.944699999999997
+  }
+}

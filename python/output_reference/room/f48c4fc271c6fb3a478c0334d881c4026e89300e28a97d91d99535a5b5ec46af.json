@@ -1,0 +1,2404 @@
+{
+  "id": "f48c4fc271c6fb3a478c0334d881c4026e89300e28a97d91d99535a5b5ec46af",
+  "parent_id": "e52c81c7e75260845f222821fcf78b659bb8a2e0dc9667830e9326a9cbdcb248",
+  "type": "room",
+  "attrs": {
+    "id": 9005,
+    "name": "Room 9005",
+    "walls": [
+      {
+        "id": 7,
+        "a_x": 3.64,
+        "a_y": 5.27,
+        "a_z": 0.0,
+        "b_x": -2.36,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.3,
+        "openings": [],
+        "decor": []
+      },
+      {
+        "id": 6,
+        "a_x": 3.64,
+        "a_y": 1.5,
+        "a_z": 0.0,
+        "b_x": 3.64,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": [
+          {
+            "id": "3263",
+            "wall0_id": 6,
+            "wall1_id": -1,
+            "position_x": 3.64,
+            "position_y": 4.44,
+            "position_z": 0.0,
+            "width": 0.98,
+            "height": 2.2,
+            "type": "door"
+          }
+        ],
+        "decor": []
+      },
+      {
+        "id": 1,
+        "a_x": 3.64,
+        "a_y": 1.5,
+        "a_z": 0.0,
+        "b_x": -2.36,
+        "b_y": 1.5,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.0,
+        "openings": [],
+        "decor": []
+      },
+      {
+        "id": 2,
+        "a_x": -2.36,
+        "a_y": 2.01,
+        "a_z": 0.0,
+        "b_x": -2.36,
+        "b_y": 1.5,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": [],
+        "decor": []
+      },
+      {
+        "id": 20,
+        "a_x": -2.36,
+        "a_y": 2.01,
+        "a_z": 0.0,
+        "b_x": -2.36,
+        "b_y": 3.37,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": [
+          {
+            "id": "200",
+            "wall0_id": 20,
+            "wall1_id": -1,
+            "position_x": -2.36,
+            "position_y": 2.7,
+            "position_z": 0.0,
+            "width": 0.98,
+            "height": 2.2,
+            "type": "door"
+          }
+        ],
+        "decor": []
+      },
+      {
+        "id": 21,
+        "a_x": -2.36,
+        "a_y": 3.37,
+        "a_z": 0.0,
+        "b_x": -2.36,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": [],
+        "decor": []
+      }
+    ],
+    "items": [
+      {
+        "id": 3004,
+        "refid": "556f8cb43b56b196cf0d7a765bdff208fe32f0e7",
+        "class_name": "tv stand",
+        "position_x": 1.27,
+        "position_y": 4.97,
+        "position_z": 0.0,
+        "scale_x": 1.95,
+        "scale_y": 0.46,
+        "scale_z": 0.82,
+        "angle_z": 3.1415926535897936,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "556f8cb43b56b196cf0d7a765bdff208fe32f0e7",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Ming Media Cabinet",
+                  "currency": null,
+                  "url": "http://www.ethanallen.com/en_US/shop-furniture-living-room-storage-display-cabinets-chests/ming-media-cabinet/129107.html?site=",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "129107",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2017-12-22T14:40:01.174Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 195.58,
+                  "height": 81.915,
+                  "depth": 46.144,
+                  "model": "556f8cb43b56b196cf0d7a765bdff208fe32f0e7_02",
+                  "tags": [
+                    1059,
+                    1022,
+                    1033,
+                    1498,
+                    1736,
+                    1889,
+                    1918,
+                    6441,
+                    1128,
+                    13138,
+                    14218,
+                    45070,
+                    21002,
+                    9345,
+                    20973,
+                    45218,
+                    45199,
+                    45214
+                  ],
+                  "surface_height": 81.92,
+                  "parent": "GB000A35QP5MORTFJQIFC4L7FILVRAAS577XYKKQ",
+                  "level": 1,
+                  "bbox_min": [
+                    -97.79,
+                    -23.072,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    97.79,
+                    23.072,
+                    81.915
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2018-02-02T14:11:59.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": "77\" w x 18\" d x 32.25\" h",
+                  "color": "#025669",
+                  "is_glb": false,
+                  "color_h": 0.5307443365695793,
+                  "color_s": 0.9626168224299066,
+                  "color_l": "0.20980392156862743",
+                  "price": null,
+                  "has_special_price": false,
+                  "materials": [
+                    {
+                      "name": "FINISH_304",
+                      "role": "Finish",
+                      "system_role": "Finish",
+                      "default_id": 31,
+                      "reference_id": null,
+                      "variations": [
+                        {
+                          "id": 62,
+                          "name": "Marble Gray",
+                          "sku": "377",
+                          "properties": {}
+                        },
+                        {
+                          "id": 33,
+                          "name": "Aged Bisque",
+                          "sku": "306",
+                          "properties": {}
+                        },
+                        {
+                          "id": 32,
+                          "name": "Aged Ember",
+                          "sku": "305",
+                          "properties": {}
+                        },
+                        {
+                          "id": 31,
+                          "name": "Aged Teal",
+                          "sku": "304",
+                          "properties": {}
+                        }
+                      ]
+                    }
+                  ],
+                  "lab_l": 33.32533615264309,
+                  "lab_a": "-14.605973292014712",
+                  "lab_b": "-17.177283062990867",
+                  "palette_color": [
+                    "black",
+                    "blue"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3005,
+        "refid": "1d438cf2a0be5706ffdbd1489fbfb27f712589a0",
+        "class_name": "tv",
+        "position_x": 1.27,
+        "position_y": 5.16,
+        "position_z": 0.66,
+        "scale_x": 1.26,
+        "scale_y": 0.08,
+        "scale_z": 0.8,
+        "angle_z": 9.921048172113442e-16,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "1d438cf2a0be5706ffdbd1489fbfb27f712589a0",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Flat TV",
+                  "currency": null,
+                  "url": "https://floorplanner.com",
+                  "company_id": 34,
+                  "out_of_stock": false,
+                  "sku": null,
+                  "brand": "Floorplanner ASSETS",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2016-04-28T10:34:36.278Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 125.82,
+                  "height": 7.72,
+                  "depth": 80.3,
+                  "model": "1d438cf2a0be5706ffdbd1489fbfb27f712589a0_01",
+                  "tags": [
+                    56423,
+                    56420,
+                    56754,
+                    56751,
+                    1499,
+                    1498,
+                    13138,
+                    14218,
+                    6450,
+                    6437,
+                    45070,
+                    23710,
+                    38943,
+                    38917,
+                    38926,
+                    40297,
+                    40295,
+                    45218,
+                    45199,
+                    45214,
+                    45241,
+                    45424,
+                    45200,
+                    45459,
+                    65197,
+                    1942,
+                    65211,
+                    56434,
+                    56435
+                  ],
+                  "surface_height": 1.0,
+                  "parent": "GB000001NKLUYYQRYS444733S43JJTPSDQLBVSVN",
+                  "level": -1,
+                  "bbox_min": [
+                    -62.91,
+                    -40.15,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    62.91,
+                    40.15,
+                    7.72
+                  ],
+                  "supplier_id": 6931024,
+                  "supplier_name": "Floorplanner ASSETS",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2016-05-11T13:57:49.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#000000",
+                  "is_glb": false,
+                  "color_h": 0,
+                  "color_s": 0,
+                  "color_l": 0.0,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 0.0,
+                  "lab_a": 0.0,
+                  "lab_b": 0.0,
+                  "palette_color": [
+                    "black"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3006,
+        "refid": "0977f83725a4e42dc9c91d3333b32552752fe860",
+        "class_name": "coffee table",
+        "position_x": 1.27,
+        "position_y": 3.51,
+        "position_z": 0.0,
+        "scale_x": 1.27,
+        "scale_y": 0.66,
+        "scale_z": 0.47,
+        "angle_z": 8.955245192722805e-16,
+        "item_data": {
+          "took": 21,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "0977f83725a4e42dc9c91d3333b32552752fe860",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Dixon Coffee Table, White",
+                  "currency": null,
+                  "url": "https://www.livingspaces.com/pdp-dixon-cocktail-table-243740?query=243740",
+                  "company_id": 22,
+                  "out_of_stock": false,
+                  "sku": "243740",
+                  "brand": "Living Spaces",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2018-12-19T12:10:57.581Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "width": 126.95,
+                  "height": 46.944,
+                  "depth": 66.0,
+                  "model": "0977f83725a4e42dc9c91d3333b32552752fe860_02",
+                  "tags": [
+                    1047,
+                    1021,
+                    1033,
+                    1918,
+                    1128,
+                    13138,
+                    14218,
+                    45070,
+                    45240,
+                    45199,
+                    45214
+                  ],
+                  "surface_height": 47.0,
+                  "parent": "GB69C22DI7N73GCK7PCQB64YJ7RMNLGXV6PVBMFH",
+                  "level": 1,
+                  "bbox_min": [
+                    -63.475,
+                    -33.0,
+                    -0.007
+                  ],
+                  "bbox_max": [
+                    63.475,
+                    33.0,
+                    46.937
+                  ],
+                  "supplier_id": 6930989,
+                  "supplier_name": "Living Spaces",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2019-01-21T10:49:49.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#69625C",
+                  "is_glb": false,
+                  "color_h": 0.07692307692307704,
+                  "color_s": 0.06598984771573603,
+                  "color_l": "0.38627450980392153",
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 42.01751745687193,
+                  "lab_a": "1.6262300525905493",
+                  "lab_b": 4.405064886844345,
+                  "palette_color": "brown"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3007,
+        "refid": "a1b53ce275b2bb9482ce614d4be3827a408514ee",
+        "class_name": "sofa",
+        "position_x": -0.44,
+        "position_y": 3.51,
+        "position_z": 0.0,
+        "scale_x": 1.88,
+        "scale_y": 1.13,
+        "scale_z": 1.05,
+        "angle_z": 4.712388980384691,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "a1b53ce275b2bb9482ce614d4be3827a408514ee",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Cameron II Loveseat, White",
+                  "currency": null,
+                  "url": "https://www.livingspaces.com/pdp-cameron-ii-loveseat-246651",
+                  "company_id": 22,
+                  "out_of_stock": false,
+                  "sku": "246651",
+                  "brand": "Living Spaces",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2019-03-17T12:32:13.099Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "width": 187.998,
+                  "height": 104.681,
+                  "depth": 112.79,
+                  "model": "a1b53ce275b2bb9482ce614d4be3827a408514ee_00",
+                  "tags": [
+                    1034,
+                    1033,
+                    1918,
+                    1128,
+                    13138,
+                    14218,
+                    45070,
+                    45245,
+                    45199,
+                    45214
+                  ],
+                  "surface_height": 54.0,
+                  "parent": "GB69C22D2TOKAKKUJRAWG4AMZMPTU44TXGVJHHSZ",
+                  "level": 1,
+                  "bbox_min": [
+                    -93.999,
+                    -56.395,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    93.999,
+                    56.395,
+                    104.681
+                  ],
+                  "supplier_id": 6930989,
+                  "supplier_name": "Living Spaces",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2019-03-18T12:43:04.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#ECEBE6",
+                  "is_glb": false,
+                  "color_h": "0.13888888888888823",
+                  "color_s": "0.13636363636363658",
+                  "color_l": 0.9137254901960785,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 92.9981050984671,
+                  "lab_a": -0.5372970438470848,
+                  "lab_b": "2.5288005027198412",
+                  "palette_color": "white"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3008,
+        "refid": "f751ba19356c06c959592d31c0f88b9da6a983c3",
+        "class_name": "console table",
+        "position_x": -1.22,
+        "position_y": 3.51,
+        "position_z": 0.0,
+        "scale_x": 1.27,
+        "scale_y": 0.42,
+        "scale_z": 0.76,
+        "angle_z": 1.5707963267948977,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "f751ba19356c06c959592d31c0f88b9da6a983c3",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Dixon Sofa Table, White",
+                  "currency": null,
+                  "url": "https://www.livingspaces.com/pdp-dixon-sofa-table-243743?query=243743",
+                  "company_id": 22,
+                  "out_of_stock": false,
+                  "sku": "243743",
+                  "brand": "Living Spaces",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2018-12-19T12:10:57.668Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "width": 127.086,
+                  "height": 76.213,
+                  "depth": 41.844,
+                  "model": "f751ba19356c06c959592d31c0f88b9da6a983c3_02",
+                  "tags": [
+                    1048,
+                    1021,
+                    1033,
+                    1918,
+                    1128,
+                    13138,
+                    14218,
+                    45070,
+                    45220,
+                    45199,
+                    45214
+                  ],
+                  "surface_height": 76.0,
+                  "parent": "GB69C22DZDGL4FSX6HR36RHDCQCMRRF66K44MQBS",
+                  "level": 1,
+                  "bbox_min": [
+                    -63.543,
+                    -20.922,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    63.543,
+                    20.922,
+                    76.213
+                  ],
+                  "supplier_id": 6930989,
+                  "supplier_name": "Living Spaces",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2019-01-21T10:49:51.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#69625C",
+                  "is_glb": false,
+                  "color_h": 0.07692307692307704,
+                  "color_s": 0.06598984771573603,
+                  "color_l": "0.38627450980392153",
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 42.01751745687193,
+                  "lab_a": "1.6262300525905493",
+                  "lab_b": 4.405064886844345,
+                  "palette_color": "brown"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3009,
+        "refid": "006ddf26979f5118867e6dd6fd43ee95a90c4748",
+        "class_name": "end table",
+        "position_x": -0.44,
+        "position_y": 4.83,
+        "position_z": 0.0,
+        "scale_x": 0.56,
+        "scale_y": 0.66,
+        "scale_z": 0.61,
+        "angle_z": 4.712388980384691,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "006ddf26979f5118867e6dd6fd43ee95a90c4748",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Dixon End Table, White",
+                  "currency": null,
+                  "url": "https://www.livingspaces.com/pdp-dixon-end-table-243742?query=243742",
+                  "company_id": 22,
+                  "out_of_stock": false,
+                  "sku": "243742",
+                  "brand": "Living Spaces",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2018-12-19T12:10:57.624Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "width": 55.822,
+                  "height": 60.855,
+                  "depth": 66.1,
+                  "model": "006ddf26979f5118867e6dd6fd43ee95a90c4748_02",
+                  "tags": [
+                    1135,
+                    1021,
+                    1033,
+                    1918,
+                    1128,
+                    13138,
+                    14218,
+                    45070,
+                    45248,
+                    45199,
+                    45214
+                  ],
+                  "surface_height": 61.0,
+                  "parent": "GB69C22DZC6WHBYHETLAYO45EZ73KSC6KGJR46R3",
+                  "level": 1,
+                  "bbox_min": [
+                    -27.911,
+                    -33.05,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    27.911,
+                    33.05,
+                    60.855
+                  ],
+                  "supplier_id": 6930989,
+                  "supplier_name": "Living Spaces",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2019-01-21T10:49:50.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#69625C",
+                  "is_glb": false,
+                  "color_h": 0.07692307692307704,
+                  "color_s": 0.06598984771573603,
+                  "color_l": "0.38627450980392153",
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 42.01751745687193,
+                  "lab_a": "1.6262300525905493",
+                  "lab_b": 4.405064886844345,
+                  "palette_color": "brown"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3010,
+        "refid": "90d55eafd8cf33acf293d542855ea7bbff00e3ba",
+        "class_name": "end table lamp",
+        "position_x": -0.44,
+        "position_y": 4.83,
+        "position_z": 0.61,
+        "scale_x": 0.43,
+        "scale_y": 0.27,
+        "scale_z": 0.78,
+        "angle_z": 4.712388980384691,
+        "item_data": {
+          "took": 25,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "90d55eafd8cf33acf293d542855ea7bbff00e3ba",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Lidya Table Lamp",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-lighting-table-lamps/lidya-acrylic-table-lamp/096053.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "096053",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-07-06T11:00:29.176Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 43.18,
+                  "height": 78.111,
+                  "depth": 26.67,
+                  "model": "90d55eafd8cf33acf293d542855ea7bbff00e3ba_02",
+                  "tags": [
+                    1170,
+                    1167,
+                    1230,
+                    1939,
+                    2016,
+                    2033,
+                    13138,
+                    14218,
+                    45070,
+                    9345,
+                    21015,
+                    21014,
+                    45352,
+                    45199,
+                    45214
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB000A35JF7C725YSJDQEOKYTQB3TBYUYMVJ7IUD",
+                  "level": 2,
+                  "bbox_min": [
+                    -21.59,
+                    -13.335,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    21.59,
+                    13.335,
+                    78.111
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-07-09T19:55:51.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#D4D1C9",
+                  "is_glb": false,
+                  "color_h": "0.12121212121212101",
+                  "color_s": "0.11340206185567032",
+                  "color_l": 0.8098039215686275,
+                  "price": null,
+                  "has_special_price": false,
+                  "light": {
+                    "wattage": 60,
+                    "wattage_fixed": false,
+                    "color": "FFFFFB",
+                    "color_fixed": false
+                  },
+                  "lab_l": 83.86936758767706,
+                  "lab_a": -0.378392079197043,
+                  "lab_b": 4.317017393605416,
+                  "palette_color": [
+                    "beige"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3011,
+        "refid": "87b0f77329ff85e9a3ba425ad655d896e693a481",
+        "class_name": "rug",
+        "position_x": 1.27,
+        "position_y": 3.51,
+        "position_z": 0.0,
+        "scale_x": 2.74,
+        "scale_y": 1.83,
+        "scale_z": 0.01,
+        "angle_z": 3.141592653589794,
+        "item_data": {
+          "took": 16,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "87b0f77329ff85e9a3ba425ad655d896e693a481",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Neve Rug 6x9",
+                  "currency": null,
+                  "url": "http://www.dwr.com/rugs-rugs/n%C3%A9v%C3%A9-rug/2196347.html?lang=en_US",
+                  "company_id": 3,
+                  "out_of_stock": false,
+                  "sku": null,
+                  "brand": "Design Within Reach",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2018-08-29T18:53:20.524Z",
+                  "tracked": true,
+                  "width": 274.32,
+                  "height": 1.005,
+                  "depth": 182.88,
+                  "model": "87b0f77329ff85e9a3ba425ad655d896e693a481_00",
+                  "tags": [
+                    1257,
+                    1152,
+                    13138,
+                    14218,
+                    45070,
+                    45215,
+                    45199,
+                    45214,
+                    45318,
+                    45200,
+                    45529,
+                    45232,
+                    45817,
+                    45283,
+                    45438
+                  ],
+                  "surface_height": 1.0,
+                  "parent": "GB000708JXUHXXRQERSNEOAI5VFJW4FHWUIJEO56",
+                  "level": 1,
+                  "bbox_min": [
+                    -137.16,
+                    -91.44,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    137.16,
+                    91.44,
+                    1.005
+                  ],
+                  "supplier_id": 1800,
+                  "supplier_name": "Design Within Reach",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2018-08-29T20:10:58.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#FFFFFF",
+                  "color_h": 0,
+                  "color_s": 0,
+                  "color_l": 1.0,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 100.0,
+                  "lab_a": 0.00526049995830391,
+                  "lab_b": "-0.010408184525267927",
+                  "palette_color": "white"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3012,
+        "refid": "ecd2bb0932fccdbc05f4bebbea3b69ac9707ba22",
+        "class_name": "cabinet",
+        "position_x": -1.6,
+        "position_y": 4.96,
+        "position_z": 0.0,
+        "scale_x": 1.02,
+        "scale_y": 0.47,
+        "scale_z": 0.88,
+        "angle_z": 3.141592653589793,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "ecd2bb0932fccdbc05f4bebbea3b69ac9707ba22",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Ming Hall Chest",
+                  "currency": null,
+                  "url": "http://www.ethanallen.com/en_US/shop-furniture-living-room-storage-display-cabinets-chests/ming-hall-chest/129105.html?site=",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "129105",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2017-12-22T14:40:01.243Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 101.6,
+                  "height": 87.625,
+                  "depth": 47.34,
+                  "model": "ecd2bb0932fccdbc05f4bebbea3b69ac9707ba22_02",
+                  "tags": [
+                    1130,
+                    1018,
+                    1022,
+                    1025,
+                    1033,
+                    1889,
+                    1918,
+                    6441,
+                    1128,
+                    13138,
+                    14218,
+                    45070,
+                    21003,
+                    9345,
+                    20973,
+                    45205,
+                    45199,
+                    45204,
+                    45242,
+                    45214
+                  ],
+                  "surface_height": 87.62,
+                  "parent": "GB000A35BC5726VNU7YRTQJZXQAMYLD4IYVMNHXH",
+                  "level": 1,
+                  "bbox_min": [
+                    -50.8,
+                    -23.67,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    50.8,
+                    23.67,
+                    87.625
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2018-02-01T17:10:11.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": "40\" w x 18\" d x 34.5\" h",
+                  "color": "#0B3B43",
+                  "is_glb": false,
+                  "color_h": 0.5238095238095238,
+                  "color_s": 0.7179487179487178,
+                  "color_l": "0.15294117647058825",
+                  "price": null,
+                  "has_special_price": false,
+                  "materials": [
+                    {
+                      "name": "FINISH_304",
+                      "role": "Finish",
+                      "system_role": "Finish",
+                      "default_id": 31,
+                      "reference_id": null,
+                      "variations": [
+                        {
+                          "id": 62,
+                          "name": "Marble Gray",
+                          "sku": "377",
+                          "properties": {}
+                        },
+                        {
+                          "id": 33,
+                          "name": "Aged Bisque",
+                          "sku": "306",
+                          "properties": {}
+                        },
+                        {
+                          "id": 32,
+                          "name": "Aged Ember",
+                          "sku": "305",
+                          "properties": {}
+                        },
+                        {
+                          "id": 31,
+                          "name": "Aged Teal",
+                          "sku": "304",
+                          "properties": {}
+                        }
+                      ]
+                    }
+                  ],
+                  "lab_l": "22.317686288275787",
+                  "lab_a": "-12.317097784608377",
+                  "lab_b": -9.457837881481579,
+                  "palette_color": [
+                    "black"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3013,
+        "refid": "322affd9a2dfa99af727104877b278278b0a8987",
+        "class_name": "bookcase",
+        "position_x": -2.14,
+        "position_y": 3.75,
+        "position_z": 0.0,
+        "scale_x": 0.89,
+        "scale_y": 0.29,
+        "scale_z": 1.85,
+        "angle_z": 4.71238898038469,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "322affd9a2dfa99af727104877b278278b0a8987",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Dixon 74 Inch Bookcase, White",
+                  "currency": null,
+                  "url": "https://www.livingspaces.com/pdp-dixon-white-74-inch-bookcase-267820",
+                  "company_id": 22,
+                  "out_of_stock": false,
+                  "sku": "267820",
+                  "brand": "Living Spaces",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-10-07T18:01:29.786Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "width": 88.9,
+                  "height": 185.384,
+                  "depth": 29.21,
+                  "model": "322affd9a2dfa99af727104877b278278b0a8987_03",
+                  "tags": [
+                    1057,
+                    1022,
+                    1033,
+                    1889,
+                    1918,
+                    6441,
+                    1128,
+                    13138,
+                    14218,
+                    45070,
+                    45216,
+                    45199,
+                    45214
+                  ],
+                  "surface_height": 80.0,
+                  "parent": "GB69C22DFFOWNGPCXZA65WEGOB5EXXK4C4MGWBTM",
+                  "level": 1,
+                  "bbox_min": [
+                    -44.45,
+                    -14.605,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    44.45,
+                    14.605,
+                    185.384
+                  ],
+                  "supplier_id": 6930989,
+                  "supplier_name": "Living Spaces",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-11-08T13:04:30.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#69625C",
+                  "is_glb": false,
+                  "color_h": 0.07692307692307704,
+                  "color_s": 0.06598984771573603,
+                  "color_l": "0.38627450980392153",
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 42.01751745687193,
+                  "lab_a": "1.6262300525905493",
+                  "lab_b": 4.405064886844345,
+                  "palette_color": "brown"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3014,
+        "refid": "010e4e192681b2a71f8d0583906f22b9bb5a4a33",
+        "class_name": "floor lamp",
+        "position_x": -0.85,
+        "position_y": 2.24,
+        "position_z": 0.0,
+        "scale_x": 0.46,
+        "scale_y": 0.3,
+        "scale_z": 1.51,
+        "angle_z": 4.712388980384691,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "010e4e192681b2a71f8d0583906f22b9bb5a4a33",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Lidya Acrylic Floor Lamp",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-lighting-floor-lamps/lidya-acrylic-floor-lamp/092172.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "092172",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2019-11-22T10:10:00.687Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 45.72,
+                  "height": 151.235,
+                  "depth": 30.48,
+                  "model": "010e4e192681b2a71f8d0583906f22b9bb5a4a33_01",
+                  "tags": [
+                    1156,
+                    1155,
+                    1230,
+                    1939,
+                    2016,
+                    2033,
+                    13138,
+                    14218,
+                    45070,
+                    21038,
+                    9345,
+                    21014,
+                    45217,
+                    45199,
+                    45214
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB000A35O6DETKK7HCKT534CBY3KCQ7NELAWXBRI",
+                  "level": 1,
+                  "bbox_min": [
+                    -22.86,
+                    -15.24,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    22.86,
+                    15.24,
+                    151.235
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2019-11-26T10:33:49.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#D1D0CE",
+                  "is_glb": false,
+                  "color_h": 0.1111111111111111,
+                  "color_s": 0.03157894736842094,
+                  "color_l": 0.8137254901960784,
+                  "price": null,
+                  "has_special_price": false,
+                  "light": {
+                    "wattage": 60,
+                    "wattage_fixed": false,
+                    "color": "FFFFFB",
+                    "color_fixed": false
+                  },
+                  "lab_l": 83.50720650739176,
+                  "lab_a": "-0.013931165698033432",
+                  "lab_b": 1.101941402747597,
+                  "palette_color": [
+                    "beige",
+                    "pink"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3015,
+        "refid": "d884582df5288fc4927521ce86c0dd98c821b9f7",
+        "class_name": "cabinet decor",
+        "position_x": -1.65,
+        "position_y": 4.9,
+        "position_z": 0.88,
+        "scale_x": 0.51,
+        "scale_y": 0.13,
+        "scale_z": 0.56,
+        "angle_z": 3.141592653589793,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "d884582df5288fc4927521ce86c0dd98c821b9f7",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Home affaire Kunstblume Orchidee, white",
+                  "currency": null,
+                  "url": "https://www.otto.de/p/home-affaire-orchidee-413178470/#variationId=403248258&bc=show",
+                  "company_id": 39,
+                  "out_of_stock": false,
+                  "sku": "403248258",
+                  "brand": "Otto",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2017-02-06T18:15:00.860Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 51.444,
+                  "height": 56.19,
+                  "depth": 12.854,
+                  "model": "d884582df5288fc4927521ce86c0dd98c821b9f7_04",
+                  "tags": [
+                    54570,
+                    6440,
+                    45070,
+                    54953,
+                    54950,
+                    1652,
+                    1033,
+                    1152,
+                    1647,
+                    13138,
+                    14218,
+                    45434,
+                    45199,
+                    45214
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB69C1CFMGYWVZKWUXLUXDBFTOW7ZRPW3KY2A5FJ",
+                  "level": 2,
+                  "bbox_min": [
+                    -25.547,
+                    -5.738,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    25.897,
+                    7.116,
+                    56.19
+                  ],
+                  "supplier_id": 6930895,
+                  "supplier_name": "Otto",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2017-02-15T11:48:37.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#D7D6D5",
+                  "is_glb": true,
+                  "color_h": 0.08333333333333333,
+                  "color_s": 0.02439024390243895,
+                  "color_l": 0.8392156862745098,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 85.67752004245668,
+                  "lab_a": 0.1651755139088218,
+                  "lab_b": 0.6032670400182072,
+                  "palette_color": "beige",
+                  "group_id": "d884582df5288fc4927521ce86c0dd98c821b9f7"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3016,
+        "refid": "dd62a6aafabe4bcc5dc49e61a5d5c87019e1b4c3",
+        "class_name": "console table decor",
+        "position_x": -1.15,
+        "position_y": 3.51,
+        "position_z": 0.76,
+        "scale_x": 0.15,
+        "scale_y": 0.15,
+        "scale_z": 0.15,
+        "angle_z": 1.5707963267948966,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "dd62a6aafabe4bcc5dc49e61a5d5c87019e1b4c3",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Lucira Emerald Vase, Small",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-decor-decorative-accents-vases/lucira-emerald-vases/430528.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "430528C",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2018-12-10T10:42:04.132Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 14.802,
+                  "height": 15.359,
+                  "depth": 14.802,
+                  "model": "dd62a6aafabe4bcc5dc49e61a5d5c87019e1b4c3_03",
+                  "tags": [
+                    1617,
+                    1033,
+                    1152,
+                    1647,
+                    13138,
+                    14218,
+                    45070,
+                    21053,
+                    9345,
+                    21012,
+                    45409,
+                    45199,
+                    45214,
+                    45441,
+                    45264
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB000A35UNKP3UXCDEF6L2A2CP4ZLZ2IWU5NJXZR",
+                  "level": 2,
+                  "bbox_min": [
+                    -7.401,
+                    -7.401,
+                    -0.028
+                  ],
+                  "bbox_max": [
+                    7.401,
+                    7.401,
+                    15.331
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2018-12-21T17:15:21.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": "5.75\" dia. x 6\" h",
+                  "color": "#304A23",
+                  "is_glb": false,
+                  "color_h": 0.2777777777777778,
+                  "color_s": 0.3577981651376147,
+                  "color_l": "0.21372549019607845",
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": "28.504568036123324",
+                  "lab_a": "-18.332511802276436",
+                  "lab_b": 20.10914946325152,
+                  "palette_color": [
+                    "brown",
+                    "black"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3017,
+        "refid": "c3c8a9a0e1f2037d9e82d2286748cb576b1fd738",
+        "class_name": "console table decor",
+        "position_x": -1.22,
+        "position_y": 3.22,
+        "position_z": 0.76,
+        "scale_x": 0.18,
+        "scale_y": 0.18,
+        "scale_z": 0.28,
+        "angle_z": 1.5707963267948983,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "c3c8a9a0e1f2037d9e82d2286748cb576b1fd738",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Lucira Emerald Vase, Medium",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-decor-decorative-accents-vases/lucira-emerald-vases/430528.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "430528B",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2018-12-10T10:42:04.098Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 18.152,
+                  "height": 28.15,
+                  "depth": 18.152,
+                  "model": "c3c8a9a0e1f2037d9e82d2286748cb576b1fd738_02",
+                  "tags": [
+                    1617,
+                    1033,
+                    1152,
+                    1647,
+                    13138,
+                    14218,
+                    45070,
+                    21053,
+                    9345,
+                    21012,
+                    45409,
+                    45199,
+                    45214,
+                    45441,
+                    45264
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB000A35MAWIKNEPSNVPYRNXA5TABY3JKLOIO6FH",
+                  "level": 2,
+                  "bbox_min": [
+                    -9.076,
+                    -9.076,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    9.076,
+                    9.076,
+                    28.15
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2018-12-21T18:48:55.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": "7\" dia. x 11\" h",
+                  "color": "#7C9C82",
+                  "is_glb": true,
+                  "color_h": "0.36458333333333326",
+                  "color_s": "0.13913043478260878",
+                  "color_l": 0.5490196078431373,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 61.3716778875189,
+                  "lab_a": "-16.463174407365667",
+                  "lab_b": 10.00805393615185,
+                  "palette_color": [
+                    "grey"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3018,
+        "refid": "d2d5bdc4f299e6a6c4d994e001b8d89ad0e6f75c",
+        "class_name": "console table decor",
+        "position_x": -1.22,
+        "position_y": 3.89,
+        "position_z": 0.76,
+        "scale_x": 0.23,
+        "scale_y": 0.23,
+        "scale_z": 0.43,
+        "angle_z": 1.5707963267948977,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "d2d5bdc4f299e6a6c4d994e001b8d89ad0e6f75c",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Lucira Emerald Vase, Large",
+                  "currency": null,
+                  "url": "https://www.ethanallen.com/en_US/shop-decor-decorative-accents-vases/lucira-emerald-vases/430528.html",
+                  "company_id": 46,
+                  "out_of_stock": false,
+                  "sku": "430528A",
+                  "brand": "Ethan Allen",
+                  "is_private": false,
+                  "scaleable": false,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2018-12-10T10:42:04.065Z",
+                  "tracked": true,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 22.678,
+                  "height": 43.227,
+                  "depth": 22.678,
+                  "model": "d2d5bdc4f299e6a6c4d994e001b8d89ad0e6f75c_03",
+                  "tags": [
+                    1617,
+                    1033,
+                    1152,
+                    1647,
+                    13138,
+                    14218,
+                    45070,
+                    21053,
+                    9345,
+                    21012,
+                    45409,
+                    45199,
+                    45214
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB000A35ZOLEIOVE2GYBQN7D2HURCWDPM36BU446",
+                  "level": 2,
+                  "bbox_min": [
+                    -11.339,
+                    -11.339,
+                    -0.079
+                  ],
+                  "bbox_max": [
+                    11.339,
+                    11.339,
+                    43.148
+                  ],
+                  "supplier_id": 2613,
+                  "supplier_name": "Ethan Allen",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2018-12-21T17:47:11.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": "9\" dia. x 17\" h",
+                  "color": "#74947C",
+                  "is_glb": true,
+                  "color_h": 0.375,
+                  "color_s": 0.1300813008130082,
+                  "color_l": 0.5176470588235295,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": "58.365952319208205",
+                  "lab_a": "-16.220215881387833",
+                  "lab_b": 9.062893313892362,
+                  "palette_color": [
+                    "grey"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3019,
+        "refid": "4b8536c8aff2c87f2afa54d2dd047e8add0f0533",
+        "class_name": "end table decor",
+        "position_x": 2.84,
+        "position_y": 3.48,
+        "position_z": 0.61,
+        "scale_x": 0.29,
+        "scale_y": 0.27,
+        "scale_z": 0.17,
+        "angle_z": 1.0913638457402612,
+        "item_data": {
+          "took": 0,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "4b8536c8aff2c87f2afa54d2dd047e8add0f0533",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Glass Paperweights",
+                  "currency": null,
+                  "url": "https://floorplanner.com",
+                  "company_id": 1,
+                  "out_of_stock": false,
+                  "sku": null,
+                  "brand": "Floorplanner",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2014-06-27T12:39:27.662Z",
+                  "tracked": true,
+                  "width": 29.242,
+                  "height": 17.0,
+                  "depth": 26.896,
+                  "model": "4b8536c8aff2c87f2afa54d2dd047e8add0f0533_01",
+                  "tags": [
+                    1723,
+                    1019,
+                    1842,
+                    13138,
+                    14218,
+                    45070,
+                    45217,
+                    45199,
+                    45214,
+                    45249
+                  ],
+                  "surface_height": 0.0,
+                  "parent": "GB0001772OFAZTNE6EVGPWHHTXP5RES6FWRNBS5I",
+                  "level": 2,
+                  "bbox_min": [
+                    -14.621,
+                    -13.448,
+                    -0.163
+                  ],
+                  "bbox_max": [
+                    14.621,
+                    13.448,
+                    16.837
+                  ],
+                  "supplier_id": 1,
+                  "supplier_name": "Floorplanner",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2008-01-24T09:39:46.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#8A8776",
+                  "color_h": "0.14166666666666675",
+                  "color_s": 0.07874015748031489,
+                  "color_l": 0.5019607843137255,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 56.12704583926583,
+                  "lab_a": "-1.9780049470592975",
+                  "lab_b": 9.545273943476595,
+                  "palette_color": "grey"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3020,
+        "refid": "c9af68a5681d5c55cbc6ef5d924f285560eabbce",
+        "class_name": "coffee table decor",
+        "position_x": 1.54,
+        "position_y": 3.65,
+        "position_z": 0.47,
+        "scale_x": 0.23,
+        "scale_y": 0.29,
+        "scale_z": 0.16,
+        "angle_z": 0.0,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "c9af68a5681d5c55cbc6ef5d924f285560eabbce",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Books",
+                  "currency": null,
+                  "url": "https://floorplanner.com",
+                  "company_id": 1,
+                  "out_of_stock": false,
+                  "sku": null,
+                  "brand": "Floorplanner",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2014-06-27T13:29:07.769Z",
+                  "tracked": true,
+                  "width": 22.813,
+                  "height": 15.622,
+                  "depth": 29.142,
+                  "model": "c9af68a5681d5c55cbc6ef5d924f285560eabbce_00",
+                  "tags": [
+                    1764,
+                    1033,
+                    1152,
+                    1647,
+                    13138,
+                    14218,
+                    45070,
+                    45220,
+                    45199,
+                    45214,
+                    45244,
+                    45247,
+                    45249,
+                    45410
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB000001WWZ42S7MFB3V2JWQ6P2POBM3MTUY7RZR",
+                  "level": 2,
+                  "bbox_min": [
+                    -11.405,
+                    -14.571,
+                    -0.225
+                  ],
+                  "bbox_max": [
+                    11.408,
+                    14.571,
+                    15.397
+                  ],
+                  "supplier_id": 1,
+                  "supplier_name": "Floorplanner",
+                  "supplier_rank": null,
+                  "flags": [
+                    "homebyyoo",
+                    "sandra",
+                    "yoo"
+                  ],
+                  "completed_at": "2014-05-16T16:27:17.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#FFFFFF",
+                  "color_h": 0,
+                  "color_s": 0,
+                  "color_l": 1.0,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 100.0,
+                  "lab_a": 0.00526049995830391,
+                  "lab_b": "-0.010408184525267927",
+                  "palette_color": "white"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3021,
+        "refid": "27fced25af9e0ba19bc655dd30bd78532c43e284",
+        "class_name": "floor plant",
+        "position_x": 3.39,
+        "position_y": 2.39,
+        "position_z": 0.0,
+        "scale_x": 1.11,
+        "scale_y": 0.34,
+        "scale_z": 1.47,
+        "angle_z": 1.5707963267948966,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "27fced25af9e0ba19bc655dd30bd78532c43e284",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Planter",
+                  "currency": null,
+                  "url": "https://roomstyler.com",
+                  "company_id": 1,
+                  "out_of_stock": false,
+                  "sku": "",
+                  "brand": "Floorplanner",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2016-11-04T14:30:03.603Z",
+                  "tracked": true,
+                  "width": 111.52,
+                  "height": 146.742,
+                  "depth": 34.012,
+                  "model": "27fced25af9e0ba19bc655dd30bd78532c43e284_02",
+                  "tags": [
+                    1376,
+                    1316,
+                    1882,
+                    13138,
+                    14218,
+                    45070,
+                    38704,
+                    38650,
+                    38689,
+                    38835,
+                    38781,
+                    38820,
+                    45243,
+                    45199,
+                    45214,
+                    45244,
+                    45327,
+                    45301,
+                    45360,
+                    45200,
+                    45364,
+                    45283,
+                    45363,
+                    45379,
+                    45339,
+                    45390,
+                    45388,
+                    45394,
+                    45232,
+                    45422,
+                    45382,
+                    45462,
+                    45250,
+                    45492,
+                    45491,
+                    45498,
+                    45438,
+                    45533,
+                    45237
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB000001H4PCSHMLUG3AGMSVR2LO7TJ6TPRKW7UX",
+                  "level": 1,
+                  "bbox_min": [
+                    -55.759,
+                    -17.006,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    55.761,
+                    17.006,
+                    146.742
+                  ],
+                  "supplier_id": 1,
+                  "supplier_name": "Floorplanner",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2016-11-04T15:07:15.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#FFFFFF",
+                  "color_h": 0,
+                  "color_s": 0,
+                  "color_l": 1.0,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 100.0,
+                  "lab_a": 0.00526049995830391,
+                  "lab_b": "-0.010408184525267927",
+                  "palette_color": "white"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3026,
+        "refid": "e4e26a66b209509fed81dcaa8561358275ca0b8d",
+        "class_name": "chair",
+        "position_x": 0.88,
+        "position_y": 2.4,
+        "position_z": 0.0,
+        "scale_x": 0.68,
+        "scale_y": 0.74,
+        "scale_z": 0.74,
+        "angle_z": 8.305584287084748e-16,
+        "item_data": {
+          "took": 27,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "e4e26a66b209509fed81dcaa8561358275ca0b8d",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Hera Accent Chair",
+                  "currency": null,
+                  "url": "https://floorplanner.com",
+                  "company_id": 1,
+                  "out_of_stock": false,
+                  "sku": "260227",
+                  "brand": "Discontinued",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-03-03T10:19:05.036Z",
+                  "tracked": false,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 68.44,
+                  "height": 74.107,
+                  "depth": 73.692,
+                  "model": "e4e26a66b209509fed81dcaa8561358275ca0b8d_01",
+                  "tags": [
+                    1029,
+                    1033,
+                    1832,
+                    1918,
+                    1128,
+                    13138,
+                    14218,
+                    45070
+                  ],
+                  "surface_height": 45.0,
+                  "parent": "GB69C22DY4YSASFQO7WHPDUPYUI4AEZKPBAFOPIP",
+                  "level": 1,
+                  "bbox_min": [
+                    -34.22,
+                    -36.844,
+                    -0.002
+                  ],
+                  "bbox_max": [
+                    34.22,
+                    36.848,
+                    74.105
+                  ],
+                  "supplier_id": 6931083,
+                  "supplier_name": "Discontinued",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-03-06T10:37:11.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#E7DFD4",
+                  "is_glb": false,
+                  "color_h": 0.0964912280701754,
+                  "color_s": "0.28358208955223857",
+                  "color_l": 0.8686274509803922,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 89.1666127920746,
+                  "lab_a": 0.8506064701355176,
+                  "lab_b": 6.342874505629248,
+                  "palette_color": "beige"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3027,
+        "refid": "e4e26a66b209509fed81dcaa8561358275ca0b8d",
+        "class_name": "chair",
+        "position_x": 1.86,
+        "position_y": 2.4,
+        "position_z": 0.0,
+        "scale_x": 0.68,
+        "scale_y": 0.74,
+        "scale_z": 0.74,
+        "angle_z": 8.305584287084748e-16,
+        "item_data": {
+          "took": 1,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "e4e26a66b209509fed81dcaa8561358275ca0b8d",
+                "_score": 1.0,
+                "_source": {
+                  "name": "Hera Accent Chair",
+                  "currency": null,
+                  "url": "https://floorplanner.com",
+                  "company_id": 1,
+                  "out_of_stock": false,
+                  "sku": "260227",
+                  "brand": "Discontinued",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2020-03-03T10:19:05.036Z",
+                  "tracked": false,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 68.44,
+                  "height": 74.107,
+                  "depth": 73.692,
+                  "model": "e4e26a66b209509fed81dcaa8561358275ca0b8d_01",
+                  "tags": [
+                    1029,
+                    1033,
+                    1832,
+                    1918,
+                    1128,
+                    13138,
+                    14218,
+                    45070
+                  ],
+                  "surface_height": 45.0,
+                  "parent": "GB69C22DY4YSASFQO7WHPDUPYUI4AEZKPBAFOPIP",
+                  "level": 1,
+                  "bbox_min": [
+                    -34.22,
+                    -36.844,
+                    -0.002
+                  ],
+                  "bbox_max": [
+                    34.22,
+                    36.848,
+                    74.105
+                  ],
+                  "supplier_id": 6931083,
+                  "supplier_name": "Discontinued",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2020-03-06T10:37:11.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#E7DFD4",
+                  "is_glb": false,
+                  "color_h": 0.0964912280701754,
+                  "color_s": "0.28358208955223857",
+                  "color_l": 0.8686274509803922,
+                  "price": null,
+                  "has_special_price": false,
+                  "lab_l": 89.1666127920746,
+                  "lab_a": 0.8506064701355176,
+                  "lab_b": 6.342874505629248,
+                  "palette_color": "beige"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": 3077,
+        "refid": "4b2fa7bf5449720ef6807257ec4413efe9dab095",
+        "class_name": "tv stand decor",
+        "position_x": 0.61,
+        "position_y": 4.93,
+        "position_z": 0.82,
+        "scale_x": 0.41,
+        "scale_y": 0.13,
+        "scale_z": 0.35,
+        "angle_z": 3.141592653589793,
+        "item_data": {
+          "took": 2,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "4b2fa7bf5449720ef6807257ec4413efe9dab095",
+                "_score": 1.0,
+                "_source": {
+                  "name": "METAL/WOOD BICYCLE",
+                  "currency": " USD ",
+                  "url": "https://floorplanner.com",
+                  "company_id": 1,
+                  "out_of_stock": false,
+                  "sku": "72538",
+                  "brand": "Discontinued",
+                  "is_private": false,
+                  "scaleable": true,
+                  "status": "approved",
+                  "store_image": null,
+                  "rollable": false,
+                  "created_at": "2015-05-15T14:06:23.936Z",
+                  "tracked": false,
+                  "productviewer": false,
+                  "bifma": false,
+                  "width": 40.64,
+                  "height": 35.552,
+                  "depth": 12.7,
+                  "model": "4b2fa7bf5449720ef6807257ec4413efe9dab095_01",
+                  "tags": [
+                    2842,
+                    1152,
+                    13138,
+                    14218,
+                    45070
+                  ],
+                  "surface_height": 0.1,
+                  "parent": "GB69C22DS424QMEPJN3FNRBDER3Y7O3NDYWJGCGC",
+                  "level": 2,
+                  "bbox_min": [
+                    -20.32,
+                    -6.35,
+                    0.0
+                  ],
+                  "bbox_max": [
+                    20.32,
+                    6.35,
+                    35.552
+                  ],
+                  "supplier_id": 6931083,
+                  "supplier_name": "Discontinued",
+                  "supplier_rank": null,
+                  "flags": [],
+                  "completed_at": "2015-07-14T10:20:58.000Z",
+                  "description": null,
+                  "product_image": null,
+                  "supplier_dims": null,
+                  "color": "#5D514C",
+                  "is_glb": false,
+                  "color_h": "0.049019607843137226",
+                  "color_s": "0.10059171597633135",
+                  "color_l": "0.33137254901960783",
+                  "price": "35.0",
+                  "has_special_price": false,
+                  "lab_l": 35.46666583010902,
+                  "lab_a": "4.0233713551260655",
+                  "lab_b": 4.754424404017621,
+                  "palette_color": "brown"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "area": 22.619999999999997
+  }
+}

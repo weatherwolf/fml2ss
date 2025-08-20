@@ -1,0 +1,169 @@
+{
+  "id": "66c0ce203fe0caff74f5850da609d045fbedfc093850cca6da1813601950fa35",
+  "parent_id": "e52c81c7e75260845f222821fcf78b659bb8a2e0dc9667830e9326a9cbdcb248",
+  "type": "room",
+  "attrs": {
+    "id": 9003,
+    "name": "Room 9003",
+    "walls": [
+      {
+        "id": 18,
+        "a_x": -3.88,
+        "a_y": 5.27,
+        "a_z": 0.0,
+        "b_x": -4.76,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.3,
+        "openings": [],
+        "decor": []
+      },
+      {
+        "id": 15,
+        "a_x": -3.88,
+        "a_y": 4.26,
+        "a_z": 0.0,
+        "b_x": -3.88,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": [],
+        "decor": []
+      },
+      {
+        "id": 14,
+        "a_x": -3.88,
+        "a_y": 4.26,
+        "a_z": 0.0,
+        "b_x": -4.76,
+        "b_y": 4.26,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.1,
+        "openings": [
+          {
+            "id": "200",
+            "wall0_id": 14,
+            "wall1_id": -1,
+            "position_x": -4.31,
+            "position_y": 4.26,
+            "position_z": 0.0,
+            "width": 0.74,
+            "height": 2.2,
+            "type": "door"
+          }
+        ],
+        "decor": []
+      },
+      {
+        "id": 17,
+        "a_x": -4.76,
+        "a_y": 4.26,
+        "a_z": 0.0,
+        "b_x": -4.76,
+        "b_y": 5.27,
+        "b_z": 0.0,
+        "height": 2.8,
+        "thickness": 0.15,
+        "openings": [],
+        "decor": []
+      }
+    ],
+    "items": [
+      {
+        "id": 3001,
+        "refid": "d7ab51af239b365d146fc553319312f4f2d952df",
+        "class_name": "unknown",
+        "position_x": -4.63,
+        "position_y": 4.76,
+        "position_z": 0.0,
+        "scale_x": 0.63,
+        "scale_y": 0.11,
+        "scale_z": 2.0,
+        "angle_z": 1.5707963267948966,
+        "item_data": {
+          "took": 12,
+          "timed_out": false,
+          "_shards": {
+            "total": 5,
+            "successful": 5,
+            "skipped": 0,
+            "failed": 0
+          },
+          "hits": {
+            "total": 1,
+            "max_score": 1.0,
+            "hits": [
+              {
+                "_index": "products-2024-02-07",
+                "_type": "product",
+                "_id": "d7ab51af239b365d146fc553319312f4f2d952df",
+                "_score": 1.0,
+                "_source": {
+                  "is_private": false,
+                  "supplier_dims": null,
+                  "out_of_stock": false,
+                  "parent": "GB69C250BMWFWDCPGRJJZHAZE7LPKQRQ6HYK7QWE",
+                  "color": "#FFFFFF",
+                  "has_special_price": false,
+                  "product_image": null,
+                  "flags": [],
+                  "color_l": 1.0,
+                  "bbox_max": [
+                    32.167,
+                    5.479,
+                    279.986
+                  ],
+                  "description": null,
+                  "tracked": true,
+                  "color_s": 0,
+                  "rollable": false,
+                  "color_h": 0,
+                  "price": null,
+                  "currency": null,
+                  "model": "d7ab51af239b365d146fc553319312f4f2d952df_00",
+                  "sku": null,
+                  "supplier_name": "Floorplanner ASSETS",
+                  "brand": "Floorplanner ASSETS",
+                  "store_image": null,
+                  "height": 280.006,
+                  "company_id": 1,
+                  "palette_color": "white",
+                  "level": 1,
+                  "lab_l": 100.0,
+                  "url": "https://floorplanner.com",
+                  "tags": [
+                    2035,
+                    13138,
+                    14218,
+                    38743,
+                    38874
+                  ],
+                  "lab_b": "-0.010408184525267927",
+                  "lab_a": 0.00526049995830391,
+                  "surface_height": 0.1,
+                  "completed_at": "2016-05-30T10:43:32.000Z",
+                  "scaleable": true,
+                  "depth": 10.958,
+                  "name": "Fusebox",
+                  "width": 63.34,
+                  "bbox_min": [
+                    -31.173,
+                    -5.479,
+                    -0.02
+                  ],
+                  "supplier_rank": null,
+                  "supplier_id": 6931024,
+                  "status": "approved"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "area": 0.8887999999999998
+  }
+}
