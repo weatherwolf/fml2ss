@@ -14,8 +14,9 @@ async function loadProject (id) {
 }
 
 async function execute ({projectId, designId, outfile}) {
-    mkdirp.sync(path.dirname(outfile));
-
+    if (outfile) {
+        mkdirp.sync(path.dirname(outfile));
+    }
     const project = await loadProject(projectId);
     const design = project.floors.reduce((design, floor) => {
         const d = floor.designs.find(design => `${design.id}` === `${designId}`);
@@ -23,7 +24,9 @@ async function execute ({projectId, designId, outfile}) {
     }, null);
     if (design) {
         const result = await processDesign(design, project.settings);
-        fs.writeFileSync(outfile, JSON.stringify(result, null, 2));
+        if (outfile) {
+            fs.writeFileSync(outfile, JSON.stringify(result, null, 2));
+        }
         console.log(JSON.stringify(result, null, 2))
     } else {
         console.error(`project ${projectId} does not have a design wiht id ${designId}`);
@@ -34,7 +37,7 @@ async function execute ({projectId, designId, outfile}) {
 program
     .requiredOption('--project-id <int>', 'project id', parseInt)
     .requiredOption('--design-id <int>', 'design id', parseInt)
-    .requiredOption('--outfile <str>', 'doutput file');
+    .option('--outfile <str>', 'doutput file');
 program.parse(process.argv);
 
 execute(program.opts());
