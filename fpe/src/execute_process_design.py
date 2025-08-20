@@ -18,8 +18,8 @@ if __name__ == '__main__':
         '61301631',
         '--design-id',
         '115981800',
-        '--outfile',
-        'tim/design.fml'
+        #'--outfile',
+        #'tim/design.fml'
     ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     output, errors = p.communicate()
     print('output')
