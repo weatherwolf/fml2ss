@@ -24,6 +24,7 @@ async function execute ({projectId, designId, outfile}) {
     if (design) {
         const result = await processDesign(design, project.settings);
         fs.writeFileSync(outfile, JSON.stringify(result, null, 2));
+        console.log(JSON.stringify(result, null, 2))
     } else {
         console.error(`project ${projectId} does not have a design wiht id ${designId}`);
         process.exit(1);
